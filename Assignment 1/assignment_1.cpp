@@ -19,6 +19,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+
 using namespace std;
 
 const int NUM_TESTS = 8;
@@ -42,31 +43,33 @@ int main()
 
     int scores[NUM_STDS][NUM_TESTS];
 
+
     readTestScores(f, scores, NUM_STDS);
     displayTestScores(scores, NUM_STDS);
 
     cout << setprecision(2) << fixed;
 
-    cout << "\nTotal for Test #1 is: " <<
-    totalOneTest(scores, NUM_STDS, 0);
-    cout << "\n\nTotal for Test #5 is: " <<
-    totalOneTest(scores, NUM_STDS, 4);
-    cout << "\n\nTotal for Student #3 is: " << 
-    totalOneStudent(scores, NUM_STDS, 2);
-    cout << "\n\nTotal for Student #8 is: " <<
-    totalOneStudent(scores, NUM_STDS, 7);
-    cout << "\n\nAverage for Test #5: " <<
-    averageOneTest(scores, NUM_STDS, 4);
-    cout << "\n\nAverage for Test #8: " <<
-    averageOneTest(scores, NUM_STDS, 7);
-    cout << "\n\nAverage for Student #5: " <<
-    averageOneStudent(scores, NUM_STDS, 4);
-    cout << "\n\nAverage for Student #9: " <<
-    averageOneStudent(scores, NUM_STDS, 8);
-    cout << "\n\nHighest test score for Student #2: " <<
-    highestOneStudent(scores, NUM_STDS, 1);
-    cout <<"\n\nThe top Student: "; 
-    topStudent(scores, NUM_STDS);
+    cin.get();
+    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0);
+    cin.get();
+    cout << "\n\nTotal for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4);
+    cin.get();
+    cout << "\n\nTotal for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2);
+    cin.get();
+    cout << "\n\nTotal for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7);
+    cin.get();
+    cout << "\n\nAverage for Test #5: " << averageOneTest(scores, NUM_STDS, 4);
+    cin.get();
+    cout << "\n\nAverage for Test #8: " << averageOneTest(scores, NUM_STDS, 7);
+    cin.get();
+    cout << "\n\nAverage for Student #5: " << averageOneStudent(scores, NUM_STDS, 4);
+    cin.get();
+    cout << "\n\nAverage for Student #9: " << averageOneStudent(scores, NUM_STDS, 8);
+    cin.get();
+    cout << "\n\nHighest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1);
+    cin.get();
+    cout <<"\n\nThe top Student: " << topStudent(scores, NUM_STDS);
+    cin.get();
 
     f.close();
     
@@ -113,7 +116,6 @@ int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber)
         sum += scores[studentNumber][testNumber];
     }
 
-    cin.get();
     return sum;
 }
 
@@ -127,7 +129,6 @@ int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumbe
         sum += scores[studentNumber][testNumber];
     }
 
-    cin.get();
     return sum;
 }
 
@@ -143,7 +144,6 @@ double averageOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber
     }
     average = static_cast<double>(total) / numStds;
 
-    cin.get();
     return average;
 }
 
@@ -159,7 +159,6 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
     }
     average = static_cast<double>(total) / NUM_TESTS;
 
-    cin.get();
     return average;
 }
 
@@ -168,7 +167,7 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
 int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber)
 {
     int highest = scores[studentNumber][0];
-    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber){
+    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber){
         if (scores[studentNumber][testNumber] > highest){
             highest = scores[studentNumber][testNumber];
         }
@@ -181,7 +180,7 @@ int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNum
 int topStudent(const int scores[][NUM_TESTS], int numStds)
 {
     int top = averageOneStudent(scores, NUM_TESTS, 0);
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber){
+    for (int studentNumber = 1; studentNumber < numStds; ++studentNumber){
         if (averageOneStudent(scores, NUM_TESTS, numStds) > top){
             top = averageOneStudent(scores, NUM_TESTS, numStds);
         }
