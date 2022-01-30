@@ -11,7 +11,8 @@
 //
 //          Due:                  January 31, 2021
 //
-//          This program contains eight test scores, as a percentage, for a particular student.  
+//          This program displays eight test scores, as a percentage, for ten students.  
+//          contains eight test scores, as a percentage, for a particular student.  
 //			The file contains such information for a total of ten students. 
 //
 //****************************************************************************************************
@@ -238,4 +239,9 @@ Press Enter to Continue
 
 */
 
-//questions: how does numStds get its value 
+// questions: 
+// how does numStds get its value?
+// is there a way for the program to input files and set the NUM_STDS & NUM_TESTS depending on that specific file?
+// example: the array - NUM_STDS & NUM_TESTS are set to what the file has.. 
+// if the file were to be updated and more students or tests were added then the constants in the program would need to change. 
+// could the read function be implemented in a way to where it sets the values of the array automatically? 
