@@ -40,7 +40,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds);
 
 int main()
 {
-    ifstream f("Assignment1DataTest.txt");
+    ifstream f("Assignment1Data.txt");
 
     const int NUM_STDS = 10;
 
