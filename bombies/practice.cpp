@@ -2,9 +2,28 @@
 
 using namespace std;
 
+void sortArray (int list[], int size);
 int main()
 {
-    int x = cin.get();
+
+
+} 
+
+void bubbleSort (int list[], int size) //bubble sorting an array
+{
+    bool swap;
+    int temp;
+
+    do {
+        swap = false;
+        for( int count = 0; count < (size -1); ++count){
+            if (list[count] > )
+        }
+    }
+}
+
+void selectionSort
+/*    int x = cin.get();
 
     cin.get();
 
@@ -17,4 +36,4 @@ int main()
     cout <<  y <<  c  << endl;
     
     return 0;
-}  
+/*

@@ -177,7 +177,7 @@ int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNum
 
 //****************************************************************************************************
 
-int topStudent(const int scores[][NUM_TESTS], int numStds)
+int topStudent(const int scores[][NUM_TESTS], int numStds)            //1st method
 {
     int topPercent = averageOneStudent(scores, numStds, 0),
         topStudent,
@@ -189,6 +189,8 @@ int topStudent(const int scores[][NUM_TESTS], int numStds)
             topPercent = current;
             topStudent = studentNumber + 1;
         }
+        else
+        topStudent = studentNumber + 1;
     }
 
     return topStudent;
