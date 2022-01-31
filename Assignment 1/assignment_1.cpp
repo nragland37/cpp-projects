@@ -83,10 +83,8 @@ int main()
 void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds)
 {
     if (f.is_open())
-        for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
-        {
-            for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
-            {
+        for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
+            for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
                 f >> scores[studentNumber][testNumber];
             }
         }
@@ -156,7 +154,7 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
     int total = 0;
     double average;
 
-    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber){
+    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
         total += scores[studentNumber][testNumber];
     }
     average = static_cast<double>(total) / NUM_TESTS;
@@ -169,8 +167,8 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
 int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber)
 {
     int highest = scores[studentNumber][0];
-    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber){
-        if (scores[studentNumber][testNumber] > highest){
+    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber) {
+        if (scores[studentNumber][testNumber] > highest) {
             highest = scores[studentNumber][testNumber];
         }
     }
@@ -239,7 +237,7 @@ Press Enter to Continue
 Highest test score for Student #2: 99 
 Press Enter to Continue 
  
-The top Student: XX 
+The top Student: 8 
 Press Enter to Continue
 
 */
