@@ -11,9 +11,11 @@
 //
 //          Due:                  January 31, 2021
 //
-//          This program displays eight test scores, as a percentage, for ten students.  
-//          contains eight test scores, as a percentage, for a particular student.  
-//			The file contains such information for a total of ten students. 
+//          This program reads and displays eight test scores, as a percentage, for ten students from 
+//          from a file. The functions calculate total points of one student for all tests,
+//          total points for one test for all students, total average of all students for one test, 
+//          average of all tests for one student, highest test score for one student, and the highest 
+//          total average of all the students.       
 //
 //****************************************************************************************************
 
