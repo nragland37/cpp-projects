@@ -40,7 +40,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds);
 
 int main()
 {
-    ifstream f("Assignment1Data.txt");
+    ifstream f("Assignment1DataTest.txt");
 
     const int NUM_STDS = 10;
 
@@ -177,23 +177,21 @@ int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNum
 
 //****************************************************************************************************
 
-int topStudent(const int scores[][NUM_TESTS], int numStds)            //1st method
+int topStudent(const int scores[][NUM_TESTS], int numStds)            
 {
-    int topPercent = averageOneStudent(scores, numStds, 0),
+    int topPercent = 0,
         topStudent,
         current;
 
-    for (int studentNumber = 1; studentNumber < numStds; ++studentNumber) {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         current = averageOneStudent(scores, numStds, studentNumber);
-        if (current > topPercent) {
+        if (current >= topPercent) {
             topPercent = current;
-            topStudent = studentNumber + 1;
+            topStudent = studentNumber;
         }
-        else
-        topStudent = studentNumber + 1;
     }
 
-    return topStudent;
+    return topStudent+1;
 }
 
 /*
@@ -243,10 +241,3 @@ The top Student: 8
 Press Enter to Continue
 
 */
-
-// questions: 
-// how does numStds get its value?
-// is there a way for the program to input files and set the NUM_STDS & NUM_TESTS depending on that specific file?
-// example: the array - NUM_STDS & NUM_TESTS are set to what the file has.. 
-// if the file were to be updated and more students or tests were added then the constants in the program would need to change. 
-// could the read function be implemented in a way to where it sets the values of the array automatically? 
