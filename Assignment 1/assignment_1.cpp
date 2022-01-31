@@ -182,15 +182,14 @@ int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNum
 
 int topStudent(const int scores[][NUM_TESTS], int numStds)
 {
-    int top = averageOneStudent(scores, NUM_TESTS, 0);
-    for (int studentNumber = 1; studentNumber < numStds; ++studentNumber){
-        if (averageOneStudent(scores, NUM_TESTS, numStds) > top){
-            top = averageOneStudent(scores, NUM_TESTS, numStds);
+    int top = averageOneStudent(scores, numStds, 0);
+    for (int studentNumber = 1; studentNumber < numStds; ++studentNumber) {
+        int current = averageOneStudent(scores, numStds, studentNumber);
+        if (current > top) {
+            top = current;
         }
     }
-
-    return top;   //help:: trying to use averageOneStudent function to find average of every student then find the top average 
-                 //help::  can it be done with loops? ~ if so, need to move cin.get(); to main function
+    return top;
 }
 
 /*
