@@ -11,11 +11,11 @@
 //
 //          Due:                  January 31, 2021
 //
-//          This program reads and displays eight test scores, as a percentage, for ten students from 
+//          This program reads and displays eight test scores, as a percentage, for ten students 
 //          from a file. The functions calculate total points of one student for all tests,
 //          total points for one test for all students, total average of all students for one test, 
-//          average of all tests for one student, highest test score for one student, and the highest 
-//          total average of all the students.       
+//          average of all tests for one student, highest test score for one student, and the student 
+//          with the highest average test score.       
 //
 //****************************************************************************************************
 
@@ -45,7 +45,6 @@ int main()
     const int NUM_STDS = 10;
 
     int scores[NUM_STDS][NUM_TESTS];
-
 
     readTestScores(f, scores, NUM_STDS);
     displayTestScores(scores, NUM_STDS);
@@ -182,14 +181,19 @@ int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNum
 
 int topStudent(const int scores[][NUM_TESTS], int numStds)
 {
-    int top = averageOneStudent(scores, numStds, 0);
+    int topPercent = averageOneStudent(scores, numStds, 0),
+        topStudent,
+        current;
+
     for (int studentNumber = 1; studentNumber < numStds; ++studentNumber) {
-        int current = averageOneStudent(scores, numStds, studentNumber);
-        if (current > top) {
-            top = current;
+        current = averageOneStudent(scores, numStds, studentNumber);
+        if (current > topPercent) {
+            topPercent = current;
+            topStudent = studentNumber + 1;
         }
     }
-    return top;
+
+    return topStudent;
 }
 
 /*
