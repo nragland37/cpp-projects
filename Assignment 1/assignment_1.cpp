@@ -180,12 +180,12 @@ int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNum
 int topStudent(const int scores[][NUM_TESTS], int numStds)            
 {
     int topPercent = 0,
-        topStudent,
+        topStudent = 0,
         current;
 
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         current = averageOneStudent(scores, numStds, studentNumber);
-        if (current >= topPercent) {
+        if (current > topPercent) {
             topPercent = current;
             topStudent = studentNumber;
         }
