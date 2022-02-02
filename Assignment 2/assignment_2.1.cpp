@@ -200,8 +200,17 @@ int topStudent(const int scores[][NUM_TESTS], int numStds)
 
 bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average)
 {
+    double average =0;
 
-return 0;
+    for (int studentNumber = 0; studentNumber < numstds; ++studentNumber){
+        do {
+            average = averageOneStudent(scores, numStds, studentNumber);     // calculate average score (call function)
+                                                                            // is it greater than 'average'
+
+        }
+    }
+
+return ;
 }
 
 //****************************************************************************************************

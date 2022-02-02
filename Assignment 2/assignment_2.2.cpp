@@ -85,7 +85,7 @@ void displayNames(const string names[], int numNames)
 
 int searchNames(const string names[], int numNames, const string &name)
 {
-
+    // linear search with string 
     return 0;
 }
 
@@ -100,7 +100,7 @@ void bubbleSort(string names[], int numNames)
 
 void bubbleSortDescending(string names[], int numNames)
 {
-
+    
 }
 
 /*
