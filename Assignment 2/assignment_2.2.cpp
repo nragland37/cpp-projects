@@ -35,6 +35,7 @@ int searchNames(const string names[], int numNames, const string &name);
 array.  If the name is not found then return -1.  The user should be prompted for
 the name before the function is called.
 Use the ‘linear search’ algorithm to implement this function.*/
+void swapValues(string &a, string &b);
 void bubbleSort(string names[], int numNames); 
 // Sort the names in ascending order using the bubble sort algorithm.
 void bubbleSortDescending(string names[], int numNames);
@@ -65,7 +66,7 @@ int main()
     cout << "\n---------------------------------" << endl; 
     cout << "Student Names ~ Descending Order" << endl;
     cout << "---------------------------------" << endl;
- 
+    bubbleSortDescending(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
 
     inputFile.close();
@@ -106,6 +107,15 @@ int searchNames(const string names[], int numNames, const string &name)
 
 //****************************************************************************************************
 
+void swapValues(string &a, string &b)
+{
+    string temp = a;
+    a = b;
+    b = temp;
+}
+
+//****************************************************************************************************
+
 void bubbleSort(string names[], int numNames)
 {
     bool swap;
@@ -115,11 +125,9 @@ void bubbleSort(string names[], int numNames)
         swap = false;
         for (int count = 0; count < (numNames - 1); ++count)
         {
-            if (names[count] > names[count + 1])
+            if (names[count] > names[count + 1]) 
             {
-                temp = names[count];
-                names[count] = names[count + 1];
-                names[count + 1] = temp;
+                swapValues(names[count], names[count + 1]);
                 swap = true;
             }
         }
@@ -135,13 +143,11 @@ void bubbleSortDescending(string names[], int numNames)
     do
     {
         swap = false;
-        for (int count = 10; count > 0; --count)
+        for (int count = 0; count < (numNames - 1); ++count)
         {
-            if (names[count] < names[count - 1])
+            if (names[count] < names[count + 1])
             {
-                temp = names[count];
-                names[count] = names[count - 1];
-                names[count - 1] = temp;
+                swapValues(names[count], names[count + 1]);
                 swap = true;
             }
         }
@@ -150,17 +156,46 @@ void bubbleSortDescending(string names[], int numNames)
 
 /*
 
-All names:
-Smith, John
-Song, Mona
-Jones, Trevor
-Li, Na
-Zhang, Xiu Ying
-Saleem, Mohammad
-Lloyd, Arthur
-Jones, Rhys
-Evans, Olivia
-Davies, Emily
+---------------------------------
+        Student Names
+---------------------------------
+        Smith, John
+        Song, Mona
+        Jones, Trevor
+        Li, Na
+        Zhang, Xiu Ying
+        Saleem, Mohammad
+        Lloyd, Arthur
+        Jones, Rhys
+        Evans, Olivia
+        Davies, Emily
 
+---------------------------------
+ Student Names ~ Ascending Order
+---------------------------------
+        Davies, Emily
+        Evans, Olivia
+        Jones, Rhys
+        Jones, Trevor
+        Li, Na
+        Lloyd, Arthur
+        Saleem, Mohammad
+        Smith, John
+        Song, Mona
+        Zhang, Xiu Ying
+
+---------------------------------
+Student Names ~ Descending Order
+---------------------------------
+        Zhang, Xiu Ying
+        Song, Mona
+        Smith, John
+        Saleem, Mohammad
+        Lloyd, Arthur
+        Li, Na
+        Jones, Trevor
+        Jones, Rhys
+        Evans, Olivia
+        Davies, Emily
 
 */
