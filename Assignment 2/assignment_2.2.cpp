@@ -176,43 +176,101 @@ void bubbleSortDescending(string names[], int numNames)
 ---------------------------------
         Student Names
 ---------------------------------
-        Smith, John
-        Song, Mona
-        Jones, Trevor
-        Li, Na
-        Zhang, Xiu Ying
-        Saleem, Mohammad
-        Lloyd, Arthur
-        Jones, Rhys
-        Evans, Olivia
-        Davies, Emily
+        1  Smith, John
+        2  Song, Mona
+        3  Jones, Trevor
+        4  Li, Na
+        5  Zhang, Xiu Ying
+        6  Saleem, Mohammad
+        7  Lloyd, Arthur
+        8  Jones, Rhys
+        9  Evans, Olivia
+        10  Davies, Emily
+
+Find a Students place in the list.
+
+Enter Student name (e.g., first name, last name): 
+Davies, Emily
+
+Name Found: 10
 
 ---------------------------------
  Student Names ~ Ascending Order
 ---------------------------------
-        Davies, Emily
-        Evans, Olivia
-        Jones, Rhys
-        Jones, Trevor
-        Li, Na
-        Lloyd, Arthur
-        Saleem, Mohammad
-        Smith, John
-        Song, Mona
-        Zhang, Xiu Ying
+        1  Davies, Emily
+        2  Evans, Olivia
+        3  Jones, Rhys
+        4  Jones, Trevor
+        5  Li, Na
+        6  Lloyd, Arthur
+        7  Saleem, Mohammad
+        8  Smith, John
+        9  Song, Mona
+        10  Zhang, Xiu Ying
 
 ---------------------------------
 Student Names ~ Descending Order
 ---------------------------------
-        Zhang, Xiu Ying
-        Song, Mona
-        Smith, John
-        Saleem, Mohammad
-        Lloyd, Arthur
-        Li, Na
-        Jones, Trevor
-        Jones, Rhys
-        Evans, Olivia
-        Davies, Emily
+        1  Zhang, Xiu Ying
+        2  Song, Mona
+        3  Smith, John
+        4  Saleem, Mohammad
+        5  Lloyd, Arthur
+        6  Li, Na
+        7  Jones, Trevor
+        8  Jones, Rhys
+        9  Evans, Olivia
+        10  Davies, Emily
+
+//****************************************************************************************************
+
+---------------------------------
+        Student Names
+---------------------------------
+        1  Smith, John
+        2  Song, Mona
+        3  Jones, Trevor
+        4  Li, Na
+        5  Zhang, Xiu Ying
+        6  Saleem, Mohammad
+        7  Lloyd, Arthur
+        8  Jones, Rhys
+        9  Evans, Olivia
+        10  Davies, Emily
+
+Find a Students place in the list.
+
+Enter Student name (e.g., first name, last name): 
+Nicholas, Ragland
+-1 
+Name Not Found
+
+---------------------------------
+ Student Names ~ Ascending Order
+---------------------------------
+        1  Davies, Emily
+        2  Evans, Olivia
+        3  Jones, Rhys
+        4  Jones, Trevor
+        5  Li, Na
+        6  Lloyd, Arthur
+        7  Saleem, Mohammad
+        8  Smith, John
+        9  Song, Mona
+        10  Zhang, Xiu Ying
+
+---------------------------------
+Student Names ~ Descending Order
+---------------------------------
+        1  Zhang, Xiu Ying
+        2  Song, Mona
+        3  Smith, John
+        4  Saleem, Mohammad
+        5  Lloyd, Arthur
+        6  Li, Na
+        7  Jones, Trevor
+        8  Jones, Rhys
+        9  Evans, Olivia
+        10  Davies, Emily
 
 */

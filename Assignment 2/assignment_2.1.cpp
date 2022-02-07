@@ -76,10 +76,16 @@ int main()
     cin.get();
     cout << "\n\nThe top Student: " << topStudent(scores, NUM_STDS);
     cin.get();
-    cout << "\n\nType an average test score to see if at least one student has an average score greater: ";
+    cout << "\n\n\nFind if at least one student has an average score greater." << endl;
+    cin.get();
+    cout << "\nEnter average score of student: " << endl;
     cin >> average;
-    cout << "\n\nA student does/does not have an average score greater than: "      
-         << searchStudents(scores, NUM_STDS, average);
+
+    if (searchStudents(scores, NUM_STDS, average) == 1 ){
+    cout << "\nStudent does have an average score greater than: " << average << endl; 
+    }
+    else 
+    cout << "\nStudent does not have an average score greater than: " << average << endl;
 
     f.close();
 
@@ -218,7 +224,19 @@ int topStudent(const int scores[][NUM_TESTS], int numStds)
 
 bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average)
 {
-    return 0;
+    int index = 0;
+    int position = -1;
+    bool found = false;
+    while ((index < numNames) && !found)
+    {
+        if (names[index] == name)
+        {
+            found = true;
+            position = index + 1;
+        }
+        index++;
+    }
+    return position;
 }
 
 //****************************************************************************************************
