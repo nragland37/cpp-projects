@@ -201,11 +201,10 @@ void bubbleSortDescending(string names[], int numNames)
         10  Davies, Emily
 
 Find a Students place in the list.
+Enter Student name (e.g., first name, last name):
+Smith, John
 
-Enter Student name (e.g., first name, last name): 
-Davies, Emily
-
-Name Found: 10
+Name Found: 1
 
 ---------------------------------
  Student Names ~ Ascending Order
@@ -221,6 +220,8 @@ Name Found: 10
         9  Song, Mona
         10  Zhang, Xiu Ying
 
+Name Found: 8
+
 ---------------------------------
 Student Names ~ Descending Order
 ---------------------------------
@@ -234,6 +235,8 @@ Student Names ~ Descending Order
         8  Jones, Rhys
         9  Evans, Olivia
         10  Davies, Emily
+
+Name Found: 3
 
 //****************************************************************************************************
 
@@ -252,8 +255,7 @@ Student Names ~ Descending Order
         10  Davies, Emily
 
 Find a Students place in the list.
-
-Enter Student name (e.g., first name, last name): 
+Enter Student name (e.g., first name, last name):
 Nicholas, Ragland
 -1 
 Name Not Found
@@ -271,6 +273,8 @@ Name Not Found
         8  Smith, John
         9  Song, Mona
         10  Zhang, Xiu Ying
+-1
+Name Not Found
 
 ---------------------------------
 Student Names ~ Descending Order
@@ -285,5 +289,7 @@ Student Names ~ Descending Order
         8  Jones, Rhys
         9  Evans, Olivia
         10  Davies, Emily
+-1
+Name Not Found
 
 */
