@@ -112,7 +112,7 @@ void swapValues(int &a, int &b)
 
 //****************************************************************************************************
 
-void bubbleSortSwap(int list_swap[], int size) // bubble sorting an array with calling swapValues function
+void bubbleSortSwap(int list_swap[], int size) // bubble sorting & calling swapValues function
 {
     bool swap;
     int total = size;
@@ -156,21 +156,9 @@ void selectionSort(int list_select[], int size)
 
 /*
 
-     int x = cin.get();
-
-    cin.get();
-
-    char c;
-    cin.get(c);
-
-    int y;
-    cin >> y;
-
-    cout <<  y <<  c  << endl;
-
-    return 0;
 
 
-//****************************************************************************************************
+
+
 
 */

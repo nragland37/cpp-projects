@@ -4,16 +4,16 @@ using namespace std;
 
 const int LIST_LEN = 10;
 
-void print_array_backwards(int list[LIST_LEN]) // reverses the order but not the array itself 
+void print_array_backwards(int list[LIST_LEN]) // reverses the order but not array itself 
 {
-    for (int i = LIST_LEN-1; i >= 0; i--){
+    for (int i = LIST_LEN-1; i >= 0; --i){
         cout << list[i] << " ";
     }
 }
 
 void print_array(int list[LIST_LEN]) 
 {
-    for (int i = 0; i < LIST_LEN; i++){
+    for (int i = 0; i < LIST_LEN; ++i){
         cout << list[i] << " ";
     }
 }
