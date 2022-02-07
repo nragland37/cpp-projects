@@ -52,7 +52,6 @@ int main()
     displayNames(names, NUM_NAMES);
 
     cout << "\nFind a Students place in the list." << endl;
-    cin.get();
     cout << "Enter Student name (e.g., first name, last name): " << endl;
     getline(cin, name);
     searchNames(names, NUM_NAMES, name);

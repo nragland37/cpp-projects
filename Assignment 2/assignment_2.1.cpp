@@ -229,10 +229,10 @@ bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average)
     bool found = false;
     while ((index < numNames) && !found)
     {
-        if (names[index] == name)
+        if (names[numStds][NUM_TESTS] == name)
         {
             found = true;
-            position = index + 1;
+            position = index;
         }
         index++;
     }
