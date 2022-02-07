@@ -2,14 +2,16 @@ fn bubble_sort<T>(list: &mut [T])
 where
     T: Ord,
 {
-    let mut swapped = false;
-    while swapped {
-        swapped = false;
+    loop {
+        let mut swapped = false;
         for i in 0..list.len() - 1 {
             if list[i] > list[i + 1] {
                 list.swap(i, i + 1);
                 swapped = true
             }
+        }
+        if !swapped {
+            break;
         }
     }
 }
@@ -19,9 +21,9 @@ where
     T: Ord,
 {
     for i in 0..list.len() - 1 {
-        let rest = list[i..].iter().enumerate();
+        let rest = list[i + 1..].iter().enumerate();
         if let Some((j, _)) = rest.min_by_key(|&(_, item)| item) {
-            list.swap(i, i + j);
+            list.swap(i, i + j + 1);
         }
     }
 }
