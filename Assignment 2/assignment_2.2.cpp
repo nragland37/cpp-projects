@@ -11,11 +11,11 @@
 //
 //          Due:                  February 7, 2021
 //
-//          This program reads and displays eight test scores, as a percentage, for ten students
-//          from a file. The functions calculate total points of one student for all tests,
-//          total points for one test for all students, total average of all students for one test,
-//          average of all tests for one student, highest test score for one student, and the student
-//          with the highest average test score.
+//          This program reads and displays ten student names and their places in a list from a file.
+//          Prompts the user to enter a name then searches the list to find if name is present.
+//          If name is found, the program outputs the students place in the list. If name is not 
+//          found, the program outputs -1. The program then outputs an ascending and desending order 
+//          of the names in two seperate lists. 
 //
 //****************************************************************************************************
 
@@ -27,19 +27,11 @@
 using namespace std;
 
 void readNames(ifstream &inputFile, string names[], int numNames);
-// Read all names from the file. The names should be stored in the array as they are stored in the file.
 void displayNames(const string names[], int numNames);
-// Display the names.
 int searchNames(const string names[], int numNames, const string &name);
-/*Return the array index if the name, passed as the third argument, is found in the
-array.  If the name is not found then return -1.  The user should be prompted for
-the name before the function is called.
-Use the ‘linear search’ algorithm to implement this function.*/
 void swapValues(string &a, string &b);
-void bubbleSort(string names[], int numNames); 
-// Sort the names in ascending order using the bubble sort algorithm.
+void bubbleSort(string names[], int numNames);
 void bubbleSortDescending(string names[], int numNames);
-// Sort the names in descending order using the bubble sort algorithm
 
 //****************************************************************************************************
 
@@ -49,21 +41,35 @@ int main()
 
     const int NUM_NAMES = 10;
 
-    string names [NUM_NAMES];
+    string names[NUM_NAMES],
+        name;
 
     readNames(inputFile, names, NUM_NAMES);
     cout << "---------------------------------" << endl;
-    cout << "\t" << "Student Names" << endl;
+    cout << "\t"
+         << "Student Names" << endl;
     cout << "---------------------------------" << endl;
     displayNames(names, NUM_NAMES);
 
-    cout << "\n---------------------------------" << endl; 
+    cout << "\nFind a Students place in the list." << endl;
+    cin.get();
+    cout << "Enter Student name (e.g., first name, last name): " << endl;
+    getline(cin, name);
+    searchNames(names, NUM_NAMES, name);
+    if (searchNames(names, NUM_NAMES, name) == -1)
+    {
+        cout << searchNames(names, NUM_NAMES, name) << " \nName Not Found" << endl;
+    }
+    else
+        cout << "\nName Found: " << searchNames(names, NUM_NAMES, name) << endl;
+
+    cout << "\n---------------------------------" << endl;
     cout << setw(32) << "Student Names ~ Ascending Order" << endl;
     cout << "---------------------------------" << endl;
     bubbleSort(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
 
-    cout << "\n---------------------------------" << endl; 
+    cout << "\n---------------------------------" << endl;
     cout << "Student Names ~ Descending Order" << endl;
     cout << "---------------------------------" << endl;
     bubbleSortDescending(names, NUM_NAMES);
@@ -81,7 +87,7 @@ void readNames(ifstream &inputFile, string names[], int numNames)
     if (inputFile.is_open())
         for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
         {
-             getline (inputFile,names[nameNumber]);
+            getline(inputFile, names[nameNumber]);
         }
     else
         cout << "ERROR: Could not open file" << endl;
@@ -93,7 +99,7 @@ void displayNames(const string names[], int numNames)
 {
     for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
     {
-        cout << "\t" << names[nameNumber] << endl;
+        cout << "\t" << nameNumber + 1 << "  " << names[nameNumber] << endl;
     }
 }
 
@@ -101,8 +107,19 @@ void displayNames(const string names[], int numNames)
 
 int searchNames(const string names[], int numNames, const string &name)
 {
-    // linear search with string 
-    return 0;
+    int index = 0;
+    int position = -1;
+    bool found = false;
+    while ((index < numNames) && !found)
+    {
+        if (names[index] == name)
+        {
+            found = true;
+            position = index + 1;
+        }
+        index++;
+    }
+    return position;
 }
 
 //****************************************************************************************************
@@ -125,7 +142,7 @@ void bubbleSort(string names[], int numNames)
         swap = false;
         for (int count = 0; count < (numNames - 1); ++count)
         {
-            if (names[count] > names[count + 1]) 
+            if (names[count] > names[count + 1])
             {
                 swapValues(names[count], names[count + 1]);
                 swap = true;
