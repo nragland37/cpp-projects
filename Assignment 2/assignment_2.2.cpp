@@ -22,6 +22,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -34,7 +35,7 @@ int searchNames(const string names[], int numNames, const string &name);
 array.  If the name is not found then return -1.  The user should be prompted for
 the name before the function is called.
 Use the ‘linear search’ algorithm to implement this function.*/
-void bubbleSort(string names[], int numNames);
+void bubbleSort(string names[], int numNames); 
 // Sort the names in ascending order using the bubble sort algorithm.
 void bubbleSortDescending(string names[], int numNames);
 // Sort the names in descending order using the bubble sort algorithm
@@ -45,13 +46,28 @@ int main()
 {
     ifstream inputFile("StudentNames.txt");
 
-    const int NUM_NAMES = 21;
+    const int NUM_NAMES = 10;
 
     string names [NUM_NAMES];
 
     readNames(inputFile, names, NUM_NAMES);
+    cout << "---------------------------------" << endl;
+    cout << "\t" << "Student Names" << endl;
+    cout << "---------------------------------" << endl;
     displayNames(names, NUM_NAMES);
-    
+
+    cout << "\n---------------------------------" << endl; 
+    cout << setw(32) << "Student Names ~ Ascending Order" << endl;
+    cout << "---------------------------------" << endl;
+    bubbleSort(names, NUM_NAMES);
+    displayNames(names, NUM_NAMES);
+
+    cout << "\n---------------------------------" << endl; 
+    cout << "Student Names ~ Descending Order" << endl;
+    cout << "---------------------------------" << endl;
+ 
+    displayNames(names, NUM_NAMES);
+
     inputFile.close();
 
     return 0;
@@ -64,7 +80,7 @@ void readNames(ifstream &inputFile, string names[], int numNames)
     if (inputFile.is_open())
         for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
         {
-             inputFile >> names[nameNumber];
+             getline (inputFile,names[nameNumber]);
         }
     else
         cout << "ERROR: Could not open file" << endl;
@@ -74,10 +90,9 @@ void readNames(ifstream &inputFile, string names[], int numNames)
 
 void displayNames(const string names[], int numNames)
 {
-    cout << "All Names:" << endl;
     for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
     {
-        cout << names[nameNumber] << " " << endl;
+        cout << "\t" << names[nameNumber] << endl;
     }
 }
 
@@ -93,14 +108,44 @@ int searchNames(const string names[], int numNames, const string &name)
 
 void bubbleSort(string names[], int numNames)
 {
-
+    bool swap;
+    string temp;
+    do
+    {
+        swap = false;
+        for (int count = 0; count < (numNames - 1); ++count)
+        {
+            if (names[count] > names[count + 1])
+            {
+                temp = names[count];
+                names[count] = names[count + 1];
+                names[count + 1] = temp;
+                swap = true;
+            }
+        }
+    } while (swap);
 }
 
 //****************************************************************************************************
 
 void bubbleSortDescending(string names[], int numNames)
 {
-    
+    bool swap;
+    string temp;
+    do
+    {
+        swap = false;
+        for (int count = 10; count > 0; --count)
+        {
+            if (names[count] < names[count - 1])
+            {
+                temp = names[count];
+                names[count] = names[count - 1];
+                names[count - 1] = temp;
+                swap = true;
+            }
+        }
+    } while (swap);
 }
 
 /*

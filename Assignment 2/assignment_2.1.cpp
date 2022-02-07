@@ -42,11 +42,13 @@ bool searchTests(const int scores[][NUM_TESTS], int numStds, double average);
 
 int main()
 {
-    ifstream f("Assignment1Data.txt");
+    ifstream f("Assignment1Data.txt"); // how to compile with g++ and file input
 
     const int NUM_STDS = 10;
 
     int scores[NUM_STDS][NUM_TESTS];
+
+    double average;
 
     readTestScores(f, scores, NUM_STDS);
     displayTestScores(scores, NUM_STDS);
@@ -74,6 +76,9 @@ int main()
     cin.get();
     cout <<"\n\nThe top Student: " << topStudent(scores, NUM_STDS);
     cin.get();
+    cout << "\n\nType an average test score to see if at least one student has an average score greater: ";
+    cin >> average;
+    cout << "\n\nA student does/does not have an average score greater than: " << searchStudents(scores, NUM_STDS, average); 
 
     f.close();
     
@@ -200,71 +205,61 @@ int topStudent(const int scores[][NUM_TESTS], int numStds)
 
 bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average)
 {
-    double average =0;
-
-    for (int studentNumber = 0; studentNumber < numstds; ++studentNumber){
-        do {
-            average = averageOneStudent(scores, numStds, studentNumber);     // calculate average score (call function)
-                                                                            // is it greater than 'average'
-
-        }
-    }
-
-return ;
+    return 0;
 }
 
-//****************************************************************************************************
+    //****************************************************************************************************
 
 bool searchTests(const int scores[][NUM_TESTS], int numStds, double average)
 {
 
-return 0;
+    return 0;
 }
 
-/*
+    /*
 
-All Test scores:
-87 90 65 45 88 89 75 80
-89 85 78 56 90 91 99 82
-80 90 72 95 99 66 77 88
-90 65 80 98 99 76 77 88
-55 75 66 99 99 56 87 86
-30 60 80 90 99 56 67 88
-90 55 95 35 98 86 37 88
-99 97 99 98 98 96 87 83
-90 65 80 98 99 76 87 88
-35 75 60 99 99 56 87 88
+    All Test scores:
+    87 90 65 45 88 89 75 80
+    89 85 78 56 90 91 99 82
+    80 90 72 95 99 66 77 88
+    90 65 80 98 99 76 77 88
+    55 75 66 99 99 56 87 86
+    30 60 80 90 99 56 67 88
+    90 55 95 35 98 86 37 88
+    99 97 99 98 98 96 87 83
+    90 65 80 98 99 76 87 88
+    35 75 60 99 99 56 87 88
 
-Press Enter to Continue 
- 
-Total for Test #1 is: 745
-Press Enter to Continue 
- 
-Total for Test #5 is: 968
-Press Enter to Continue 
- 
-Total for Student #3 is: 667 
-Press Enter to Continue 
- 
-Total for Student #8 is: 757
-Press Enter to Continue 
- 
-Average for Test #5: 96.80  
-Press Enter to Continue 
- 
-Average for Test #8: 85.90 
-Press Enter to Continue 
- 
-Average for Student #5: 77.88
-Press Enter to Continue 
- 
-Average for Student #9: 85.38 
-Press Enter to Continue 
- 
-Highest test score for Student #2: 99 
-Press Enter to Continue 
- 
-The top Student: 8 
-Press Enter to Continue
+    Press Enter to Continue
 
-*/
+    Total for Test #1 is: 745
+    Press Enter to Continue
+
+    Total for Test #5 is: 968
+    Press Enter to Continue
+
+    Total for Student #3 is: 667
+    Press Enter to Continue
+
+    Total for Student #8 is: 757
+    Press Enter to Continue
+
+    Average for Test #5: 96.80
+    Press Enter to Continue
+
+    Average for Test #8: 85.90
+    Press Enter to Continue
+
+    Average for Student #5: 77.88
+    Press Enter to Continue
+
+    Average for Student #9: 85.38
+    Press Enter to Continue
+
+    Highest test score for Student #2: 99
+    Press Enter to Continue
+
+    The top Student: 8
+    Press Enter to Continue
+
+    */
