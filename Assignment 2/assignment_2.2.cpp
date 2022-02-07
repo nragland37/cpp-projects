@@ -67,12 +67,26 @@ int main()
     cout << "---------------------------------" << endl;
     bubbleSort(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
+    searchNames(names, NUM_NAMES, name);
+    if (searchNames(names, NUM_NAMES, name) == -1)
+    {
+        cout << searchNames(names, NUM_NAMES, name) << " \nName Not Found" << endl;
+    }
+    else
+        cout << "\nName Found: " << searchNames(names, NUM_NAMES, name) << endl;
 
     cout << "\n---------------------------------" << endl;
     cout << "Student Names ~ Descending Order" << endl;
     cout << "---------------------------------" << endl;
     bubbleSortDescending(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
+    searchNames(names, NUM_NAMES, name);
+    if (searchNames(names, NUM_NAMES, name) == -1)
+    {
+        cout << searchNames(names, NUM_NAMES, name) << " \nName Not Found" << endl;
+    }
+    else
+        cout << "\nName Found: " << searchNames(names, NUM_NAMES, name) << endl;
 
     inputFile.close();
 
