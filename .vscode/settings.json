@@ -2,6 +2,8 @@
     "files.associations": {
         "iomanip": "cpp",
         "system_error": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "xutility": "cpp",
+        "iostream": "cpp"
     }
 }
