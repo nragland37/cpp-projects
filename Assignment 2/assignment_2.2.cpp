@@ -14,23 +14,23 @@
 //          This program reads and displays ten student names and their places in a list from a file.
 //          Prompts the user to enter a name then searches the list to find if name is present.
 //          If name is found, the program outputs the students place in the list. If name is not
-//          found, the program outputs -1. The program then outputs two seperate lists of an ascending 
+//          found, the program outputs -1. The program then outputs two seperate lists of an ascending
 //          and descending order with the students place in both.
 //
 //****************************************************************************************************
 
-#include <iostream>
-#include <string>
 #include <fstream>
 #include <iomanip>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-void readNames(ifstream& inputFile, string names[], int numNames);
+void readNames(ifstream &inputFile, string names[], int numNames);
 void displayNames(const string names[], int numNames);
-int searchNames(const string names[], int numNames, const string& name);
-void displaySearchNames(const string names[], int numNames, const string& name);
-void swapValues(string& a, string& b);
+int searchNames(const string names[], int numNames, const string &name);
+void displaySearchNames(const string names[], int numNames, const string &name);
+void swapValues(string &a, string &b);
 void bubbleSort(string names[], int numNames);
 void bubbleSortDescending(string names[], int numNames);
 
@@ -42,13 +42,12 @@ int main()
 
     const int NUM_NAMES = 10;
 
-    string names[NUM_NAMES],
-        name;
+    string names[NUM_NAMES], name;
 
     readNames(inputFile, names, NUM_NAMES);
     cout << "---------------------------------" << endl;
     cout << "\t"
-        << "Student Names" << endl;
+         << "Student Names" << endl;
     cout << "---------------------------------" << endl;
     displayNames(names, NUM_NAMES);
 
@@ -81,15 +80,19 @@ int main()
 
 //****************************************************************************************************
 
-void readNames(ifstream& inputFile, string names[], int numNames)
+void readNames(ifstream &inputFile, string names[], int numNames)
 {
     if (inputFile.is_open())
+    {
         for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
         {
             getline(inputFile, names[nameNumber]);
         }
+    }
     else
+    {
         cout << "ERROR: Could not open file" << endl;
+    }
 }
 
 //****************************************************************************************************
@@ -104,7 +107,7 @@ void displayNames(const string names[], int numNames)
 
 //****************************************************************************************************
 
-int searchNames(const string names[], int numNames, const string& name)
+int searchNames(const string names[], int numNames, const string &name)
 {
     int index = 0;
     int position = -1;
@@ -123,19 +126,21 @@ int searchNames(const string names[], int numNames, const string& name)
 
 //****************************************************************************************************
 
-void displaySearchNames(const string names[], int numNames, const string& name)
+void displaySearchNames(const string names[], int numNames, const string &name)
 {
     if (searchNames(names, numNames, name) == -1)
     {
         cout << searchNames(names, numNames, name) << " \nName Not Found" << endl;
     }
     else
+    {
         cout << "\nName Found: " << searchNames(names, numNames, name) << endl;
+    }
 }
 
 //****************************************************************************************************
 
-void swapValues(string& a, string& b)
+void swapValues(string &a, string &b)
 {
     string temp = a;
     a = b;
