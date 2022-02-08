@@ -15,7 +15,9 @@
 //          from a file. The functions calculate total points of one student for all tests,
 //          total points for one test for all students, total average of all students for one test,
 //          average of all tests for one student, highest test score for one student, and the student
-//          with the highest average test score.
+//          with the highest average test score.The program prompts the user to input an average 
+//          for both, students and tests. Then finds if at least one student and test has an 
+//          average score greater than those inputs.
 //
 //****************************************************************************************************
 
@@ -27,7 +29,7 @@ using namespace std;
 
 const int NUM_TESTS = 8;
 
-void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds);
+void readTestScores(ifstream& f, int scores[][NUM_TESTS], int numStds);
 void displayTestScores(const int scores[][NUM_TESTS], int numStds);
 int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber);
 int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber);
@@ -42,7 +44,7 @@ bool searchTests(const int scores[][NUM_TESTS], int numStds, double average);
 
 int main()
 {
-    ifstream f("Assignment1Data.txt"); // how to compile with g++ and file input
+    ifstream f("Assignment1Data.txt");
 
     const int NUM_STDS = 10;
 
@@ -76,17 +78,27 @@ int main()
     cin.get();
     cout << "\n\nThe top Student: " << topStudent(scores, NUM_STDS);
     cin.get();
-    cout << "\n\n\nFind if at least one student has an average score greater." << endl;
-    cin.get();
+
+    cout << "\n\n\nFind if at least one 'student' has an average score greater." << endl;
     cout << "\nEnter average score of student: " << endl;
     cin >> average;
 
-    if (searchStudents(scores, NUM_STDS, average) == 1 ){
-    cout << "\nStudent does have an average score greater than: " << average << endl; 
+    if (searchStudents(scores, NUM_STDS, average)) {
+        cout << "\nA student 'does' have an average score greater than: " << average << endl;
     }
-    else 
-    cout << "\nStudent does not have an average score greater than: " << average << endl;
+    else
+        cout << "\nA student 'does not' have an average score greater than: " << average << endl;
 
+    cout << "\n\n\nFind if at least one 'test' has an average score greater." << endl;
+    cout << "\nEnter average score of test: " << endl;
+    cin >> average;
+
+    if (searchTests(scores, NUM_STDS, average)) {
+        cout << "\nA test 'does' have an average score greater than: " << average << endl;
+    }
+    else
+        cout << "\nA test 'does not' have an average score greater than: " << average << endl;
+    
     f.close();
 
     return 0;
@@ -94,7 +106,7 @@ int main()
 
 //****************************************************************************************************
 
-void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds)
+void readTestScores(ifstream& f, int scores[][NUM_TESTS], int numStds)
 {
     if (f.is_open())
         for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
@@ -224,27 +236,34 @@ int topStudent(const int scores[][NUM_TESTS], int numStds)
 
 bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average)
 {
-    int index = 0;
-    int position = -1;
+    int studentNumber = 0;
     bool found = false;
-    while ((index < numNames) && !found)
+    while ((studentNumber < numStds) && !found)
     {
-        if (names[numStds][NUM_TESTS] == name)
+        if (averageOneStudent(scores, numStds, studentNumber) > average)
         {
             found = true;
-            position = index;
         }
-        index++;
+        studentNumber++;
     }
-    return position;
+    return found;
 }
 
 //****************************************************************************************************
 
 bool searchTests(const int scores[][NUM_TESTS], int numStds, double average)
 {
-
-    return 0;
+    int testNumber = 0;
+    bool found = false;
+    while ((testNumber < numStds) && !found)
+    {
+        if (averageOneTest(scores, numStds, testNumber) > average)
+        {
+            found = true;
+        }
+        testNumber++;
+    }
+    return found;
 }
 
 /*
@@ -292,5 +311,22 @@ Press Enter to Continue
 
 The top Student: 8
 Press Enter to Continue
+
+
+Find if at least one 'student' has an average score greater.
+
+Enter average score of student:
+95
+
+A student 'does not' have an average score greater than: 95.00
+
+
+
+Find if at least one 'test' has an average score greater.
+
+Enter average score of test:
+95
+
+A test 'does' have an average score greater than: 95.00
 
 */

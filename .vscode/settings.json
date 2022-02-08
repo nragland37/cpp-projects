@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp"
     }
 }

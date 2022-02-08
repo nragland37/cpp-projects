@@ -92,16 +92,6 @@ void readNames(ifstream& inputFile, string names[], int numNames)
         cout << "ERROR: Could not open file" << endl;
 }
 
-void displaySearchNames(const string names[], int numNames, const string& name)
-{
-    if (searchNames(names, numNames, name) == -1)
-    {
-        cout << searchNames(names, numNames, name) << " \nName Not Found" << endl;
-    }
-    else
-        cout << "\nName Found: " << searchNames(names, numNames, name) << endl;
-}
-
 //****************************************************************************************************
 
 void displayNames(const string names[], int numNames)
@@ -129,6 +119,18 @@ int searchNames(const string names[], int numNames, const string& name)
         index++;
     }
     return position;
+}
+
+//****************************************************************************************************
+
+void displaySearchNames(const string names[], int numNames, const string& name)
+{
+    if (searchNames(names, numNames, name) == -1)
+    {
+        cout << searchNames(names, numNames, name) << " \nName Not Found" << endl;
+    }
+    else
+        cout << "\nName Found: " << searchNames(names, numNames, name) << endl;
 }
 
 //****************************************************************************************************
