@@ -21,7 +21,7 @@
 //          list to find if name is present. If name is found, the program outputs the students place 
 //          in the list. If name is not found, the program outputs -1. The program outputs another 
 //          list in descenidng order using the "Selection Sort Algorithm" and repeats the process of 
-//          the "Binary Search Algorithm".   
+//          the "linear Search Algorithm".   
 //
 //****************************************************************************************************
 
@@ -104,8 +104,8 @@ int main()
     cout << "---------------------------------" << endl;
     selectionSortDescending(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
-    binarySearchNames(names, NUM_NAMES, name);
-    displayBinarySearchNames(names, NUM_NAMES, name);
+    linearSearchNames(names, NUM_NAMES, name);
+    displayLinearSearchNames(names, NUM_NAMES, name);
     cin.get();
 
     inputFile.close();
@@ -298,9 +298,9 @@ void selectionSortDescending(string names[], int numNames)
     {
         minIndex = startScan;
         minValue = names[minIndex];
-        for (int index = startScan + 1; index > numNames; ++index)
+        for (int index = startScan + 1; index < numNames; ++index)
         {
-            if (names[index] < minValue)
+            if (names[index] > minValue)
             {
                 minValue = names[index];
                 minIndex = index;
@@ -315,49 +315,49 @@ void selectionSortDescending(string names[], int numNames)
 
 ---------------------------------
         Student Names
----------------------------------
+---------------------------------  
         1  Smith, John
         2  Song, Mona
         3  Jones, Trevor
         4  Li, Na
         5  Zhang, Xiu Ying
-        6  Saleem, Mohammad
+        6  Saleem, Mohammad        
         7  Lloyd, Arthur
         8  Jones, Rhys
         9  Evans, Olivia
         10  Davies, Emily
 
-Find a Students place in the list.
+Find a Students place in the list. 
 Enter Student name (e.g., first name, last name):
 Nicholas, Ragland
--1
+-1 
 Name Not Found
 
 
----------------------------------
- Student Names ~ Ascending Order
----------------------------------
+---------------------------------  
+ Student Names ~ Ascending Order   
+---------------------------------  
         1  Davies, Emily
         2  Evans, Olivia
         3  Jones, Rhys
         4  Jones, Trevor
         5  Li, Na
         6  Lloyd, Arthur
-        7  Saleem, Mohammad
+        7  Saleem, Mohammad        
         8  Smith, John
         9  Song, Mona
-        10  Zhang, Xiu Ying
+        10  Zhang, Xiu Ying        
 -1
 Name Not Found
 
 
----------------------------------
-Student Names ~ Descending Order
----------------------------------
+---------------------------------  
+Student Names ~ Descending Order   
+---------------------------------  
         1  Zhang, Xiu Ying
         2  Song, Mona
         3  Smith, John
-        4  Saleem, Mohammad
+        4  Saleem, Mohammad        
         5  Lloyd, Arthur
         6  Li, Na
         7  Jones, Trevor
@@ -368,65 +368,44 @@ Student Names ~ Descending Order
 Name Not Found
 
 
----------------------------------
- Student Names ~ Ascending Order
----------------------------------
+---------------------------------  
+ Student Names ~ Ascending Order   
+---------------------------------  
         1  Davies, Emily
         2  Evans, Olivia
         3  Jones, Rhys
         4  Jones, Trevor
         5  Li, Na
         6  Lloyd, Arthur
-        7  Saleem, Mohammad
+        7  Saleem, Mohammad        
         8  Smith, John
         9  Song, Mona
-        10  Zhang, Xiu Ying
+        10  Zhang, Xiu Ying        
 
 Find another Students place in the ascending list.
 Enter Student name (e.g., first name, last name):
 Nicholas, Ragland
--1
+-1 
 Name Not Found
 
 
----------------------------------
-Student Names ~ Descending Order
----------------------------------
-        1  Davies, Emily
-        2  Evans, Olivia
-        3  Jones, Rhys
-        4  Jones, Trevor
-        5  Li, Na
-        6  Lloyd, Arthur
-        7  Saleem, Mohammad
-        8  Smith, John
-        9  Song, Mona
-        10  Zhang, Xiu Ying
+---------------------------------  
+Student Names ~ Descending Order   
+---------------------------------  
+        1  Zhang, Xiu Ying
+        2  Song, Mona
+        3  Smith, John
+        4  Saleem, Mohammad        
+        5  Lloyd, Arthur
+        6  Li, Na
+        7  Jones, Trevor
+        8  Jones, Rhys
+        9  Evans, Olivia
+        10  Davies, Emily
 -1
 Name Not Found
 
 //****************************************************************************************************
-
----------------------------------
-        Student Names
----------------------------------
-        1  Smith, John
-        2  Song, Mona
-        3  Jones, Trevor
-        4  Li, Na
-        5  Zhang, Xiu Ying
-        6  Saleem, Mohammad
-        7  Lloyd, Arthur
-        8  Jones, Rhys
-        9  Evans, Olivia
-        10  Davies, Emily
-
-Find a Students place in the list.
-Enter Student name (e.g., first name, last name):
-Smith, John
-
-Name Found: 1
-
 
 ---------------------------------
  Student Names ~ Ascending Order
@@ -476,27 +455,27 @@ Name Found: 3
         9  Song, Mona
         10  Zhang, Xiu Ying
 
-Find another Students place in the ascending list.
-Enter Student name (e.g., first name, last name):
-Li, Na
+Find another Students place in the ascending list.   
+Enter Student name (e.g., first name, last name):    
+Song, Mona
 
-Name Found: 5
+Name Found: 9
 
 
 ---------------------------------
 Student Names ~ Descending Order
 ---------------------------------
-        1  Davies, Emily
-        2  Evans, Olivia
-        3  Jones, Rhys
-        4  Jones, Trevor
-        5  Li, Na
-        6  Lloyd, Arthur
-        7  Saleem, Mohammad
-        8  Smith, John
-        9  Song, Mona
-        10  Zhang, Xiu Ying
+        1  Zhang, Xiu Ying
+        2  Song, Mona
+        3  Smith, John
+        4  Saleem, Mohammad
+        5  Lloyd, Arthur
+        6  Li, Na
+        7  Jones, Trevor
+        8  Jones, Rhys
+        9  Evans, Olivia
+        10  Davies, Emily
 
-Name Found: 5
+Name Found: 2
 
 */
