@@ -29,18 +29,6 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++.exe build active file"
-        },
-        {
-            "name": "cl.exe - Build and debug active file",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "console": "externalTerminal",
-            "preLaunchTask": "C/C++: cl.exe build active file"
         }
     ]
 }
