@@ -36,46 +36,46 @@ int main()
     int *p1 = &n1, // Is it better to initialize pointers to null then assign?
         *p2 = &n2; // e.g. int *p1 = nullp1, *p2 = nullp2; p1 = &n1; p2 = &n2;
 
-    cout << "Three variables with their initialized values & memory addresses:" << endl
-         << "n1 = " << n1 << endl
+    cout << "Three variables:" << endl
+         << "'n1' = " << n1 << endl
          << "Memory address: " << &n1 << endl
-         << "\nn2 = " << n2 << endl
+         << "\n'n2' = " << n2 << endl
          << "Memory address: " << &n2 << endl
-         << "\nn3 = " << n3 << endl
+         << "\n'n3' = " << n3 << endl
          << "Memory address: " << &n3 << endl;
     cin.get();
-    cout << "\nTwo pointers with their memory addresses & assgined variables:" << endl
-         << "p1" << endl
+    cout << "\nTwo pointers:" << endl
+         << "'p1'" << endl
          << "Memory address: " << &p1 << endl
-         << "p1 is pointing to n1" << endl
-         << "\np2" << endl
+         << "'p1' is pointing to 'n1'" << endl
+         << "\n'p2'" << endl
          << "Memory address: " << &p2 << endl
-         << "p2 is pointing to n2" << endl;
+         << "'p2' is pointing to 'n2'" << endl;
     cin.get();
-    cout << "\nValue at the location to which 'p1' points: " << *p1 << endl
+    cout << "\nValue at the address to which 'p1' points: " << *p1 << endl
          << "Memory address to which 'p1' points: " << p1 << endl
-         << "\nValue at the location to which 'p2' points: " << *p2 << endl
+         << "\nValue at the address to which 'p2' points: " << *p2 << endl
          << "Memory address to which 'p2' points: " << p2 << endl;
     cin.get();
 
     *p1 *= 2;
-    cout << "\nThe value of 'n1' has been multiplied by two:" << endl
+    cout << "\nValue of 'n1' has been multiplied by two:" << endl
          << "n1 = " << n1 << endl;
     cin.get();
 
     sum = *p1 + *p2;
-    cout << "\nThe sum of values to which 'p1' & 'p2' point:" << endl
+    cout << "\nSum of values to which 'p1' & 'p2' point:" << endl
          << "p1(20) + p2(25) = " << sum << endl;
     cin.get();
 
     p1 = &n3;
-    cout << "\n'p1' is re-assigned to point to 'n3':" << endl
-         << "Value at the location to which 'p1' points: " << *p1 << endl
+    cout << "\n('p1' re-assigned pointing to 'n3')" << endl
+         << "Value at the address to which 'p1' points: " << *p1 << endl
          << "Memory address to which 'p1' points: " << p1 << endl;
     cin.get();
 
     sum = *p1 + *p2;
-    cout << "\nThe sum of values to which 'p1' & 'p2' point:" << endl
+    cout << "\nSum of values to which 'p1' & 'p2' point:" << endl
          << "p1(50) + p2(25) = " << sum << endl;
 
     return 0;
@@ -83,48 +83,48 @@ int main()
 
 /*
 
-Three variables with their initialized values & memory addresses:
-n1 = 10
-Memory address: 0xe0e9ffbd8
+Three variables:
+'n1' = 10
+Memory address: 0x5f751ffbc8
 
-n2 = 25
-Memory address: 0xe0e9ffbd4
+'n2' = 25
+Memory address: 0x5f751ffbc4
 
-n3 = 50
-Memory address: 0xe0e9ffbd0
-
-
-Two pointers with their memory addresses & assgined variables:
-p1
-Memory address: 0xe0e9ffbc8
-p1 is pointing to n1
-
-p2
-Memory address: 0xe0e9ffbc0
-p2 is pointing to n2
+'n3' = 50
+Memory address: 0x5f751ffbc0
 
 
-Value at the location to which 'p1' points: 10
-Memory address to which 'p1' points: 0xe0e9ffbd8
+Two pointers:
+'p1'
+Memory address: 0x5f751ffbb8
+'p1' is pointing to 'n1'
 
-Value at the location to which 'p2' points: 25
-Memory address to which 'p2' points: 0xe0e9ffbd4
+'p2'
+Memory address: 0x5f751ffbb0
+'p2' is pointing to 'n2'
 
 
-The value of 'n1' has been multiplied by two:
+Value at the address to which 'p1' points: 10
+Memory address to which 'p1' points: 0x5f751ffbc8
+
+Value at the address to which 'p2' points: 25
+Memory address to which 'p2' points: 0x5f751ffbc4
+
+
+Value of 'n1' has been multiplied by two: 
 n1 = 20
 
 
-The sum of values to which 'p1' & 'p2' point:
+Sum of values to which 'p1' & 'p2' point: 
 p1(20) + p2(25) = 45
 
 
-'p1' is re-assigned to point to 'n3':
-Value at the location to which 'p1' points: 50
-Memory address to which 'p1' points: 0xe0e9ffbd0
+('p1' re-assigned pointing to 'n3')       
+Value at the address to which 'p1' points: 50
+Memory address to which 'p1' points: 0x5f751ffbc0
 
 
-The sum of values to which 'p1' & 'p2' point:
+Sum of values to which 'p1' & 'p2' point: 
 p1(50) + p2(25) = 75
 
 */
