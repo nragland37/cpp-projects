@@ -4,6 +4,7 @@
         "system_error": "cpp",
         "xlocale": "cpp",
         "xutility": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }

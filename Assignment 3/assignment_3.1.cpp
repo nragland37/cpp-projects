@@ -3,7 +3,7 @@
 //
 //			Student:              Nicholas Ragland
 //
-//			Assignment:           Program #2
+//			Assignment:           Program #3
 //
 //          Course Name:          Programming II
 //

@@ -1,9 +1,9 @@
 //****************************************************************************************************
-// 			File:                 assignment_2.2.cpp
+// 			File:                 assignment_3.2.cpp
 //
 //			Student:              Nicholas Ragland
 //
-//			Assignment:           Program #2
+//			Assignment:           Program #3
 //
 //          Course Name:          Programming II
 //
@@ -11,288 +11,120 @@
 //
 //          Due:                  February 14, 2022
 //
-//          This program reads and displays ten student names and their places in a list from a file.
-//          Prompts the user to enter a name then searches the list to find if name is present.
-//          If name is found, the program outputs the students place in the list. If name is not
-//          found, the program outputs -1. The program then outputs two seperate lists of an ascending
-//          and descending order with the students place in both.
-//
+//          This program displays the values and memory addresses of three variables, the memory 
+//          addresses and assigned variables of two pointers, and the values and memory addresses at 
+//          the locations to which the pointers point to. The program finds and displays the value 
+//          of a variable using multiplication with a pointer, re-assigns a pointer with a different 
+//          variable, and the sum of values that pointers were assigned.   
+//         
 //****************************************************************************************************
 
-#include <fstream>
-#include <iomanip>
 #include <iostream>
-#include <string>
 
 using namespace std;
-
-void readNames(ifstream &inputFile, string names[], int numNames);
-void displayNames(const string names[], int numNames);
-int searchNames(const string names[], int numNames, const string &name);
-void displaySearchNames(const string names[], int numNames, const string &name);
-void swapValues(string &a, string &b);
-void bubbleSort(string names[], int numNames);
-void bubbleSortDescending(string names[], int numNames);
 
 //****************************************************************************************************
 
 int main()
 {
-    ifstream inputFile("StudentNames.txt");
+    int n1 = 10,
+        n2 = 25,
+        n3 = 50,
+        sum = 0; // I know 'sum' doesn't need to be initialized to 0 but ever since 
+                 // my confusion with initialization, im scared.  can exaplain/help? 
 
-    const int NUM_NAMES = 10;
+    int *p1 = &n1, // Is it better to initialize pointers to null then assign?
+        *p2 = &n2; // e.g. int *p1 = nullp1, *p2 = nullp2; p1 = &n1; p2 = &n2;
 
-    string names[NUM_NAMES], name;
+    cout << "Three variables with their initialized values & memory addresses:" << endl
+         << "n1 = " << n1 << endl
+         << "Memory address: " << &n1 << endl
+         << "\nn2 = " << n2 << endl
+         << "Memory address: " << &n2 << endl
+         << "\nn3 = " << n3 << endl
+         << "Memory address: " << &n3 << endl;
+    cin.get();
+    cout << "\nTwo pointers with their memory addresses & assgined variables:" << endl
+         << "p1" << endl
+         << "Memory address: " << &p1 << endl
+         << "p1 is pointing to n1" << endl
+         << "\np2" << endl
+         << "Memory address: " << &p2 << endl
+         << "p2 is pointing to n2" << endl;
+    cin.get();
+    cout << "\nValue at the location to which 'p1' points: " << *p1 << endl
+         << "Memory address to which 'p1' points: " << p1 << endl
+         << "\nValue at the location to which 'p2' points: " << *p2 << endl
+         << "Memory address to which 'p2' points: " << p2 << endl;
+    cin.get();
 
-    readNames(inputFile, names, NUM_NAMES);
-    cout << "---------------------------------" << endl;
-    cout << "\t"
-         << "Student Names" << endl;
-    cout << "---------------------------------" << endl;
-    displayNames(names, NUM_NAMES);
+    *p1 *= 2;
+    cout << "\nThe value of 'n1' has been multiplied by two:" << endl
+         << "n1 = " << n1 << endl;
+    cin.get();
 
-    cout << "\nFind a Students place in the list." << endl;
-    cout << "Enter Student name (e.g., first name, last name): " << endl;
-    getline(cin, name);
-    searchNames(names, NUM_NAMES, name);
-    displaySearchNames(names, NUM_NAMES, name);
+    sum = *p1 + *p2;
+    cout << "\nThe sum of values to which 'p1' & 'p2' point:" << endl
+         << "p1(20) + p2(25) = " << sum << endl;
+    cin.get();
 
-    cout << "\n---------------------------------" << endl;
-    cout << setw(32) << "Student Names ~ Ascending Order" << endl;
-    cout << "---------------------------------" << endl;
-    bubbleSort(names, NUM_NAMES);
-    displayNames(names, NUM_NAMES);
-    searchNames(names, NUM_NAMES, name);
-    displaySearchNames(names, NUM_NAMES, name);
+    p1 = &n3;
+    cout << "\n'p1' is re-assigned to point to 'n3':" << endl
+         << "Value at the location to which 'p1' points: " << *p1 << endl
+         << "Memory address to which 'p1' points: " << p1 << endl;
+    cin.get();
 
-    cout << "\n---------------------------------" << endl;
-    cout << "Student Names ~ Descending Order" << endl;
-    cout << "---------------------------------" << endl;
-    bubbleSortDescending(names, NUM_NAMES);
-    displayNames(names, NUM_NAMES);
-    searchNames(names, NUM_NAMES, name);
-    displaySearchNames(names, NUM_NAMES, name);
-
-    inputFile.close();
+    sum = *p1 + *p2;
+    cout << "\nThe sum of values to which 'p1' & 'p2' point:" << endl
+         << "p1(50) + p2(25) = " << sum << endl;
 
     return 0;
 }
 
-//****************************************************************************************************
-
-void readNames(ifstream &inputFile, string names[], int numNames)
-{
-    if (inputFile.is_open())
-    {
-        for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
-        {
-            getline(inputFile, names[nameNumber]);
-        }
-    }
-    else
-    {
-        cout << "ERROR: Could not open file" << endl;
-    }
-}
-
-//****************************************************************************************************
-
-void displayNames(const string names[], int numNames)
-{
-    for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
-    {
-        cout << "\t" << nameNumber + 1 << "  " << names[nameNumber] << endl;
-    }
-}
-
-//****************************************************************************************************
-
-int searchNames(const string names[], int numNames, const string &name)
-{
-    int index = 0;
-    int position = -1;
-    bool found = false;
-    while ((index < numNames) && !found)
-    {
-        if (names[index] == name)
-        {
-            found = true;
-            position = index + 1;
-        }
-        index++;
-    }
-    return position;
-}
-
-//****************************************************************************************************
-
-void displaySearchNames(const string names[], int numNames, const string &name)
-{
-    if (searchNames(names, numNames, name) == -1)
-    {
-        cout << searchNames(names, numNames, name) << " \nName Not Found" << endl;
-    }
-    else
-    {
-        cout << "\nName Found: " << searchNames(names, numNames, name) << endl;
-    }
-}
-
-//****************************************************************************************************
-
-void swapValues(string &a, string &b)
-{
-    string temp = a;
-    a = b;
-    b = temp;
-}
-
-//****************************************************************************************************
-
-void bubbleSort(string names[], int numNames)
-{
-    bool swap;
-    string temp;
-    do
-    {
-        swap = false;
-        for (int count = 0; count < (numNames - 1); ++count)
-        {
-            if (names[count] > names[count + 1])
-            {
-                swapValues(names[count], names[count + 1]);
-                swap = true;
-            }
-        }
-    } while (swap);
-}
-
-//****************************************************************************************************
-
-void bubbleSortDescending(string names[], int numNames)
-{
-    bool swap;
-    string temp;
-    do
-    {
-        swap = false;
-        for (int count = 0; count < (numNames - 1); ++count)
-        {
-            if (names[count] < names[count + 1])
-            {
-                swapValues(names[count], names[count + 1]);
-                swap = true;
-            }
-        }
-    } while (swap);
-}
-
 /*
 
----------------------------------
-        Student Names
----------------------------------
-        1  Smith, John
-        2  Song, Mona
-        3  Jones, Trevor
-        4  Li, Na
-        5  Zhang, Xiu Ying
-        6  Saleem, Mohammad
-        7  Lloyd, Arthur
-        8  Jones, Rhys
-        9  Evans, Olivia
-        10  Davies, Emily
+Three variables with their initialized values & memory addresses:
+n1 = 10
+Memory address: 0xe0e9ffbd8
 
-Find a Students place in the list.
-Enter Student name (e.g., first name, last name):
-Smith, John
+n2 = 25
+Memory address: 0xe0e9ffbd4
 
-Name Found: 1
+n3 = 50
+Memory address: 0xe0e9ffbd0
 
----------------------------------
- Student Names ~ Ascending Order
----------------------------------
-        1  Davies, Emily
-        2  Evans, Olivia
-        3  Jones, Rhys
-        4  Jones, Trevor
-        5  Li, Na
-        6  Lloyd, Arthur
-        7  Saleem, Mohammad
-        8  Smith, John
-        9  Song, Mona
-        10  Zhang, Xiu Ying
 
-Name Found: 8
+Two pointers with their memory addresses & assgined variables:
+p1
+Memory address: 0xe0e9ffbc8
+p1 is pointing to n1
 
----------------------------------
-Student Names ~ Descending Order
----------------------------------
-        1  Zhang, Xiu Ying
-        2  Song, Mona
-        3  Smith, John
-        4  Saleem, Mohammad
-        5  Lloyd, Arthur
-        6  Li, Na
-        7  Jones, Trevor
-        8  Jones, Rhys
-        9  Evans, Olivia
-        10  Davies, Emily
+p2
+Memory address: 0xe0e9ffbc0
+p2 is pointing to n2
 
-Name Found: 3
 
-//****************************************************************************************************
+Value at the location to which 'p1' points: 10
+Memory address to which 'p1' points: 0xe0e9ffbd8
 
----------------------------------
-        Student Names
----------------------------------
-        1  Smith, John
-        2  Song, Mona
-        3  Jones, Trevor
-        4  Li, Na
-        5  Zhang, Xiu Ying
-        6  Saleem, Mohammad
-        7  Lloyd, Arthur
-        8  Jones, Rhys
-        9  Evans, Olivia
-        10  Davies, Emily
+Value at the location to which 'p2' points: 25
+Memory address to which 'p2' points: 0xe0e9ffbd4
 
-Find a Students place in the list.
-Enter Student name (e.g., first name, last name):
-Nicholas, Ragland
--1
-Name Not Found
 
----------------------------------
- Student Names ~ Ascending Order
----------------------------------
-        1  Davies, Emily
-        2  Evans, Olivia
-        3  Jones, Rhys
-        4  Jones, Trevor
-        5  Li, Na
-        6  Lloyd, Arthur
-        7  Saleem, Mohammad
-        8  Smith, John
-        9  Song, Mona
-        10  Zhang, Xiu Ying
--1
-Name Not Found
+The value of 'n1' has been multiplied by two:
+n1 = 20
 
----------------------------------
-Student Names ~ Descending Order
----------------------------------
-        1  Zhang, Xiu Ying
-        2  Song, Mona
-        3  Smith, John
-        4  Saleem, Mohammad
-        5  Lloyd, Arthur
-        6  Li, Na
-        7  Jones, Trevor
-        8  Jones, Rhys
-        9  Evans, Olivia
-        10  Davies, Emily
--1
-Name Not Found
+
+The sum of values to which 'p1' & 'p2' point:
+p1(20) + p2(25) = 45
+
+
+'p1' is re-assigned to point to 'n3':
+Value at the location to which 'p1' points: 50
+Memory address to which 'p1' points: 0xe0e9ffbd0
+
+
+The sum of values to which 'p1' & 'p2' point:
+p1(50) + p2(25) = 75
 
 */
