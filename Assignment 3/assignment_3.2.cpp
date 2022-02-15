@@ -1,9 +1,9 @@
 //****************************************************************************************************
-// 			File:                 assignment_3.2.cpp
+// 		  File:                 assignment_3.2.cpp
 //
-//			Student:              Nicholas Ragland
+//		  Student:              Nicholas Ragland
 //
-//			Assignment:           Program #3
+//		  Assignment:           Program #3
 //
 //          Course Name:          Programming II
 //
@@ -30,11 +30,10 @@ int main()
     int n1 = 10,
         n2 = 25,
         n3 = 50,
-        sum = 0; // I know 'sum' doesn't need to be initialized to 0 but ever since 
-                 // my confusion with initialization, im scared.  can exaplain/help? 
+        sum = 0; 
 
-    int *p1 = &n1, // Is it better to initialize pointers to null then assign?
-        *p2 = &n2; // e.g. int *p1 = nullp1, *p2 = nullp2; p1 = &n1; p2 = &n2;
+    int *p1 = &n1, 
+        *p2 = &n2; 
 
     cout << "Three variables:" << endl
          << "'n1' = " << n1 << endl
