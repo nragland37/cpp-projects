@@ -292,22 +292,22 @@ void selectionSort(string names[], int numNames)
 
 void selectionSortDescending(string names[], int numNames)
 {
-    int minIndex;
-    string minValue;
+    int maxIndex;
+    string maxValue;
     for (int startScan = 0; startScan < (numNames - 1); ++startScan)
     {
-        minIndex = startScan;
-        minValue = names[minIndex];
+        maxIndex = startScan;
+        maxValue = names[maxIndex];
         for (int index = startScan + 1; index < numNames; ++index)
         {
-            if (names[index] > minValue)
+            if (names[index] > maxValue)
             {
-                minValue = names[index];
-                minIndex = index;
+                maxValue = names[index];
+                maxIndex = index;
             }
         }
-        names[minIndex] = names[startScan];
-        names[startScan] = minValue;
+        names[maxIndex] = names[startScan];
+        names[startScan] = maxValue;
     }
 }
 
