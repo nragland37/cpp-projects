@@ -12,16 +12,16 @@
 //          Due:                  February 14, 2022
 //
 //          This program reads and displays ten student names and their places in a list from a file.
-//          Prompts the user to enter a name and searches (Linear Search Algorithm) the list to find 
-//          if name is present. If name is found, the program outputs the students place in the list. 
-//          If name is not found, the program outputs -1. The program outputs two seperate lists 
-//          of an ascending and descending order using a "Bubble Sort Algorithm" with the students 
-//          place in both. Then the program sorts the list in ascending order using a "Selection Sort 
-//          Algorithm", prompts the user to enter a name, and searches (Binary Search Algorithm) the 
-//          list to find if name is present. If name is found, the program outputs the students place 
-//          in the list. If name is not found, the program outputs -1. The program outputs another 
-//          list in descenidng order using the "Selection Sort Algorithm" and repeats the process of 
-//          the "linear Search Algorithm".   
+//          Prompts the user to enter a name and searches (Linear Search Algorithm) the list to find
+//          if name is present. If name is found, the program outputs the students place in the list.
+//          If name is not found, the program outputs -1. The program outputs two seperate lists
+//          of an ascending and descending order using a "Bubble Sort Algorithm" with the students
+//          place in both. Then the program sorts the list in ascending order using a "Selection Sort
+//          Algorithm", prompts the user to enter a name, and searches (Binary Search Algorithm) the
+//          list to find if name is present. If name is found, the program outputs the students place
+//          in the list. If name is not found, the program outputs -1. The program outputs another
+//          list in descenidng order using the "Selection Sort Algorithm" and repeats the process of
+//          the "linear Search Algorithm".
 //
 //****************************************************************************************************
 
@@ -315,49 +315,49 @@ void selectionSortDescending(string names[], int numNames)
 
 ---------------------------------
         Student Names
----------------------------------  
+---------------------------------
         1  Smith, John
         2  Song, Mona
         3  Jones, Trevor
         4  Li, Na
         5  Zhang, Xiu Ying
-        6  Saleem, Mohammad        
+        6  Saleem, Mohammad
         7  Lloyd, Arthur
         8  Jones, Rhys
         9  Evans, Olivia
         10  Davies, Emily
 
-Find a Students place in the list. 
+Find a Students place in the list.
 Enter Student name (e.g., first name, last name):
 Nicholas, Ragland
--1 
+-1
 Name Not Found
 
 
----------------------------------  
- Student Names ~ Ascending Order   
----------------------------------  
+---------------------------------
+ Student Names ~ Ascending Order
+---------------------------------
         1  Davies, Emily
         2  Evans, Olivia
         3  Jones, Rhys
         4  Jones, Trevor
         5  Li, Na
         6  Lloyd, Arthur
-        7  Saleem, Mohammad        
+        7  Saleem, Mohammad
         8  Smith, John
         9  Song, Mona
-        10  Zhang, Xiu Ying        
+        10  Zhang, Xiu Ying
 -1
 Name Not Found
 
 
----------------------------------  
-Student Names ~ Descending Order   
----------------------------------  
+---------------------------------
+Student Names ~ Descending Order
+---------------------------------
         1  Zhang, Xiu Ying
         2  Song, Mona
         3  Smith, John
-        4  Saleem, Mohammad        
+        4  Saleem, Mohammad
         5  Lloyd, Arthur
         6  Li, Na
         7  Jones, Trevor
@@ -368,34 +368,34 @@ Student Names ~ Descending Order
 Name Not Found
 
 
----------------------------------  
- Student Names ~ Ascending Order   
----------------------------------  
+---------------------------------
+ Student Names ~ Ascending Order
+---------------------------------
         1  Davies, Emily
         2  Evans, Olivia
         3  Jones, Rhys
         4  Jones, Trevor
         5  Li, Na
         6  Lloyd, Arthur
-        7  Saleem, Mohammad        
+        7  Saleem, Mohammad
         8  Smith, John
         9  Song, Mona
-        10  Zhang, Xiu Ying        
+        10  Zhang, Xiu Ying
 
 Find another Students place in the ascending list.
 Enter Student name (e.g., first name, last name):
 Nicholas, Ragland
--1 
+-1
 Name Not Found
 
 
----------------------------------  
-Student Names ~ Descending Order   
----------------------------------  
+---------------------------------
+Student Names ~ Descending Order
+---------------------------------
         1  Zhang, Xiu Ying
         2  Song, Mona
         3  Smith, John
-        4  Saleem, Mohammad        
+        4  Saleem, Mohammad
         5  Lloyd, Arthur
         6  Li, Na
         7  Jones, Trevor
@@ -455,8 +455,8 @@ Name Found: 3
         9  Song, Mona
         10  Zhang, Xiu Ying
 
-Find another Students place in the ascending list.   
-Enter Student name (e.g., first name, last name):    
+Find another Students place in the ascending list.
+Enter Student name (e.g., first name, last name):
 Song, Mona
 
 Name Found: 9
