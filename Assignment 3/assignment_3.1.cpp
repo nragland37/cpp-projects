@@ -64,7 +64,6 @@ int main()
     cout << "\nFind a Students place in the list." << endl;
     cout << "Enter Student name (e.g., first name, last name): " << endl;
     getline(cin, name);
-    linearSearchNames(names, NUM_NAMES, name);
     displayLinearSearchNames(names, NUM_NAMES, name);
     cin.get();
 
@@ -73,7 +72,6 @@ int main()
     cout << "---------------------------------" << endl;
     bubbleSort(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
-    linearSearchNames(names, NUM_NAMES, name);
     displayLinearSearchNames(names, NUM_NAMES, name);
     cin.get();
 
@@ -82,7 +80,6 @@ int main()
     cout << "---------------------------------" << endl;
     bubbleSortDescending(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
-    linearSearchNames(names, NUM_NAMES, name);
     displayLinearSearchNames(names, NUM_NAMES, name);
     cin.get();
 
@@ -95,7 +92,6 @@ int main()
     cout << "\nFind another Students place in the ascending list." << endl;
     cout << "Enter Student name (e.g., first name, last name): " << endl;
     getline(cin, name);
-    binarySearchNames(names, NUM_NAMES, name);
     displayBinarySearchNames(names, NUM_NAMES, name);
     cin.get();
 
@@ -104,7 +100,6 @@ int main()
     cout << "---------------------------------" << endl;
     selectionSortDescending(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
-    linearSearchNames(names, NUM_NAMES, name);
     displayLinearSearchNames(names, NUM_NAMES, name);
     cin.get();
 
@@ -163,13 +158,16 @@ int linearSearchNames(const string names[], int numNames, const string &name)
 
 void displayLinearSearchNames(const string names[], int numNames, const string &name)
 {
-    if (linearSearchNames(names, numNames, name) == -1)
+    int result;
+    result = linearSearchNames(names, numNames, name);
+
+    if (result == -1)
     {
-        cout << linearSearchNames(names, numNames, name) << " \nName Not Found" << endl;
+        cout << result << " \nName Not Found" << endl;
     }
     else
     {
-        cout << "\nName Found: " << linearSearchNames(names, numNames, name) << endl;
+        cout << "\nName Found: " << result << endl;
     }
 }
 
@@ -255,13 +253,16 @@ int binarySearchNames(const string names[], int numNames, const string &name)
 
 void displayBinarySearchNames(const string names[], int numNames, const string &name)
 {
-    if (binarySearchNames(names, numNames, name) == -1)
+    int result;
+    result = binarySearchNames(names, numNames, name);
+
+    if (result == -1)
     {
-        cout << binarySearchNames(names, numNames, name) << " \nName Not Found" << endl;
+        cout << result << " \nName Not Found" << endl;
     }
     else
     {
-        cout << "\nName Found: " << binarySearchNames(names, numNames, name) << endl;
+        cout << "\nName Found: " << result << endl;
     }
 }
 
