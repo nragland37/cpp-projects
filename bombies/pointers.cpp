@@ -2,9 +2,7 @@
 
 using namespace std;
 
-int main()
-{
-    
+int main() {
     int num;
     int i = 8;
 

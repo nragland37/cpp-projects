@@ -36,8 +36,7 @@ void bubbleSortDescending(string names[], int numNames);
 
 //****************************************************************************************************
 
-int main()
-{
+int main() {
     ifstream inputFile("StudentNames.txt");
 
     const int NUM_NAMES = 10;
@@ -80,42 +79,32 @@ int main()
 
 //****************************************************************************************************
 
-void readNames(ifstream &inputFile, string names[], int numNames)
-{
-    if (inputFile.is_open())
-    {
-        for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
-        {
+void readNames(ifstream &inputFile, string names[], int numNames) {
+    if (inputFile.is_open()) {
+        for (int nameNumber = 0; nameNumber < numNames; ++nameNumber) {
             getline(inputFile, names[nameNumber]);
         }
-    }
-    else
-    {
+    } else {
         cout << "ERROR: Could not open file" << endl;
     }
 }
 
 //****************************************************************************************************
 
-void displayNames(const string names[], int numNames)
-{
-    for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
-    {
+void displayNames(const string names[], int numNames) {
+    for (int nameNumber = 0; nameNumber < numNames; ++nameNumber) {
         cout << "\t" << nameNumber + 1 << "  " << names[nameNumber] << endl;
     }
 }
 
 //****************************************************************************************************
 
-int searchNames(const string names[], int numNames, const string &name)
-{
+int searchNames(const string names[], int numNames, const string &name) {
     int index = 0;
     int position = -1;
     bool found = false;
-    while ((index < numNames) && !found)
-    {
-        if (names[index] == name)
-        {
+    while ((index < numNames) && !found) {
+        if (names[index] == name) {
             found = true;
             position = index + 1;
         }
@@ -126,22 +115,17 @@ int searchNames(const string names[], int numNames, const string &name)
 
 //****************************************************************************************************
 
-void displaySearchNames(const string names[], int numNames, const string &name)
-{
-    if (searchNames(names, numNames, name) == -1)
-    {
+void displaySearchNames(const string names[], int numNames, const string &name) {
+    if (searchNames(names, numNames, name) == -1) {
         cout << searchNames(names, numNames, name) << " \nName Not Found" << endl;
-    }
-    else
-    {
+    } else {
         cout << "\nName Found: " << searchNames(names, numNames, name) << endl;
     }
 }
 
 //****************************************************************************************************
 
-void swapValues(string &a, string &b)
-{
+void swapValues(string &a, string &b) {
     string temp = a;
     a = b;
     b = temp;
@@ -149,17 +133,13 @@ void swapValues(string &a, string &b)
 
 //****************************************************************************************************
 
-void bubbleSort(string names[], int numNames)
-{
+void bubbleSort(string names[], int numNames) {
     bool swap;
     string temp;
-    do
-    {
+    do {
         swap = false;
-        for (int count = 0; count < (numNames - 1); ++count)
-        {
-            if (names[count] > names[count + 1])
-            {
+        for (int count = 0; count < (numNames - 1); ++count) {
+            if (names[count] > names[count + 1]) {
                 swapValues(names[count], names[count + 1]);
                 swap = true;
             }
@@ -169,17 +149,13 @@ void bubbleSort(string names[], int numNames)
 
 //****************************************************************************************************
 
-void bubbleSortDescending(string names[], int numNames)
-{
+void bubbleSortDescending(string names[], int numNames) {
     bool swap;
     string temp;
-    do
-    {
+    do {
         swap = false;
-        for (int count = 0; count < (numNames - 1); ++count)
-        {
-            if (names[count] < names[count + 1])
-            {
+        for (int count = 0; count < (numNames - 1); ++count) {
+            if (names[count] < names[count + 1]) {
                 swapValues(names[count], names[count + 1]);
                 swap = true;
             }

@@ -10,8 +10,7 @@ void swapValues(int &a, int &b);
 void bubbleSortSwap(int list[], int size);
 void selectionSort(int list_select[], int size);
 
-int main()
-{
+int main() {
     const int SIZE = 10;
 
     int list[SIZE] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1},
@@ -20,7 +19,7 @@ int main()
 
     displayBubble(list, SIZE);
     bubbleSort(list, SIZE);
-    cout << "bubble-sorted "; // why cant void functions be called before << ?
+    cout << "bubble-sorted ";  // why cant void functions be called before << ?
     displayBubble(list, SIZE);
 
     cout << endl;
@@ -42,12 +41,10 @@ int main()
 
 //****************************************************************************************************
 
-void displayBubble(int list[], int size)
-{
+void displayBubble(int list[], int size) {
     cout << "array: ";
 
-    for (int arraySize = 0; arraySize < size; ++arraySize)
-    {
+    for (int arraySize = 0; arraySize < size; ++arraySize) {
         cout << list[arraySize] << " ";
     }
     cout << endl;
@@ -55,12 +52,10 @@ void displayBubble(int list[], int size)
 
 //****************************************************************************************************
 
-void displayBubbleSwap(int list_sort[], int size)
-{
+void displayBubbleSwap(int list_sort[], int size) {
     cout << "array: ";
 
-    for (int arraySize = 0; arraySize < size; ++arraySize)
-    {
+    for (int arraySize = 0; arraySize < size; ++arraySize) {
         cout << list_sort[arraySize] << " ";
     }
     cout << endl;
@@ -68,12 +63,10 @@ void displayBubbleSwap(int list_sort[], int size)
 
 //****************************************************************************************************
 
-void displaySelection(int list_select[], int size)
-{
+void displaySelection(int list_select[], int size) {
     cout << "array: ";
 
-    for (int arraySize = 0; arraySize < size; ++arraySize)
-    {
+    for (int arraySize = 0; arraySize < size; ++arraySize) {
         cout << list_select[arraySize] << " ";
     }
     cout << endl;
@@ -81,17 +74,13 @@ void displaySelection(int list_select[], int size)
 
 //****************************************************************************************************
 
-void bubbleSort(int list[], int size)
-{
+void bubbleSort(int list[], int size) {
     bool swap;
     int temp;
-    do
-    {
+    do {
         swap = false;
-        for (int count = 0; count < (size - 1); ++count)
-        {
-            if (list[count] > list[count + 1])
-            {
+        for (int count = 0; count < (size - 1); ++count) {
+            if (list[count] > list[count + 1]) {
                 temp = list[count];
                 list[count] = list[count + 1];
                 list[count + 1] = temp;
@@ -103,8 +92,7 @@ void bubbleSort(int list[], int size)
 
 //****************************************************************************************************
 
-void swapValues(int &a, int &b)
-{
+void swapValues(int &a, int &b) {
     int temp = a;
     a = b;
     b = temp;
@@ -112,17 +100,14 @@ void swapValues(int &a, int &b)
 
 //****************************************************************************************************
 
-void bubbleSortSwap(int list_swap[], int size) // bubble sorting & calling swapValues function
+void bubbleSortSwap(int list_swap[], int size)  // bubble sorting & calling swapValues function
 {
     bool swap;
     int total = size;
-    do
-    {
+    do {
         swap = false;
-        for (int count = 0; count < (total - 1); ++count)
-        {
-            if (list_swap[count] > list_swap[count + 1])
-            {
+        for (int count = 0; count < (total - 1); ++count) {
+            if (list_swap[count] > list_swap[count + 1]) {
                 swapValues(list_swap[count], list_swap[count + 1]);
                 swap = true;
             }
@@ -133,18 +118,14 @@ void bubbleSortSwap(int list_swap[], int size) // bubble sorting & calling swapV
 
 //****************************************************************************************************
 
-void selectionSort(int list_select[], int size)
-{
+void selectionSort(int list_select[], int size) {
     int minIndex;
     int minValue;
-    for (int startScan = 0; startScan < (size - 1); ++startScan)
-    {
+    for (int startScan = 0; startScan < (size - 1); ++startScan) {
         minIndex = startScan;
         minValue = list_select[minIndex];
-        for (int index = startScan + 1; index < size; ++index)
-        {
-            if (list_select[index] < minValue)
-            {
+        for (int index = startScan + 1; index < size; ++index) {
+            if (list_select[index] < minValue) {
                 minValue = list_select[index];
                 minIndex = index;
             }

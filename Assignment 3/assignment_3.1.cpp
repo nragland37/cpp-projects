@@ -46,13 +46,13 @@ void selectionSortDescending(string names[], int numNames);
 
 //****************************************************************************************************
 
-int main()
-{
+int main() {
     ifstream inputFile("StudentNames.txt");
 
     const int NUM_NAMES = 10;
 
-    string names[NUM_NAMES], name;
+    string names[NUM_NAMES],
+        name;
 
     readNames(inputFile, names, NUM_NAMES);
     cout << "---------------------------------" << endl;
@@ -110,44 +110,34 @@ int main()
 
 //****************************************************************************************************
 
-void readNames(ifstream &inputFile, string names[], int numNames)
-{
-    if (inputFile.is_open())
-    {
-        for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
-        {
+void readNames(ifstream &inputFile, string names[], int numNames) {
+    if (inputFile.is_open()) {
+        for (int nameNumber = 0; nameNumber < numNames; ++nameNumber) {
             getline(inputFile, names[nameNumber]);
         }
-    }
-    else
-    {
+    } else {
         cout << "ERROR: Could not open file" << endl;
     }
 }
 
 //****************************************************************************************************
 
-void displayNames(const string names[], int numNames)
-{
-    for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
-    {
-        cout << "\t" << nameNumber + 1 << "  " << names[nameNumber] << endl;
+void displayNames(const string names[], int numNames) {
+    for (int nameNumber = 0; nameNumber < numNames; ++nameNumber) {
+        cout << "\t" << nameNumber + 1 << "  " << names[nameNumber] << endl; 
     }
 }
 
 //****************************************************************************************************
 
-int linearSearchNames(const string names[], int numNames, const string &name)
-{
+int linearSearchNames(const string names[], int numNames, const string &name) {
     int index = 0;
     int position = -1;
     bool found = false;
-    while ((index < numNames) && !found)
-    {
-        if (names[index] == name)
-        {
+    while ((index < numNames) && !found) {
+        if (names[index] == name) {
             found = true;
-            position = index + 1;
+            position = index;
         }
         index++;
     }
@@ -156,25 +146,20 @@ int linearSearchNames(const string names[], int numNames, const string &name)
 
 //****************************************************************************************************
 
-void displayLinearSearchNames(const string names[], int numNames, const string &name)
-{
+void displayLinearSearchNames(const string names[], int numNames, const string &name) {
     int result;
     result = linearSearchNames(names, numNames, name);
 
-    if (result == -1)
-    {
+    if (result == -1) {
         cout << result << " \nName Not Found" << endl;
-    }
-    else
-    {
-        cout << "\nName Found: " << result << endl;
+    } else {
+        cout << "\nName Found: " << result + 1 << endl; 
     }
 }
 
 //****************************************************************************************************
 
-void swapValues(string &a, string &b)
-{
+void swapValues(string &a, string &b) {
     string temp = a;
     a = b;
     b = temp;
@@ -182,17 +167,13 @@ void swapValues(string &a, string &b)
 
 //****************************************************************************************************
 
-void bubbleSort(string names[], int numNames)
-{
+void bubbleSort(string names[], int numNames) {
     bool swap;
     string temp;
-    do
-    {
+    do {
         swap = false;
-        for (int count = 0; count < (numNames - 1); ++count)
-        {
-            if (names[count] > names[count + 1])
-            {
+        for (int count = 0; count < (numNames - 1); ++count) {
+            if (names[count] > names[count + 1]) {
                 swapValues(names[count], names[count + 1]);
                 swap = true;
             }
@@ -202,17 +183,13 @@ void bubbleSort(string names[], int numNames)
 
 //****************************************************************************************************
 
-void bubbleSortDescending(string names[], int numNames)
-{
+void bubbleSortDescending(string names[], int numNames) {
     bool swap;
     string temp;
-    do
-    {
+    do {
         swap = false;
-        for (int count = 0; count < (numNames - 1); ++count)
-        {
-            if (names[count] < names[count + 1])
-            {
+        for (int count = 0; count < (numNames - 1); ++count) {
+            if (names[count] < names[count + 1]) {
                 swapValues(names[count], names[count + 1]);
                 swap = true;
             }
@@ -222,27 +199,20 @@ void bubbleSortDescending(string names[], int numNames)
 
 //****************************************************************************************************
 
-int binarySearchNames(const string names[], int numNames, const string &name)
-{
+int binarySearchNames(const string names[], int numNames, const string &name) {
     int first = 0;
     int last = numNames - 1;
     int middle;
     int position = -1;
     bool found = false;
-    while (!found && (first <= last))
-    {
+    while (!found && (first <= last)) {
         middle = (first + last) / 2;
-        if (names[middle] == name)
-        {
+        if (names[middle] == name) {
             found = true;
-            position = middle + 1;
-        }
-        else if (names[middle] > name)
-        {
+            position = middle;
+        } else if (names[middle] > name) {
             last = middle - 1;
-        }
-        else
-        {
+        } else {
             first = middle + 1;
         }
     }
@@ -251,35 +221,27 @@ int binarySearchNames(const string names[], int numNames, const string &name)
 
 //****************************************************************************************************
 
-void displayBinarySearchNames(const string names[], int numNames, const string &name)
-{
+void displayBinarySearchNames(const string names[], int numNames, const string &name) {
     int result;
     result = binarySearchNames(names, numNames, name);
 
-    if (result == -1)
-    {
+    if (result == -1) {
         cout << result << " \nName Not Found" << endl;
-    }
-    else
-    {
-        cout << "\nName Found: " << result << endl;
+    } else {
+        cout << "\nName Found: " << result + 1 << endl;
     }
 }
 
 //****************************************************************************************************
 
-void selectionSort(string names[], int numNames)
-{
+void selectionSort(string names[], int numNames) {
     int minIndex;
     string minValue;
-    for (int startScan = 0; startScan < (numNames - 1); ++startScan)
-    {
+    for (int startScan = 0; startScan < (numNames - 1); ++startScan) {
         minIndex = startScan;
         minValue = names[minIndex];
-        for (int index = startScan + 1; index < numNames; ++index)
-        {
-            if (names[index] < minValue)
-            {
+        for (int index = startScan + 1; index < numNames; ++index) {
+            if (names[index] < minValue) {
                 minValue = names[index];
                 minIndex = index;
             }
@@ -291,18 +253,14 @@ void selectionSort(string names[], int numNames)
 
 //****************************************************************************************************
 
-void selectionSortDescending(string names[], int numNames)
-{
+void selectionSortDescending(string names[], int numNames) {
     int maxIndex;
     string maxValue;
-    for (int startScan = 0; startScan < (numNames - 1); ++startScan)
-    {
+    for (int startScan = 0; startScan < (numNames - 1); ++startScan) {
         maxIndex = startScan;
         maxValue = names[maxIndex];
-        for (int index = startScan + 1; index < numNames; ++index)
-        {
-            if (names[index] > maxValue)
-            {
+        for (int index = startScan + 1; index < numNames; ++index) {
+            if (names[index] > maxValue) {
                 maxValue = names[index];
                 maxIndex = index;
             }

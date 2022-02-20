@@ -19,9 +19,9 @@
 //
 //****************************************************************************************************
 
-#include <iostream>
-#include <iomanip>
 #include <fstream>
+#include <iomanip>
+#include <iostream>
 
 using namespace std;
 
@@ -38,8 +38,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds);
 
 //****************************************************************************************************
 
-int main()
-{
+int main() {
     ifstream f("Assignment1Data.txt");
 
     const int NUM_STDS = 10;
@@ -80,13 +79,10 @@ int main()
 
 //****************************************************************************************************
 
-void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds)
-{
+void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
     if (f.is_open())
-        for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
-        {
-            for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
-            {
+        for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
+            for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
                 f >> scores[studentNumber][testNumber];
             }
         }
@@ -96,14 +92,11 @@ void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds)
 
 //****************************************************************************************************
 
-void displayTestScores(const int scores[][NUM_TESTS], int numStds)
-{
+void displayTestScores(const int scores[][NUM_TESTS], int numStds) {
     cout << "All Test scores:" << endl;
 
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
-    {
-        for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
-        {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
+        for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
             cout << scores[studentNumber][testNumber] << " ";
         }
         cout << endl;
@@ -112,12 +105,10 @@ void displayTestScores(const int scores[][NUM_TESTS], int numStds)
 
 //****************************************************************************************************
 
-int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber)
-{
+int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
     int sum = 0;
 
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
-    {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         sum += scores[studentNumber][testNumber];
     }
 
@@ -126,12 +117,10 @@ int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber)
 
 //****************************************************************************************************
 
-int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber)
-{
+int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int sum = 0;
 
-    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
-    {
+    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
         sum += scores[studentNumber][testNumber];
     }
 
@@ -140,13 +129,11 @@ int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumbe
 
 //****************************************************************************************************
 
-double averageOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber)
-{
+double averageOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
     int total = 0;
     double average;
 
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
-    {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         total += scores[studentNumber][testNumber];
     }
     average = static_cast<double>(total) / numStds;
@@ -156,13 +143,11 @@ double averageOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber
 
 //****************************************************************************************************
 
-double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber)
-{
+double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int total = 0;
     double average;
 
-    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
-    {
+    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
         total += scores[studentNumber][testNumber];
     }
     average = static_cast<double>(total) / NUM_TESTS;
@@ -172,13 +157,10 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
 
 //****************************************************************************************************
 
-int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber)
-{
+int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int highest = scores[studentNumber][0];
-    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber)
-    {
-        if (scores[studentNumber][testNumber] > highest)
-        {
+    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber) {
+        if (scores[studentNumber][testNumber] > highest) {
             highest = scores[studentNumber][testNumber];
         }
     }
@@ -187,17 +169,14 @@ int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNum
 
 //****************************************************************************************************
 
-int topStudent(const int scores[][NUM_TESTS], int numStds)
-{
+int topStudent(const int scores[][NUM_TESTS], int numStds) {
     int topPercent = 0,
         topStudent = 0,
         current;
 
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
-    {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         current = averageOneStudent(scores, numStds, studentNumber);
-        if (current > topPercent)
-        {
+        if (current > topPercent) {
             topPercent = current;
             topStudent = studentNumber;
         }
