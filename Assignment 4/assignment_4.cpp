@@ -30,7 +30,7 @@ int main() {
     const int SIZE = 5;
     int numbers[SIZE] = {10, 22, 34, 48, 59};
     int *ptr = nullptr;
-    p = &numbers[0];
+    ptr = &numbers[0];
 
     f1(numbers, SIZE);
     cin.get();
@@ -116,7 +116,7 @@ void f4(int nums[], int size) {
         cout << "Enter two *integer* values within the range of the index: " << endl;
         cin >> num1 >> num2;
     }
-
+}
     /*
 
 
