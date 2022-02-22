@@ -20,37 +20,104 @@
 using namespace std;
 
 void f1(int nums[], int size);
-void f2(int *p, int size);
-void f3();
-void f4();
+void f2(int *ptr, int size);
+void f3(int nums[], int size);
+void f4(int nums[], int size);
 
 //****************************************************************************************************
 
 int main() {
+    const int SIZE = 5;
+    int numbers[SIZE] = {10, 22, 34, 48, 59};
+    int *ptr = nullptr;
+    p = &numbers[0];
+
+    f1(numbers, SIZE);
+    cin.get();
+    f2(ptr, SIZE);
+    cin.get();
+    f3(numbers, SIZE);
+    f4(numbers, SIZE);
+
     return 0;
 }
 
 //****************************************************************************************************
 
 void f1(int nums[], int size) {
+    cout << "---------------------------------" << endl;
+    cout << "Values and Addresses ~ Array" << endl;
+    cout << "---------------------------------" << endl;
+
+    for (int i = 0; i < size; ++i) {
+        cout << "Value of index " << i << ": "
+             << nums[i] << " " << endl;
+    }
+    cout << endl;
+    for (int i = 0; i < size; ++i) {
+        cout << "Address of index " << i << ": "
+             << &nums[i] << " " << endl;
+    }
 }
 
 //****************************************************************************************************
 
-void f2(int *p, int size) {
+void f2(int *ptr, int size) {
+    cout << "---------------------------------" << endl;
+    cout << "Values and Addresses ~ Pointer" << endl;
+    cout << "---------------------------------" << endl;
+
+    for (int i = 0; i < size; ++i) {
+        cout << "Value of index " << i << ": "
+             << *(ptr + i) << endl;
+    }
+    cout << endl;
+    for (int i = 0; i < size; ++i) {
+        cout << "Address of index " << i << ": "
+             << ptr + i << " " << endl;
+    }
 }
 
 //****************************************************************************************************
 
-void f3() {
+void f3(int nums[], int size) {
+    int *p = nullptr,
+        num1,
+        num2,
+        num3;
+    cout << "-------------------------------------------------" << endl;
+    cout << "Enter three *integer* values within the range of the index:" << endl;
+    cin >> num1 >> num2 >> num3;
+
+    while (num1 < nums[0] || num2 < nums[0] || num3 < nums[0] ||
+           num1 > nums[4] || num2 > nums[4] || num3 > nums[4]) {
+        cout << "\n*Invalid Entry*" << endl;
+        cout << "-------------------------------------------------" << endl;
+        cout << "Enter three *integer* values within the range of the index: " << endl;
+        cin >> num1 >> num2 >> num3;
+    }
 }
 
 //****************************************************************************************************
 
-void f4() {
-}
+void f4(int nums[], int size) {
+    int *p1 = nullptr,
+        *p2 = nullptr,
+        num1,
+        num2;
+    cout << "-------------------------------------------------" << endl;
+    cout << "Enter two *integer* values within the range of the index:" << endl;
+    cin >> num1 >> num2;
 
-/*
+    while (num1 < nums[0] || num2 < nums[0] ||
+           num1 > nums[4] || num2 > nums[4]) {
+        cout << "\n*Invalid Entry*" << endl;
+        cout << "-------------------------------------------------" << endl;
+        cout << "Enter two *integer* values within the range of the index: " << endl;
+        cin >> num1 >> num2;
+    }
+
+    /*
 
 
-*/
+    */
