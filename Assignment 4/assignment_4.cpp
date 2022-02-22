@@ -52,9 +52,6 @@ void f1(int nums[], int size) {
     for (int i = 0; i < size; ++i) {
         cout << "Value of index " << i << ": "
              << nums[i] << " " << endl;
-    }
-    cout << endl;
-    for (int i = 0; i < size; ++i) {
         cout << "Address of index " << i << ": "
              << &nums[i] << " " << endl;
     }
@@ -70,9 +67,6 @@ void f2(int *ptr, int size) {
     for (int i = 0; i < size; ++i) {
         cout << "Value of index " << i << ": "
              << *(ptr + i) << endl;
-    }
-    cout << endl;
-    for (int i = 0; i < size; ++i) {
         cout << "Address of index " << i << ": "
              << ptr + i << " " << endl;
     }
@@ -81,23 +75,27 @@ void f2(int *ptr, int size) {
 //****************************************************************************************************
 
 void f3(int nums[], int size) {
+    const int SIZE = 3;
     int *p = nullptr,
         num1,
         num2,
         num3;
     cout << "-------------------------------------------------" << endl;
-    cout << "Enter three *integer* values within the range of the index:" << endl;
+    cout << "Enter two *integer* values within the range of the index:" << endl;
     cin >> num1 >> num2 >> num3;
 
     while (num1 < nums[0] || num2 < nums[0] || num3 < nums[0] ||
            num1 > nums[4] || num2 > nums[4] || num3 > nums[4]) {
         cout << "\n*Invalid Entry*" << endl;
-        cout << "-------------------------------------------------" << endl;
-        cout << "Enter three *integer* values within the range of the index: " << endl;
+        cout << "Enter two *integer* values within the range of the index: " << endl;
         cin >> num1 >> num2 >> num3;
     }
-}
 
+    for (int i = 0; i < size; ++i){
+        
+    }
+
+}
 //****************************************************************************************************
 
 void f4(int nums[], int size) {
@@ -117,7 +115,21 @@ void f4(int nums[], int size) {
         cin >> num1 >> num2;
     }
 }
-    /*
+/*
+    for (int i = 0; i < SIZE; ++i) {
+        cin >> nums[size];
 
+        while (nums[size] < nums[0] || nums[size] > nums[4]) {
+            cout << "\n*Invalid Entry*" << endl;
+            cout << "Enter three *integer* values within the range of the index: " << endl;
+            cin >> nums[size];
+        }
 
-    */
+        p = &nums[size];
+        cout << "Value of index " << i << ": "
+             << *(p + i) << endl;
+        cout << "Address of index " << i << ": "
+             << p + i << " " << endl;
+    }
+
+*/
