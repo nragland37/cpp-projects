@@ -75,26 +75,17 @@ void f2(int *ptr, int size) {
 //****************************************************************************************************
 
 void f3(int nums[], int size) {
-    const int SIZE = 3;
     int *p = nullptr,
-        num1,
-        num2,
-        num3;
+        input;
     cout << "-------------------------------------------------" << endl;
     cout << "Enter two *integer* values within the range of the index:" << endl;
-    cin >> num1 >> num2 >> num3;
 
-    while (num1 < nums[0] || num2 < nums[0] || num3 < nums[0] ||
-           num1 > nums[4] || num2 > nums[4] || num3 > nums[4]) {
-        cout << "\n*Invalid Entry*" << endl;
-        cout << "Enter two *integer* values within the range of the index: " << endl;
-        cin >> num1 >> num2 >> num3;
+    for (int i = 0; i < 3; ++i) {
+        do {
+            cin >> input;
+            cout << "input:" << input;
+        } while (input >= nums[0] && input <= nums[4]);
     }
-
-    for (int i = 0; i < size; ++i){
-        
-    }
-
 }
 //****************************************************************************************************
 

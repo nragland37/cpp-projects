@@ -5,6 +5,8 @@
         "xlocale": "cpp",
         "xutility": "cpp",
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "utility": "cpp",
+        "xmemory": "cpp"
     }
 }
