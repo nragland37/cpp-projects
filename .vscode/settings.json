@@ -1,12 +1,6 @@
 {
     "files.associations": {
-        "iomanip": "cpp",
-        "system_error": "cpp",
-        "xlocale": "cpp",
-        "xutility": "cpp",
-        "iostream": "cpp",
         "ostream": "cpp",
-        "utility": "cpp",
-        "xmemory": "cpp"
+        "iostream": "cpp"
     }
 }
