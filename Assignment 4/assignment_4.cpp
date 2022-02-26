@@ -11,8 +11,6 @@
 //
 //          Due:                  February 21, 2022
 //
-//          ..........
-//
 //****************************************************************************************************
 
 #include <iostream>
@@ -28,15 +26,15 @@ void f4(int nums[], int size);
 
 int main() {
     const int SIZE = 5;
-    int numbers[SIZE] = {10, 22, 34, 48, 59};
-    int *ptr = nullptr;
-    ptr = &numbers[0];
+    int numbers[SIZE] = {10, 22, 34, 48, 59},
+        *ptr = numbers;
 
     f1(numbers, SIZE);
     cin.get();
     f2(ptr, SIZE);
     cin.get();
     f3(numbers, SIZE);
+    cout << endl;
     f4(numbers, SIZE);
 
     return 0;
@@ -45,12 +43,12 @@ int main() {
 //****************************************************************************************************
 
 void f1(int nums[], int size) {
-    cout << "---------------------------------" << endl;
+    cout << "-----------------------------" << endl;
     cout << "Values and Addresses ~ Array" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "-----------------------------" << endl;
 
     for (int i = 0; i < size; ++i) {
-        cout << "Value of index " << i << ": "
+        cout << "\nValue of index " << i << ": "
              << nums[i] << " " << endl;
         cout << "Address of index " << i << ": "
              << &nums[i] << " " << endl;
@@ -60,12 +58,12 @@ void f1(int nums[], int size) {
 //****************************************************************************************************
 
 void f2(int *ptr, int size) {
-    cout << "---------------------------------" << endl;
+    cout << "-------------------------------" << endl;
     cout << "Values and Addresses ~ Pointer" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "-------------------------------" << endl;
 
     for (int i = 0; i < size; ++i) {
-        cout << "Value of index " << i << ": "
+        cout << "\nValue of index " << i << ": "
              << *(ptr + i) << endl;
         cout << "Address of index " << i << ": "
              << ptr + i << " " << endl;
@@ -75,52 +73,157 @@ void f2(int *ptr, int size) {
 //****************************************************************************************************
 
 void f3(int nums[], int size) {
-    int *p = nullptr,
+    const int SIZE = 3;
+    int *p = nums,
         input;
-    cout << "-------------------------------------------------" << endl;
-    cout << "Enter two *integer* values within the range of the index:" << endl;
-
-    for (int i = 0; i < 3; ++i) {
-        do {
+    cout << "------------------------------------------------------------" << endl;
+    cout << "Enter *three integer* values within the range of the index:" << endl;
+    cout << "------------------------------------------------------------" << endl;
+    for (int i = 0; i < SIZE; ++i) {
+        while (true) {
+            cout << "\nEnter value: ";
             cin >> input;
-            cout << "input:" << input;
-        } while (input >= nums[0] && input <= nums[4]);
+            if (input >= 0 && input < size) {
+                p = &nums[input];
+                break;
+            } else {
+                cout << "\n*Invalid Entry*" << endl;
+            }
+        }
+        cout << "Value of index " << input << ": "
+             << *p << endl;
+        cout << "Address of index " << input << ": "
+             << p << " " << endl;
     }
 }
 //****************************************************************************************************
 
 void f4(int nums[], int size) {
-    int *p1 = nullptr,
-        *p2 = nullptr,
-        num1,
-        num2;
-    cout << "-------------------------------------------------" << endl;
-    cout << "Enter two *integer* values within the range of the index:" << endl;
-    cin >> num1 >> num2;
+    const int SIZE = 2;
+    int *p1 = nums,
+        *p2 = nums,
+        input1,
+        input2;
 
-    while (num1 < nums[0] || num2 < nums[0] ||
-           num1 > nums[4] || num2 > nums[4]) {
-        cout << "\n*Invalid Entry*" << endl;
-        cout << "-------------------------------------------------" << endl;
-        cout << "Enter two *integer* values within the range of the index: " << endl;
-        cin >> num1 >> num2;
-    }
-}
-/*
-    for (int i = 0; i < SIZE; ++i) {
-        cin >> nums[size];
+    cout << "----------------------------------------------------------" << endl;
+    cout << "Enter *two integer* values within the range of the index:" << endl;
+    cout << "----------------------------------------------------------" << endl;
 
-        while (nums[size] < nums[0] || nums[size] > nums[4]) {
+    while (true) {
+        cout << "\nEnter value: ";
+        cin >> input1;
+        if (input1 >= 0 && input1 < size) {
+            p1 = &nums[input1];
+            break;
+        } else {
             cout << "\n*Invalid Entry*" << endl;
-            cout << "Enter three *integer* values within the range of the index: " << endl;
-            cin >> nums[size];
         }
-
-        p = &nums[size];
-        cout << "Value of index " << i << ": "
-             << *(p + i) << endl;
-        cout << "Address of index " << i << ": "
-             << p + i << " " << endl;
     }
+    cout << "Value of index " << input1 << ": "
+         << *p1 << endl;
+
+    while (true) {
+        cout << "\nEnter value: ";
+        cin >> input2;
+        if (input2 >= 0 && input2 < size) {
+            p2 = &nums[input2];
+            break;
+        } else {
+            cout << "\n*Invalid Entry*" << endl;
+        }
+    }
+    cout << "Value of index " << input2 << ": "
+         << *p2 << endl;
+
+    cout << "\nThe sum of index " << input1 << " and " << input2 << " is " << *p1 + *p2 << endl;
+}
+
+/*
+
+-----------------------------
+Values and Addresses ~ Array
+-----------------------------
+
+Value of index 0: 10
+Address of index 0: 0xeea55ffd40
+
+Value of index 1: 22
+Address of index 1: 0xeea55ffd44
+
+Value of index 2: 34
+Address of index 2: 0xeea55ffd48
+
+Value of index 3: 48
+Address of index 3: 0xeea55ffd4c
+
+Value of index 4: 59
+Address of index 4: 0xeea55ffd50
+
+-------------------------------
+Values and Addresses ~ Pointer
+-------------------------------
+
+Value of index 0: 10
+Address of index 0: 0xeea55ffd40
+
+Value of index 1: 22
+Address of index 1: 0xeea55ffd44
+
+Value of index 2: 34
+Address of index 2: 0xeea55ffd48
+
+Value of index 3: 48
+Address of index 3: 0xeea55ffd4c
+
+Value of index 4: 59
+Address of index 4: 0xeea55ffd50
+
+------------------------------------------------------------
+Enter *three integer* values within the range of the index:
+------------------------------------------------------------
+
+Enter value: 5
+
+*Invalid Entry*
+
+Enter value: 6
+
+*Invalid Entry*
+
+Enter value: 7
+
+*Invalid Entry*
+
+Enter value: 0
+Value of index 0: 10
+Address of index 0: 0xeea55ffd40
+
+Enter value: 1
+Value of index 1: 22
+Address of index 1: 0xeea55ffd44
+
+Enter value: 2
+Value of index 2: 34
+Address of index 2: 0xeea55ffd48
+
+----------------------------------------------------------
+Enter *two integer* values within the range of the index:
+----------------------------------------------------------
+
+Enter value: 5
+
+*Invalid Entry*
+
+Enter value: 6
+
+*Invalid Entry*
+
+Enter value: 0
+Value of index 0: 10
+
+Enter value: 1
+Value of index 1: 22
+
+The sum of index 0 and 1 is 32
 
 */

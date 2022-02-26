@@ -29,7 +29,7 @@ int main() {
     int n1 = 10,
         n2 = 25,
         n3 = 50,
-        sum = 0;
+        sum;
 
     int *p1 = &n1,
         *p2 = &n2;
