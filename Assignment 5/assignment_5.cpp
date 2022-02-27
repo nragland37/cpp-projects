@@ -108,7 +108,7 @@ void display(const string names[], const int matches[], int size) {
 
 void displayMostMatches(const string names[], const int matches[], int size) {
     int max = matches[0],
-        temp;
+        temp = 0;
     for (int i = 0; i < size; ++i) {
         if (matches[i] > max) {
             max = matches[i];
