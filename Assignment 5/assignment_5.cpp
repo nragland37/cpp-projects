@@ -11,10 +11,9 @@
 //
 //          Due:                  February 28, 2022
 //
-//          ..........
-//
 //****************************************************************************************************
 
+#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -32,35 +31,40 @@ int main() {
     int size;
     double average;
 
+    cout << "\n-------------------------------------------------" << endl;
+    cout << "Cricket Matches College Students Play in a Year " << endl;
+    cout << "-------------------------------------------------" << endl;
     do {
         cout << "How many students were surveyed?" << endl;
         cin >> size;
-    } while (size < 0 || size > 5000);
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max());
+        cin.ignore();
+    } while (size <= 0 || size > 5000);
     string *names = new string[size];
     int *matches = new int[size];
 
     input(names, matches, size);
-    cout << "\n---------------------------------" << endl;
-    cout << "Student Names and Matches Played" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "\n-------------------------------------------------" << endl;
+    cout << "\t"
+         << "Student Names & Matches Played" << endl;
+    cout << "-------------------------------------------------" << endl;
     display(names, matches, size);
-
-    cout << "\n------------------------------------" << endl;
-    cout << "Student Name who Played Most Matches" << endl;
-    cout << "--------------------------------------" << endl;
+    cin.get();
+    cout << "\n-------------------------------------------------" << endl;
+    cout << "\t"
+         << "Student Who Played Most Matches" << endl;
+    cout << "-------------------------------------------------" << endl;
     displayMostMatches(names, matches, size);
-
-    cout << "\n------------------------------------" << endl;
-    cout << "Average Matches Played for Students" << endl;
-    cout << "--------------------------------------" << endl;
+    cin.get();
+    cout << "\n-------------------------------------------------" << endl;
+    cout << "\t"
+         << "Average Matches Played for Students" << endl;
+    cout << "-------------------------------------------------" << endl;
     average = mean(matches, size);
-    cout << "Average Matches: " << average << endl;
-
-    cout << "\n---------------------------------------------------" << endl;
-    cout << "Student Names and Matches Played ~ Ascending Order" << endl;
-    cout << "---------------------------------------------------" << endl;
+    cout << "Average: " << average << endl;
+    cin.get();
+    cout << "\n-------------------------------------------------" << endl;
+    cout << "Student Names & Matches Played ~ Ascending Order" << endl;
+    cout << "-------------------------------------------------" << endl;
     sortStudents(names, matches, size);
     display(names, matches, size);
 
@@ -75,15 +79,14 @@ int main() {
 //****************************************************************************************************
 
 void input(string names[], int matches[], int size) {
-    int nums;
-
     for (int i = 0; i < size; ++i) {
-        cout << "Enter name of student " << i + 1 << ": ";
+        cout << "\nEnter name of student " << i + 1 << ": ";
         getline(cin, names[i]);
         while (true) {
-            cout << "Enter number of matches for " << names[i] << " : ";
-            cin >> nums;
-            if (nums > 0) {
+            cout << "Enter number of matches for " << names[i] << ": ";
+            cin >> matches[i];
+            cin.ignore();
+            if (matches[i] >= 0) {
                 break;
             } else {
                 cout << "\n*Invalid Entry*" << endl;
@@ -95,22 +98,33 @@ void input(string names[], int matches[], int size) {
 //****************************************************************************************************
 
 void display(const string names[], const int matches[], int size) {
-    for (int i = 0; i < size; ++size) {
-        cout << size + 1 << "  " << names[i] << " Matches: " << matches[i];
+    for (int i = 0; i < size; ++i) {
+        cout << i + 1 << "  " << setfill('.') << setw(30) << left << names[i]
+             << " Matches: " << matches[i] << endl;
     }
 }
 
 //****************************************************************************************************
 
 void displayMostMatches(const string names[], const int matches[], int size) {
+    int max = matches[0],
+        temp;
+    for (int i = 0; i < size; ++i) {
+        if (matches[i] > max) {
+            max = matches[i];
+            temp = i;
+        }
+    }
+    cout << temp + 1 << "  " << setfill('.') << setw(30) << left << names[temp]
+         << " Matches: " << matches[temp] << endl;
 }
 
 //****************************************************************************************************
 
 double mean(const int matches[], int size) {
     double sum = 0;
-    for (int i = 0; i < size; ++size) {
-        sum = +matches[i];
+    for (int i = 0; i < size; ++i) {
+        sum += matches[i];
     }
 
     return sum / size;
@@ -141,5 +155,63 @@ void sortStudents(string names[], int matches[], int size) {
 }
 
 /*
+
+-------------------------------------------------
+Cricket Matches College Students Play in a Year
+-------------------------------------------------
+How many students were surveyed?
+0
+How many students were surveyed?
+-1
+How many students were surveyed?
+10000
+How many students were surveyed?
+5
+
+Enter name of student 1: Ragland, Nicholas 
+Enter number of matches for Ragland, Nicholas: 23
+
+Enter name of student 2: Smith, John
+Enter number of matches for Smith, John: 28
+
+Enter name of student 3: Zhang, Xiu Ying
+Enter number of matches for Zhang, Xiu Ying: 21
+
+Enter name of student 4: Evans, Olivia
+Enter number of matches for Evans, Olivia: 30
+
+Enter name of student 5: Song, Mona
+Enter number of matches for Song, Mona: 26
+
+-------------------------------------------------
+        Student Names & Matches Played
+-------------------------------------------------
+1  Ragland, Nicholas............. Matches: 23
+2  Smith, John................... Matches: 28
+3  Zhang, Xiu Ying............... Matches: 21
+4  Evans, Olivia................. Matches: 30
+5  Song, Mona.................... Matches: 26
+
+
+-------------------------------------------------
+        Student Who Played Most Matches
+-------------------------------------------------
+4  Evans, Olivia................. Matches: 30
+
+
+-------------------------------------------------
+        Average Matches Played for Students
+-------------------------------------------------
+Average: 25.6
+
+
+-------------------------------------------------
+Student Names & Matches Played ~ Ascending Order
+-------------------------------------------------
+1  Evans, Olivia................. Matches: 30
+2  Ragland, Nicholas............. Matches: 23
+3  Smith, John................... Matches: 28
+4  Song, Mona.................... Matches: 26
+5  Zhang, Xiu Ying............... Matches: 21
 
 */
