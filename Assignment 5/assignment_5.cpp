@@ -31,7 +31,7 @@ int main() {
     int size;
     double average;
 
-    cout << "\n-------------------------------------------------" << endl;
+    cout << "-------------------------------------------------" << endl;
     cout << "Cricket Matches College Students Play in a Year " << endl;
     cout << "-------------------------------------------------" << endl;
     do {
@@ -157,7 +157,7 @@ void sortStudents(string names[], int matches[], int size) {
 /*
 
 -------------------------------------------------
-Cricket Matches College Students Play in a Year
+Cricket Matches College Students Play in a Year 
 -------------------------------------------------
 How many students were surveyed?
 0
@@ -168,7 +168,10 @@ How many students were surveyed?
 How many students were surveyed?
 5
 
-Enter name of student 1: Ragland, Nicholas 
+Enter name of student 1: Ragland, Nicholas
+Enter number of matches for Ragland, Nicholas: -1
+
+*Invalid Entry*
 Enter number of matches for Ragland, Nicholas: 23
 
 Enter name of student 2: Smith, John
@@ -177,7 +180,7 @@ Enter number of matches for Smith, John: 28
 Enter name of student 3: Zhang, Xiu Ying
 Enter number of matches for Zhang, Xiu Ying: 21
 
-Enter name of student 4: Evans, Olivia
+Enter name of student 4: Evans, Olivia 
 Enter number of matches for Evans, Olivia: 30
 
 Enter name of student 5: Song, Mona
