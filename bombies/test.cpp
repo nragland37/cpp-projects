@@ -1,134 +1,94 @@
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<string>
+
 using namespace std;
 
-void input(string names[], int matches[], int size);
-void display(const string names[], const int matches[], int size);
-void displayMostMatches(const string names[], const int matches[], int size);
-double mean(const int matches[], int num);
-void swapValues(int& a, int& b);
-void sortStudents(string names[], int matches[], int size);
+void sentenceAnalysis(const string sentence, int size);
 
-int main() {
-    int size;
-    string* ptr1 = nullptr;
-    int* ptr2 = nullptr;
-    double meanMatches;
+int main()
+{
+	string sentence = "This is a 101 SAMPLE to demonstrate string processing.";
+	int size = sentence.size();
 
-    cout << "How many students were surveyed?" << endl;
-    cin >> size;
-    cin.ignore();
+	cout << sentence << endl;
 
-    ptr1 = new string[size];
-    ptr2 = new int[size];
+	sentenceAnalysis(sentence, size);
 
-    cout << endl
-         << "Enter the name of each student and number of cricket matches played by that student."
-         << endl;
-    input(ptr1, ptr2, size);
-
-    cout << endl
-         << "Your completed survey: " << endl;
-    display(ptr1, ptr2, size);
-
-    cout << endl
-         << "The student with the most matches is: " << endl;
-    displayMostMatches(ptr1, ptr2, size);
-
-    meanMatches = mean(ptr2, size);
-    cout << endl
-         << "The average number of matches played: " << meanMatches << endl;
-
-    sortStudents(ptr1, ptr2, size);
-    cout << endl
-         << "Your survey in alphabetical order: " << endl;
-    display(ptr1, ptr2, size);
-
-    delete[] ptr1;
-    delete[] ptr2;
-
-    return 0;
+	return 0;
 }
 
 //****************************************************************************************************
 
-void input(string names[], int matches[], int size) {
-    bool valid = true;
+void sentenceAnalysis(const string sentence, int size)
+{
+	int totalLetters = 0;
+	int totalDigits = 0;
+	int totalLower = 0;
+	int totalUpper = 0;
+	int firstS;
+	int secondS;
 
-    for (int i = 0; i < size; i++) {
-        getline(cin, names[i]);
-        cin >> matches[i];
-        cin.ignore();
-        if (matches[i] < 0) {
-            valid = false;
-            cout << "Invalid number. Re-enter number of matches." << endl;
-            cin >> matches[i];
-            cin.ignore();
-        }
-    }
+	cout << "The size of the string: " << sentence.size() << endl;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (isalpha(sentence[i]))
+		{
+			totalLetters++;
+		}
+	}
+	cout << "The number of letters in the string: " << totalLetters << endl;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (isdigit(sentence[i]))
+		{
+			totalDigits++;
+		}
+	}
+
+	cout << "The number of digits in the string: " << totalDigits << endl;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (islower(sentence[i]))
+		{
+			totalLower++;
+		}
+	}
+
+	cout << "The number of lower case letters in the string: " << totalLower << endl;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (isupper(sentence[i]))
+		{
+			totalUpper++;
+		}
+	}
+
+	cout << "The number of upper case letters in the string: " << totalUpper << endl;
+
+	cout << "The character that is at index 12 of the string: " << sentence.at(12) << endl;
+	cout << "The last character of the string: " << sentence.back() << endl;
+
+	firstS = sentence.find('s', 0);
+	cout << "The indext of the first 's' in the string: " << firstS << endl;
+	cout << "The index of the second 's' in the string: " << sentence.find('s', firstS + 1);
 }
 
 //****************************************************************************************************
+/*
 
-void display(const string names[], const int matches[], int size) {
-    for (int i = 0; i < size; i++) {
-        cout << names[i] << " " << matches[i] << endl;
-    }
-}
+This is a 101 SAMPLE to demonstrate string processing.
+The size of the string: 54
+The number of letters in the string: 42
+The number of digits in the string: 3
+The number of lower case letters in the string: 35
+The number of upper case letters in the string: 7
+The character that is at index 12 of the string: 1
+The last character of the string: .
+The indext of the first 's' in the string: 3
+The index of the second 's' in the string: 6
 
-//****************************************************************************************************
-
-void displayMostMatches(const string names[], const int matches[], int size) {
-    int most = 0;
-    string mostStudent;
-
-    for (int i = 0; i < size; i++) {
-        if (matches[i] > most) {
-            most = matches[i];
-            mostStudent = names[i];
-        }
-    }
-    cout << mostStudent << " " << most << endl;
-}
-
-//****************************************************************************************************
-
-double mean(const int matches[], int num) {
-    int sum = 0;
-    double mean;
-
-    for (int i = 0; i < num; i++) {
-        sum += matches[i];
-    }
-    mean = static_cast<double>(sum) / num;
-
-    return mean;
-}
-
-//****************************************************************************************************
-
-void swapValues(int& a, int& b) {
-    int temp = a;
-    a = b;
-    b = temp;
-}
-
-//****************************************************************************************************
-
-void sortStudents(string names[], int matches[], int size) {
-    bool swap;
-    string temp;
-
-    do {
-        swap = false;
-        for (int i = 0; i < (size - 1); i++) {
-            if (names[i] > names[i + 1]) {
-                temp = names[i];
-                names[i] = names[i + 1];
-                names[i + 1] = temp;
-                swapValues(matches[i], matches[i + 1]);
-                swap = true;
-            }
-        }
-    } while (swap);
-}
+*/
