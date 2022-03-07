@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "iomanip": "cpp",
-        "ios": "cpp"
+        "xutility": "cpp",
+        "iterator": "cpp",
+        "xmemory": "cpp"
     }
 }
