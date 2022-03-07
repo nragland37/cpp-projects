@@ -65,32 +65,3 @@ int numberWords(const char* words, int size) {
     return total;
 }
 
-/*
-
-Enter a line of words (less than 50 characters), ended by '.': 
-
-Total words: 0
-
-Enter a line of words (less than 50 characters), ended by '.':
-This contains a name,address, and phone number.
-Total words: 8
-
-Enter a line of words (less than 50 characters), ended by '.':
-,,,,,,,This      contains,, a name.             
-Total words: 4
-
-//****************************************************************************************************
-
-Enter a line of words (less than 50 characters), ended by '.': 
-10192,,!@#$%^ hello. 
-Total words: 1
-
-Enter a line of words (less than 50 characters), ended by '.':  // user input titles (mr.,ms.,etc)
-Hello, we are Mr. and Mrs. Smith.
-Total words: 7
-
-Enter a line of words (less than 50 characters), ended by '.':
-,   ,,Hello, we,,, are Mr. and Mrs. Smith.
-Total words: 7
-
-*/
