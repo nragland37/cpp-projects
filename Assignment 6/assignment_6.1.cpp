@@ -14,10 +14,11 @@
 //****************************************************************************************************
 
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
-int numberWords(const char* words, int size);
+int numberWords(const char* words);
 
 //****************************************************************************************************
 
@@ -31,7 +32,7 @@ int main() {
     for (int i = 0; i < numInput; ++i) {
         cout << "Enter a line of words (less than 50 characters), ended by '.': " << endl;
         cin.getline(words, SIZE);
-        result = numberWords(words, SIZE);
+        result = numberWords(words);
         cout << "Total words: " << result << endl
              << endl;
     }
@@ -44,60 +45,54 @@ int main() {
 
 //****************************************************************************************************
 
-int numberWords(const char* words, int size) {
+int numberWords(const char* words) {
     int total = 0;
-    char lastChar = '\0';
+    int length = strlen(words);
+    bool isLetter = false;
 
-    if (words[0] == '\0') {  // user inputs no words
-        return 0;
-    }
-
-    if (words[0] == ' ' || words[0] == ',') {  // user inputs a space/comma first
-        total--;
-    }
-
-    for (int i = 0; i < size; ++i) {
-        if (words[i] == ' ' || words[i] == ',') {
-            total++;
-            if (lastChar == ' ' || lastChar == ',') {
-                total--;
+    for (int i = 0; i < length; ++i) {
+        if (isalpha(words[i])) {
+            isLetter = true;
+        } else {
+            if (isLetter == true) {
+                total++;
+                isLetter = false;
             }
         }
-        lastChar = words[i];
-        if (words[i] == '.' && words[i + 1] == '\0') {  // stops loop with '.' and followed by null byte [incase titles (mr.,ms.,etc)]
+        if (words[i] == '.') {  // stops loop with '.' [incase user inputs after '.']
             break;
         }
     }
 
-    return total + 1;
+    return total;
 }
 
 /*
 
-Enter a line of words (less than 50 characters), ended by '.':
+Enter a line of words (less than 50 characters), ended by '.': 
 
-Total words: 0                                                      // user inputs no words
+Total words: 0
 
 Enter a line of words (less than 50 characters), ended by '.':
 This contains a name,address, and phone number.
 Total words: 8
 
 Enter a line of words (less than 50 characters), ended by '.':
-This,,,,contains,,,, a    name.
+,,,,,,,This      contains,, a name.             
 Total words: 4
 
 //****************************************************************************************************
 
-Enter a line of words (less than 50 characters), ended by '.':
-,,,,,,hi.
-Total words: 1                                                       // user inputs a comma first
+Enter a line of words (less than 50 characters), ended by '.': 
+,,DEF  ,, ,,,12 2345,, hi.
+Total words: 2
 
-Enter a line of words (less than 50 characters), ended by '.':      // user inputs titles (mr.,ms.,etc)]
-Hello, we are Mr. and Mrs. Smith.
-Total words: 7
+Enter a line of words (less than 50 characters), ended by '.':   // user inputs after '.'
+Hello, this is a test.  test
+Total words: 5
 
 Enter a line of words (less than 50 characters), ended by '.':
-    Hello,,,, we,  are Mr. and Mrs.,, Smith.                       // user inputs a space first & titles (mr.,ms.,etc)]
-Total words: 7
+     hi,, HEY,,  hello   ,, .
+Total words: 3
 
 */
