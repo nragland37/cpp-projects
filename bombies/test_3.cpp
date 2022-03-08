@@ -14,11 +14,10 @@
 //****************************************************************************************************
 
 #include <iostream>
-#include <cstring>
 
 using namespace std;
 
-int numberWords(const char* words);
+int numberWords(const char* words, int size);
 
 //****************************************************************************************************
 
@@ -32,7 +31,7 @@ int main() {
     for (int i = 0; i < numInput; ++i) {
         cout << "Enter a line of words (less than 50 characters), ended by '.': " << endl;
         cin.getline(words, SIZE);
-        result = numberWords(words);
+        result = numberWords(words, SIZE);
         cout << "Total words: " << result << endl
              << endl;
     }
@@ -45,12 +44,11 @@ int main() {
 
 //****************************************************************************************************
 
-int numberWords(const char* words) {
+int numberWords(const char* words, int size) {
     int total = 0;
-    int length = strlen(words);
     bool isLetter = false;
 
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < size; ++i) {
         if (isalpha(words[i])) {
             isLetter = true;
         } else {
@@ -59,7 +57,7 @@ int numberWords(const char* words) {
                 isLetter = false;
             }
         }
-        if (words[i] == '.') {  // stops loop with '.' [incase user inputs after '.']
+        if (words[i] == '.' && words[i + 1] == '\0') {  // stops loop with '.' and followed by null byte [incase titles (mr.,ms.,etc)]
             break;
         }
     }
@@ -67,31 +65,3 @@ int numberWords(const char* words) {
     return total;
 }
 
-/*
-
-Enter a line of words (less than 50 characters), ended by '.': 
-
-Total words: 0
-
-Enter a line of words (less than 50 characters), ended by '.':
-This contains a name,address, and phone number.
-Total words: 8
-
-Enter a line of words (less than 50 characters), ended by '.':
-,,,,,,,This      contains,, a name.             
-Total words: 4
-
-//****************************************************************************************************
-
-Enter a line of words (less than 50 characters), ended by '.': 
-Total words: 2
-
-Enter a line of words (less than 50 characters), ended by '.':   // user inputs after '.'
-Hello, this is a test.  test
-Total words: 5
-
-Enter a line of words (less than 50 characters), ended by '.':
-     hi,, HEY,,  hello   ,, .
-Total words: 3
-
-*/
