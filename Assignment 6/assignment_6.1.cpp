@@ -13,8 +13,8 @@
 //
 //****************************************************************************************************
 
-#include <iostream>
 #include <cstring>
+#include <iostream>
 
 using namespace std;
 
@@ -69,7 +69,7 @@ int numberWords(const char* words) {
 
 /*
 
-Enter a line of words (less than 50 characters), ended by '.': 
+Enter a line of words (less than 50 characters), ended by '.':
 
 Total words: 0
 
@@ -78,19 +78,20 @@ This contains a name,address, and phone number.
 Total words: 8
 
 Enter a line of words (less than 50 characters), ended by '.':
-,,,,,,,This      contains,, a name.             
+,,,,,,,This      contains,, a name.
 Total words: 4
 
 //****************************************************************************************************
 
-Enter a line of words (less than 50 characters), ended by '.': 
+Enter a line of words (less than 50 characters), ended by '.':
+,,, DEF,,, ABC,, 1234.
 Total words: 2
 
-Enter a line of words (less than 50 characters), ended by '.':   // user inputs after '.'
+Enter a line of words (less than 50 characters), ended by '.':       // user inputs after '.'
 Hello, this is a test.  test
 Total words: 5
 
-Enter a line of words (less than 50 characters), ended by '.':
+Enter a line of words (less than 50 characters), ended by '.': 
      hi,, HEY,,  hello   ,, .
 Total words: 3
 
