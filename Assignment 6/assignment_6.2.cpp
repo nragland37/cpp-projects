@@ -65,6 +65,7 @@ void sentenceData(const string sentence) {
     cout << "The number of lower case letters in the string: " << lowerCount << endl;
     cout << "The number of upper case letters in the string: " << upperCount << endl;
     cout << "The character that is at index 12 of the string: " << sentence.at(12) << endl;
+    cout << "The first character of the string: " << sentence.front() << endl;
     cout << "The last character of the string: " << sentence.back() << endl;
     cout << "The index of the first 's' in the string: " << first_s << endl;
     cout << "The index of the second 's' in the string: " << second_s << endl;
