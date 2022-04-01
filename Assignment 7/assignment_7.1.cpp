@@ -20,26 +20,27 @@
 using namespace std;
 
 //****************************************************************************************************
-const int SIZE = 10;
 struct Speaker {
     string name;
     string phoneNum;
     string topic;
     double fee;
-} members[SIZE];
+};
 
 void inputSpeakers(Speaker members[], int size, int& numSpeakers);
 void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName);
-void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string speakerName);
-void displayTopicSpeakers(Speaker members[], int numSpeakers, const string topic);
+void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string& speakerName);
+void displayTopicSpeakers(Speaker members[], int numSpeakers, const string& topic);
 void displayAllSpeakerInfo(Speaker members[], int numSpeakers);
-bool isEmpty(const string str);
-bool testName(Speaker members[], int numSpeakers, string speakerName);
-bool testTopic(Speaker members[], int numSpeakers, string topic);
+bool isEmpty(const string& str);
+bool testName(Speaker members[], int numSpeakers, const string& speakerName);
+bool testTopic(Speaker members[], int numSpeakers, const string& topic);
 
 //****************************************************************************************************
 
 int main() {
+    const int SIZE = 10;
+    Speaker members[SIZE];
     int numSpeakers = 0;
     string speakerName,
         topic;
@@ -54,8 +55,7 @@ int main() {
         cout << "    Enter the name of the speaker you would like to update." << endl;
         cout << "---------------------------------------------------------------" << endl;
         cout << "Name: ";
-        cin >> speakerName;
-        cin.ignore();
+        getline(cin, speakerName);
         nameTest = testName(members, numSpeakers, speakerName);
         if (nameTest == false) {
             cout << "\nSorry but the name does not exist." << endl;
@@ -68,8 +68,7 @@ int main() {
         cout << "   Enter the name of the speaker you would like to display." << endl;
         cout << "---------------------------------------------------------------" << endl;
         cout << "Name: ";
-        cin >> speakerName;
-        cin.ignore();
+        getline(cin, speakerName);
         nameTest = testName(members, numSpeakers, speakerName);
         if (nameTest == false) {
             cout << "\nSorry but the name does not exist." << endl;
@@ -159,6 +158,13 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName
     cout << "---------------------------------------------------------------" << endl;
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
+            cout << "Name: ";
+            getline(cin, members[i].name);
+            while (isEmpty(members[i].name)) {
+                cout << "\nSorry but the name could not be empty.\n"
+                     << "\nName: ";
+                getline(cin, members[i].name);
+            }
             cout << "Telephone Number: ";
             getline(cin, members[i].phoneNum);
             while (isEmpty(members[i].phoneNum)) {
@@ -187,7 +193,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName
 
 //****************************************************************************************************
 
-void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string speakerName) {
+void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string& speakerName) {
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
             cout << "\nSpeaker " << i + 1 << endl;
@@ -208,7 +214,7 @@ void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string spea
 
 //****************************************************************************************************
 
-void displayTopicSpeakers(Speaker members[], int numSpeakers, const string topic) {
+void displayTopicSpeakers(Speaker members[], int numSpeakers, const string& topic) {
     for (int i = 0; i < numSpeakers; i++) {
         if (topic == members[i].topic) {
             cout << "\nSpeaker " << i + 1 << endl;
@@ -250,7 +256,7 @@ void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
 
 //****************************************************************************************************
 
-bool isEmpty(const string str) {
+bool isEmpty(const string& str) {
     int len = str.length();
     for (int i = 0; i < len; ++i) {
         if (!isspace(str[i])) {
@@ -262,32 +268,180 @@ bool isEmpty(const string str) {
 
 //****************************************************************************************************
 
-bool testName(Speaker members[], int numSpeakers, string speakerName) {
-    bool testName = false;
+bool testName(Speaker members[], int numSpeakers, const string& speakerName) {
+    bool nameFound = false;
 
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
-            testName = true;
+            nameFound = true;
             break;
         }
     }
-    return testName;
+    return nameFound;
 }
 
 //****************************************************************************************************
 
-bool testTopic(Speaker members[], int numSpeakers, string topic) {
-    bool testTopic = false;
+bool testTopic(Speaker members[], int numSpeakers, const string& topic) {
+    bool topicFound = false;
 
     for (int i = 0; i < numSpeakers; ++i) {
         if (topic == members[i].topic) {
-            testTopic = true;
+            topicFound = true;
             break;
         }
     }
-    return testTopic;
+    return topicFound;
 }
 
 /*
+
+---------------------------------------------------------------
+        Enter the following information of speaker 1.
+---------------------------------------------------------------
+Name:
+
+Sorry but the name could not be empty.
+
+Name: Nicholas Ragland
+Telephone Number: 314-219-9992
+Topic: Art
+Fee: 35
+Do you have another entry? (Y/N):
+Y
+
+---------------------------------------------------------------
+        Enter the following information of speaker 2.
+---------------------------------------------------------------
+Name: John Smith
+Telephone Number: 314-111-1111
+Topic: Art
+Fee: 30
+Do you have another entry? (Y/N):
+Y
+
+---------------------------------------------------------------
+        Enter the following information of speaker 3.
+---------------------------------------------------------------
+Name: Olivia Davisson
+Telephone Number: 314-222-2222
+Topic: Computer Science
+Fee: 40
+Do you have another entry? (Y/N):
+Y
+
+---------------------------------------------------------------
+        Enter the following information of speaker 4.
+---------------------------------------------------------------
+Name: Sam Smith
+Telephone Number:
+
+Sorry but the telephone number could not be empty.
+Telephone Number: 314-219-3333
+Topic:
+
+Sorry but the topic could not be empty.
+Topic: History
+Fee: -12
+
+Sorry but the fees could not be negative.
+
+Fee: 23
+Do you have another entry? (Y/N):
+N
+
+---------------------------------------------------------------
+    Enter the name of the speaker you would like to update.
+---------------------------------------------------------------
+Name: Julia
+
+Sorry but the name does not exist.
+
+---------------------------------------------------------------
+    Enter the name of the speaker you would like to update.
+---------------------------------------------------------------
+Name: Nicholas Ragland
+
+---------------------------------------------------------------
+        Please enter the speaker's updated information.
+---------------------------------------------------------------
+Telephone Number: 314-999-9999
+Topic: Computer Science
+Fee: 45
+
+---------------------------------------------------------------
+   Enter the name of the speaker you would like to display.
+---------------------------------------------------------------
+Name: James
+
+Sorry but the name does not exist.
+
+---------------------------------------------------------------
+   Enter the name of the speaker you would like to display.
+---------------------------------------------------------------
+Name: Nicholas Ragland
+
+Speaker 1
+        Name ......................... Nicholas Ragland
+        Telephone Number ............. 314-999-9999
+        Topic ........................ Computer Science
+        Fee .......................... 45
+
+---------------------------------------------------------------
+     Enter the topic you would like to display names for.
+---------------------------------------------------------------
+Topic: Poetry
+
+Sorry but nobody is speaking about this topic.
+
+Do you have another topic? (Y/N)
+Y
+
+---------------------------------------------------------------
+     Enter the topic you would like to display names for.
+---------------------------------------------------------------
+Topic: Computer Science
+
+Speaker 1
+        Name ......................... Nicholas Ragland
+        Telephone Number ............. 314-999-9999
+        Topic ........................ Computer Science
+        Fee .......................... 45
+
+Speaker 3
+        Name ......................... Olivia Davisson
+        Telephone Number ............. 314-222-2222
+        Topic ........................ Computer Science
+        Fee .......................... 40
+
+
+
+-------------------------------------------------------------
+                Speakers' Bureau Information
+-------------------------------------------------------------
+
+Speaker 1
+        Name ......................... Nicholas Ragland
+        Telephone Number ............. 314-999-9999
+        Topic ........................ Computer Science
+        Fee .......................... 45
+
+Speaker 2
+        Name ......................... John Smith
+        Telephone Number ............. 314-111-1111
+        Topic ........................ Art
+        Fee .......................... 30
+
+Speaker 3
+        Name ......................... Olivia Davisson
+        Telephone Number ............. 314-222-2222
+        Topic ........................ Computer Science
+        Fee .......................... 40
+
+Speaker 4
+        Name ......................... Sam Smith
+        Telephone Number ............. 314-219-3333
+        Topic ........................ History
+        Fee .......................... 23
 
 */
