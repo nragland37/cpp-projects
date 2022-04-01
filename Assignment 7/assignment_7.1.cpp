@@ -144,6 +144,7 @@ void inputSpeakers(Speaker members[], int size, int& numSpeakers) {
         cout << "Do you have another entry? (Y/N): " << endl;
         cin >> entry;
         if (entry == 'n' || entry == 'N') {
+            cin.ignore();
             break;
         }
         cin.ignore();
