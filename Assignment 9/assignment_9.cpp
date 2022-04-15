@@ -160,7 +160,7 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
     cout << " randomly selected from the list." << endl;
     cout << "  Enter the English translation." << endl;
     for (int i = 0; i < numTests; ++i) {
-        randomPerson = rand() % (numP - (numP - 10)) + (numP - 10);
+        randomPerson = rand() % (numP - 1) + 1;
         people[randomPerson].testTaken.month = month;
         people[randomPerson].testTaken.day = day;
         people[randomPerson].testTaken.year = year;
@@ -197,7 +197,7 @@ void takeTest(const Translation translate[], int numT, Person& p) {
          << "English" << endl;
     cout << "---------------------------------" << endl;
     for (int i = 0; i < numQuestions; ++i) {
-        randomQuestion = rand() % (numT - (numT - 19)) + (numT - 19);
+        randomQuestion = rand() % (numT - 1) + 1;
         cout << setfill(' ') << setw(3) << left << randomQuestion + 1
              << setfill('.') << setw(18) << left << translate[randomQuestion].american;
         cin >> guess;
