@@ -39,8 +39,8 @@ struct Person {
     Date testTaken;
 };
 
-Translation* readTranslation(const string& fileName, int& numT);
-Person* readTesters(const string& fileName, int& numP);
+Translation* readTranslation(const string& fileName, int& num);
+Person* readTesters(const string& fileName, int& num);
 void testingOptions(const Translation translate[], int numT, Person people[], int numP);
 void takeTest(const Translation translate[], int numT, Person& p);
 void displayTesters(const Person people[], int numP);
