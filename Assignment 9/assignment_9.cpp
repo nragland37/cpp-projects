@@ -151,7 +151,7 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
     srand(seed);
 
     cout << "\n---------------------------------" << endl;
-    cout << "     Enter the current testTaken." << endl;
+    cout << "        Enter Today's Date" << endl;
     cout << "---------------------------------" << endl;
     cout << "Enter month: ";
     cin >> month;
@@ -404,7 +404,7 @@ Press enter to continue...
 Good Luck!
 
 ---------------------------------
-     Enter the current testTaken.
+        Enter Today's Date       
 ---------------------------------
 Enter month: 4
 Enter day: 14
