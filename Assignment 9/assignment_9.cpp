@@ -82,6 +82,12 @@ int main() {
     cout << "===================================================";
     displayTesters(people, numP);
     writeTesters("Testers.txt", people, numP);
+
+    delete[] translate;
+    translate = nullptr;
+    delete[] people;
+    people = nullptr;
+    
     return 0;
 }
 

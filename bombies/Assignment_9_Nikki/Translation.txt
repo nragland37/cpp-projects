@@ -1,0 +1,21 @@
+20
+chips,crisps
+french fries,chips
+sidewalk,pavement
+cookie,biscuit
+apartment,flat
+elevator,lift
+gas,petrol
+soccer,football
+movie,film
+sweater,jumper
+trunk,boot
+hood,bonnet
+last name,surname
+restroom,toilet
+cart,trolley
+candy,sweet
+vacation,holiday
+subway,underground
+pants,trousers
+mailbox,postbox
