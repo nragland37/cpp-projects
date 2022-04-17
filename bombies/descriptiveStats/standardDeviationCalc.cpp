@@ -20,6 +20,8 @@ int main() {
     standardDev = calculateSD(values, size);
     cout << "\nStandard Deviation: " << standardDev << endl;
 
+    delete[] values;
+    
     return 0;
 }
 
