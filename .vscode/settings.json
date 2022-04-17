@@ -10,7 +10,8 @@
         "ios": "cpp",
         "xiosbase": "cpp",
         "iostream": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "cmath": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
