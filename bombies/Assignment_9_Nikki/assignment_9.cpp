@@ -193,17 +193,14 @@ void takeTest(const Translation t[], int numT, Person& p)
 void displayTesters(const Person p[], int numP)
 {
     cout << fixed << left
-         << setw(19) << "NAME" << setw(20) << "SCORE" << setw(15) << "DATE" << endl
+         << setw(19) << "NAME" << setw(20) << "SCORE" << "DATE" << endl
          << "**************************************************" << endl;
-    cout << fixed << left;
     for (int i = 0; i < numP; i++)
     {
-        for (int j = 0; j < 20; j++)
-        {
-            cout << p[i].name[j];
-        }
-        cout << fixed << left << setw(20) << setprecision(1) << p[i].score << p[i].testTaken.month
-             << "/" << p[i].testTaken.day << "/" << p[i].testTaken.year << endl;
+        cout << setw(19) << p[i].name << setw(20) << setprecision(1) << p[i].score 
+             << p[i].testTaken.month << "/" 
+             << p[i].testTaken.day << "/" 
+             << p[i].testTaken.year << endl;
     }
 }
 
@@ -214,14 +211,11 @@ void writeTesters(const string& filename, const Person p[], int numP)
     fstream f;
 
     f.open("Testers.txt", ios::out);
+    f << numP << endl;
     for (int i = 0; i < numP; i++)
     {
-        for (int j = 0; j < 20; j++)
-        {
-            f << p[i].name[j];
-        }
-        f << endl << p[i].score << "," << p[i].testTaken.month << "/" << p[i].testTaken.day << "/"
-          << p[i].testTaken.year << endl;
+        f << p[i].name << endl << p[i].score << "," << p[i].testTaken.month 
+          << "/" << p[i].testTaken.day << "/" << p[i].testTaken.year << endl;
     }
     f.close();
 }
