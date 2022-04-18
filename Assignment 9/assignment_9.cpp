@@ -87,7 +87,7 @@ int main() {
     translate = nullptr;
     delete[] people;
     people = nullptr;
-    
+
     return 0;
 }
 
@@ -166,7 +166,7 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
     cout << " randomly selected from the list." << endl;
     cout << "  Enter the English translation." << endl;
     for (int i = 0; i < numTests; ++i) {
-        randomPerson = rand() % (numP - 1) + 1;
+        randomPerson = rand() % (numP - 1);
         people[randomPerson].testTaken.month = month;
         people[randomPerson].testTaken.day = day;
         people[randomPerson].testTaken.year = year;
@@ -203,7 +203,7 @@ void takeTest(const Translation translate[], int numT, Person& p) {
          << "English" << endl;
     cout << "---------------------------------" << endl;
     for (int i = 0; i < numQuestions; ++i) {
-        randomQuestion = rand() % (numT - 1) + 1;
+        randomQuestion = rand() % (numT - 1);
         cout << setfill(' ') << setw(3) << left << randomQuestion + 1
              << setfill('.') << setw(18) << left << translate[randomQuestion].american;
         cin >> guess;
@@ -404,7 +404,7 @@ Press enter to continue...
 Good Luck!
 
 ---------------------------------
-        Enter Today's Date       
+        Enter Today's Date
 ---------------------------------
 Enter month: 4
 Enter day: 14
@@ -514,23 +514,23 @@ Answer: sweet
                 Updated Information
 ===================================================
 ---------------------------------------------------
-#  NAME                SCORE %        TEST TAKEN          
+#  NAME                SCORE %        TEST TAKEN
 ---------------------------------------------------
 1  Steve Smith         56.6           11/11/2019
 2  Sue Jones           10.0           11/11/2011
 3  Li Ying             0.0            11/11/2011
-4  Kun Joom            100.0          4/14/2022         
-5  Joe Bush            60.0           4/14/2022         
+4  Kun Joom            100.0          4/14/2022
+5  Joe Bush            60.0           4/14/2022
 6  Kim Long            0.0            11/11/2011
 7  Fred Ring           33.3           5/5/2019
 8  Frank Pearse        20.0           11/11/2011
-9  Helen Hu            80.0           4/14/2022         
+9  Helen Hu            80.0           4/14/2022
 10 Mark James          0.0            11/11/2021
 
 
 //****************************************************************************************************
 
-10                         //updated file 
+10                         //updated file
 Steve Smith
 56.6,11/11/2019
 Sue Jones

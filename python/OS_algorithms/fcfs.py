@@ -1,7 +1,7 @@
 # Python program to demonstrate
 # FCFS Disk Scheduling algorithm
 
-size = 8
+size = 9
 
 
 def FCFS(arr, head):
@@ -35,11 +35,9 @@ def FCFS(arr, head):
 if __name__ == "__main__":
 
     # request array
-    arr = [176, 79, 34, 60, 92, 11, 41, 114]
-    head = 50
+    arr = [86, 147, 91, 177, 94, 150, 102, 175, 130]
+    head = 143
 
     print("Initial position of head:", head)
-    
-    FCFS(arr, head)
 
-# This code contributed by Rajput-Ji
+    FCFS(arr, head)

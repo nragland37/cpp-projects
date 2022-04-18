@@ -1,19 +1,20 @@
-// SCAN Disk Scheduling algorithm
+// C++ program to demonstrate
+// LOOK Disk Scheduling algorithm
 #include <bits/stdc++.h>
 using namespace std;
 
+// Code by Vikram Chaurasia
+
 int disk_size = 200;
 
-void SCAN(int arr[], int size, int head, string direction);
-
-//****************************************************************************************************
+void LOOK(int arr[], int size, int head, string direction);
 
 int main() {
     int size,
         head;
     // request array
 
-    cout << "SCAN" << endl;
+    cout << "LOOK" << endl;
     cout << "How many request: ";
     cin >> size;
     cout << "Read/Write head starts on track: ";
@@ -25,28 +26,23 @@ int main() {
         cin >> arr[i];
     }
     string direction = "right";
-
-    SCAN(arr, size, head, direction);
+    
+    LOOK(arr, size, head, direction);
     delete[] arr;
     return 0;
 }
 
 //****************************************************************************************************
 
-void SCAN(int arr[], int size, int head, string direction) {
+void LOOK(int arr[], int size, int head, string direction) {
     int seek_count = 0;
     int distance, cur_track;
     vector<int> left, right;
     vector<int> seek_sequence;
 
-    // appending end values
-    // which has to be visited
-    // before reversing the direction
-    if (direction == "left")
-        left.push_back(0);
-    else if (direction == "right")
-        right.push_back(disk_size - 1);
-
+    // appending values which are
+    // currently at left and right
+    // direction from the head.
     for (int i = 0; i < size; i++) {
         if (arr[i] < head)
             left.push_back(arr[i]);
@@ -55,12 +51,14 @@ void SCAN(int arr[], int size, int head, string direction) {
     }
 
     // sorting left and right vectors
+    // for servicing tracks in the
+    // correct sequence.
     std::sort(left.begin(), left.end());
     std::sort(right.begin(), right.end());
 
     // run the while loop two times.
     // one by one scanning right
-    // and left of the head
+    // and left side of the head
     int run = 2;
     while (run--) {
         if (direction == "left") {
@@ -79,6 +77,7 @@ void SCAN(int arr[], int size, int head, string direction) {
                 // accessed track is now the new head
                 head = cur_track;
             }
+            // reversing the direction
             direction = "right";
         } else if (direction == "right") {
             for (int i = 0; i < right.size(); i++) {
@@ -95,14 +94,15 @@ void SCAN(int arr[], int size, int head, string direction) {
                 // accessed track is now new head
                 head = cur_track;
             }
+            // reversing the direction
             direction = "left";
         }
     }
 
-    cout << "Total number of seek operations = "
+    cout << "\nTotal number of seek operations = "
          << seek_count << endl;
     cout << "Average seek: " << (static_cast<double>(seek_count) / size) << endl;
-    cout << "\nSeek Sequence" << endl;
+    cout << "Seek Sequence is" << endl;
 
     for (int i = 0; i < seek_sequence.size(); i++) {
         cout << seek_sequence[i] << endl;

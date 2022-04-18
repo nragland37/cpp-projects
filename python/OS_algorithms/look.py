@@ -1,6 +1,6 @@
 # Python3 program to demonstrate
 # LOOK Disk Scheduling algorithm
-size = 8
+size = 9
 disk_size = 200
 
 
@@ -83,17 +83,16 @@ def LOOK(arr, head, direction):
     for i in range(len(seek_sequence)):
         print(seek_sequence[i])
 
+    # Driver code
 
-# Driver code
+    # Request array
 
-# Request array
-arr = [176, 79, 34, 60, 92, 11, 41, 114]
-head = 50
+
+arr = [86, 147, 91, 177, 94, 150, 102, 175, 130]
+head = 143
 
 direction = "right"
 
 print("Initial position of head:", head)
 
 LOOK(arr, head, direction)
-
-# This code is contributed by rag2127

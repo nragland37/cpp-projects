@@ -92,5 +92,3 @@ head = 143
 print("Initial position of head:", head)
 
 CSCAN(arr, head)
-
-# This code is contributed by rag2127

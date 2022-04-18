@@ -1,8 +1,36 @@
-// C++ program to demonstrate
 // FCFS Disk Scheduling algorithm
 
 #include <bits/stdc++.h>
 using namespace std;
+
+void FCFS(int arr[], int size, int head);
+
+//****************************************************************************************************
+
+int main() {
+    int size,
+        head;
+    // request array
+
+    cout << "FCFS" << endl;
+    cout << "How many request: ";
+    cin >> size;
+    cout << "Read/Write head starts on track: ";
+    cin >> head;
+
+    int* arr = new int[size];
+    for (int i = 0; i < size; ++i) {
+        cout << "Enter request " << i + 1 << ": ";
+        cin >> arr[i];
+    }
+
+    FCFS(arr, size, head);
+
+    delete[] arr;
+    return 0;
+}
+
+//****************************************************************************************************
 
 void FCFS(int arr[], int size, int head) {
     int seek_count = 0;
@@ -21,7 +49,7 @@ void FCFS(int arr[], int size, int head) {
         head = cur_track;
     }
 
-    cout << "Total number of seek operations = "
+    cout << "\nTotal number of seek operations = "
          << seek_count << endl;
     cout << "Average seek: " << (static_cast<double>(seek_count) / size) << endl;
     // Seek sequence would be the same
@@ -31,16 +59,4 @@ void FCFS(int arr[], int size, int head) {
     for (int i = 0; i < size; i++) {
         cout << arr[i] << endl;
     }
-}
-
-// Driver code
-int main() {
-    int size = 8;
-    // request array
-    int arr[size] = {176, 79, 34, 60, 92, 11, 41, 114};
-    int head = 50;
-
-    FCFS(arr, size, head);
-
-    return 0;
 }

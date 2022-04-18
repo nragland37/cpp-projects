@@ -1,5 +1,5 @@
 # Python3 implementation of the approach
-size = 8
+size = 9
 disk_size = 200
 
 # Function to perform C-LOOK on the request
@@ -83,11 +83,9 @@ def CLOOK(arr, head):
 # Driver code
 
 # Request array
-arr = [176, 79, 34, 60, 92, 11, 41, 114]
-head = 50
+arr = [86, 147, 91, 177, 94, 150, 102, 175, 130]
+head = 143
 
 print("Initial position of head:", head)
 
 CLOOK(arr, head)
-
-# This code is contributed by rag2127

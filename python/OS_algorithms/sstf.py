@@ -69,8 +69,6 @@ def shortestSeekTimeFirst(request, head):
 if __name__ == "__main__":
 
     # request array
-    proc = [176, 79, 34, 60, 92, 11, 41, 114]
-    shortestSeekTimeFirst(proc, 50)
-
-# This code is contributed by
-# Shubham Singh(SHUBHAMSINGH10)
+    proc = [86, 147, 91, 177, 94, 150, 102, 175, 130]
+    head = 143
+    shortestSeekTimeFirst(proc, head )
