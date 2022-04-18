@@ -1,9 +1,12 @@
 // C++ program to demonstrate
 // C-SCAN Disk Scheduling algorithm
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int disk_size = 200;
+int disk_size = 200;   // "disk has 200 cyclinders" - can be changed accordingly 
 
 void CSCAN(int arr[], int size, int head);
 
@@ -12,7 +15,6 @@ void CSCAN(int arr[], int size, int head);
 int main() {
     int size,
         head;
-    // request array
 
     cout << "CSCAN" << endl;
     cout << "How many request: ";
@@ -112,3 +114,40 @@ void CSCAN(int arr[], int size, int head) {
         cout << seek_sequence[i] << endl;
     }
 }
+
+/*
+
+//note:: if seek sequence hits 199 (end of the disk), 
+it immediately returns to the seek sequence 0 (beginning of the disk) without servicing 
+any requests on the return trip and starts servicing again once reaches the beginning. 
+
+CSCAN
+How many request: 9
+Read/Write head starts on track: 143
+Enter request 1: 86
+Enter request 2: 147
+Enter request 3: 91
+Enter request 4: 177
+Enter request 5: 94
+Enter request 6: 150
+Enter request 7: 102
+Enter request 8: 175
+Enter request 9: 130
+
+Total number of seek operations = 385
+Average seek: 42.7778
+
+Seek Sequence
+147
+150
+175
+177       <<<<<<  //note      from track#: 177  
+199       <<<<<<  //note  
+0         <<<<<<  //note                        
+86        <<<<<<  //note       to track#: 86  // "177 - 199 - 0 - 86" // travel distance: 307 
+91
+94
+102
+130
+
+*/

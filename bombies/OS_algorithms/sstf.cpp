@@ -1,6 +1,9 @@
 // C++ program for implementation of
 // SSTF disk scheduling
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 void calculatedifference(int request[], int head, int diff[][2], int size);
@@ -88,14 +91,44 @@ void shortestSeekTimeFirst(int request[], int head, int size) {
     }
     seeksequence[size] = head;
 
-    cout << "\nTotal number of seek operations = "
-         << seekcount << endl;
+    cout << "\nTotal number of seek operations = " << seekcount << endl;
     cout << "Average seek: " << (static_cast<double>(seekcount) / size) << endl;
-    cout << "Seek sequence is : "
-         << "\n";
+    cout << "\nSeek sequence" << endl;
 
     // Print the sequence
     for (int i = 0; i <= size; i++) {
         cout << seeksequence[i] << "\n";
     }
 }
+
+/*
+
+SSTF
+How many request: 9
+Read/Write head starts on track: 143
+Enter request 1: 86
+Enter request 2: 147
+Enter request 3: 91
+Enter request 4: 177
+Enter request 5: 94
+Enter request 6: 150
+Enter request 7: 102
+Enter request 8: 175
+Enter request 9: 130
+
+Total number of seek operations = 162
+Average seek: 18
+
+Seek sequence
+143
+147
+150
+130
+102
+94
+91
+86
+175
+177
+
+*/

@@ -1,8 +1,12 @@
 // C++ implementation of the approach
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <vector>
+
 using namespace std;
 
-int disk_size = 200;
+int disk_size = 200;  //"disk has 200 cyclinders" - can be changed accordingly 
 
 void CLOOK(int arr[], int size, int head);
 
@@ -11,7 +15,6 @@ void CLOOK(int arr[], int size, int head);
 int main() {
     int size,
         head;
-    // request array
 
     cout << "C-LOOK" << endl;
     cout << "How many request: ";
@@ -98,7 +101,7 @@ void CLOOK(int arr[], int size, int head) {
         head = cur_track;
     }
 
-    cout << "Total number of seek operations = "
+    cout << "\nTotal number of seek operations = "
          << seek_count << endl;
     cout << "Average seek: " << (static_cast<double>(seek_count) / size) << endl;
     cout << "\nSeek Sequence" << endl;
@@ -107,3 +110,34 @@ void CLOOK(int arr[], int size, int head) {
         cout << seek_sequence[i] << endl;
     }
 }
+
+/*
+
+C-LOOK
+How many request: 9
+Read/Write head starts on track: 143
+Enter request 1: 86
+Enter request 2: 147
+Enter request 3: 91
+Enter request 4: 177
+Enter request 5: 94
+Enter request 6: 150
+Enter request 7: 102
+Enter request 8: 175
+Enter request 9: 130
+
+Total number of seek operations = 169
+Average seek: 18.7778
+
+Seek Sequence
+147
+150
+175
+177
+86
+91
+94
+102
+130
+
+*/
