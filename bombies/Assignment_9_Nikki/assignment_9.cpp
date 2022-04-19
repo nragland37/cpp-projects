@@ -69,10 +69,10 @@ int main() {
     ptr2 = readTesters("Testers.txt", numP);
     testingOptions(ptr1, numT, ptr2, numP);
     displayTesters(ptr2, numP);
-    cout << "Who is taking the test? (Choose a number between 1 and " << numP << ")";
-    cin >> personTesting;
-    p = ptr2[personTesting - 1];
-    takeTest(ptr1, numT, p); 
+    //cout << "Who is taking the test? (Choose a number between 1 and " << numP << ")";
+    //cin >> personTesting;
+    //p = ptr2[personTesting - 1];
+    //takeTest(ptr1, numT, p);                       //if you wanted to chose who was taking the test
     writeTesters(filename, ptr2, numP);
 
     delete[]ptr1;
@@ -140,21 +140,20 @@ Person* readTesters(const string& filename, int& num)
 void testingOptions(const Translation t[], int numT, Person people[], int numP)
 {
     string temp;
-    Person p;
     int randNum;
    
     cout << "Enter the date: XX/XX/XXXX ";
     cin >> temp;
+    cin.ignore();
     for (int i = 0; i < 3; i++)
     {
         short seed = time(0);
         srand(seed);
         randNum = rand() % (numP - 1);
-        p = people[randNum];
-        takeTest(t, numT, p);
-        p.testTaken.month = stoi(temp.substr(0, 2));
-        p.testTaken.day = stoi(temp.substr(3, 2));
-        p.testTaken.year = stoi(temp.substr(6, 4));
+        takeTest(t, numT, people[randNum]);
+        people[randNum].testTaken.month = stoi(temp.substr(0, 2));
+        people[randNum].testTaken.day = stoi(temp.substr(3, 2));
+        people[randNum].testTaken.year = stoi(temp.substr(6, 4));
     }
     cout << endl;
 }
@@ -167,13 +166,15 @@ void takeTest(const Translation t[], int numT, Person& p)
     string answer;
     int correctAns = 0;
 
+    cout << "Tester: " << p.name << endl;
+
     for (int i = 0; i < 5; i++)
     {
         short seed = time(0);
         srand(seed);
         randNum = rand() % numT;
         cout << "Question " << i + 1 << ": " << t[randNum].american << " = ______________? ";
-        cin >> answer;
+        getline(cin, answer);
         if(answer == t[randNum].english)
         {
             cout << endl << "Correct!" << endl;
@@ -193,14 +194,17 @@ void takeTest(const Translation t[], int numT, Person& p)
 void displayTesters(const Person p[], int numP)
 {
     cout << fixed << left
-         << setw(19) << "NAME" << setw(20) << "SCORE" << "DATE" << endl
+         << setw(19) << "NAME" << setw(20) << "SCORE" << setw(15) << "DATE" << endl
          << "**************************************************" << endl;
+    cout << fixed << left;
     for (int i = 0; i < numP; i++)
     {
-        cout << setw(19) << p[i].name << setw(20) << setprecision(1) << p[i].score 
-             << p[i].testTaken.month << "/" 
-             << p[i].testTaken.day << "/" 
-             << p[i].testTaken.year << endl;
+        cout << setw(19) << p[i].name;
+        cout << setw(20) << setprecision(1) << p[i].score 
+             << p[i].testTaken.month 
+             << "/" << p[i].testTaken.day 
+             << "/" << p[i].testTaken.year 
+             << endl;
     }
 }
 
@@ -214,8 +218,9 @@ void writeTesters(const string& filename, const Person p[], int numP)
     f << numP << endl;
     for (int i = 0; i < numP; i++)
     {
-        f << p[i].name << endl << p[i].score << "," << p[i].testTaken.month 
-          << "/" << p[i].testTaken.day << "/" << p[i].testTaken.year << endl;
+        f << p[i].name << endl;
+        f << p[i].score << ",";
+        f << p[i].testTaken.month << "/" << p[i].testTaken.day << "/" << p[i].testTaken.year << endl;
     }
     f.close();
 }
@@ -224,84 +229,70 @@ void writeTesters(const string& filename, const Person p[], int numP)
 
 /*
 
-Enter the date: XX/XX/XXXX 04/15/2022
-Question 1: cookie = ______________? biscuit
-
-Correct!
-Question 2: trunk = ______________? boot
-
-Correct!
-Question 3: cookie = ______________? biscuit
-
-Correct!
-Question 4: vacation = ______________? trip
+Enter the date: XX/XX/XXXX 04/18/2022
+Tester: Li Ying
+Question 1: gas = ______________? a
 
 Incorrect.
-Question 5: elevator = ______________? lift
-
-Correct!
-Your Score: 80
-Question 1: sidewalk = ______________? walkway
+Question 2: last name = ______________? a
 
 Incorrect.
-Question 2: candy = ______________? sweet
-
-Correct!
-Question 3: movie = ______________? film
-
-Correct!
-Question 4: french fries = ______________? crisps
+Question 3: candy = ______________? a
 
 Incorrect.
-Question 5: gas = ______________? petrol
-
-Correct!
-Your Score: 60
-Question 1: sidewalk = ______________? street
+Question 4: candy = ______________? a
 
 Incorrect.
-Question 2: apartment = ______________? townhouse
+Question 5: mailbox = ______________? a
 
 Incorrect.
-Question 3: restroom = ______________? loo
+Your Score: 0
+Tester: Fred Ring
+Question 1: mailbox = ______________? a
 
 Incorrect.
-Question 4: cookie = ______________? biscuit
-
-Correct!
-Question 5: sweater = ______________? shirt
+Question 2: sidewalk = ______________? a
 
 Incorrect.
-Your Score: 20
+Question 3: sidewalk = ______________? a
+
+Incorrect.
+Question 4: sidewalk = ______________? a
+
+Incorrect.
+Question 5: elevator = ______________? a
+
+Incorrect.
+Your Score: 0
+Tester: Kun Joom
+Question 1: elevator = ______________? a
+
+Incorrect.
+Question 2: sweater = ______________? a
+
+Incorrect.
+Question 3: sweater = ______________? a
+
+Incorrect.
+Question 4: last name = ______________? a
+
+Incorrect.
+Question 5: last name = ______________? a
+
+Incorrect.
+Your Score: 0
 
 NAME               SCORE               DATE
 **************************************************
-Steve Smith????????56.6                11/11/2019
-Sue Jones??????????10.0                11/11/2011
-Li Ying????????????0.0                 11/11/2011
-Kun Joom???????????20.0                11/11/2021
-Joe Bush???????????10.0                11/11/2021
-Kim Long???????????0.0                 11/11/2011
-Fred Ring??????????33.3                5/5/2019
-Frank Pearse???????20.0                11/11/2011
-Helen Hu???????????0.1                 11/11/2011
-Mark James?????????0.0                 11/11/2021
-Who is taking the test? (Choose a number between 1 and 10)5
-Question 1: french fries = ______________? chips
-
-Correct!
-Question 2: trunk = ______________? boot
-
-Correct!
-Question 3: mailbox = ______________? box
-
-Incorrect.
-Question 4: gas = ______________? petrol
-
-Correct!
-Question 5: mailbox = ______________? mailslot
-
-Incorrect.
-Your Score: 60.0
+Steve Smith        56.6                11/11/2019
+Sue Jones          10.0                11/11/2011
+Li Ying            0.0                 4/18/2022
+Kun Joom           0.0                 4/18/2022
+Joe Bush           10.0                11/11/2021
+Kim Long           0.0                 11/11/2011
+Fred Ring          0.0                 4/18/2022
+Frank Pearse       20.0                11/11/2011
+Helen Hu           0.1                 11/11/2011
+Mark James         0.0                 11/11/2021
 
 */

@@ -120,7 +120,7 @@ Total number of seek operations = 162
 Average seek: 18
 
 Seek sequence
-143
+143            // Read/Write head starts on track
 147
 150
 130
