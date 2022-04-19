@@ -1,8 +1,11 @@
 // SCAN Disk Scheduling algorithm
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-int disk_size = 200;
+int disk_size = 200;  // "disk has 200 cyclinders" - can be changed accordingly
 
 void SCAN(int arr[], int size, int head, string direction);
 
@@ -11,7 +14,6 @@ void SCAN(int arr[], int size, int head, string direction);
 int main() {
     int size,
         head;
-    // request array
 
     cout << "SCAN" << endl;
     cout << "How many request: ";
@@ -24,7 +26,7 @@ int main() {
         cout << "Enter request " << i + 1 << ": ";
         cin >> arr[i];
     }
-    string direction = "right";
+    string direction = "right";  // "right" = large numbers / "left" = small numbers - can be changed accordinly
 
     SCAN(arr, size, head, direction);
     delete[] arr;
@@ -99,7 +101,7 @@ void SCAN(int arr[], int size, int head, string direction) {
         }
     }
 
-    cout << "Total number of seek operations = "
+    cout << "\nTotal number of seek operations = "
          << seek_count << endl;
     cout << "Average seek: " << (static_cast<double>(seek_count) / size) << endl;
     cout << "\nSeek Sequence" << endl;
@@ -108,3 +110,38 @@ void SCAN(int arr[], int size, int head, string direction) {
         cout << seek_sequence[i] << endl;
     }
 }
+
+/*
+
+//note:: if seek sequence hits 199 (end of the disk), 
+it is reversed and the process continues. 
+
+SCAN
+How many request: 9
+Read/Write head starts on track: 143
+Enter request 1: 86
+Enter request 2: 147
+Enter request 3: 91
+Enter request 4: 177
+Enter request 5: 94
+Enter request 6: 150
+Enter request 7: 102
+Enter request 8: 175
+Enter request 9: 130
+
+Total number of seek operations = 169
+Average seek: 18.7778
+
+Seek Sequence
+147
+150
+175
+177    <<<<< //note  from track#: 177
+199    <<<<< //note
+130    <<<<< //note    to track#: 130     // "177 - 199 - 130" // travel distance: 91
+102
+94
+91
+86
+
+*/

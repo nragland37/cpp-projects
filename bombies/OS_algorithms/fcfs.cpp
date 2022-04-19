@@ -1,6 +1,9 @@
 // FCFS Disk Scheduling algorithm
 
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 void FCFS(int arr[], int size, int head);
@@ -10,7 +13,6 @@ void FCFS(int arr[], int size, int head);
 int main() {
     int size,
         head;
-    // request array
 
     cout << "FCFS" << endl;
     cout << "How many request: ";
@@ -54,9 +56,40 @@ void FCFS(int arr[], int size, int head) {
     cout << "Average seek: " << (static_cast<double>(seek_count) / size) << endl;
     // Seek sequence would be the same
     // as request array sequence
-    cout << "Seek Sequence is" << endl;
+    cout << "\nSeek Sequence" << endl;
 
     for (int i = 0; i < size; i++) {
         cout << arr[i] << endl;
     }
 }
+
+/*
+
+FCFS
+How many request: 9
+Read/Write head starts on track: 143
+Enter request 1: 86
+Enter request 2: 147
+Enter request 3: 91
+Enter request 4: 177
+Enter request 5: 94
+Enter request 6: 150
+Enter request 7: 102
+Enter request 8: 175
+Enter request 9: 130
+
+Total number of seek operations = 565
+Average seek: 62.7778
+
+Seek Sequence
+86
+147
+91
+177
+94
+150
+102
+175
+130
+
+/*
