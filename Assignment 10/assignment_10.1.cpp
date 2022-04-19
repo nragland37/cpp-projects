@@ -83,7 +83,7 @@ Person* readTesters(const string& fileName, int& num) {
 void writeTesters(const string& fileName, Person people[], int numP) {
     ofstream f(fileName, ios::binary);
     f.write(reinterpret_cast<char*>(&numP), sizeof(int));
-    f.write(reinterpret_cast<char*>(&people), sizeof(Person));
+    f.write(reinterpret_cast<char*>(people), sizeof(Person) * numP);
     f.close();
 }
 
