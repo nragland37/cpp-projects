@@ -54,11 +54,13 @@ int main() {
         numP = 0;
     string fileName;
     char studyEntry;
+    Translation* translate = nullptr;
+    Person* people = nullptr;
 
     cout << fixed << setprecision(1);
 
-    Translation* translate = readTranslation("Translation.txt", numT);
-    Person* people = readTesters("Testers.txt", numP);
+    translate = readTranslation("Translation.txt", numT);
+    people = readTesters("Testers.txt", numP);
     displayTesters(people, numP);
     cout << "\n---------------------------------------------------" << endl;
     cout << "\tAmerican to English Translation Test" << endl;
@@ -188,9 +190,9 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
 
 void takeTest(const Translation translate[], int numT, Person& p) {
     const int numQuestions = 5;  // # of questions ~ changing number of questions may result in 'double' avg
-    int randomQuestion = 0;
-    double correct = 0,
-           avg = 0;
+    int randomQuestion = 0,
+        correct = 0;
+    double avg = 0;
     string answer,
         guess;
     short seed;
@@ -218,7 +220,7 @@ void takeTest(const Translation translate[], int numT, Person& p) {
                  << endl;
         }
     }
-    avg = correct / numQuestions * 100;
+    avg = (static_cast<double>(correct) / numQuestions) * 100;
     p.score = avg;
 }
 

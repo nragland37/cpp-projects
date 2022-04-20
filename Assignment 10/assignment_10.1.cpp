@@ -41,8 +41,9 @@ void writeTesters(const string& fileName, Person people[], int numP);
 int main() {
     int numP = 0;
     string fileName;
+    Person* people = nullptr;
 
-    Person* people = readTesters("Testers.txt", numP);
+    people = readTesters("Testers.txt", numP);
     writeTesters("Testers.dat", people, numP);
 
     delete[] people;
