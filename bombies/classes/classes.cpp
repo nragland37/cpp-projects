@@ -17,6 +17,23 @@ class Employee {
     void display();
 };
 
+string Student::getName() {
+    return name;
+}
+void Student::setAge(int a) {
+    if (a < 0) {
+        age = 0;
+    } else {
+        age = a;
+    }
+    age = a;
+}
+
 int main() {
+    Student s1;           // object oriented
+    s1.setName("Helen");  // public members
+    s1.setAge(15);        // public members
+    // s1.age = 20;  //wrong because the data types are private
+
     return 0;
 }
