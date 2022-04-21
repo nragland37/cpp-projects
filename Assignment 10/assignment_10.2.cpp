@@ -112,7 +112,6 @@ Translation* readTranslation(const string& fileName, int& num) {
 void testersUpdates(const Translation translate[], int numT, const string& fileName) {
     const int numTests = 3;  // # of random tests ~ same people can be tested more than once
     int randomPerson = 0,
-        tempRand,
         numP = 0,
         month,
         day,
@@ -123,12 +122,7 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     srand(seed);
 
     fstream f(fileName, ios::in | ios::out | ios::binary);
-    if (f.fail()) {
-        f.seekg(0 * sizeof(int), ios::beg);
-        f.read(reinterpret_cast<char*>(&numP), sizeof(int));
-    } else {
-        cout << "FILE DOES NOT EXIST" << endl;
-    }
+    f.read(reinterpret_cast<char*>(&numP), sizeof(int));
 
     cout << "\n---------------------------------" << endl;
     cout << "        Enter Today's Date" << endl;
@@ -139,6 +133,9 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     cin >> day;
     cout << "Enter year: ";
     cin >> year;
+    people.testTaken.month = month;
+    people.testTaken.day = day;
+    people.testTaken.year = year;
     cout << "\n\n---------------------------------" << endl;
     cout << "            Questions" << endl;
     cout << "---------------------------------" << endl;
@@ -147,21 +144,22 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     cout << "  Enter the English translation." << endl;
     for (int i = 0; i < numTests; ++i) {
         randomPerson = rand() % (numP-1);
-        f.seekp(sizeof(int) + (randomPerson) * sizeof(people), ::ios beg);
-        people.testTaken.month = month;
-        people.testTaken.day = day;
-        people.testTaken.year = year;
-        seekg(sizeof(Person)*)
-                people.name
-            << "\n"
-            << people.score << ","
-            << people.testTaken.month << "/" << people.testTaken.day
-            << "/" << people.testTaken.year << endl;
+        f.seekg(sizeof(int) + (randomPerson - 1) * sizeof(Person), ios::beg);
+        f.read(reinterpret_cast<char*>(&people), sizeof(Person));
+        cout << "\n=================================" << endl;
+        cout << setfill(' ') << setw(3) << left << "#"
+             << setw(20) << left << "NAME"
+             << "TEST TAKEN" << endl;
+        cout << "---------------------------------" << endl;
+        cout << setw(3) << left << randomPerson
+             << setw(20) << left << people.name
+             << people.testTaken.month << "/"
+             << people.testTaken.day << "/"
+             << people.testTaken.year << endl;
         takeTest(translate, numT, people);
-        f.seekp(sizeof(int) + (randomPerson) * sizeof(people), ::ios beg);
-        f.write(reinterpret_cast<char*>(&people), sizeof(Person) * numP);
+        f.seekp(sizeof(int) + (randomPerson - 1) * sizeof(Person), ios::beg);
+        f.write(reinterpret_cast<char*>(&people), sizeof(Person) * (randomPerson - 1));
     }
-
     f.close();
 }
 
@@ -184,7 +182,7 @@ void takeTest(const Translation translate[], int numT, Person& p) {
          << "English" << endl;
     cout << "---------------------------------" << endl;
     for (int i = 0; i < numQuestions; ++i) {
-        randomQuestion = rand() % (numT);
+        randomQuestion = rand() % (numT-1);
         cout << setfill(' ') << setw(3) << left << randomQuestion + 1
              << setfill('.') << setw(18) << left << translate[randomQuestion].american;
         cin >> guess;
