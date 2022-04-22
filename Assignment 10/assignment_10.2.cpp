@@ -491,7 +491,7 @@ Answer: crisps
 20 mailbox...........postbox
 
             Correct!
-                                                             // checks updated binary file 
+                                                             // checks updated binary file
 ===================================================          // read from 'Testers.dat' file after 'testersUpdates' function
                 Updated Information
 ===================================================
