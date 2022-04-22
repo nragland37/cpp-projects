@@ -271,3 +271,242 @@ void displayTranslateAnswers(const Translation translate[], int numT) {
              << translate[i].english << endl;
     }
 }
+
+/*
+
+---------------------------------------------------
+#  NAME                SCORE %        TEST TAKEN
+---------------------------------------------------
+1  Steve Smith         56.6           11/11/2019
+2  Sue Jones           10.0           11/11/2011
+3  Li Ying             0.0            11/11/2011
+4  Kun Joom            20.0           11/11/2021
+5  Joe Bush            10.0           11/11/2021
+6  Kim Long            0.0            11/11/2011
+7  Fred Ring           33.3           5/5/2019
+8  Frank Pearse        20.0           11/11/2011
+9  Helen Hu            0.1            11/11/2011
+10 Mark James          0.0            11/11/2021
+
+---------------------------------------------------
+        American to English Translation Test
+---------------------------------------------------
+   Three people from this list will be randomly
+            selected to take the test.
+
+Would you like to study before the test? (Y/N)
+Y
+
+---------------------------------
+#  American          English
+---------------------------------
+1  chips.............crisps
+2  french fries......chips
+3  sidewalk..........pavement
+4  cookie............biscuit
+5  apartment.........flat
+6  elevator..........lift
+7  gas...............petrol
+8  soccer............football
+9  movie.............film
+10 sweater...........jumper
+11 trunk.............boot
+12 hood..............bonnet
+13 last name.........surname
+14 restroom..........toilet
+15 cart..............trolley
+16 candy.............sweet
+17 vacation..........holiday
+18 subway............underground
+19 pants.............trousers
+20 mailbox...........postbox
+
+Press enter to continue...
+
+Good Luck!
+
+---------------------------------
+        Enter Today's Date
+---------------------------------
+Enter month: 4
+Enter day: 22
+Enter year: 2022
+
+
+---------------------------------
+            Questions
+---------------------------------
+   Five American words will be
+ randomly selected from the list.
+  Enter the English translation.
+
+=================================
+#  NAME                TEST TAKEN
+---------------------------------
+3  Li Ying             4/22/2022
+
+---------------------------------
+#  American          English
+---------------------------------
+12 hood..............bonnet
+
+            Correct!
+
+8  soccer............football
+
+            Correct!
+
+6  elevator..........lift
+
+            Correct!
+
+8  soccer............football
+
+            Correct!
+
+2  french fries......chips
+
+            Correct!
+
+4  cookie............biscuit
+
+            Correct!
+
+6  elevator..........lift
+
+            Correct!
+
+9  movie.............film
+
+            Correct!
+
+4  cookie............biscuit
+
+            Correct!
+
+2  french fries......chips
+
+            Correct!
+
+
+=================================
+#  NAME                TEST TAKEN
+---------------------------------
+2  Sue Jones           4/22/2022
+
+---------------------------------
+#  American          English
+---------------------------------
+3  sidewalk..........pavement
+
+            Correct!
+
+12 hood..............bonnet
+
+            Correct!
+
+5  apartment.........flat
+
+            Correct!
+
+9  movie.............film
+
+            Correct!
+
+1  chips.............crisps
+
+            Correct!
+
+14 restroom..........bathroom
+
+           Incorrect!
+
+Answer: toilet
+
+12 hood..............hoodie
+
+           Incorrect!
+
+Answer: bonnet
+
+10 sweater...........jumper
+
+            Correct!
+
+8  soccer............football
+
+            Correct!
+
+4  cookie............biscuit
+
+            Correct!
+
+
+=================================
+#  NAME                TEST TAKEN
+---------------------------------
+6  Kim Long            4/22/2022
+
+---------------------------------
+#  American          English
+---------------------------------
+12 hood..............bonnet
+
+            Correct!
+
+6  elevator..........lift
+
+            Correct!
+
+20 mailbox...........postbox
+
+            Correct!
+
+19 pants.............trousers
+
+            Correct!
+
+8  soccer............football
+
+            Correct!
+
+10 sweater...........jumper
+
+            Correct!
+
+11 trunk.............boot
+
+            Correct!
+
+8  soccer............football
+
+            Correct!
+
+1  chips.............fries
+
+           Incorrect!
+
+Answer: crisps
+
+20 mailbox...........postbox
+
+            Correct!
+                                                             // checks updated binary file 
+===================================================          // read from 'Testers.dat' file after 'testersUpdates' function
+                Updated Information
+===================================================
+---------------------------------------------------
+#  NAME                SCORE %        TEST TAKEN
+---------------------------------------------------
+1  Steve Smith         56.6           11/11/2019
+2  Sue Jones           80.0           4/22/2022
+3  Li Ying             100.0          4/22/2022
+4  Kun Joom            20.0           11/11/2021
+5  Joe Bush            10.0           11/11/2021
+6  Kim Long            90.0           4/22/2022
+7  Fred Ring           33.3           5/5/2019
+8  Frank Pearse        20.0           11/11/2011
+9  Helen Hu            0.1            11/11/2011
+10 Mark James          0.0            11/11/2021
+
+*/
