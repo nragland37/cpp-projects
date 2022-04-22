@@ -74,7 +74,7 @@ Person* readTesters(const string& fileName, int& num) {
         }
         f.close();
     } else {
-        cout << "File not found.";
+        cout << "FILE DOES NOT EXIST" << endl;
     }
     return p;
 }

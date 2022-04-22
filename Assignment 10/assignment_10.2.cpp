@@ -44,7 +44,6 @@ Translation* readTranslation(const string& fileName, int& num);
 void testersUpdates(const Translation translate[], int numT, const string& fileName);
 void takeTest(const Translation translate[], int numT, Person& p);
 void displayTesters(const string& fileName);
-void writeTesters(const string& fileName, const Person people[], int numP);
 void displayTranslateAnswers(const Translation translate[], int numT);
 
 //****************************************************************************************************
@@ -75,11 +74,11 @@ int main() {
     } else {
         cout << "\nGood Luck!" << endl;
     }
-    testersUpdates(translate, numT, "tester.dat");
+    testersUpdates(translate, numT, "Testers.dat");
     cout << "===================================================" << endl;
     cout << "\t\tUpdated Information" << endl;
     cout << "===================================================";
-    displayTesters("Tester.dat");
+    displayTesters("Testers.dat");
 
     delete[] translate;
     translate = nullptr;
@@ -102,7 +101,7 @@ Translation* readTranslation(const string& fileName, int& num) {
         }
         f.close();
     } else {
-        cout << "File not found.";
+        cout << "FILE DOES NOT EXIST" << endl;
     }
     return t;
 }
@@ -112,7 +111,7 @@ Translation* readTranslation(const string& fileName, int& num) {
 void testersUpdates(const Translation translate[], int numT, const string& fileName) {
     const int numTests = 3;  // # of random tests ~ same people can be tested more than once
     int randomPerson = 0,
-        numP = 0,
+        numP,
         month,
         day,
         year;
@@ -120,9 +119,6 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     short seed;
     seed = time(0);
     srand(seed);
-
-    fstream f(fileName, ios::in | ios::out | ios::binary);
-    f.read(reinterpret_cast<char*>(&numP), sizeof(int));
 
     cout << "\n---------------------------------" << endl;
     cout << "        Enter Today's Date" << endl;
@@ -133,19 +129,22 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     cin >> day;
     cout << "Enter year: ";
     cin >> year;
-    people.testTaken.month = month;
-    people.testTaken.day = day;
-    people.testTaken.year = year;
     cout << "\n\n---------------------------------" << endl;
     cout << "            Questions" << endl;
     cout << "---------------------------------" << endl;
     cout << "   Five American words will be" << endl;
     cout << " randomly selected from the list." << endl;
     cout << "  Enter the English translation." << endl;
+
+    fstream f(fileName, ios::in | ios::out | ios::binary);
+    f.read(reinterpret_cast<char*>(&numP), sizeof(int));
     for (int i = 0; i < numTests; ++i) {
-        randomPerson = rand() % (numP-1);
-        f.seekg(sizeof(int) + (randomPerson - 1) * sizeof(Person), ios::beg);
+        randomPerson = rand() % numP + 1;  // (numP: 10) range: (0 - 9) + 1 (adds to range)  // range: 1 - 10
+        f.seekg((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);
         f.read(reinterpret_cast<char*>(&people), sizeof(Person));
+        people.testTaken.month = month;
+        people.testTaken.day = day;
+        people.testTaken.year = year;
         cout << "\n=================================" << endl;
         cout << setfill(' ') << setw(3) << left << "#"
              << setw(20) << left << "NAME"
@@ -157,8 +156,8 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
              << people.testTaken.day << "/"
              << people.testTaken.year << endl;
         takeTest(translate, numT, people);
-        f.seekp(sizeof(int) + (randomPerson - 1) * sizeof(Person), ios::beg);
-        f.write(reinterpret_cast<char*>(&people), sizeof(Person) * (randomPerson - 1));
+        f.seekp((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);
+        f.write(reinterpret_cast<char*>(&people), sizeof(Person));
     }
     f.close();
 }
@@ -182,7 +181,7 @@ void takeTest(const Translation translate[], int numT, Person& p) {
          << "English" << endl;
     cout << "---------------------------------" << endl;
     for (int i = 0; i < numQuestions; ++i) {
-        randomQuestion = rand() % (numT-1);
+        randomQuestion = rand() % numT;  // (numT: 20) range: 0 - 19
         cout << setfill(' ') << setw(3) << left << randomQuestion + 1
              << setfill('.') << setw(18) << left << translate[randomQuestion].american;
         cin >> guess;
@@ -206,9 +205,9 @@ void displayTesters(const string& fileName) {
     int numP = 0;
     Person people;
 
-    fstream f("Testers.dat", ios::in | ios::binary);
+    fstream f(fileName, ios::in | ios::binary);
 
-    if (f) {
+    if (f.is_open()) {
         f.read(reinterpret_cast<char*>(&numP), sizeof(numP));
         cout << "\n---------------------------------------------------" << endl;
         cout << setfill(' ') << setw(3) << left << "#"
@@ -216,7 +215,7 @@ void displayTesters(const string& fileName) {
              << setw(15) << left << "SCORE %"
              << "TEST TAKEN" << endl;
         cout << "---------------------------------------------------" << endl;
-        for (int i = 0; i < numP; i++) {
+        for (int i = 0; i < numP; ++i) {
             f.read(reinterpret_cast<char*>(&people), sizeof(Person));
             cout << setw(3) << left << i + 1
                  << setw(20) << left << people.name
@@ -225,10 +224,10 @@ void displayTesters(const string& fileName) {
                  << people.testTaken.day << "/"
                  << people.testTaken.year << endl;
         }
+        f.close();
     } else {
         cout << "FILE DOES NOT EXIST" << endl;
     }
-    f.close();
 }
 
 //****************************************************************************************************
