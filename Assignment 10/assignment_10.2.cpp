@@ -139,7 +139,7 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     fstream f(fileName, ios::in | ios::out | ios::binary);
     f.read(reinterpret_cast<char*>(&numP), sizeof(int));
     for (int i = 0; i < numTests; ++i) {
-        randomPerson = rand() % numP + 1;  // (numP: 10) range: (0 - 9) + 1 (adds to range)  // range: 1 - 10
+        randomPerson = (rand() % numP) + 1;  // (numP: 10) range: (0 - 9) + 1 (adds to range)  // range: 1 - 10
         f.seekg((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);
         f.read(reinterpret_cast<char*>(&people), sizeof(Person));
         people.testTaken.month = month;
@@ -161,6 +161,33 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     }
     f.close();
 }
+
+// possible another way....  EDIT: <<<<<<<<<<<<<
+/*
+    fstream f(fileName, ios::in | ios::out | ios::binary);
+    f.read(reinterpret_cast<char*>(&numP), sizeof(int));
+    for (int i = 0; i < numTests; ++i) {
+        randomPerson = rand() % numP;                                         <<<<<<<<<<<<<<
+        f.seekg((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);   <<<<<<<<<<<<<<
+        f.read(reinterpret_cast<char*>(&people), sizeof(Person));
+        people.testTaken.month = month;
+        people.testTaken.day = day;
+        people.testTaken.year = year;
+        cout << "\n=================================" << endl;
+        cout << setfill(' ') << setw(3) << left << "#"
+             << setw(20) << left << "NAME"
+             << "TEST TAKEN" << endl;
+        cout << "---------------------------------" << endl;
+        cout << setw(3) << left << randomPerson + 1                           <<<<<<<<<<<<<<
+             << setw(20) << left << people.name
+             << people.testTaken.month << "/"
+             << people.testTaken.day << "/"
+             << people.testTaken.year << endl;
+        takeTest(translate, numT, people);
+        f.seekp((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);   <<<<<<<<<<<<<<<
+        f.write(reinterpret_cast<char*>(&people), sizeof(Person));
+    }
+*/
 
 //****************************************************************************************************
 
