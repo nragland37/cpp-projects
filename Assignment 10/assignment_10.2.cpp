@@ -162,13 +162,14 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     f.close();
 }
 
-// possible another way....  EDIT: <<<<<<<<<<<<<
-/*
+//****************************************************************************************************
+/* randomPerson range: (0 - 9) ~ 
+
     fstream f(fileName, ios::in | ios::out | ios::binary);
     f.read(reinterpret_cast<char*>(&numP), sizeof(int));
     for (int i = 0; i < numTests; ++i) {
-        randomPerson = rand() % numP;                                         <<<<<<<<<<<<<<
-        f.seekg((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);   <<<<<<<<<<<<<<
+        randomPerson = rand() % numP;                                        <<<<<<<<<<
+        f.seekg((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);  <<<<<<<<<<
         f.read(reinterpret_cast<char*>(&people), sizeof(Person));
         people.testTaken.month = month;
         people.testTaken.day = day;
@@ -178,17 +179,42 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
              << setw(20) << left << "NAME"
              << "TEST TAKEN" << endl;
         cout << "---------------------------------" << endl;
-        cout << setw(3) << left << randomPerson + 1                           <<<<<<<<<<<<<<
+        cout << setw(3) << left << randomPerson + 1
              << setw(20) << left << people.name
              << people.testTaken.month << "/"
              << people.testTaken.day << "/"
              << people.testTaken.year << endl;
         takeTest(translate, numT, people);
-        f.seekp((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);   <<<<<<<<<<<<<<<
+        f.seekp((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg); <<<<<<<<<<
         f.write(reinterpret_cast<char*>(&people), sizeof(Person));
     }
-*/
 
+//****************************************************************************************************
+// seekp begins at current location ~
+
+        for (int i = 0; i < numTests; ++i) {
+        randomPerson = (rand() % numP) + 1;
+        f.seekg((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);
+        f.read(reinterpret_cast<char*>(&people), sizeof(Person));
+        people.testTaken.month = month;
+        people.testTaken.day = day;
+        people.testTaken.year = year;
+        cout << "\n=================================" << endl;
+        cout << setfill(' ') << setw(3) << left << "#"
+             << setw(20) << left << "NAME"
+             << "TEST TAKEN" << endl;
+        cout << "---------------------------------" << endl;
+        cout << setw(3) << left << randomPerson
+             << setw(20) << left << people.name
+             << people.testTaken.month << "/"
+             << people.testTaken.day << "/"
+             << people.testTaken.year << endl;
+        takeTest(translate, numT, people);
+        f.seekp(((-1) * sizeof(Person)), ios::cur);                    <<<<<<<<<<
+        f.write(reinterpret_cast<char*>(&people), sizeof(Person));
+    }
+
+*/
 //****************************************************************************************************
 
 void takeTest(const Translation translate[], int numT, Person& p) {
@@ -228,6 +254,7 @@ void takeTest(const Translation translate[], int numT, Person& p) {
 }
 
 //****************************************************************************************************
+
 void displayTesters(const string& fileName) {
     int numP = 0;
     Person people;
@@ -491,7 +518,7 @@ Answer: crisps
 20 mailbox...........postbox
 
             Correct!
-                                                             // checks updated binary file 
+                                                             // checks updated binary file
 ===================================================          // read from 'Testers.dat' file after 'testersUpdates' function
                 Updated Information
 ===================================================
