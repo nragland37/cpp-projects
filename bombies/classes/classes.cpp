@@ -8,13 +8,13 @@ class Employee {
     double gpa;
 
    public:                          // member functions
-    string getName();               // access function
+    string getName() const;         // access function
     void setName(const string& n);  // set function
     int getAge();
     void setAge(int a);
     double getGPA();
     void setGPA(double g);
-    void display();
+    void display() const;
 };
 
 string Student::getName() {

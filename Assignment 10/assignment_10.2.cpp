@@ -132,7 +132,7 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
     cout << "\n\n---------------------------------" << endl;
     cout << "            Questions" << endl;
     cout << "---------------------------------" << endl;
-    cout << "   Five American words will be" << endl;
+    cout << "    Ten American words will be" << endl;
     cout << " randomly selected from the list." << endl;
     cout << "  Enter the English translation." << endl;
 
