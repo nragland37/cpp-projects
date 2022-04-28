@@ -163,7 +163,7 @@ void testersUpdates(const Translation translate[], int numT, const string& fileN
 }
 
 //****************************************************************************************************
-/* randomPerson range: (0 - 9) ~ 
+/* randomPerson range: (0 - 9) ~
 
     fstream f(fileName, ios::in | ios::out | ios::binary);
     f.read(reinterpret_cast<char*>(&numP), sizeof(int));
