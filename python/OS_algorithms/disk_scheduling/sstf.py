@@ -71,4 +71,4 @@ if __name__ == "__main__":
     # request array
     proc = [86, 147, 91, 177, 94, 150, 102, 175, 130]
     head = 143
-    shortestSeekTimeFirst(proc, head )
+    shortestSeekTimeFirst(proc, head)
