@@ -12,7 +12,8 @@
         "iostream": "cpp",
         "istream": "cpp",
         "cmath": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "coroutine": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

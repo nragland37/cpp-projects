@@ -4,20 +4,20 @@
 using namespace std;
 
 int main() {
-    char letters[] = {‘A’, ‘B’, ‘C’, ‘\0’};  // null character at the end
-    char letters[] = “ABC”;                  // automatically inserts null character at the end
+    char letters[] = {'A', 'B', 'C', '\0'};  // null character at the end
+    //char letters[] = "ABC";                  // automatically inserts null character at the end
                                              // so the same initialization
     int numbers[] = {1, 2, 3};
     cout << numbers;  // Displays the address of the first element
     cout << letters;  // Displays “ABC”, up to the null character
 
-    char letters[] = “ABC”;
-    cout << sizeof(letters);  // 4, since \0 is at the end
+    char letters2[] = "ABC";
+    cout << sizeof(letters2);  // 4, since \0 is at the end
 
-    char sentence[] = “This is a test in coding”;
+    char sentence[] = "This is a test in coding";
     char* ptr = nullptr;
 
-    ptr = strstr(sentence, “test”);  // sets ‘ptr’ to point to the element of the array
+    ptr = strstr(sentence, "test");  // sets ‘ptr’ to point to the element of the array
                                      // at which “test” starts
     cout << ptr;                     // Displays “test in coding”
 
@@ -28,9 +28,9 @@ int main() {
         if (strcmp(name1, name2) < 0)      // Checks if name1 is alphabetically less than name2
             if (strcmp(name1, name2) > 0)  // Checks if name1 is alphabetically greater than name2
 
-                int num = atoi(“12345”);  // Assigns 12345 to ‘num’
-    int num = atoi(“12ABC”);              // Assigns 12 to ‘num’
-    double d = atof(“3.14159”);           // Assigns 3.14159 to ‘d’
+                int num = atoi("12345");  // Assigns 12345 to ‘num’
+    int num = atoi("12ABC");              // Assigns 12 to ‘num’
+    double d = atof("3.14159");           // Assigns 3.14159 to ‘d’
 
     string name;
     getline(cin, name);  // Any length name will be stored
