@@ -1,19 +1,7 @@
 {
     "files.associations": {
-        "system_error": "cpp",
-        "xlocale": "cpp",
-        "ostream": "cpp",
-        "fstream": "cpp",
-        "iosfwd": "cpp",
-        "string": "cpp",
-        "iomanip": "cpp",
-        "ios": "cpp",
-        "xiosbase": "cpp",
         "iostream": "cpp",
-        "istream": "cpp",
-        "cmath": "cpp",
-        "new": "cpp",
-        "coroutine": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "Disabled"
+        "ostream": "cpp",
+        "new": "cpp"
+    }
 }
