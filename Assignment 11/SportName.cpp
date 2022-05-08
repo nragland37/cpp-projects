@@ -16,9 +16,9 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
-
-#include "Date.cpp"
-#include "Sport.cpp"
+                      // note: MS Visual Studio ~ auto-includes cpp files in same project | VS code ~ does not 
+#include "Date.cpp"   // change:: #include "Date.h" in MS Visual Studio
+#include "Sport.cpp"  // change::  #include "Sport.h" in MS Visual Studio
 
 using namespace std;
 
