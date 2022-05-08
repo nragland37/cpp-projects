@@ -101,6 +101,12 @@ int main() {
                 }
                 break;
             }
+            case 'e': {
+                break;
+            }
+            default: {
+                cout << "\n\tInvalid Choice" << endl;
+            }
         }
     } while (ch != 'e');
     delete[] s;
