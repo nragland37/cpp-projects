@@ -16,15 +16,16 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
-                      // note: MS Visual Studio ~ auto-includes cpp files in same project | VS code ~ does not 
-#include "Date.cpp"   // change:: #include "Date.h" in MS Visual Studio
-#include "Sport.cpp"  // change::  #include "Sport.h" in MS Visual Studio
+// note: MS Visual Studio ~ auto-includes cpp files in same project | VS code ~ does not
+#include "Date.h"   // change:: #include "Date.cpp" in Vs Code
+#include "Sport.h"  // change::  #include "Sport.cpp" in VS Code
 
 using namespace std;
 
 //****************************************************************************************************
 
 void displaySports(Sport s[], int size);
+bool testName(Sport s[], int size, const string& sportAdd);
 
 //****************************************************************************************************
 
@@ -44,7 +45,7 @@ int main() {
     }
 
     do {
-        cout << "\n---------------------------------------------------------------------\n";
+        cout << "\n---------------------------------------------------------------------" << endl;
         cout << "a) Display all Sports\n"
              << "b) Add a team to an existing Sport\n"
              << "c) Display a particular Sport\n"
@@ -61,14 +62,31 @@ int main() {
             case 'b': {
                 string team,
                     sportAdd;
-                cout << "\nEnter Sport Name to add Team: ";
-                getline(cin, sportAdd);
-                cout << "\nEnter Team Name: ";
-                getline(cin, team);
-                for (int i = 0; i < size; ++i) {
-                    if (sportAdd == s[i].getName())
-                        s[i].addTeam(team);
-                }
+                bool sportAddTest;
+                char entry;
+                do {
+                    cout << "\nEnter Sport Name to add Team: ";
+                    getline(cin, sportAdd);
+                    sportAddTest = testName(s, size, sportAdd);  // tests if sportName exists
+                    if (sportAddTest == true) {
+                        cout << "\nEnter Team Name: ";
+                        getline(cin, team);
+                        for (int i = 0; i < size; ++i) {
+                            if (sportAdd == s[i].getName()) {
+                                s[i].addTeam(team);
+                            }
+                        }
+                    } else {
+                        cout << "\n\tInvalid Name" << endl;
+                        cout << "\nBack to menu? (Y/N)" << endl;  // in case user-error
+                        cin >> entry;
+                        if (entry == 'Y' || entry == 'y') {
+                            break;
+                        } else {
+                            cin.ignore();
+                        }
+                    }
+                } while (sportAddTest == false);
                 break;
             }
             case 'c': {
@@ -121,6 +139,20 @@ void displaySports(Sport s[], int size) {
         cout << "\n\tSport " << i + 1 << endl;
         s[i].display();
     }
+}
+
+//****************************************************************************************************
+
+bool testName(Sport s[], int size, const string& sportAdd) {
+    bool nameFound = false;
+
+    for (int i = 0; i < size; ++i) {
+        if (sportAdd == s[i].getName()) {
+            nameFound = true;
+            break;
+        }
+    }
+    return nameFound;
 }
 
 /*
@@ -348,6 +380,106 @@ c) Display a particular Sport
 d) Display the Sport that has the highest number of teams playing
 e) Exit
 Enter Your Choice: d
+
+        Sport 2
+                Sport Name ................... Hockey
+                Scheduled Date (M/D/YY) ...... 2/29/2024
+
+                Number of Teams .............. 4
+                Team 1 ....................... Blues
+                Team 2 ....................... Penguins
+                Team 3 ....................... Red Wings
+                Team 4 ....................... Stars
+
+---------------------------------------------------------------------      // Add team
+a) Display all Sports                                                      // Invalid Name / back to menu (Y)
+b) Add a team to an existing Sport
+c) Display a particular Sport
+d) Display the Sport that has the highest number of teams playing
+e) Exit
+Enter Your Choice: b
+
+Enter Sport Name to add Team: Soccer
+
+        Invalid Name
+
+Back to menu? (Y/N)
+Y
+
+---------------------------------------------------------------------    // Add Team
+a) Display all Sports                                                    // Invalid Name / back to menu (N)
+b) Add a team to an existing Sport
+c) Display a particular Sport
+d) Display the Sport that has the highest number of teams playing
+e) Exit
+Enter Your Choice: b
+
+Enter Sport Name to add Team: Soccer
+
+        Invalid Name
+
+Back to menu? (Y/N)
+N
+
+Enter Sport Name to add Team: Baseball
+
+Enter Team Name: Red Sox
+
+---------------------------------------------------------------------       // Display all Sports
+a) Display all Sports
+b) Add a team to an existing Sport
+c) Display a particular Sport
+d) Display the Sport that has the highest number of teams playing
+e) Exit
+Enter Your Choice: a
+
+---------------------------------------------------------------------
+
+        Sport 1
+                Sport Name ................... Baseball
+                Scheduled Date (M/D/YY) ...... 7/8/2022
+
+                Number of Teams .............. 4
+                Team 1 ....................... Cardinals
+                Team 2 ....................... Cubs
+                Team 3 ....................... Yankees
+                Team 4 ....................... Red Sox
+
+        Sport 2
+                Sport Name ................... Hockey
+                Scheduled Date (M/D/YY) ...... 2/29/2024
+
+                Number of Teams .............. 4
+                Team 1 ....................... Blues
+                Team 2 ....................... Penguins
+                Team 3 ....................... Red Wings
+                Team 4 ....................... Stars
+
+        Sport 3
+                Sport Name ................... Football
+                Scheduled Date (M/D/YY) ...... 1/1/2000
+
+                Number of Teams .............. 2
+                Team 1 ....................... Rams
+                Team 2 ....................... Patriots
+
+---------------------------------------------------------------------      // Display multiple highest numbers
+a) Display all Sports
+b) Add a team to an existing Sport
+c) Display a particular Sport
+d) Display the Sport that has the highest number of teams playing
+e) Exit
+Enter Your Choice: d
+
+        Sport 1
+                Sport Name ................... Baseball
+                Scheduled Date (M/D/YY) ...... 7/8/2022
+
+                Number of Teams .............. 4
+                Team 1 ....................... Cardinals
+                Team 2 ....................... Cubs
+                Team 3 ....................... Yankees
+                Team 4 ....................... Red Sox
 
         Sport 2
                 Sport Name ................... Hockey
