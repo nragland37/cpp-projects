@@ -17,8 +17,8 @@
 #include <iostream>
 #include <string>
 // note: MS Visual Studio ~ auto-includes cpp files in same project | VS code ~ does not
-#include "Date.h"   // change:: #include "Date.cpp" in Vs Code
-#include "Sport.h"  // change::  #include "Sport.cpp" in VS Code
+#include "Date.cpp"   // change:: #include "Date.h" in MS Visual Studio
+#include "Sport.cpp"  // change::  #include "Sport.h" in MS Visual Studio
 
 using namespace std;
 
@@ -67,7 +67,7 @@ int main() {
                 do {
                     cout << "\nEnter Sport Name to add Team: ";
                     getline(cin, sportAdd);
-                    sportAddTest = testName(s, size, sportAdd);  // tests if sportName exists
+                    sportAddTest = testName(s, size, sportAdd);  // tests if Sport Name exists
                     if (sportAddTest == true) {
                         cout << "\nEnter Team Name: ";
                         getline(cin, team);
