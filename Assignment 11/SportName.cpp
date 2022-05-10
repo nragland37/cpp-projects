@@ -17,21 +17,22 @@
 #include <iostream>
 #include <string>
 // note: MS Visual Studio ~ auto-includes cpp files in same project | VS code ~ does not
-#include "Date.cpp"   // change:: #include "Date.h" in MS Visual Studio
-#include "Sport.cpp"  // change::  #include "Sport.h" in MS Visual Studio
+#include "Date.h"   // change:: #include "Date.cpp" in Vs Code
+#include "Sport.h"  // change::  #include "Sport.cpp" in VS Code
 
 using namespace std;
 
 //****************************************************************************************************
 
 void displaySports(Sport s[], int size);
-bool testName(Sport s[], int size, const string& sportAdd);
+bool testName(Sport s[], int size, const string& sportName);
 
 //****************************************************************************************************
 
 int main() {
     int size;
-    char ch;
+    char ch,
+        entry;
 
     cout << "=====================================================================\n"
          << setw(44) << "Sport Information\n"
@@ -62,13 +63,12 @@ int main() {
             case 'b': {
                 string team,
                     sportAdd;
-                bool sportAddTest;
-                char entry;
+                bool addTest;
                 do {
                     cout << "\nEnter Sport Name to add Team: ";
                     getline(cin, sportAdd);
-                    sportAddTest = testName(s, size, sportAdd);  // tests if Sport Name exists
-                    if (sportAddTest == true) {
+                    addTest = testName(s, size, sportAdd);  // tests if Sport Name exists
+                    if (addTest == true) {
                         cout << "\nEnter Team Name: ";
                         getline(cin, team);
                         for (int i = 0; i < size; ++i) {
@@ -86,20 +86,34 @@ int main() {
                             cin.ignore();
                         }
                     }
-                } while (sportAddTest == false);
+                } while (addTest == false);
                 break;
             }
             case 'c': {
                 string s1;
-                cout << "\nEnter Sport Name to Display: ";
-                getline(cin, s1);
-                for (int i = 0; i < size; ++i) {
-                    if (s1 == s[i].getName()) {
-                        cout << "\n\tSport " << i + 1 << endl;
-                        s[i].display();
-                        break;
+                bool s1Test;
+                do {
+                    cout << "\nEnter Sport Name to Display: ";
+                    getline(cin, s1);
+                    s1Test = testName(s, size, s1);  // tests if Sport Name exists
+                    if (s1Test == true) {
+                        for (int i = 0; i < size; ++i) {
+                            if (s1 == s[i].getName()) {
+                                cout << "\n\tSport " << i + 1 << endl;
+                                s[i].display();
+                            }
+                        }
+                    } else {
+                        cout << "\n\tInvalid Name" << endl;
+                        cout << "\nBack to menu? (Y/N)" << endl;  // in case user-error
+                        cin >> entry;
+                        if (entry == 'Y' || entry == 'y') {
+                            break;
+                        } else {
+                            cin.ignore();
+                        }
                     }
-                }
+                } while (s1Test == false);
                 break;
             }
             case 'd': {
@@ -143,11 +157,11 @@ void displaySports(Sport s[], int size) {
 
 //****************************************************************************************************
 
-bool testName(Sport s[], int size, const string& sportAdd) {
+bool testName(Sport s[], int size, const string& sportName) {
     bool nameFound = false;
 
     for (int i = 0; i < size; ++i) {
-        if (sportAdd == s[i].getName()) {
+        if (sportName == s[i].getName()) {
             nameFound = true;
             break;
         }
@@ -171,7 +185,7 @@ Enter Month: 7
 Enter Day: 8
 Enter the number of teams: 2
 Enter the name of team 1: Cardinals
-Enter the name of team 2: Cub
+Enter the name of team 2: Cubs
 
 Enter the name of the sport: Hockey
 Sport has a scheduled game? (Y/N)
@@ -223,7 +237,7 @@ Enter Your Choice: a
 
                 Number of Teams .............. 2
                 Team 1 ....................... Cardinals
-                Team 2 ....................... Cub
+                Team 2 ....................... Cubs
 
         Sport 2
                 Sport Name ................... Hockey
@@ -275,7 +289,47 @@ Enter Sport Name to Display: Baseball
 
                 Number of Teams .............. 2
                 Team 1 ....................... Cardinals
-                Team 2 ....................... Cub
+                Team 2 ....................... Cubs
+
+---------------------------------------------------------------------      // Display particular Sport
+a) Display all Sports                                                      // Invalid Name / back to menu (N)
+b) Add a team to an existing Sport
+c) Display a particular Sport
+d) Display the Sport that has the highest number of teams playing
+e) Exit
+Enter Your Choice: c
+
+Enter Sport Name to Display: Soccer
+
+        Invalid Name
+
+Back to menu? (Y/N)
+N
+
+Enter Sport Name to Display: Football
+
+        Sport 3
+                Sport Name ................... Football
+                Scheduled Date (M/D/YY) ...... 1/1/2000
+
+                Number of Teams .............. 2
+                Team 1 ....................... Rams
+                Team 2 ....................... Patriots
+
+---------------------------------------------------------------------      // Display particular Sport
+a) Display all Sports                                                      // Invalid Name / back to menu (Y)
+b) Add a team to an existing Sport
+c) Display a particular Sport
+d) Display the Sport that has the highest number of teams playing
+e) Exit
+Enter Your Choice: c
+
+Enter Sport Name to Display: Soccer
+
+        Invalid Name
+
+Back to menu? (Y/N)
+Y
 
 ---------------------------------------------------------------------      // Add team
 a) Display all Sports
@@ -305,7 +359,7 @@ Enter Your Choice: a
 
                 Number of Teams .............. 3
                 Team 1 ....................... Cardinals
-                Team 2 ....................... Cub
+                Team 2 ....................... Cubs
                 Team 3 ....................... Yankees
 
         Sport 2
@@ -339,7 +393,7 @@ Enter Your Choice: d
 
                 Number of Teams .............. 3
                 Team 1 ....................... Cardinals
-                Team 2 ....................... Cub
+                Team 2 ....................... Cubs
                 Team 3 ....................... Yankees
 
         Sport 2
