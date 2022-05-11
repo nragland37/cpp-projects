@@ -1,8 +1,8 @@
 10
 Steve Smith
-0,3/3/323
+56.6,11/11/2019
 Sue Jones
-0,3/3/323
+10,11/11/2011
 Li Ying
 0,11/11/2011
 Kun Joom
@@ -12,9 +12,9 @@ Joe Bush
 Kim Long
 0,11/11/2011
 Fred Ring
-0,11/1/111
+33.3,5/5/2019
 Frank Pearse
-0,3/3/323
+20,11/11/2011
 Helen Hu
 0.1,11/11/2011
 Mark James

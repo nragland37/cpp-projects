@@ -64,4 +64,3 @@ int numberWords(const char* words, int size) {
 
     return total;
 }
-

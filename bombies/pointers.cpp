@@ -75,10 +75,10 @@ int main() {
         ++ptr1;
         ptr3 = ptr3 + 1;
     }
-    cout << bigTotal << endl;
+    cout << bigTotal << endl; //43.9
     ptr1 = new int;
     *ptr1 = 10;
-    cout << *ptr1 + 20 << endl;
+    cout << *ptr1 + 20 << endl; //30
     ptr1 = new int[3];
     *ptr1 = 5;
     *(ptr1 + 1) = 10;
@@ -88,7 +88,7 @@ int main() {
     int num[3] = {8, 10, 12};
     const int* p1 = &num[2];
     // int* const p2 = &num[0];
-    cout << *p1 << endl;
+    cout << *p1 << endl; //12
     // cout << *p2 << endl;
     // p1 = &num[1];
     // p2 = &num[2];
@@ -101,3 +101,49 @@ int main() {
     const int* const p6 = &values[1];
     return 0;
 }
+
+/*
+
+10
+10
+0xcec49ffb04
+0xcec49ffaf8
+0xcec49ffb04
+11
+12
+20 20
+20
+20
+0xcec49ffaf0 40
+0xcec49ffaf0 50
+
+A
+
+8
+12
+0xcec49ffad0
+0xcec49ffad8
+8
+8
+9
+10
+12
+14
+
+8
+12
+12
+
+12
+12
+10
+22
+12
+34
+14
+48
+43.9
+30
+12
+
+*/

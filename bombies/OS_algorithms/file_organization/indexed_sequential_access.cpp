@@ -33,9 +33,9 @@ int main() {
     cin >> key;
 
     address = accessCalc(rl, cba, key, blockNum);
-    cout << "\nByte address: " << address << endl;  
+    cout << "\nByte address: " << address << endl;
 
-        return 0;
+    return 0;
 }
 
 int accessCalc(int rl, int cba, int key, int blockNum) {

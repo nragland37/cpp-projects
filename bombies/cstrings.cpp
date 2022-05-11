@@ -5,8 +5,8 @@ using namespace std;
 
 int main() {
     char letters[] = {'A', 'B', 'C', '\0'};  // null character at the end
-    //char letters[] = "ABC";                  // automatically inserts null character at the end
-                                             // so the same initialization
+    // char letters[] = "ABC";                  // automatically inserts null character at the end
+    //  so the same initialization
     int numbers[] = {1, 2, 3};
     cout << numbers;  // Displays the address of the first element
     cout << letters;  // Displays “ABC”, up to the null character
@@ -37,7 +37,6 @@ int main() {
     cin >> name;         // Any length name will be stored, up to a space
 
     if (name1 == name2) {  // Can check if strings are equal using standard syntax
-
     }
     if (name1 < name2)  // Check if name1 is alphabetically less than name2
 

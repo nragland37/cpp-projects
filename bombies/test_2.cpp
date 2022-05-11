@@ -1,56 +1,52 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 int numberWords(const char* words);
 
-int main()
-{
-	int numWords;
-	int numSentences = 3;
-	int size = 50;
-	char* sentence = new char[size];
-	
-	for (int i = 0; i < numSentences; i++)
-	{
-		cout << "Enter a sentence ending in a period: " << endl;
-		cin.getline(sentence, size);
-		
-		numWords = numberWords(sentence);
-		cout << endl << "There are " << numWords << " words in this sentence."
-		   	 << endl << endl;
-	}
+int main() {
+    int numWords;
+    int numSentences = 3;
+    int size = 50;
+    char* sentence = new char[size];
 
-	delete[] sentence;
+    for (int i = 0; i < numSentences; i++) {
+        cout << "Enter a sentence ending in a period: " << endl;
+        cin.getline(sentence, size);
 
-	return 0;
+        numWords = numberWords(sentence);
+        cout << endl
+             << "There are " << numWords << " words in this sentence."
+             << endl
+             << endl;
+    }
+
+    delete[] sentence;
+
+    return 0;
 }
 
 //****************************************************************************************************
 
-int numberWords(const char* words)
-{
-	int numberOfWords = 1;
-	int count = 0;
-	char character = words[1];
-	int num;
+int numberWords(const char* words) {
+    int numberOfWords = 1;
+    int count = 0;
+    char character = words[1];
+    int num;
 
-	do
-	{
-		if (words[count] == ',' || words[count] == ' ')
-		{
-			numberOfWords++;
-			num = count + 1;
-			if (words[num] == ',' || words[num] == ' ')
-			{
-				numberOfWords--;
-			}
-		}
-		count++;
-		character = words[count];
-		
-	} while (character != '.');
+    do {
+        if (words[count] == ',' || words[count] == ' ') {
+            numberOfWords++;
+            num = count + 1;
+            if (words[num] == ',' || words[num] == ' ') {
+                numberOfWords--;
+            }
+        }
+        count++;
+        character = words[count];
 
-	return numberOfWords;
+    } while (character != '.');
+
+    return numberOfWords;
 }
 
 //****************************************************************************************************
