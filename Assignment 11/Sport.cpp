@@ -105,3 +105,16 @@ void Sport::addTeam(const string& n) {
     teamNames = temp;
     numTeams++;
 }
+
+    /*
+
+    numTeams++;
+    string* tempTNames = new string[numTeams];
+    for (int i = 0; i < numTeams - 1; i++) {
+        tempTNames[i] = teamNames[i];
+    }
+    tempTNames[numTeams - 1] = n;
+    teamNames = new string[numTeams];
+    teamNames = tempTNames;
+    
+    */
