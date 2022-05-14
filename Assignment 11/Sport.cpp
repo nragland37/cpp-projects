@@ -25,7 +25,7 @@ using namespace std;
 
 //****************************************************************************************************
 Sport::Sport(const string& n) {
-    name = n;
+    setName(n);
     numTeams = 0;
     teamNames = nullptr;
 }
