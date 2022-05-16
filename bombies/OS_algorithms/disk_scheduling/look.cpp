@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-int disk_size = 200;  //"disk has 200 cyclinders" - can be changed accordingly 
+int disk_size = 200;  //"disk has 200 cyclinders" - can be changed accordingly
 
 void LOOK(int arr[], int size, int head, string direction);
 
@@ -25,7 +25,7 @@ int main() {
         cout << "Enter request " << i + 1 << ": ";
         cin >> arr[i];
     }
-    string direction = "right";    // "right" = large numbers / "left" = small numbers - can be changed accordinly 
+    string direction = "right";  // "right" = large numbers / "left" = small numbers - can be changed accordinly
 
     LOOK(arr, size, head, direction);
     delete[] arr;

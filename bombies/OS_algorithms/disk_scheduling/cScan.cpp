@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-int disk_size = 200;   // "disk has 200 cyclinders" - can be changed accordingly 
+int disk_size = 200;  // "disk has 200 cyclinders" - can be changed accordingly
 
 void CSCAN(int arr[], int size, int head);
 
@@ -117,9 +117,9 @@ void CSCAN(int arr[], int size, int head) {
 
 /*
 
-//note:: if seek sequence hits 199 (end of the disk), 
-it immediately returns to the seek sequence 0 (beginning of the disk) without servicing 
-any requests on the return trip and starts servicing again once reaches the beginning. 
+//note:: if seek sequence hits 199 (end of the disk),
+it immediately returns to the seek sequence 0 (beginning of the disk) without servicing
+any requests on the return trip and starts servicing again once reaches the beginning.
 
 CSCAN
 How many request: 9
@@ -141,10 +141,10 @@ Seek Sequence
 147
 150
 175
-177       <<<<<<  //note      from track#: 177  
-199       <<<<<<  //note  
-0         <<<<<<  //note                        
-86        <<<<<<  //note       to track#: 86  // "177 - 199 - 0 - 86" // travel distance: 307 
+177       <<<<<<  //note      from track#: 177
+199       <<<<<<  //note
+0         <<<<<<  //note
+86        <<<<<<  //note       to track#: 86  // "177 - 199 - 0 - 86" // travel distance: 307
 91
 94
 102

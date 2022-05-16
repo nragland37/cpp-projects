@@ -124,7 +124,7 @@ void readNames(ifstream &inputFile, string names[], int numNames) {
 
 void displayNames(const string names[], int numNames) {
     for (int nameNumber = 0; nameNumber < numNames; ++nameNumber) {
-        cout << "\t" << nameNumber + 1 << "  " << names[nameNumber] << endl; 
+        cout << "\t" << nameNumber + 1 << "  " << names[nameNumber] << endl;
     }
 }
 
@@ -153,7 +153,7 @@ void displayLinearSearchNames(const string names[], int numNames, const string &
     if (result == -1) {
         cout << result << " \nName Not Found" << endl;
     } else {
-        cout << "\nName Found: " << result + 1 << endl; 
+        cout << "\nName Found: " << result + 1 << endl;
     }
 }
 

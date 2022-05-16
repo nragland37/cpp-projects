@@ -7,18 +7,18 @@ int main() {
     // P0, P1, P2, P3, P4 are the Process names here
 
     int n, m, i, j, k;
-    n = 3;                          // Number of processes
-    m = 1;                          // Number of resources
+    n = 3;                    // Number of processes
+    m = 1;                    // Number of resources
     int alloc[n][m] = {{5},   // P0 // Allocation Matrix
                        {4},   // P1
-                       {1}};   // P2
-                       //{0}};   // P3
+                       {1}};  // P2
+                              //{0}};   // P3
                               // P4
 
     int max[n][m] = {{8},   // P0 // MAX Matrix
                      {6},   // P1
-                     {4}};   // P2
-                     //{2}};  // P3
+                     {4}};  // P2
+                            //{2}};  // P3
                             // P4
 
     int avail[m] = {3};  // Available Resources

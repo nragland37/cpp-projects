@@ -54,20 +54,20 @@ void Dealer::display() const {
     cout << getCarName() << endl;
     cout << getCarSold() << endl;
 }
-void Dealer::populate(){
+void Dealer::populate() {
     cout << "dealer name: ";
     getline(cin, dealerName);
     setDealerName(dealerName);
     cin.ignore();
     cout << "car name: ";
-    getline(cin,carName);
+    getline(cin, carName);
     setCarName(carName);
     cout << "# of car sold: ";
     cin >> carSold;
     setCarSold(carSold);
 }
 int main() {
-    Dealer d;               
+    Dealer d;
     d.populate();
     d.display();
 

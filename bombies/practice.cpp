@@ -137,13 +137,13 @@ void selectionSort(int list_select[], int size) {
 
 /*
 
-array: 10 9 8 7 6 5 4 3 2 1 
-bubble-sorted array: 1 2 3 4 5 6 7 8 9 10 
+array: 10 9 8 7 6 5 4 3 2 1
+bubble-sorted array: 1 2 3 4 5 6 7 8 9 10
 
-array: 69 1 7 40 3 2 8 42 47 85 
-bubble-sorted (calling swap function) array: 1 2 3 7 8 40 42 47 69 85 
+array: 69 1 7 40 3 2 8 42 47 85
+bubble-sorted (calling swap function) array: 1 2 3 7 8 40 42 47 69 85
 
-array: 934 854 54 7 543 85 390 5432 37 1 
-selection-sorted array: 1 7 37 54 85 390 543 854 934 5432 
+array: 934 854 54 7 543 85 390 5432 37 1
+selection-sorted array: 1 7 37 54 85 390 543 854 934 5432
 
 */

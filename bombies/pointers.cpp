@@ -75,10 +75,10 @@ int main() {
         ++ptr1;
         ptr3 = ptr3 + 1;
     }
-    cout << bigTotal << endl; //43.9
+    cout << bigTotal << endl;  // 43.9
     ptr1 = new int;
     *ptr1 = 10;
-    cout << *ptr1 + 20 << endl; //30
+    cout << *ptr1 + 20 << endl;  // 30
     ptr1 = new int[3];
     *ptr1 = 5;
     *(ptr1 + 1) = 10;
@@ -88,7 +88,7 @@ int main() {
     int num[3] = {8, 10, 12};
     const int* p1 = &num[2];
     // int* const p2 = &num[0];
-    cout << *p1 << endl; //12
+    cout << *p1 << endl;  // 12
     // cout << *p2 << endl;
     // p1 = &num[1];
     // p2 = &num[2];

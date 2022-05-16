@@ -10,14 +10,14 @@
 //          Course Number:        COSC-1560 - 02
 //
 //          Due:                  April 11, 2022
-// 
+//
 //          Description:          A program that stores information for employees.
 //
 //****************************************************************************************************
 
 #include <fstream>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -41,7 +41,6 @@ Employee* inputEmployees(Employee* emps, int& numEmps);
 //****************************************************************************************************
 
 int main() {
-
     ofstream f;
 
     string empFile = "Employees.txt";
@@ -52,11 +51,10 @@ int main() {
     emps = readEmployees(empFile, numEmps);
     displayEmployees(emps, numEmps);
     emps2 = inputEmployees(emps, numEmps);
- 
+
     f.open(empFile);
 
-    for (int i = 0; i < numEmps; i++)
-    {
+    for (int i = 0; i < numEmps; i++) {
         f << emps2[i].name << "," << emps2[i].age << "," << emps2[i].dateEmp.month << "/"
           << emps2[i].dateEmp.day << "/" << emps2[i].dateEmp.year << endl;
     }
@@ -65,27 +63,24 @@ int main() {
 
     delete[] emps;
     delete[] emps2;
-    
+
     return 0;
 }
 
 //****************************************************************************************************
 
-Employee* readEmployees(const string& empFile, int& numEmps)
-{
+Employee* readEmployees(const string& empFile, int& numEmps) {
     fstream f;
     Employee* p = nullptr;
 
     f.open(empFile, ios::in);
 
-    if (f)
-    {
+    if (f) {
         f >> numEmps;
         f.ignore();
         p = new Employee[numEmps];
- 
-        for (int i = 0; i < numEmps; i++)
-        {
+
+        for (int i = 0; i < numEmps; i++) {
             getline(f, p[i].name, ',');
             f >> p[i].age;
             f.ignore();
@@ -97,9 +92,7 @@ Employee* readEmployees(const string& empFile, int& numEmps)
             f.ignore();
         }
         f.close();
-    }
-    else
-    {
+    } else {
         cout << "File not found.";
     }
     return p;
@@ -107,13 +100,11 @@ Employee* readEmployees(const string& empFile, int& numEmps)
 
 //****************************************************************************************************
 
-void displayEmployees(const Employee emps[], int numEmps)
-{
+void displayEmployees(const Employee emps[], int numEmps) {
     cout << fixed << left << setw(30) << "NAME" << setw(30) << "AGE" << setw(30)
-        << "DATE EMPLOYED" << endl;
+         << "DATE EMPLOYED" << endl;
 
-    for (int i = 0; i < numEmps; i++)
-    {
+    for (int i = 0; i < numEmps; i++) {
         cout << setw(30) << emps[i].name;
         cout << setw(30) << emps[i].age;
         cout << emps[i].dateEmp.month << "/" << emps[i].dateEmp.day << "/"
@@ -123,8 +114,7 @@ void displayEmployees(const Employee emps[], int numEmps)
 
 //****************************************************************************************************
 
-Employee* inputEmployees(Employee* emps, int& numEmps)
-{
+Employee* inputEmployees(Employee* emps, int& numEmps) {
     bool addEmps = false;
     int numAdded = 0;
     Employee* emps2 = nullptr;
@@ -132,8 +122,7 @@ Employee* inputEmployees(Employee* emps, int& numEmps)
 
     cout << "Do any additional employees need to be added to the list? (1 = yes/0 = no)";
     cin >> addEmps;
-    if (addEmps)
-    {
+    if (addEmps) {
         cout << "How many employees need to be added?";
         cin >> numAdded;
         cin.ignore();
@@ -141,17 +130,15 @@ Employee* inputEmployees(Employee* emps, int& numEmps)
 
         emps2 = new Employee[numEmps];
 
-        for (int i = 0; i < numEmps - numAdded; i++)
-        {
+        for (int i = 0; i < numEmps - numAdded; i++) {
             emps2[i].name = emps[i].name;
             emps2[i].age = emps[i].age;
             emps2[i].dateEmp.month = emps[i].dateEmp.month;
             emps2[i].dateEmp.day = emps[i].dateEmp.day;
             emps2[i].dateEmp.year = emps[i].dateEmp.year;
         }
-        
-        for (int i = numEmps - numAdded; i < numEmps; i++)
-        {
+
+        for (int i = numEmps - numAdded; i < numEmps; i++) {
             cout << setw(25) << "NAME:";
             getline(cin, emps2[i].name);
             cout << setw(25) << "AGE:";

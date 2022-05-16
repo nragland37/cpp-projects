@@ -11,14 +11,14 @@ int main() {
     } else {
         cout << "UPPERCASE" << endl;
     }
-    for (int i = 0; i < 15; ++i){
+    for (int i = 0; i < 15; ++i) {
         cout << str[i];
     }
     cout << endl;
-    
-    strcat(str,"XYZ");
 
-    for (int i = 0; i < 15; ++i){
+    strcat(str, "XYZ");
+
+    for (int i = 0; i < 15; ++i) {
         cout << str[i];
     }
 

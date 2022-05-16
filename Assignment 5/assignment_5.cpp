@@ -157,7 +157,7 @@ void sortStudents(string names[], int matches[], int size) {
 /*
 
 -------------------------------------------------
-Cricket Matches College Students Play in a Year 
+Cricket Matches College Students Play in a Year
 -------------------------------------------------
 How many students were surveyed?
 0
@@ -180,7 +180,7 @@ Enter number of matches for Smith, John: 28
 Enter name of student 3: Zhang, Xiu Ying
 Enter number of matches for Zhang, Xiu Ying: 21
 
-Enter name of student 4: Evans, Olivia 
+Enter name of student 4: Evans, Olivia
 Enter number of matches for Evans, Olivia: 30
 
 Enter name of student 5: Song, Mona

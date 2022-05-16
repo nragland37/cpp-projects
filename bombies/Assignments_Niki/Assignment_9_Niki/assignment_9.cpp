@@ -10,36 +10,33 @@
 //          Course Number:        COSC-1560 - 02
 //
 //          Due:                  April 18, 2022
-// 
+//
 //          Description:          A program that enables people to learn how to translate from
 //                                American to English.
 //
 //****************************************************************************************************
 
-#include <fstream>
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <ctime>
 #include <cstdlib>
+#include <ctime>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-struct Translation
-{
+struct Translation {
     string american;
     string english;
 };
 
-struct Date
-{
+struct Date {
     int day;
     int month;
     int year;
 };
 
-struct Person
-{
+struct Person {
     char name[20];
     double score;
     Date testTaken;
@@ -52,11 +49,9 @@ void takeTest(const Translation t[], int numT, Person& p);
 void displayTesters(const Person p[], int numP);
 void writeTesters(const string& filename, const Person p[], int numP);
 
-
 //****************************************************************************************************
 
 int main() {
-
     Translation* ptr1 = nullptr;
     Person* ptr2 = nullptr;
     string filename;
@@ -69,33 +64,30 @@ int main() {
     ptr2 = readTesters("Testers.txt", numP);
     testingOptions(ptr1, numT, ptr2, numP);
     displayTesters(ptr2, numP);
-    //cout << "Who is taking the test? (Choose a number between 1 and " << numP << ")";
-    //cin >> personTesting;
-    //p = ptr2[personTesting - 1];
-    //takeTest(ptr1, numT, p);                       //if you wanted to chose who was taking the test
+    // cout << "Who is taking the test? (Choose a number between 1 and " << numP << ")";
+    // cin >> personTesting;
+    // p = ptr2[personTesting - 1];
+    // takeTest(ptr1, numT, p);                       //if you wanted to chose who was taking the test
     writeTesters(filename, ptr2, numP);
 
-    delete[]ptr1;
-    delete[]ptr2;
+    delete[] ptr1;
+    delete[] ptr2;
 
     return 0;
 }
 
 //****************************************************************************************************
 
-Translation* readTranslation(const string& filename, int& num)
-{
+Translation* readTranslation(const string& filename, int& num) {
     Translation* p = nullptr;
     fstream f;
 
     f.open(filename, ios::in);
-    if (f)
-    {
+    if (f) {
         f >> num;
         f.ignore();
         p = new Translation[num];
-        for (int i = 0; i < num; i++)
-        {
+        for (int i = 0; i < num; i++) {
             getline(f, p[i].american, ',');
             getline(f, p[i].english);
         }
@@ -107,19 +99,16 @@ Translation* readTranslation(const string& filename, int& num)
 
 //****************************************************************************************************
 
-Person* readTesters(const string& filename, int& num)
-{
+Person* readTesters(const string& filename, int& num) {
     Person* p = nullptr;
     fstream f;
 
     f.open(filename, ios::in);
-    if (f)
-    {
+    if (f) {
         f >> num;
         f.ignore();
         p = new Person[num];
-        for (int i = 0; i < num; i++)
-        {
+        for (int i = 0; i < num; i++) {
             f.getline(p[i].name, 20);
             f >> p[i].score;
             f.ignore();
@@ -137,16 +126,14 @@ Person* readTesters(const string& filename, int& num)
 
 //****************************************************************************************************
 
-void testingOptions(const Translation t[], int numT, Person people[], int numP)
-{
+void testingOptions(const Translation t[], int numT, Person people[], int numP) {
     string temp;
     int randNum;
-   
+
     cout << "Enter the date: XX/XX/XXXX ";
     cin >> temp;
     cin.ignore();
-    for (int i = 0; i < 3; i++)
-    {
+    for (int i = 0; i < 3; i++) {
         short seed = time(0);
         srand(seed);
         randNum = rand() % (numP - 1);
@@ -160,29 +147,26 @@ void testingOptions(const Translation t[], int numT, Person people[], int numP)
 
 //****************************************************************************************************
 
-void takeTest(const Translation t[], int numT, Person& p)
-{
+void takeTest(const Translation t[], int numT, Person& p) {
     int randNum;
     string answer;
     int correctAns = 0;
 
     cout << "Tester: " << p.name << endl;
 
-    for (int i = 0; i < 5; i++)
-    {
+    for (int i = 0; i < 5; i++) {
         short seed = time(0);
         srand(seed);
         randNum = rand() % numT;
         cout << "Question " << i + 1 << ": " << t[randNum].american << " = ______________? ";
         getline(cin, answer);
-        if(answer == t[randNum].english)
-        {
-            cout << endl << "Correct!" << endl;
+        if (answer == t[randNum].english) {
+            cout << endl
+                 << "Correct!" << endl;
             correctAns++;
-        }
-        else
-        {
-            cout << endl << "Incorrect." << endl;
+        } else {
+            cout << endl
+                 << "Incorrect." << endl;
         }
     }
     p.score = (static_cast<double>(correctAns) / 5) * 100;
@@ -191,33 +175,29 @@ void takeTest(const Translation t[], int numT, Person& p)
 
 //****************************************************************************************************
 
-void displayTesters(const Person p[], int numP)
-{
+void displayTesters(const Person p[], int numP) {
     cout << fixed << left
          << setw(19) << "NAME" << setw(20) << "SCORE" << setw(15) << "DATE" << endl
          << "**************************************************" << endl;
     cout << fixed << left;
-    for (int i = 0; i < numP; i++)
-    {
+    for (int i = 0; i < numP; i++) {
         cout << setw(19) << p[i].name;
-        cout << setw(20) << setprecision(1) << p[i].score 
-             << p[i].testTaken.month 
-             << "/" << p[i].testTaken.day 
-             << "/" << p[i].testTaken.year 
+        cout << setw(20) << setprecision(1) << p[i].score
+             << p[i].testTaken.month
+             << "/" << p[i].testTaken.day
+             << "/" << p[i].testTaken.year
              << endl;
     }
 }
 
 //****************************************************************************************************
 
-void writeTesters(const string& filename, const Person p[], int numP)
-{
+void writeTesters(const string& filename, const Person p[], int numP) {
     fstream f;
 
     f.open("Testers.txt", ios::out);
     f << numP << endl;
-    for (int i = 0; i < numP; i++)
-    {
+    for (int i = 0; i < numP; i++) {
         f << p[i].name << endl;
         f << p[i].score << ",";
         f << p[i].testTaken.month << "/" << p[i].testTaken.day << "/" << p[i].testTaken.year << endl;

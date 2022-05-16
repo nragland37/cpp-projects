@@ -113,8 +113,8 @@ void SCAN(int arr[], int size, int head, string direction) {
 
 /*
 
-//note:: if seek sequence hits 199 (end of the disk), 
-it is reversed and the process continues. 
+//note:: if seek sequence hits 199 (end of the disk),
+it is reversed and the process continues.
 
 SCAN
 How many request: 9

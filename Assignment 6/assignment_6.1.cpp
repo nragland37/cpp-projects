@@ -91,7 +91,7 @@ Enter a line of words (less than 50 characters), ended by '.':       // user inp
 Hello, this is a test.  test
 Total words: 5
 
-Enter a line of words (less than 50 characters), ended by '.': 
+Enter a line of words (less than 50 characters), ended by '.':
      hi,, HEY,,  hello   ,, .
 Total words: 3
 

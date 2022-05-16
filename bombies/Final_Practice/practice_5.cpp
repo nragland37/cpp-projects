@@ -8,17 +8,17 @@ struct Employee {
     string department;
 };
 
-struct Company{
+struct Company {
     string name;
     int year;
-    Employee * emps = nullptr;
+    Employee* emps = nullptr;
     int numEmps;
 };
 
 void populate(Employee& e);
 void display(const Employee& e);
-void populateComp(Company &c);
-void displayComp(const Company&c);
+void populateComp(Company& c);
+void displayComp(const Company& c);
 
 int main() {
     Employee e;
@@ -28,7 +28,7 @@ int main() {
     populateComp(c);
     displayComp(c);
 
-    delete [] c.emps;
+    delete[] c.emps;
     return 0;
 }
 
@@ -48,25 +48,25 @@ void display(const Employee& e) {
     cout << "\ndepartment: " << e.department;
 }
 
-void populateComp(Company &c){
+void populateComp(Company& c) {
     cout << "\ncompany name: ";
-    getline(cin,c.name);
-    cout <<"company year: ";
+    getline(cin, c.name);
+    cout << "company year: ";
     cin >> c.year;
     cout << "# of employees: ";
     cin >> c.numEmps;
     c.emps = new Employee[c.numEmps];
     cin.ignore();
-    for(int i=0;i<c.numEmps; ++i){
+    for (int i = 0; i < c.numEmps; ++i) {
         populate(c.emps[i]);
     }
 }
 
-void displayComp(const Company&c){
+void displayComp(const Company& c) {
     cout << "\nCompany name: " << c.name;
     cout << "\nCompany year: " << c.year;
     cout << "\n# of employees: " << c.numEmps;
-    for (int i = 0; i < c.numEmps; ++i){
+    for (int i = 0; i < c.numEmps; ++i) {
         display(c.emps[i]);
     }
 }

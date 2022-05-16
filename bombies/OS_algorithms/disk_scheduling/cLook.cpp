@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int disk_size = 200;  //"disk has 200 cyclinders" - can be changed accordingly 
+int disk_size = 200;  //"disk has 200 cyclinders" - can be changed accordingly
 
 void CLOOK(int arr[], int size, int head);
 

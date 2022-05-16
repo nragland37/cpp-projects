@@ -21,7 +21,7 @@ int main() {
     cout << "\nStandard Deviation: " << standardDev << endl;
 
     delete[] values;
-    
+
     return 0;
 }
 

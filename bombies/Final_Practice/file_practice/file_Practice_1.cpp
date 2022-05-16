@@ -28,8 +28,8 @@ int main() {
         avg = (static_cast<double>(sum) / SIZE);
         f << "average of array: " << avg << endl;
         int largest = numbers[0];
-        for (int i = 0; i < SIZE; ++i){
-            if(largest < numbers[i]){
+        for (int i = 0; i < SIZE; ++i) {
+            if (largest < numbers[i]) {
                 largest = numbers[i];
             }
         }

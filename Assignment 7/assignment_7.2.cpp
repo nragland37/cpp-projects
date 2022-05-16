@@ -55,7 +55,7 @@ int main() {
         cout << "Number: ";
         cin >> size;
         cin.ignore();
-        if(size <= 0 || size >= 5000){
+        if (size <= 0 || size >= 5000) {
             cout << "\nNumber must be greater than '0' and smaller than '5000'." << endl;
         }
     } while (size <= 0 || size >= 5000);
@@ -333,7 +333,7 @@ Name: Nicholas Ragland
 Telephone Number: 314-219-9992
 Topic: Art
 Fee: 30.45
-Do you have another entry? (Y/N): 
+Do you have another entry? (Y/N):
 Y
 
 ---------------------------------------------------------------
@@ -343,7 +343,7 @@ Name: Olivia Davisson
 Telephone Number: 314-299-9999
 Topic: Computer Science
 Fee: 25.50
-Do you have another entry? (Y/N): 
+Do you have another entry? (Y/N):
 Y
 
 ---------------------------------------------------------------
@@ -353,7 +353,7 @@ Name: John Smith
 Telephone Number: 314-238-8455
 Topic: History
 Fee: 32
-Do you have another entry? (Y/N): 
+Do you have another entry? (Y/N):
 Y
 
 ---------------------------------------------------------------
@@ -363,7 +363,7 @@ Name: Sam Smith
 Telephone Number: 314-883-5462
 Topic: Poetry
 Fee: 10
-Do you have another entry? (Y/N): 
+Do you have another entry? (Y/N):
 N
 
 ---------------------------------------------------------------
@@ -374,7 +374,7 @@ Name: Nicholas Ragland
 ---------------------------------------------------------------
         Please enter the speaker's updated information.
 ---------------------------------------------------------------
-Name: Nicholas Smith   
+Name: Nicholas Smith
 Telephone Number: 314-219-9993
 Topic: Computer Science
 Fee: 12.75
@@ -436,5 +436,5 @@ Speaker 4
         Telephone Number ............. 314-883-5462
         Topic ........................ Poetry
         Fee .......................... 10
-        
+
 */
