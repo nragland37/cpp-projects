@@ -21,39 +21,35 @@ using namespace std;
 
 //****************************************************************************************************
 
-int main()
-{
+int main() {
+    const int SIZE = 10;
 
-	const int SIZE = 10;
+    int nums[SIZE],
+        sum = 0;
 
-	int nums[SIZE],
-		sum = 0;
+    cout << "Enter 10 numbers" << endl
+         << endl;
 
-	cout << "Enter 10 numbers" << endl
-		 << endl;
+    for (int i = 0; i < SIZE; i++) {
+        cout << "Enter #" << i + 1 << ":";
+        cin >> nums[i];
 
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << "Enter #" << i+1 << ":";
-		cin >> nums[i];
+        sum = sum + nums[i];
+    }
 
-		sum = sum + nums[i];
-	}
+    cout << endl;
 
-	cout << endl;
+    cout << "Sum is: " << sum << endl;
 
-	cout << "Sum is: " << sum << endl;
+    cout << "The list of numbers were: ";
 
-	cout << "The list of numbers were: ";
+    for (int i = 0; i < SIZE; i++) {
+        cout << nums[i] << " ";
+    }
 
-	for (int i = 0; i < SIZE; i++)
-	{
-		cout << nums[i] << " ";
-	}
+    cout << endl;
 
-	cout << endl;
-
-	return 0;
+    return 0;
 }
 
 //****************************************************************************************************

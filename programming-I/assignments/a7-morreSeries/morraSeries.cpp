@@ -1,124 +1,114 @@
 //****************************************************************************************************
 // 			File:                 morraSeries.cpp
 //
-//			Student:              Nicholas Ragland  
+//			Student:              Nicholas Ragland
 //
 //			Assignment:           Program #7
-//			
+//
 //          Course Name:          Programming 1
 //
 //          Course Number:        COSC 1550 - 03
-//          
+//
 //          Due:                  October 14, 2021
 //
-//          This program implements a series of Morra games between two players. There will 
-//			be 10 rounds for this series. The person who wins the most of the games will win the 
+//          This program implements a series of Morra games between two players. There will
+//			be 10 rounds for this series. The person who wins the most of the games will win the
 //			series. If both win an equal number of games, it outputs that it is a tie.
 //
-//****************************************************************************************************  
+//****************************************************************************************************
 
-#include <iostream>
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 
 using namespace std;
 
 //****************************************************************************************************
 
-int main()
-{
+int main() {
+    short seed;
 
-	short seed;
+    const int MAX_FINGERS = 5,
+              MIN_FINGERS = 1,
+              MAX_GUESS = 10,
+              MIN_GUESS = 0;
 
-	const int MAX_FINGERS = 5,
-			  MIN_FINGERS = 1,
-			  MAX_GUESS = 10,
-			  MIN_GUESS = 0;
+    int playerOneFingers,
+        playerTwoFingers,
+        playerOneGuess,
+        playerTwoGuess,
+        sum,
+        playerOneWins = 0,
+        playerTwoWins = 0;
 
-	int playerOneFingers,
-		playerTwoFingers,
-		playerOneGuess,
-		playerTwoGuess,
-		sum,
-		playerOneWins = 0,
-		playerTwoWins = 0;
+    ofstream out("morraSeriesResults.txt");
 
-	ofstream out("morraSeriesResults.txt");
+    seed = time(0);
+    srand(seed);
 
-	seed = time(0);
-	srand(seed);
+    for (int game = 1; game <= 10; game++) {
+        playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
+        playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
+        playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
+        playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
 
-	for (int game = 1; game <= 10; game++) {
+        cout << left << "Game " << game << ":" << setw(12) << endl;
 
-		playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
-		playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
-		playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
-		playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
+        cout << "Player" << setw(12) << "|Fingers" << setw(12) << "|Total" << endl;
 
-		cout << left << "Game " << game << ":" << setw(12) << endl;
+        cout << "============|===========|============" << endl;
 
-		cout << "Player" << setw(12) << "|Fingers" << setw(12) << "|Total" << endl;
+        cout << setw(12) << "1"
+             << "|" << setw(11) << playerOneFingers << "|" << playerOneGuess << endl;
 
-		cout << "============|===========|============" << endl;
+        cout << setw(12) << "2"
+             << "|" << setw(11) << playerTwoFingers << "|" << playerTwoGuess << endl
+             << endl;
 
-		cout << setw(12) << "1" << "|" << setw(11) << playerOneFingers << "|" << playerOneGuess << endl;
+        sum = playerOneFingers + playerTwoFingers;
+        cout << "Correct total is " << sum << endl;
 
-		cout << setw(12) << "2" << "|" << setw(11) << playerTwoFingers << "|" << playerTwoGuess << endl << endl;
+        if (sum == playerOneGuess && sum == playerTwoGuess) {
+            cout << "TIE" << endl
+                 << endl;
+        } else if (sum == playerOneGuess) {
+            cout << "Player 1 Wins" << endl
+                 << endl;
+            playerOneWins++;
+        } else if (sum == playerTwoGuess) {
+            cout << "Player 2 Wins" << endl
+                 << endl;
+            playerTwoWins++;
+        } else {
+            cout << "NO ONE WINS" << endl
+                 << endl;
+        }
 
-		sum = playerOneFingers + playerTwoFingers;
-		cout << "Correct total is " << sum << endl;
+        cout << "-----------------------------------------------------" << endl;
+    }
 
-		if (sum == playerOneGuess && sum == playerTwoGuess)
-		{
-			cout << "TIE" << endl << endl;
-		}
-		else if (sum == playerOneGuess)
-		{
-			cout << "Player 1 Wins" << endl << endl;
-			playerOneWins++;
-		}
-		else if (sum == playerTwoGuess)
-		{
-			cout << "Player 2 Wins" << endl << endl;
-			playerTwoWins++;
-		}
-		else
-		{
-			cout << "NO ONE WINS" << endl << endl;
-		}
+    cout << "=====================================================" << endl;
+    cout << "Summary of the series" << endl;
+    cout << "=====================================================" << endl;
+    cout << "Player 1 won " << playerOneWins << " games" << endl;
+    cout << "Player 2 won " << playerTwoWins << " games" << endl
+         << endl;
 
-		cout << "-----------------------------------------------------" << endl;
-	}
+    cout << "Winner of the series: ";
 
-	cout << "=====================================================" << endl;
-	cout << "Summary of the series" << endl;
-	cout << "=====================================================" << endl;
-	cout << "Player 1 won " << playerOneWins << " games" << endl;
-	cout << "Player 2 won " << playerTwoWins << " games" << endl << endl;
+    if (playerOneWins == playerTwoWins) {
+        cout << "It is a TIE" << endl;
+    } else if (playerOneWins > playerTwoWins) {
+        cout << "Player 1" << endl;
+    } else if (playerTwoWins > playerOneWins) {
+        cout << "Player 2" << endl;
+    } else {
+        cout << "NO ONE WINS" << endl;
+    }
 
-	cout << "Winner of the series: ";
-
-	if (playerOneWins == playerTwoWins)
-	{
-		cout << "It is a TIE" << endl;
-	}
-	else if (playerOneWins > playerTwoWins)
-	{
-		cout << "Player 1" << endl;
-	}
-	else if (playerTwoWins > playerOneWins)
-	{
-		cout << "Player 2" << endl;
-	}
-	else
-	{
-		cout << "NO ONE WINS" <<  endl;
-	} 
-
-	return 0;
-
+    return 0;
 }
 
 //****************************************************************************************************

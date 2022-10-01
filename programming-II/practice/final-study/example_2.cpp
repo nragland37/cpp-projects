@@ -6,8 +6,7 @@ using namespace std;
 
 //****************************************************************************************************
 
-int main()
-{
+int main() {
     cout << "Find the circumference and the area of any circle." << endl;
     cout << "Input the radius(1/2 of diameter) of a circle: ";
 

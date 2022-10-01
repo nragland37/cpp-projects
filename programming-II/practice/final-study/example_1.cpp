@@ -5,8 +5,7 @@ using namespace std;
 
 //****************************************************************************************************
 
-int main()
-{
+int main() {
     const float pi = 3.14;
     float radius, area, circum;
 

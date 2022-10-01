@@ -17,8 +17,8 @@
 //
 //****************************************************************************************************
 
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 using namespace std;
 
 //****************************************************************************************************
@@ -28,7 +28,7 @@ int main() {
         examWeight,
         particWeight,
         PercentOutOf100,
-		sum_of_all_weights,
+        sum_of_all_weights,
         avg;
 
     const int ASSIGN_PERCENT = 15,
@@ -73,7 +73,7 @@ int main() {
     sum_of_all_weights = (ASSIGN_PERCENT + TEST_PERCENT + EXAM_PERCENT + PARTIC_PERCENT);
     avg = (assignWeight + testWeight + examWeight + particWeight) / sum_of_all_weights;
 
-	cout << fixed << setprecision(2);
+    cout << fixed << setprecision(2);
 
     cout << "\n\n\t" << assignWeight / sum_of_all_weights << "% in Programming Assignments\n"
          << "\t" << testWeight / sum_of_all_weights << "% in Chapter Tests\n"
