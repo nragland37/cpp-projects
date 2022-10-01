@@ -1,0 +1,96 @@
+//****************************************************************************************************
+// 			File:                 echoAList.cpp
+//
+//			Student:              Nicholas Ragland
+//
+//			Assignment:           Program #11
+//
+//          Course Name:          Programming 1
+//
+//          Course Number:        COSC 1550 - 03
+//
+//          Due:                  December 2, 2021
+//
+//          This program reads 10 integers from the user, finds the running sum of those numbers,
+//			and outputs the sum on the screen along with the list of numbers the user entered.
+//
+//****************************************************************************************************
+
+#include <iostream>
+using namespace std;
+
+//****************************************************************************************************
+
+int main()
+{
+
+	const int SIZE = 10;
+
+	int nums[SIZE],
+		sum = 0;
+
+	cout << "Enter 10 numbers" << endl
+		 << endl;
+
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << "Enter #" << i+1 << ":";
+		cin >> nums[i];
+
+		sum = sum + nums[i];
+	}
+
+	cout << endl;
+
+	cout << "Sum is: " << sum << endl;
+
+	cout << "The list of numbers were: ";
+
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << nums[i] << " ";
+	}
+
+	cout << endl;
+
+	return 0;
+}
+
+//****************************************************************************************************
+/*
+
+Enter 10 numbers
+
+Enter #1: 1
+Enter #2: 2
+Enter #3: 3
+Enter #4: 4
+Enter #5: 5
+Enter #6: 6
+Enter #7: 7
+Enter #8: 8
+Enter #9: 9
+Enter #10: 10
+
+Sum is: 55
+The list of numbers were: 1 2 3 4 5 6 7 8 9 10
+
+//****************************************************************************************************
+
+Enter 10 numbers
+
+Enter #1: 10
+Enter #2: 9
+Enter #3: 8
+Enter #4: 7
+Enter #5: 6
+Enter #6: 5
+Enter #7: 4
+Enter #8: 3
+Enter #9: 2
+Enter #10: 1
+
+Sum is: 55
+The list of numbers were: 10 9 8 7 6 5 4 3 2 1
+
+*/
