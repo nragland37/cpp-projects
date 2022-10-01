@@ -11,7 +11,7 @@
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${fileDirname}",
+            "cwd": "C:\\msys64\\mingw64\\bin",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
@@ -42,8 +42,20 @@
             "console": "externalTerminal",
             "preLaunchTask": "C/C++: cl.exe build active file"
         },
-        
-        {"name":"Python: Current File","type":"python","request":"launch","program":"${file}","console":"integratedTerminal","justMyCode":true}
-        
+        {
+            "name": "Python: Current File (Integrated Terminal)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Current File (External Terminal)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "externalTerminal"
+        }
+          
     ]
 }
