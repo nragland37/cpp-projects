@@ -1,8 +1,0 @@
-1
-5
-8
-2
-9
-Length of array: 5
-average of array: 5
-largest # of array: 9
