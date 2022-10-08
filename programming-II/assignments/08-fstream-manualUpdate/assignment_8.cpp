@@ -169,26 +169,19 @@ void displayEmployees(const Employee emps[], int numEmps) {
 }
 
 /*
-
 cannot open file
-
 //****************************************************************************************************
-
 NAME                          AGE                 DATE EMPLOYED
 Stephen Smith                 25                  12/15/2001
 Susan Kim-Jones               33                  1/9/2012
 Praew Chaem Choi              52                  8/22/1999
-
 Any additional employees need to be added? (Y/N)
 N
-
 //****************************************************************************************************
-
 NAME                          AGE                 DATE EMPLOYED
 Stephen Smith                 25                  12/15/2001
 Susan Kim-Jones               33                  1/9/2012
 Praew Chaem Choi              52                  8/22/1999
-
 Any additional employees need to be added? (Y/N)
 Y
 How many?
@@ -203,14 +196,12 @@ Enter age: 23
 Enter month: 2
 Enter day: 27
 Enter year: 1999
-
 NAME                          AGE                 DATE EMPLOYED
 Stephen Smith                 25                  12/15/2001
 Susan Kim-Jones               33                  1/9/2012
 Praew Chaem Choi              52                  8/22/1999
 Nicholas Ragland              30                  7/8/1991
 Olivia Davisson               23                  2/27/1999
-
 //****************************************************************************************************
 // File after update //
 5
@@ -219,5 +210,4 @@ Susan Kim-Jones,33,1/9/2012
 Praew Chaem Choi,52,8/22/1999
 Nicholas Ragland,30,7/8/1991
 Olivia Davisson,23,2/27/1999
-
 */
