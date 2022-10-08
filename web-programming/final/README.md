@@ -17,7 +17,8 @@ Your links should be chronological and look similar to:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 1916, Webster Hall
 
-The content for these pages can be accessed by visiting the following URL: http://library.webster.edu/archives/buildings/ to an external site.
+The content for these pages can be accessed by visiting the following URL: 
+http://library.webster.edu/archives/buildings/
 
 As discussed above, the content of your three pages must be placed into the template that you established previously. 
 You must also utilize all of the content found on those pages and place it within your template. 
