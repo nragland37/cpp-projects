@@ -1,5 +1,5 @@
 # C++ Projects
 
-[Programming I](./cpp-projects/programming-I)
+[Programming I](cpp-projects/programming-I)
 
-[Programming II](./cpp-projects/programming-II)
+[Programming II](cpp-projects/programming-II)
