@@ -1,22 +1,3 @@
-//****************************************************************************************************
-// 			File:                 pizza.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #8
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  October 29, 2021
-//
-//          This program lets you order pizza with a repeatedly printed menu and aligned
-//			prices. As the user selects an item, the program finds the running total and
-//			total number of items.
-//
-//****************************************************************************************************
-
 #include <iomanip>
 #include <iostream>
 

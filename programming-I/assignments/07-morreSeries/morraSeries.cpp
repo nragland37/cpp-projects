@@ -1,22 +1,3 @@
-//****************************************************************************************************
-// 			File:                 morraSeries.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #7
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  October 14, 2021
-//
-//          This program implements a series of Morra games between two players. There will
-//			be 10 rounds for this series. The person who wins the most of the games will win the
-//			series. If both win an equal number of games, it outputs that it is a tie.
-//
-//****************************************************************************************************
-
 #include <cstdlib>
 #include <ctime>
 #include <fstream>

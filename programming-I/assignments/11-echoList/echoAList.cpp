@@ -1,21 +1,3 @@
-//****************************************************************************************************
-// 			File:                 echoAList.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #11
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  December 2, 2021
-//
-//          This program reads 10 integers from the user, finds the running sum of those numbers,
-//			and outputs the sum on the screen along with the list of numbers the user entered.
-//
-//****************************************************************************************************
-
 #include <iostream>
 using namespace std;
 

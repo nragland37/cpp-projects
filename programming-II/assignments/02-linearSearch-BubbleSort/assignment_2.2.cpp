@@ -1,24 +1,3 @@
-//****************************************************************************************************
-// 			File:                 assignment_2.2.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #2
-//
-//          Course Name:          Programming II
-//
-//          Course Number:        COSC-1560 - 02
-//
-//          Due:                  February 7, 2021
-//
-//          This program reads and displays ten student names and their places in a list from a file.
-//          Prompts the user to enter a name then searches the list to find if name is present.
-//          If name is found, the program outputs the students place in the list. If name is not
-//          found, the program outputs -1. The program then outputs two seperate lists of an ascending
-//          and descending order with the students place in both.
-//
-//****************************************************************************************************
-
 #include <fstream>
 #include <iomanip>
 #include <iostream>

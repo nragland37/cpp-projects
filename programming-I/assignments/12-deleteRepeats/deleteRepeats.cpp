@@ -1,23 +1,3 @@
-//****************************************************************************************************
-// 			File:                 deleteRepeats.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #12
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  December 9, 2021
-//
-//          This program deletes repeated entries in a character array.The array size and the array
-//			entries are user inputs.Once one set of characters are processed, the program should
-//			ask if the user wants to repeat for another round and repeat the same until user enters
-//			N or n(representing no).
-//
-//****************************************************************************************************
-
 #include <iostream>
 using namespace std;
 

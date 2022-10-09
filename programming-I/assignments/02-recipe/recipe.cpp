@@ -1,20 +1,3 @@
-//****************************************************************************************************
-// 			File:                 recipe.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #2
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  September 2, 2021
-//
-//          This program outputs a "Chocolate Chip Cookies - 4 dozen cookies" recipe on the screen.
-//
-//****************************************************************************************************
-
 #include <iostream>
 using namespace std;
 

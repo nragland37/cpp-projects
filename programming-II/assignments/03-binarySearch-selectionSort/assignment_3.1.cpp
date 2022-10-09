@@ -1,30 +1,3 @@
-//****************************************************************************************************
-// 			File:                 assignment_3.1.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #3
-//
-//          Course Name:          Programming II
-//
-//          Course Number:        COSC-1560 - 02
-//
-//          Due:                  February 14, 2022
-//
-//          This program reads and displays ten student names and their places in a list from a file.
-//          Prompts the user to enter a name and searches (Linear Search Algorithm) the list to find
-//          if name is present. If name is found, the program outputs the students place in the list.
-//          If name is not found, the program outputs -1. The program outputs two seperate lists
-//          of an ascending and descending order using a "Bubble Sort Algorithm" with the students
-//          place in both. Then the program sorts the list in ascending order using a "Selection Sort
-//          Algorithm", prompts the user to enter a name, and searches (Binary Search Algorithm) the
-//          list to find if name is present. If name is found, the program outputs the students place
-//          in the list. If name is not found, the program outputs -1. The program outputs another
-//          list in descenidng order using the "Selection Sort Algorithm" and repeats the process of
-//          the "linear Search Algorithm".
-//
-//****************************************************************************************************
-
 #include <fstream>
 #include <iomanip>
 #include <iostream>

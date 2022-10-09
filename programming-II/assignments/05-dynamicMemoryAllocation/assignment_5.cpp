@@ -1,18 +1,3 @@
-//****************************************************************************************************
-// 		    File:                 assignment_5.cpp
-//
-//		    Student:              Nicholas Ragland
-//
-//		    Assignment:           Program #5
-//
-//          Course Name:          Programming II
-//
-//          Course Number:        COSC-1560 - 02
-//
-//          Due:                  February 28, 2022
-//
-//****************************************************************************************************
-
 #include <iomanip>
 #include <iostream>
 #include <string>

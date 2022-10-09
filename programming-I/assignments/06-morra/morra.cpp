@@ -1,23 +1,3 @@
-//****************************************************************************************************
-// 			File:                 morra.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #6
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  October 7, 2021
-//
-//          This program implements one instant of a Morra game between two players.Each player
-//          simultaniuosly throws out a single hand with a 0 to five number of fingers and says a
-//			guessed sum of all fingers showed by both players.The player who could guess the total
-//			correct wins. If both players guessed it correctly, it is a tie.
-//
-//****************************************************************************************************
-
 #include <cstdlib>
 #include <ctime>
 #include <fstream>

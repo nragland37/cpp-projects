@@ -1,22 +1,3 @@
-//****************************************************************************************************
-// 			File:                 gradeCalc_2.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #9
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  November 18, 2021
-//
-//          This program uses functions to calculate the final grade, based on the grade of each
-//			deliverable (programming assignments, chapter tests, final exam, and class participation)
-//			given by  the  user.
-//
-//****************************************************************************************************
-
 #include <iostream>
 using namespace std;
 

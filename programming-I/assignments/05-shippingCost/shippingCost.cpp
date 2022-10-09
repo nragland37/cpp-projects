@@ -1,21 +1,3 @@
-//****************************************************************************************************
-// 			File:                 shippingCost.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #5
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  September 30, 2021
-//
-//          This program calculates the total cost of an online purchase based on the item's price
-//			and weight.
-//
-//****************************************************************************************************
-
 #include <iomanip>
 #include <iostream>
 using namespace std;

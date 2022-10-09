@@ -1,24 +1,3 @@
-//****************************************************************************************************
-// 		  File:                 assignment_3.2.cpp
-//
-//		  Student:              Nicholas Ragland
-//
-//		  Assignment:           Program #3
-//
-//          Course Name:          Programming II
-//
-//          Course Number:        COSC-1560 - 02
-//
-//          Due:                  February 14, 2022
-//
-//          This program displays the values and memory addresses of three variables, the memory
-//          addresses and assigned variables of two pointers, and the values and memory addresses at
-//          the locations to which the pointers point to. The program finds and displays the value
-//          of a variable using multiplication with a pointer, re-assigns a pointer with a different
-//          variable, and the sum of values that pointers were assigned.
-//
-//****************************************************************************************************
-
 #include <iostream>
 
 using namespace std;

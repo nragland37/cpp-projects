@@ -1,21 +1,3 @@
-//****************************************************************************************************
-// 			File:                 circleArea.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #9
-//
-//          Course Name:          Programming 1
-//
-//          Course Number:        COSC 1550 - 03
-//
-//          Due:                  November 11, 2021
-//
-//          This program takes a positive number from the user as the radius of a circle and
-//			calculates its circumference.
-//
-//****************************************************************************************************
-
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <iostream>

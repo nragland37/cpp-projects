@@ -1,26 +1,3 @@
-//****************************************************************************************************
-// 			File:                 assignment_2.1.cpp
-//
-//			Student:              Nicholas Ragland
-//
-//			Assignment:           Program #2
-//
-//          Course Name:          Programming II
-//
-//          Course Number:        COSC-1560 - 02
-//
-//          Due:                  February 7, 2021
-//
-//          This program reads and displays eight test scores, as a percentage, for ten students
-//          from a file. The functions calculate total points of one student for all tests,
-//          total points for one test for all students, total average of all students for one test,
-//          average of all tests for one student, highest test score for one student, and the student
-//          with the highest average test score.The program prompts the user to input an average
-//          for both, students and tests. Then finds if at least one student and test has an
-//          average score greater than those inputs.
-//
-//****************************************************************************************************
-
 #include <fstream>
 #include <iomanip>
 #include <iostream>
