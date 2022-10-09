@@ -1,5 +1,13 @@
-# <p align="center"> C++ Things </p>
+# <p align="center"> Hello, World! </p>
+
+/*
+
+This repository is a collection of open-source implementation of a variety of projects implemented in C++ and licensed under [MIT License](LICENSE.txt). All of these well documented assignments, notes, exercises, examples, and source code solutions can be easily accessed below. 
+
 Enjoy! 
+
+*/
+
 <br>
 
 ### [Programming I](/programming-I)
@@ -7,7 +15,7 @@ Enjoy!
 
 | # | Assignment | C++ Solutions | External Files |
 |:---:|:---|:---:|:---:|
-| 1 | [Helloworld](programming-I/assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./programming-I/assignments/01-helloworld/HelloWorld.cpp) |  |
+| 1 | [HelloWorld](programming-I/assignments/01-helloworld/docs/FA_A1_helloWorld.pdf) | [solution](./programming-I/assignments/01-helloworld/helloWorld.cpp) |  |
 | 2 | [Recipe](programming-I/assignments/02-recipe/docs/FA_A2_Recipe.pdf) | [solution](./programming-I/assignments/02-recipe/recipe.cpp) |  | 
 | 3 | [Ingredients](programming-I/assignments/03-ingredients/docs/FA_A3_Ingredient.pdf) | [solution](./programming-I/assignments/03-ingredients/ingredients.cpp) |  | 
 | 4 | [Grade Calculator](programming-I/assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [solution](./programming-I/assignments/04-gradeCalc/gradeCalc.cpp) |  | 
