@@ -1,4 +1,3 @@
-# <p align="center"> Description </p>
 Short and simple programs in the C++ programming language. These programs require: making decisions (if and if..else statements), writing loops (while, do..while, and for loops), using functions and using arrays.
 
 <br>
