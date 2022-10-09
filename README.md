@@ -4,7 +4,7 @@
 
 | # | Assignments | CPP | TXT |
 |:---:|:---|:---:|:---:|
-| 1 | [Hellowrld](programming-I/assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./programming-I/assignments/01-helloworld/HelloWorld.cpp) | n/a |
+| 1 | [Helloworld](programming-I/assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./programming-I/assignments/01-helloworld/HelloWorld.cpp) | n/a |
 | 2 | [Recipe](programming-I/assignments/02-recipe/docs/FA_A2_Recipe.pdf) | [solution](./programming-I/assignments/02-recipe/recipe.cpp) | n/a | 
 | 3 | [Ingredients](programming-I/assignments/03-ingredients/docs/FA_A3_Ingredient.pdf) | [solution](./programming-I/assignments/03-ingredients/ingredients.cpp) | n/a | 
 | 4 | [Grade Calculator](programming-I/assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [solution](./programming-I/assignments/04-gradeCalc/gradeCalc.cpp) | n/a | 
