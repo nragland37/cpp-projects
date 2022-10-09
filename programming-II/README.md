@@ -1,5 +1,4 @@
-# <p align="center"> Description </p>
-## <p align="center"> Programs using arrays, pointers, structured data, and file operations. </p>
+### <p align="center"> Programs using arrays, pointers, structured data, and file operations. </p>
 
 * Use pointer variables, understand the relationship between arrays and pointers, do pointer arithmetic, and use pointers as parameters
 
@@ -13,9 +12,11 @@
 
 * Use class constructors and destructors
 
+<br>
+
 | # | Assignment | C++ Solutions | External Files |
 |:---:|:---|:---:|:---:|
-| 1 | [Two Dimensional Array](assignments/01-twoDimensionalArray/docs/Assignment_1.pdf) | [part 1](./assignments/01-twoDimensionalArray/assignment_1.cpp) | [two](./assignments/01-twoDimensionalArray) |
+| 1 | [Two Dimensional Array](assignments/01-twoDimensionalArray/docs/Assignment_1.pdf) | [part 1](./assignments/01-twoDimensionalArray/assignment_1.cpp) | [:white_check_mark:](./assignments/01-twoDimensionalArray) |
 | 2 | [Linear-Search & Bubble-Sort](assignments/02-linearSearch-BubbleSort/docs/Assignment_2.pdf) | [part 1](./assignments/02-linearSearch-BubbleSort/assignment_2.1.cpp) [part 2](./assignments/02-linearSearch-BubbleSort/assignment_2.2.cpp) | [:white_check_mark:](./assignments/02-linearSearch-BubbleSort) |
 | 3 | [Binary-Search & Selection-Sort](assignments/03-binarySearch-selectionSort/docs/Assignment_3.pdf) | [part 1](./assignments/03-binarySearch-selectionSort/assignment_3.1.cpp) [part 2](./assignments/03-binarySearch-selectionSort/assignment_3.2.cpp) | [:white_check_mark:](./assignments/03-binarySearch-selectionSort) |
 | 4 | [Pointers](assignments/04-pointers/docs/Assignment_4.pdf) | [part 1](./assignments/04-pointers/assignment_4.cpp) |  |
