@@ -1,4 +1,4 @@
-## The assignments & my solutions
+# :computer: The assignments & my solutions :robot: 
 | # | Assignments | CPP | Txt |
 |:---:|:---|:---:|:---:|
 | 1 | [Hellowrld](assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./assignments/01-helloworld/HelloWorld.cpp) |
