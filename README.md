@@ -1,7 +1,7 @@
-# <p align="center"> :computer: The Assignments & My Solutions  :robot: </p>
+# <p align="center"> C++ Assignments </p>
 <br>
 
-## [Programming I](/programming-I)
+### [Programming I](/programming-I)
 * [Documents](programming-I/docs/)
 
 | # | Assignment | C++ Solutions | External Files |
@@ -21,7 +21,7 @@
 <br>
 <br>
 
-## [Programming II](/programming-II)
+### [Programming II](/programming-II)
 * [Documents](programming-II/docs/)
 
 | # | Assignment | C++ Solutions | External Files |
