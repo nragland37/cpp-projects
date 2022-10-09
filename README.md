@@ -1,5 +1,5 @@
 # <p align="center"> C++ Things </p>
-enjoy! 
+Enjoy! 
 <br>
 
 ### [Programming I](/programming-I)
