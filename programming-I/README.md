@@ -1,3 +1,6 @@
+## Description
+Short and simple programs in the C++ programming language. These programs require: making decisions (if and if..else statements), writing loops (while, do..while, and for loops), using functions and using arrays.
+
 | # | Assignments | CPP | TXT |
 |:---:|:---|:---:|:---:|
 | 1 | [Hellowrld](assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./assignments/01-helloworld/HelloWorld.cpp) | n/a |
@@ -12,6 +15,3 @@
 | 10 | [Grade Calculator-Functions](assignments/10-gradeCalc2/) | [solution](./assignments/10-gradeCalc2/gradeCalc_2.cpp) | n/a | 
 | 11 | [Echo List](assignments/11-echoList/) | [solution](./assignments/11-echoList/echoAList.cpp) | n/a | 
 | 12 | [Delete Repeats](assignments/12-deleteRepeats/docs/FA_A12_DeleteRepeats.pdf) | [solution](./assignments/12-deleteRepeats/deleteRepeats.cpp) | n/a |  
-
-## Description
-Short and simple programs in the C++ programming language. These programs require: making decisions (if and if..else statements), writing loops (while, do..while, and for loops), using functions and using arrays.
