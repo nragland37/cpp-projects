@@ -3,7 +3,7 @@ Short and simple programs in the C++ programming language. These programs requir
 
 | # | Assignments | CPP | TXT |
 |:---:|:---|:---:|:---:|
-| 1 | [Hellowrld](assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./assignments/01-helloworld/HelloWorld.cpp) | n/a |
+| 1 | [Helloworld](assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./assignments/01-helloworld/HelloWorld.cpp) | n/a |
 | 2 | [Recipe](assignments/02-recipe/docs/FA_A2_Recipe.pdf) | [solution](./assignments/02-recipe/recipe.cpp) | n/a | 
 | 3 | [Ingredients](assignments/03-ingredients/docs/FA_A3_Ingredient.pdf) | [solution](./assignments/03-ingredients/ingredients.cpp) | n/a | 
 | 4 | [Grade Calculator](assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [solution](./assignments/04-gradeCalc/gradeCalc.cpp) | n/a | 
