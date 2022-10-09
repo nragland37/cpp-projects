@@ -1,17 +1,17 @@
-## <p align="center"> Description </p>
-### Programs in the C++ programming language using arrays, pointers, structured data, and file operations.
+# <p align="center"> Description </p>
+## <p align="center"> Programs using arrays, pointers, structured data, and file operations. </p>
 
-• Use pointer variables, understand the relationship between arrays and pointers, do pointer arithmetic, and use pointers as parameters
+* Use pointer variables, understand the relationship between arrays and pointers, do pointer arithmetic, and use pointers as parameters
 
-• Use the character macros available in cctype and the cstring functions available in string
+* Use the character macros available in cctype and the cstring functions available in string
 
-• Declare, initialize, and process the abstract data type, struct, including the use of arrays of structures, structures in functions, and pointers to structures
+* Declare, initialize, and process the abstract data type, struct, including the use of arrays of structures, structures in functions, and pointers to structures
 
-• Read and write to text and binary files
+* Read and write to text and binary files
 
-• Declare class with public and private members and functions
+* Declare class with public and private members and functions
 
-• Use class constructors and destructors
+* Use class constructors and destructors
 
 | # | Assignment | C++ Solutions | External Files |
 |:---:|:---|:---:|:---:|
