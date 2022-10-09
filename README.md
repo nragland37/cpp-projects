@@ -1,4 +1,5 @@
 # <p align="center"> :computer: The Assignments & My Solutions  :robot: </p>
+<br>
 
 ## [Programming I](/programming-I)
 * [Documents](programming-I/docs/)
@@ -17,7 +18,8 @@
 | 10 | [Grade Calculator-Functions](programming-I/assignments/10-gradeCalc2/) | [solution](./programming-I/assignments/10-gradeCalc2/gradeCalc_2.cpp) |  | 
 | 11 | [Echo List](programming-I/assignments/11-echoList/) | [solution](./programming-I/assignments/11-echoList/echoAList.cpp) |  | 
 | 12 | [Delete Repeats](programming-I/assignments/12-deleteRepeats/docs/FA_A12_DeleteRepeats.pdf) | [solution](./programming-I/assignments/12-deleteRepeats/deleteRepeats.cpp) |  |  
-
+<br>
+<br>
 
 ## [Programming II](/programming-II)
 * [Documents](programming-II/docs/)
