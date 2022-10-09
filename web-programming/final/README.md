@@ -1,4 +1,4 @@
-## Problem:
+# Problem:
 Your client, Webster University is coming to your design firm once again. 
 They are pursuing to have you complete another project. 
 They loved your Webster University History page and would like you to add in links to three pages that you will create showcasing the three oldest 
@@ -37,7 +37,7 @@ The only piece that you will add to all three of your pages is a breadcrumb list
 
 The user should be able to click on the words, “Webster University History” which will take them back to the Webster University History page.
 
-### Important Note (CSS)
+## Important Note (CSS)
 The styles for these three new pages and the Webster History page should be controlled by an external style sheet. 
 Currently the Webster History page has the needed styles, but they are embedded. 
 Add these styles to the main.css file that is already included in the "inc" folder and link the file to all 4 of the pages as an external style sheet. 
