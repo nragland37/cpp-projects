@@ -8,6 +8,7 @@
 using namespace std;
 
 //****************************************************************************************************
+
 const int NAME_SIZE = 20;
 struct Translation {
     string american;
