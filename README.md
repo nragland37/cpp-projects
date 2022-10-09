@@ -1,4 +1,5 @@
-# <p align="center"> C++ Assignments </p>
+# <p align="center"> C++ Things </p>
+enjoy! 
 <br>
 
 ### [Programming I](/programming-I)
