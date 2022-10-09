@@ -1,5 +1,4 @@
-# :computer: The assignments & my solutions :robot: 
-
+# <p align="center"> :computer: The Assignments & My Solutions  :robot: </p>
 ## [Programming I](/programming-I)
 
 | # | Assignment | C++ Solutions | External Files |
