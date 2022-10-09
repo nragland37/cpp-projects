@@ -2,7 +2,7 @@
 
 /*
 
-This repository is a collection of open-source implementation of a variety of projects implemented in C++ and licensed under [MIT License](LICENSE.txt). All of these well documented assignments, notes, exercises, examples, and source code solutions can be easily accessed below. 
+This repository is a collection of open-source C++ projects licensed under [MIT License](LICENSE.txt). All of these well documented assignments, notes, exercises, examples, and source code solutions can be easily accessed below.
 
 Enjoy! 
 
