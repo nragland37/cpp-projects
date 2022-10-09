@@ -12,7 +12,7 @@
 | 6 | [Morra Game](programming-I/assignments/06-morra/docs/FA_A6_Morra.pdf) | [solution](./programming-I/assignments/06-morra/morra.cpp) |  [file](./programming-I/assignments/06-morra/result.txt) |
 | 7 | [Morra-Series Game](programming-I/assignments/07-morreSeries/docs/FA_A7_MorraSerries.pdf) | [solution](./programming-I/assignments/07-morreSeries/morraSeries.cpp) | n/a | 
 | 8 | [Order Pizza](programming-I/assignments/08-pizza/docs/FA_A8_Pizza.pdf) | [solution](./programming-I/assignments/08-pizza/pizza.cpp) | n/a |
-| 9 | [Circle](aprogramming-I/ssignments/09-circleArea/docs/FA_A9CircleArea.pdf) | [solution](./programming-I/assignments/09-circleArea/circleArea.cpp) | n/a | 
+| 9 | [Circle](programming-I/assignments/09-circleArea/docs/FA_A9CircleArea.pdf) | [solution](./programming-I/assignments/09-circleArea/circleArea.cpp) | n/a | 
 | 10 | [Grade Calculator-Functions](programming-I/assignments/10-gradeCalc2/) | [solution](./programming-I/assignments/10-gradeCalc2/gradeCalc_2.cpp) | n/a | 
 | 11 | [Echo List](programming-I/assignments/11-echoList/) | [solution](./programming-I/assignments/11-echoList/echoAList.cpp) | n/a | 
 | 12 | [Delete Repeats](programming-I/assignments/12-deleteRepeats/docs/FA_A12_DeleteRepeats.pdf) | [solution](./programming-I/assignments/12-deleteRepeats/deleteRepeats.cpp) | n/a |  
