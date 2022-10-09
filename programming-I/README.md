@@ -1,3 +1,5 @@
+Short and simple programs in the C++ programming language. These programs require: making decisions (if and if..else statements), writing loops (while, do..while, and for loops), using functions and using arrays.
+
 | # | Assignments | CPP | TXT |
 |:---:|:---|:---:|:---:|
 | 1 | [Hellowrld](assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./assignments/01-helloworld/HelloWorld.cpp) | n/a |
