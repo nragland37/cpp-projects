@@ -1,4 +1,5 @@
 # <p align="center"> :computer: The Assignments & My Solutions  :robot: </p>
+
 ## [Programming I](/programming-I)
 
 | # | Assignment | C++ Solutions | External Files |
@@ -16,8 +17,8 @@
 | 11 | [Echo List](programming-I/assignments/11-echoList/) | [solution](./programming-I/assignments/11-echoList/echoAList.cpp) |  | 
 | 12 | [Delete Repeats](programming-I/assignments/12-deleteRepeats/docs/FA_A12_DeleteRepeats.pdf) | [solution](./programming-I/assignments/12-deleteRepeats/deleteRepeats.cpp) |  |  
 
-## [Programming II](/programming-II)
 
+## [Programming II](/programming-II)
 
 | # | Assignment | C++ Solutions | External Files |
 |:---:|:---|:---:|:---:|
