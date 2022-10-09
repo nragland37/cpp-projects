@@ -1,5 +1,5 @@
 # :computer: The assignments & my solutions :robot: 
-| # | Assignments | CPP | Txt |
+| # | Assignments | CPP | TXT |
 |:---:|:---|:---:|:---:|
 | 1 | [Hellowrld](assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [solution](./assignments/01-helloworld/HelloWorld.cpp) |
 | 2 | [Recipe](assignments/02-recipe/docs/FA_A2_Recipe.pdf) | [solution](./assignments/02-recipe/recipe.cpp) | 
