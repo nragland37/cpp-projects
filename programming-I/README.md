@@ -1,4 +1,12 @@
-Short and simple programs in the C++ programming language. These programs require: making decisions (if and if..else statements), writing loops (while, do..while, and for loops), using functions and using arrays.
+### <p align="center"> Programs include arrays, functions, loops, references, and conditional statements. </p>
+
+* Short and simple programs in C++
+
+* Making decisions (if, if..else, and switch statements) 
+
+* Writing loops and nested-loops (while, do..while, and for loops)
+
+* Declaring functions by inserting function prototypes and implementing pass-by-reference and return values   
 
 <br>
 
