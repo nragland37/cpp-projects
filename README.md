@@ -1,9 +1,8 @@
-# <p align="center"> Hello, World! </p>solution
+# <p align="center"> Hello, World! </p>
 
 /*
 
-An understanding of C++ helps to solidify knowledge of programming concepts and provides a strong foundation for learning other programming languages. 
-This repository is a collection of open-source C++ projects licensed under [MIT License](LICENSE.txt). All of these well documented assignments, notes, exercises, examples, and source code solutions can be easily accessed below.
+This repository is a collection of open-source C++ projects licensed under [MIT License](LICENSE.txt). An understanding of C++ helps to solidify knowledge of programming concepts and provides a strong foundation for learning other programming languages. All of these well documented assignments, notes, exercises, examples, and source code solutions can be easily accessed below.
 
 Enjoy! 
 
