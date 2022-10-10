@@ -61,32 +61,42 @@ int main() {
         } else if (sum == playerTwoGuess) {
             cout << "Player 2 Wins" << endl
                  << endl;
-            playerTwoWins++;
+            playerTwoWins++; 
         } else {
             cout << "NO ONE WINS" << endl
                  << endl;
         }
 
-        cout << "-----------------------------------------------------" << endl;
+        cout << "-------------------------------------" << endl;
     }
 
-    cout << "=====================================================" << endl;
+    cout << "=====================================" << endl; // Print results to console    
+    out << "=====================================" << endl;  // Output to file "morraSeriesResults.txt"
     cout << "Summary of the series" << endl;
-    cout << "=====================================================" << endl;
+    out << "Summary of the series" << endl;
+    cout << "=====================================" << endl;
+    out << "=====================================" << endl;
     cout << "Player 1 won " << playerOneWins << " games" << endl;
+    out << "Player 1 won " << playerOneWins << " games" << endl;
     cout << "Player 2 won " << playerTwoWins << " games" << endl
          << endl;
+    out << "Player 2 won " << playerTwoWins << " games" << endl
+        << endl;
 
     cout << "Winner of the series: ";
-
-    if (playerOneWins == playerTwoWins) {
-        cout << "It is a TIE" << endl;
-    } else if (playerOneWins > playerTwoWins) {
+    out << "Winner of the series: ";
+    if (playerOneWins > playerTwoWins) {
         cout << "Player 1" << endl;
-    } else if (playerTwoWins > playerOneWins) {
+        out << "Player 1" << endl;
+    } else if (playerOneWins < playerTwoWins) {
         cout << "Player 2" << endl;
+        out << "Player 2" << endl;
+    } else if (playerOneWins == playerTwoWins) {
+        cout << "It is a TIE" << endl;
+        out << "It is a TIE" << endl;
     } else {
         cout << "NO ONE WINS" << endl;
+        out << "NO ONE WINS" << endl;
     }
 
     return 0;

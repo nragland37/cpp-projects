@@ -1,0 +1,7 @@
+=====================================
+Summary of the series
+=====================================
+Player 1 won 2 games
+Player 2 won 0 games
+
+Winner of the series: Player 1
