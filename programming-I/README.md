@@ -18,7 +18,7 @@
 | 4 | [Grade Calculator](assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [:white_check_mark:](./assignments/04-gradeCalc/gradeCalc.cpp) |  | 
 | 5 | [Shipping Cost](assignments/05-shippingCost/docs/FA_A5_shipping_Cost.pdf) | [:white_check_mark:](./assignments/05-shippingCost/shippingCost.cpp) |  | 
 | 6 | [Morra Game](assignments/06-morra/docs/FA_A6_Morra.pdf) | [:white_check_mark:](./assignments/06-morra/morra.cpp) |  [:white_check_mark:](./assignments/06-morra) |
-| 7 | [Morra-Series Game](assignments/07-morreSeries/docs/FA_A7_MorraSerries.pdf) | [:white_check_mark:](./assignments/07-morreSeries/morraSeries.cpp) |  | 
+| 7 | [Morra-Series Game](assignments/07-morreSeries/docs/FA_A7_MorraSerries.pdf) | [:white_check_mark:](./assignments/07-morreSeries/morraSeries.cpp) | [:white_check_mark:](./assignments/07-morraSeries)  | 
 | 8 | [Order Pizza](assignments/08-pizza/docs/FA_A8_Pizza.pdf) | [:white_check_mark:](./assignments/08-pizza/pizza.cpp) |  |
 | 9 | [Circle](assignments/09-circleArea/docs/FA_A9CircleArea.pdf) | [:white_check_mark:](./assignments/09-circleArea/circleArea.cpp) |  | 
 | 10 | [Grade Calculator-Functions](assignments/10-gradeCalc2/) | [:white_check_mark:](./assignments/10-gradeCalc2/gradeCalc_2.cpp) |  | 
