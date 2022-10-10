@@ -1,4 +1,4 @@
-### <p align="center"> Programs include concepts from [programming-I](./cpp-projects/programming-I), memory management, file input/output (I/O), pointers, strings, c-strings, structures, and object-oriented programming. </p>
+### <p align="center"> Programs include concepts from [programming-I](../programming-I), memory management, file input/output (I/O), pointers, strings, c-strings, structures, and object-oriented programming. </p>
 
 * Use pointer variables, understand the relationship between arrays and pointers, do pointer arithmetic, and use pointers as parameters
 
