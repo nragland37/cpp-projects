@@ -22,7 +22,7 @@ Enjoy!
 | 4 | [Grade Calculator](programming-I/assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [:white_check_mark:](./programming-I/assignments/04-gradeCalc/gradeCalc.cpp) |  | 
 | 5 | [Shipping Cost](programming-I/assignments/05-shippingCost/docs/FA_A5_shipping_Cost.pdf) | [:white_check_mark:](./programming-I/assignments/05-shippingCost/shippingCost.cpp) |  | 
 | 6 | [Morra Game](programming-I/assignments/06-morra/docs/FA_A6_Morra.pdf) | [:white_check_mark:](./programming-I/assignments/06-morra/morra.cpp) |  [:white_check_mark:](./programming-I/assignments/06-morra/result.txt) |
-| 7 | [Morra-Series Game](programming-I/assignments/07-morreSeries/docs/FA_A7_MorraSerries.pdf) | [:white_check_mark:](./programming-I/assignments/07-morreSeries/morraSeries.cpp) |  | 
+| 7 | [Morra-Series Game](programming-I/assignments/07-morraSeries/docs/FA_A7_MorraSerries.pdf) | [:white_check_mark:](./programming-I/assignments/07-morraSeries/morraSeries.cpp) | [:white_check_mark:](./programming-I/assignments/07-morraSeries) | 
 | 8 | [Order Pizza](programming-I/assignments/08-pizza/docs/FA_A8_Pizza.pdf) | [:white_check_mark:](./programming-I/assignments/08-pizza/pizza.cpp) |  |
 | 9 | [Circle](programming-I/assignments/09-circleArea/docs/FA_A9CircleArea.pdf) | [:white_check_mark:](./programming-I/assignments/09-circleArea/circleArea.cpp) |  | 
 | 10 | [Grade Calculator-Functions](programming-I/assignments/10-gradeCalc2/) | [:white_check_mark:](./programming-I/assignments/10-gradeCalc2/gradeCalc_2.cpp) |  | 
