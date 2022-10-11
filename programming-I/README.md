@@ -12,7 +12,7 @@
 
 | # | Assignment | C++ Solutions | External Files |
 |:---:|:---|:---:|:---:|
-| 1 | [Helloworld](assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [:white_check_mark:](./assignments/01-helloworld/HelloWorld.cpp) |  |
+| 1 | [Helloworld](./assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [:white_check_mark:](./assignments/01-helloworld/HelloWorld.cpp) |  |
 | 2 | [Recipe](assignments/02-recipe/docs/FA_A2_Recipe.pdf) | [:white_check_mark:](./assignments/02-recipe/recipe.cpp) |  | 
 | 3 | [Ingredients](assignments/03-ingredients/docs/FA_A3_Ingredient.pdf) | [:white_check_mark:](./assignments/03-ingredients/ingredients.cpp) |  | 
 | 4 | [Grade Calculator](assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [:white_check_mark:](./assignments/04-gradeCalc/gradeCalc.cpp) |  | 
