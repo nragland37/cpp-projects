@@ -15,7 +15,7 @@ Enjoy!
 
 | # | Assignment | C++ Solutions | External Files |
 |:---:|:---|:---:|:---:|
-| 1 | [HelloWorld](programming-I/assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [:white_check_mark:](.programming-I/assignments/01-helloworld/HelloWorld.cpp) |  |
+| 1 | [HelloWorld](programming-I/assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [:white_check_mark:](./programming-I/assignments/01-helloworld/HelloWorld.cpp) |  |
 | 2 | [Recipe](programming-I/assignments/02-recipe/docs/FA_A2_Recipe.pdf) | [:white_check_mark:](./programming-I/assignments/02-recipe/recipe.cpp) |  | 
 | 3 | [Ingredients](programming-I/assignments/03-ingredients/docs/FA_A3_Ingredient.pdf) | [:white_check_mark:](./programming-I/assignments/03-ingredients/ingredients.cpp) |  | 
 | 4 | [Grade Calculator](programming-I/assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [:white_check_mark:](./programming-I/assignments/04-gradeCalc/gradeCalc.cpp) |  | 
