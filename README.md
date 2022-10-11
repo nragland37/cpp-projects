@@ -46,3 +46,8 @@ Enjoy!
 | 9 | [File Streams: Input/Output (auto-update)](programming-II/assignments/09-fstream-autoUpdate/docs/Assignment_9.pdf) | [:one:](./programming-II/assignments/09-fstream-autoUpdate/assignment_9.cpp) | [:white_check_mark:](./programming-II/assignments/09-fstream-autoUpdate) |
 | 10 | [File Streams (binary-to-text): Input/Output/Binary (auto-update)](programming-II/assignments/10-fstream-autoUpdate-binaryToText/docs/Assignment_10.pdf) | [:one:](./programming-II/assignments/10-fstream-autoUpdate-binaryToText/assignment_10.1.cpp)  &nbsp;  &nbsp;  &nbsp;  [:two:](./programming-II/assignments/10-fstream-autoUpdate-binaryToText/assignment_10.2.cpp) | [:white_check_mark:](./programming-II/assignments/10-fstream-autoUpdate-binaryToText/) |
 | 11 | [Classes & Header Files](programming-II/assignments/11-classes-headerFiles/docs/Assignment_11.pdf) | [:one:](./programming-II/assignments/11-classes-headerFiles/SportName.cpp)  &nbsp;  &nbsp;  [:two:](./programming-II/assignments/11-classes-headerFiles/Date.cpp)  &nbsp;  &nbsp;  [:three:](./programming-II/assignments/11-classes-headerFiles/Sport.cpp) | [:white_check_mark:](./programming-II/assignments/11-classes-headerFiles) |
+
+<br>
+<br>
+
+<p align="center"> Copyright (c) 2022 Nicholas Ragland </p>
