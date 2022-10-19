@@ -1,3 +1,5 @@
+// Implementation file for the Sport class
+
 #include "Sport.h"
 
 #include <iomanip>
