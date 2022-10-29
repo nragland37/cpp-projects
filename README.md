@@ -2,7 +2,7 @@
 
 /*
 
-This repository is a collection of C++ projects and my solutions. An understanding of C++ helps to solidify knowledge of programming concepts and provides a strong foundation for learning other programming languages. All of these well documented assignments, notes, exercises, examples, and source code solutions can be easily accessed below.
+This repository is a collection of C++ projects and my solutions. An understanding of C++ helps to solidify knowledge of programming concepts and provides a strong foundation for learning other programming languages. All of these assignments, notes, exercises, examples, and source code solutions can be easily accessed below.
 
 Enjoy! 
 
