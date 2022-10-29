@@ -9,7 +9,7 @@ using namespace std;
 
 //****************************************************************************************************
 
-const int NAME_SIZE = 20; // size of name array in structure
+const int NAME_SIZE = 20; 
 struct Translation {
     string american;
     string english;
