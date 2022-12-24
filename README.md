@@ -2,7 +2,7 @@
 
 /*
 
-This repository is a collection of C++ assignments, notes, exercises, examples, and source code solutions, all of which can be easily accessed below.
+This repository is a collection of C++ assignments, notes, exercises, examples, and source code solutions.
 
 Enjoy! 
 
@@ -50,4 +50,43 @@ Enjoy!
 <br>
 <br>
 
+### [Data Structures I](/data_structures-I)
+* [Documents](data_structures-I/docs/)
+
+| # | Assignment | C++ Solutions | Resource Files |
+|:---:|:---|:---:|:---:|
+| 1 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 2 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 3 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 4 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 5 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 6 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 7 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 8 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 9 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 10 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 11 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+
+<br>
+<br>
+
+### [Data Structures II](/data_structures-II)
+* [Documents](data_structures-II/docs/)
+
+| # | Assignment | C++ Solutions | Resource Files |
+|:---:|:---|:---:|:---:|
+| 1 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 2 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 3 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 4 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 5 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 6 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 7 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 8 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 9 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 10 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+| 11 | [](data_structures-II/assignments/) | [:one:](./data_structures-II/assignments/)| [:white_check_mark:](./data_structures-II/assignments/) |
+
+<br>
+<br>
 <p align="center"> Copyright (c) 2022 Nicholas Ragland </p>
