@@ -2,7 +2,7 @@
 
 /*
 
-This repository is a collection of C++ assignments, notes, exercises, examples, and source code solutions.
+This repo contains C++ assignments, notes, exercises, examples, and code solutions, each with a brief description and helpful comments in the code for learning purposes.
 
 Enjoy! 
 
