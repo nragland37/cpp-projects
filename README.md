@@ -2,7 +2,9 @@
 
 /*
 
-This repo contains C++ assignments, notes, exercises, examples, and code solutions, each with a brief description and helpful comments in the code for learning purposes.
+This repo contains C++ assignments, notes, exercises, examples, and source code solutions, each with a brief description and helpful comments in the code for learning purposes.
+
+<br>
 
 Enjoy! 
 
@@ -15,18 +17,18 @@ Enjoy!
 
 | # | Assignment | C++ Solutions | Resource Files |
 |:---:|:---|:---:|:---:|
-| 1 | [HelloWorld](programming-I/assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [:white_check_mark:](./programming-I/assignments/01-helloworld/HelloWorld.cpp) |  |
-| 2 | [Recipe](programming-I/assignments/02-recipe/docs/FA_A2_Recipe.pdf) | [:white_check_mark:](./programming-I/assignments/02-recipe/recipe.cpp) |  | 
-| 3 | [Ingredients](programming-I/assignments/03-ingredients/docs/FA_A3_Ingredient.pdf) | [:white_check_mark:](./programming-I/assignments/03-ingredients/ingredients.cpp) |  | 
-| 4 | [Grade Calculator](programming-I/assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [:white_check_mark:](./programming-I/assignments/04-gradeCalc/gradeCalc.cpp) |  | 
-| 5 | [Shipping Cost](programming-I/assignments/05-shippingCost/docs/FA_A5_shipping_Cost.pdf) | [:white_check_mark:](./programming-I/assignments/05-shippingCost/shippingCost.cpp) |  | 
-| 6 | [Morra Game](programming-I/assignments/06-morra/docs/FA_A6_Morra.pdf) | [:white_check_mark:](./programming-I/assignments/06-morra/morra.cpp) |  [:white_check_mark:](./programming-I/assignments/06-morra/result.txt) |
-| 7 | [Morra-Series Game](programming-I/assignments/07-morraSeries/docs/FA_A7_MorraSerries.pdf) | [:white_check_mark:](./programming-I/assignments/07-morraSeries/morraSeries.cpp) | [:white_check_mark:](./programming-I/assignments/07-morraSeries/morraSeriesResults.txt) | 
-| 8 | [Order Pizza](programming-I/assignments/08-pizza/docs/FA_A8_Pizza.pdf) | [:white_check_mark:](./programming-I/assignments/08-pizza/pizza.cpp) |  |
-| 9 | [Circle](programming-I/assignments/09-circleArea/docs/FA_A9CircleArea.pdf) | [:white_check_mark:](./programming-I/assignments/09-circleArea/circleArea.cpp) |  | 
-| 10 | [Grade Calculator-Functions](programming-I/assignments/10-gradeCalc2/) | [:white_check_mark:](./programming-I/assignments/10-gradeCalc2/gradeCalc_2.cpp) |  | 
-| 11 | [Echo List](programming-I/assignments/11-echoList/) | [:white_check_mark:](./programming-I/assignments/11-echoList/echoAList.cpp) |  | 
-| 12 | [Delete Repeats](programming-I/assignments/12-deleteRepeats/docs/FA_A12_DeleteRepeats.pdf) | [:white_check_mark:](./programming-I/assignments/12-deleteRepeats/deleteRepeats.cpp) |  |  
+| 1 | [HelloWorld](programming-I/assignments/01-helloworld/docs/FA_A1_HelloWorld.pdf) | [:one:](./programming-I/assignments/01-helloworld/HelloWorld.cpp) |  |
+| 2 | [Recipe](programming-I/assignments/02-recipe/docs/FA_A2_Recipe.pdf) | [:one:](./programming-I/assignments/02-recipe/recipe.cpp) |  | 
+| 3 | [Ingredients](programming-I/assignments/03-ingredients/docs/FA_A3_Ingredient.pdf) | [:one:](./programming-I/assignments/03-ingredients/ingredients.cpp) |  | 
+| 4 | [Grade Calculator](programming-I/assignments/04-gradeCalc/docs/FA_A4_gradeCalc.pdf) | [:one:](./programming-I/assignments/04-gradeCalc/gradeCalc.cpp) |  | 
+| 5 | [Shipping Cost](programming-I/assignments/05-shippingCost/docs/FA_A5_shipping_Cost.pdf) | [:one:](./programming-I/assignments/05-shippingCost/shippingCost.cpp) |  | 
+| 6 | [Morra Game](programming-I/assignments/06-morra/docs/FA_A6_Morra.pdf) | [:one:](./programming-I/assignments/06-morra/morra.cpp) |  [:white_check_mark:](./programming-I/assignments/06-morra/result.txt) |
+| 7 | [Morra-Series Game](programming-I/assignments/07-morraSeries/docs/FA_A7_MorraSerries.pdf) | [:one:](./programming-I/assignments/07-morraSeries/morraSeries.cpp) | [:white_check_mark:](./programming-I/assignments/07-morraSeries/morraSeriesResults.txt) | 
+| 8 | [Order Pizza](programming-I/assignments/08-pizza/docs/FA_A8_Pizza.pdf) | [:one:](./programming-I/assignments/08-pizza/pizza.cpp) |  |
+| 9 | [Circle](programming-I/assignments/09-circleArea/docs/FA_A9CircleArea.pdf) | [:one:](./programming-I/assignments/09-circleArea/circleArea.cpp) |  | 
+| 10 | [Grade Calculator-Functions](programming-I/assignments/10-gradeCalc2/) | [:one:](./programming-I/assignments/10-gradeCalc2/gradeCalc_2.cpp) |  | 
+| 11 | [Echo List](programming-I/assignments/11-echoList/) | [:one:](./programming-I/assignments/11-echoList/echoAList.cpp) |  | 
+| 12 | [Delete Repeats](programming-I/assignments/12-deleteRepeats/docs/FA_A12_DeleteRepeats.pdf) | [:one:](./programming-I/assignments/12-deleteRepeats/deleteRepeats.cpp) |  |  
 <br>
 <br>
 
