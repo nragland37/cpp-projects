@@ -2,7 +2,7 @@
 
 /*
 
-<p align="center"> Welcome to this collection of C++ learning materials! Here you will find assignments, notes, exercises, and examples, each with a brief description and helpful comments in the code. This is meant to be a resource for anyone looking to improve their C++ skills. </p>
+Welcome to this collection of C++ learning materials! Here you will find assignments, notes, exercises, and examples, each with a brief description and helpful comments in the code. This is meant to be a resource for anyone looking to improve their C++ skills.
 
 <br>
 
