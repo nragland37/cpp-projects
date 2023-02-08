@@ -1,16 +1,14 @@
-# <p align="center"> Hello, World! </p>
+# <p align="center"> Hello, World! 🦖 </p>
 
 /*
 
-This repo contains C++ assignments, notes, exercises, examples, and source code solutions, each with a brief description and helpful comments in the code for learning purposes.
+Welcome to this collection of C++ learning materials! Here you will find assignments, notes, exercises, and examples, each with a brief description and helpful comments in the code. This is meant to be a resource for anyone looking to improve their C++ skills.
 
 <br>
 
-Enjoy! 
+Happy learning!
 
 */
-
-<br>
 
 ### [Programming I](/programming-I)
 * [Documents](programming-I/docs/)
