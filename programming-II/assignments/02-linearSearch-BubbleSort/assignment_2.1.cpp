@@ -1,3 +1,14 @@
+//*****************************************************************************************************
+//
+//		This program reads and analyzes test scores for 10 students and 8 tests. It reads the test
+//      scores from a file and displays them. The program calculates and displays the total score
+//      for each student and each test, the average score for each student and each test, and the
+//      highest score for each student. It also finds the student with the highest average score and
+//      searches for a student with an average score greater than a user-specified value or for a test
+//      with an average score greater than a user-specified value.
+//
+//*****************************************************************************************************
+
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -6,7 +17,7 @@ using namespace std;
 
 const int NUM_TESTS = 8;
 
-void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds);
+void readTestScores(ifstream& f, int scores[][NUM_TESTS], int numStds);
 void displayTestScores(const int scores[][NUM_TESTS], int numStds);
 int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber);
 int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber);
@@ -17,85 +28,78 @@ int topStudent(const int scores[][NUM_TESTS], int numStds);
 bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average);
 bool searchTests(const int scores[][NUM_TESTS], int numStds, double average);
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int main() {
+    const int NUM_STDS = 10;
+    int scores[NUM_STDS][NUM_TESTS];
+    double average;
     ifstream f("Assignment1Data.txt");
 
-    const int NUM_STDS = 10;
-
-    int scores[NUM_STDS][NUM_TESTS];
-
-    double average;
-
     readTestScores(f, scores, NUM_STDS);
+    f.close();
     displayTestScores(scores, NUM_STDS);
 
     cout << setprecision(2) << fixed;
 
     cin.get();
-    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0);
-    cin.get();
-    cout << "\n\nTotal for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4);
-    cin.get();
-    cout << "\n\nTotal for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2);
-    cin.get();
-    cout << "\n\nTotal for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7);
-    cin.get();
-    cout << "\n\nAverage for Test #5: " << averageOneTest(scores, NUM_STDS, 4);
-    cin.get();
-    cout << "\n\nAverage for Test #8: " << averageOneTest(scores, NUM_STDS, 7);
-    cin.get();
-    cout << "\n\nAverage for Student #5: " << averageOneStudent(scores, NUM_STDS, 4);
-    cin.get();
-    cout << "\n\nAverage for Student #9: " << averageOneStudent(scores, NUM_STDS, 8);
-    cin.get();
-    cout << "\n\nHighest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1);
-    cin.get();
-    cout << "\n\nThe top Student: " << topStudent(scores, NUM_STDS);
-    cin.get();
+    cout << "Total for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0) << "\n\n"
+         << "Total for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4) << "\n\n"
+         << "Total for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2) << "\n\n"
+         << "Total for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7) << "\n\n"
+         << "Average for Test #5: " << averageOneTest(scores, NUM_STDS, 4) << "\n\n"
+         << "Average for Test #8: " << averageOneTest(scores, NUM_STDS, 7) << "\n\n"
+         << "Average for Student #5: " << averageOneStudent(scores, NUM_STDS, 4) << "\n\n"
+         << "Average for Student #9: " << averageOneStudent(scores, NUM_STDS, 8) << "\n\n"
+         << "Highest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1) << "\n\n"
+         << "The top Student: " << topStudent(scores, NUM_STDS) << "\n"
+         << endl;
 
-    cout << "\n\n\nFind if at least one 'student' has an average score greater." << endl;
-    cout << "\nEnter average score of student: " << endl;
+    cout << "Find if at least one student has an average score greater \n"
+         << "Enter average score of student: ";
     cin >> average;
 
     if (searchStudents(scores, NUM_STDS, average)) {
-        cout << "\nA student 'does' have an average score greater than: " << average << endl;
+        cout << "\n"
+             << "A student DOES have an average score greater than: " << average << "\n\n";
     } else {
-        cout << "\nA student 'does not' have an average score greater than: " << average << endl;
+        cout << "\n"
+             << "A student DOES NOT have an average score greater than: " << average << "\n\n";
     }
-    cout << "\n\n\nFind if at least one 'test' has an average score greater." << endl;
-    cout << "\nEnter average score of test: " << endl;
+
+    cout << "Find if at least one test has an average score greater \n"
+         << "Enter average score of test: ";
     cin >> average;
 
     if (searchTests(scores, NUM_STDS, average)) {
-        cout << "\nA test 'does' have an average score greater than: " << average << endl;
+        cout << "\n"
+             << "A test DOES have an average score greater than: " << average << endl;
     } else {
-        cout << "\nA test 'does not' have an average score greater than: " << average << endl;
+        cout << "\n"
+             << "A test DOES NOT have an average score greater than: " << average << endl;
     }
-
-    f.close();
 
     return 0;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
-void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
-    if (f.is_open())
+void readTestScores(ifstream& f, int scores[][NUM_TESTS], int numStds) {
+    if (f.is_open()) {
         for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
             for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
                 f >> scores[studentNumber][testNumber];
             }
         }
-    else
-        cout << "ERROR: Could not open file" << endl;
+    } else {
+        cerr << "Error: Unable to open file" << endl;  // cerr is unbuffered and best for error handling
+    }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void displayTestScores(const int scores[][NUM_TESTS], int numStds) {
-    cout << "All Test scores:" << endl;
+    cout << "    All Test scores" << endl;
 
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
@@ -105,7 +109,7 @@ void displayTestScores(const int scores[][NUM_TESTS], int numStds) {
     }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
     int sum = 0;
@@ -113,11 +117,10 @@ int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         sum += scores[studentNumber][testNumber];
     }
-
     return sum;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int sum = 0;
@@ -125,11 +128,10 @@ int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumbe
     for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
         sum += scores[studentNumber][testNumber];
     }
-
     return sum;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 double averageOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
     int total = 0;
@@ -143,7 +145,7 @@ double averageOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber
     return average;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int total = 0;
@@ -157,7 +159,7 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
     return average;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int highest = scores[studentNumber][0];
@@ -169,7 +171,7 @@ int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNum
     return highest;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int topStudent(const int scores[][NUM_TESTS], int numStds) {
     int topPercent = 0,
@@ -183,29 +185,30 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
             topStudent = studentNumber;
         }
     }
-
     return topStudent + 1;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average) {
-    int studentNumber = 0;
-    bool found = false;
-    while ((studentNumber < numStds) && !found) {
-        if (averageOneStudent(scores, numStds, studentNumber) > average) {
-            found = true;
+    int studentNumber = 0;  // initialize student number
+    bool found = false;     // initialize found flag
+
+    while ((studentNumber < numStds) && !found) {                           // loop until all students searched or student found
+        if (averageOneStudent(scores, numStds, studentNumber) > average) {  // check student average against specified average
+            found = true;                                                   // set found flag to true
         }
-        studentNumber++;
+        studentNumber++;  // increment student number
     }
-    return found;
+    return found;  // return found flag
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 bool searchTests(const int scores[][NUM_TESTS], int numStds, double average) {
     int testNumber = 0;
     bool found = false;
+
     while ((testNumber < NUM_TESTS) && !found) {
         if (averageOneTest(scores, numStds, testNumber) > average) {
             found = true;
@@ -215,9 +218,11 @@ bool searchTests(const int scores[][NUM_TESTS], int numStds, double average) {
     return found;
 }
 
+//*****************************************************************************************************
+
 /*
 
-All Test scores:
+    All Test scores
 87 90 65 45 88 89 75 80
 89 85 78 56 90 91 99 82
 80 90 72 95 99 66 77 88
@@ -229,53 +234,34 @@ All Test scores:
 90 65 80 98 99 76 87 88
 35 75 60 99 99 56 87 88
 
-Press Enter to Continue
-
 Total for Test #1 is: 745
-Press Enter to Continue
 
 Total for Test #5 is: 968
-Press Enter to Continue
 
 Total for Student #3 is: 667
-Press Enter to Continue
 
 Total for Student #8 is: 757
-Press Enter to Continue
 
 Average for Test #5: 96.80
-Press Enter to Continue
 
 Average for Test #8: 85.90
-Press Enter to Continue
 
 Average for Student #5: 77.88
-Press Enter to Continue
 
 Average for Student #9: 85.38
-Press Enter to Continue
 
 Highest test score for Student #2: 99
-Press Enter to Continue
 
 The top Student: 8
-Press Enter to Continue
 
+Find if at least one student has an average score greater
+Enter average score of student: 95
 
-Find if at least one 'student' has an average score greater.
+A student DOES NOT have an average score greater than: 95.00
 
-Enter average score of student:
-95
+Find if at least one test has an average score greater
+Enter average score of test: 95
 
-A student 'does not' have an average score greater than: 95.00
-
-
-
-Find if at least one 'test' has an average score greater.
-
-Enter average score of test:
-95
-
-A test 'does' have an average score greater than: 95.00
+A test DOES have an average score greater than: 95.00
 
 */

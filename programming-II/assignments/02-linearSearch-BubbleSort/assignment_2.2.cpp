@@ -1,5 +1,14 @@
+//*****************************************************************************************************
+//
+//		This program reads in a list of student names from a file named "StudentNames.txt" and stores
+//      them in an array of strings. It then displays the names, allows the user to search for a
+//      specific name in the array, and provides the index of the name if it is found. The program
+//      also sorts the names in ascending and descending order using the bubble sort algorithm and
+//      displays the names in the sorted order. Finally, the program closes the input file and ends.
+//
+//*****************************************************************************************************
+
 #include <fstream>
-#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -13,50 +22,55 @@ void swapValues(string &a, string &b);
 void bubbleSort(string names[], int numNames);
 void bubbleSortDescending(string names[], int numNames);
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int main() {
+    const int NUM_NAMES = 10;
+    string names[NUM_NAMES],
+        name;
     ifstream inputFile("StudentNames.txt");
 
-    const int NUM_NAMES = 10;
-
-    string names[NUM_NAMES], name;
-
     readNames(inputFile, names, NUM_NAMES);
-    cout << "---------------------------------" << endl;
-    cout << "\t"
-         << "Student Names" << endl;
-    cout << "---------------------------------" << endl;
+    inputFile.close();
+
+    cout << "---------------------------------\n"
+         << "\t"
+         << "Student Names \n"
+         << "---------------------------------" << endl;
     displayNames(names, NUM_NAMES);
 
-    cout << "\nFind a Students place in the list." << endl;
-    cout << "Enter Student name (e.g., first name, last name): " << endl;
+    cout << "\n"
+         << "Find a Students place in the list \n"
+         << "Enter Student name (e.g., last name, first name): " << endl;
     getline(cin, name);
+
     searchNames(names, NUM_NAMES, name);
     displaySearchNames(names, NUM_NAMES, name);
 
-    cout << "\n---------------------------------" << endl;
-    cout << setw(32) << "Student Names ~ Ascending Order" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "\n"
+         << "--------------------------------- \n"
+         << " Student Names: Ascending Order \n"
+         << "---------------------------------" << endl;
     bubbleSort(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
+
     searchNames(names, NUM_NAMES, name);
     displaySearchNames(names, NUM_NAMES, name);
 
-    cout << "\n---------------------------------" << endl;
-    cout << "Student Names ~ Descending Order" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "\n"
+         << "--------------------------------- \n"
+         << " Student Names: Descending Order \n"
+         << "---------------------------------" << endl;
     bubbleSortDescending(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
+
     searchNames(names, NUM_NAMES, name);
     displaySearchNames(names, NUM_NAMES, name);
-
-    inputFile.close();
 
     return 0;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void readNames(ifstream &inputFile, string names[], int numNames) {
     if (inputFile.is_open()) {
@@ -64,11 +78,11 @@ void readNames(ifstream &inputFile, string names[], int numNames) {
             getline(inputFile, names[nameNumber]);
         }
     } else {
-        cout << "ERROR: Could not open file" << endl;
+        cerr << "Error: Unable to open file" << endl;  // cerr is unbuffered and best for error handling
     }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void displayNames(const string names[], int numNames) {
     for (int nameNumber = 0; nameNumber < numNames; ++nameNumber) {
@@ -76,61 +90,68 @@ void displayNames(const string names[], int numNames) {
     }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int searchNames(const string names[], int numNames, const string &name) {
-    int index = 0;
-    int position = -1;
-    bool found = false;
+    int index = 0,       // current index in the names array
+        position = -1;   // holds the position of the found name in the array
+    bool found = false;  // flag indicating whether the name has been found
+
     while ((index < numNames) && !found) {
-        if (names[index] == name) {
-            found = true;
-            position = index + 1;
+        if (names[index] == name) {  // check if the current name is equal to the specified name
+            found = true;            // set found flag to true
+            position = index + 1;    // store the position of the found name
         }
-        index++;
+        index++;  // increment index
     }
-    return position;
+    return position;  // return the position of the found name
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void displaySearchNames(const string names[], int numNames, const string &name) {
     if (searchNames(names, numNames, name) == -1) {
-        cout << searchNames(names, numNames, name) << " \nName Not Found" << endl;
+        cout << searchNames(names, numNames, name)
+             << "\n"
+             << "Name Not Found" << endl;
     } else {
-        cout << "\nName Found: " << searchNames(names, numNames, name) << endl;
+        cout << "\n"
+             << "Name Found: " << searchNames(names, numNames, name) << endl;
     }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void swapValues(string &a, string &b) {
     string temp = a;
+
     a = b;
     b = temp;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void bubbleSort(string names[], int numNames) {
-    bool swap;
-    string temp;
+    bool swap;    // boolean flag to track if any swaps were made in the current pass
+    string temp;  // temporary variable to store a string value while swapping
+
     do {
-        swap = false;
-        for (int count = 0; count < (numNames - 1); ++count) {
-            if (names[count] > names[count + 1]) {
-                swapValues(names[count], names[count + 1]);
-                swap = true;
+        swap = false;                                           // set the flag to false as no swaps have been made yet
+        for (int count = 0; count < (numNames - 1); ++count) {  // loop through all elements of the array, except the last one
+            if (names[count] > names[count + 1]) {              // if the current element is greater than the next element
+                swapValues(names[count], names[count + 1]);     // swap the values
+                swap = true;                                    // set the flag to true as a swap has been made
             }
         }
-    } while (swap);
+    } while (swap);  // continue looping as long as any swaps were made in the previous pass
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void bubbleSortDescending(string names[], int numNames) {
     bool swap;
     string temp;
+
     do {
         swap = false;
         for (int count = 0; count < (numNames - 1); ++count) {
@@ -141,6 +162,8 @@ void bubbleSortDescending(string names[], int numNames) {
         }
     } while (swap);
 }
+
+//*****************************************************************************************************
 
 /*
 
@@ -159,13 +182,13 @@ void bubbleSortDescending(string names[], int numNames) {
         10  Davies, Emily
 
 Find a Students place in the list.
-Enter Student name (e.g., first name, last name):
+Enter Student name (e.g., last name, first name):
 Smith, John
 
 Name Found: 1
 
 ---------------------------------
- Student Names ~ Ascending Order
+ Student Names: Ascending Order
 ---------------------------------
         1  Davies, Emily
         2  Evans, Olivia
@@ -181,7 +204,7 @@ Name Found: 1
 Name Found: 8
 
 ---------------------------------
-Student Names ~ Descending Order
+ Student Names: Descending Order
 ---------------------------------
         1  Zhang, Xiu Ying
         2  Song, Mona
@@ -196,7 +219,7 @@ Student Names ~ Descending Order
 
 Name Found: 3
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 ---------------------------------
         Student Names
@@ -213,13 +236,13 @@ Name Found: 3
         10  Davies, Emily
 
 Find a Students place in the list.
-Enter Student name (e.g., first name, last name):
-Nicholas, Ragland
+Enter Student name (e.g., last name, first name):
+Ragland, Nicholas
 -1
 Name Not Found
 
 ---------------------------------
- Student Names ~ Ascending Order
+ Student Names: Ascending Order
 ---------------------------------
         1  Davies, Emily
         2  Evans, Olivia
@@ -235,7 +258,7 @@ Name Not Found
 Name Not Found
 
 ---------------------------------
-Student Names ~ Descending Order
+ Student Names: Descending Order
 ---------------------------------
         1  Zhang, Xiu Ying
         2  Song, Mona

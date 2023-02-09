@@ -1,45 +1,63 @@
+//*****************************************************************************************************
+//
+//		This program implements object-oriented programming (OOP) by using classes and objects. The
+//      program is designed to manage and store information about different sports. The user can add
+//      information about multiple sports, including the sport's name, number of teams playing, and
+//      the names of teams playing. The user can then display information about all sports, a
+//      particular sport, the sport with the highest number of teams playing, or exit the program.
+//      The program includes error handling for invalid inputs, ensuring that the user only enters
+//      valid information. The program uses classes and objects to store and manage the information,
+//      providing a clear and organized way to store and access the information.
+//
+//*****************************************************************************************************
+
 #include <iomanip>
 #include <iostream>
 #include <string>
 
-#include "Date.h"   // change:: #include "Date.cpp" in Vs Code
-#include "Sport.h"  // change::  #include "Sport.cpp" in VS Code
+#include "Date.h"   // change to "Date.cpp" in visual studio code
+#include "Sport.h"  // change to "Sport.cpp" in visual studio code
 
 using namespace std;
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void displaySports(Sport s[], int size);
 bool testName(Sport s[], int size, const string& sportName);
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int main() {
     int size;
     char ch,
         entry;
 
-    cout << "=====================================================================\n"
-         << setw(44) << "Sport Information\n"
-         << "=====================================================================" << endl;
+    cout << "===================================================================== \n"
+         << setw(44) << "Sport Information \n"
+         << "===================================================================== \n"
+         << endl;
 
-    cout << "\nHow many Sports need to be processed: ";
+    cout << "How many Sports need to be processed: ";
     cin >> size;
+    cin.ignore();  // ignore the newline character in the buffer to prevent skipping getline() in populate function
+
     Sport* s = new Sport[size];
     for (int i = 0; i < size; ++i) {
-        s[i].populate();
+        s[i].populate();  // populate function prompts user to enter Sport Name, Date, Number of Teams, and Team Names
     }
 
     do {
-        cout << "\n---------------------------------------------------------------------" << endl;
-        cout << "a) Display all Sports\n"
-             << "b) Add a team to an existing Sport\n"
-             << "c) Display a particular Sport\n"
-             << "d) Display the Sport that has the highest number of teams playing\n"
-             << "e) Exit\n"
-             << "Enter Your Choice: ";
+        cout << "\n"
+             << "--------------------------------------------------------------------- \n"
+             << "a) Display all Sports \n"
+             << "b) Add a team to an existing Sport \n"
+             << "c) Display a particular Sport \n"
+             << "d) Display the Sport that has the highest number of teams playing \n"
+             << "e) Exit" << endl;
+
+        cout << "Enter Your Choice: ";
         cin >> ch;
-        cin.ignore();
+        cin.ignore();  // ignore newline character in buffer to prevent skipping getline() in switch statement
         switch (ch) {
             case 'a': {
                 displaySports(s, size);
@@ -48,13 +66,15 @@ int main() {
             case 'b': {
                 string team,
                     sportAdd;
-                bool addTest;
+                bool addTest;  // addTest is used to test if Sport Name exists
                 do {
-                    cout << "\nEnter Sport Name to add Team: ";
+                    cout << "\n"
+                         << "Enter Sport Name to add Team: ";
                     getline(cin, sportAdd);
-                    addTest = testName(s, size, sportAdd);  // tests if Sport Name exists
+                    addTest = testName(s, size, sportAdd);  // testName function tests if Sport Name exists
                     if (addTest == true) {
-                        cout << "\nEnter Team Name: ";
+                        cout << "\n"
+                             << "Enter Team Name: ";
                         getline(cin, team);
                         for (int i = 0; i < size; ++i) {
                             if (sportAdd == s[i].getName()) {
@@ -62,8 +82,10 @@ int main() {
                             }
                         }
                     } else {
-                        cout << "\n\tInvalid Name" << endl;
-                        cout << "\nBack to menu? (Y/N)" << endl;  // in case user-error
+                        cerr << "\n\t"
+                             << "Invalid Name" << endl;  // cerr is unbuffered and best for error handling
+                        cout << "\n"
+                             << "Back to menu? (Y/N)" << endl;
                         cin >> entry;
                         if (entry == 'Y' || entry == 'y') {
                             break;
@@ -72,25 +94,29 @@ int main() {
                         }
                     }
                 } while (addTest == false);
-                break;
+                break;  // break out of switch statement if Sport Name exists and Team Name is added
             }
             case 'c': {
                 string s1;
                 bool s1Test;
                 do {
-                    cout << "\nEnter Sport Name to Display: ";
+                    cout << "\n"
+                         << "Enter Sport Name to Display: ";
                     getline(cin, s1);
-                    s1Test = testName(s, size, s1);  // tests if Sport Name exists
+                    s1Test = testName(s, size, s1);
                     if (s1Test == true) {
                         for (int i = 0; i < size; ++i) {
                             if (s1 == s[i].getName()) {
-                                cout << "\n\tSport " << i + 1 << endl;
+                                cout << "\n\t"
+                                     << "Sport " << i + 1 << endl;
                                 s[i].display();
                             }
                         }
                     } else {
-                        cout << "\n\tInvalid Name" << endl;
-                        cout << "\nBack to menu? (Y/N)" << endl;  // in case user-error
+                        cerr << "\n\t"
+                             << "Invalid Name" << endl;
+                        cout << "\n"
+                             << "Back to menu? (Y/N)" << endl;
                         cin >> entry;
                         if (entry == 'Y' || entry == 'y') {
                             break;
@@ -99,7 +125,7 @@ int main() {
                         }
                     }
                 } while (s1Test == false);
-                break;
+                break;  // break out of switch statement if Sport Name exists
             }
             case 'd': {
                 int temp = s[0].getNumTeams();
@@ -110,37 +136,43 @@ int main() {
                         max = i;
                     }
                 }
-                for (int i = 0; i < size; ++i) {  // in case of multiple highest numbers
+                for (int i = 0; i < size; ++i) {  // test if multiple sports have the same number of teams
                     if (s[max].getNumTeams() == s[i].getNumTeams()) {
-                        cout << "\n\tSport " << i + 1 << endl;
+                        cout << "\n\t"
+                             << "Sport " << i + 1 << endl;
                         s[i].display();
                     }
                 }
-                break;
+                break;  // break out of switch statement if multiple sports have the same number of teams
             }
             case 'e': {
                 break;
             }
             default: {
-                cout << "\n\tInvalid Choice" << endl;
+                cerr << "\n\t"
+                     << "Error: Invalid Entry" << endl;
             }
         }
-    } while (ch != 'e');
+    } while (ch != 'e');  // break out of do-while loop if user enters 'e' to exit program
+
     delete[] s;
+    s = nullptr;
+
     return 0;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void displaySports(Sport s[], int size) {
     cout << "\n---------------------------------------------------------------------\n";
     for (int i = 0; i < size; ++i) {
-        cout << "\n\tSport " << i + 1 << endl;
+        cout << "\n\t"
+             << "Sport " << i + 1 << endl;
         s[i].display();
     }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 bool testName(Sport s[], int size, const string& sportName) {
     bool nameFound = false;
@@ -153,6 +185,8 @@ bool testName(Sport s[], int size, const string& sportName) {
     }
     return nameFound;
 }
+
+//*****************************************************************************************************
 
 /*
 
@@ -539,7 +573,7 @@ e) Exit
 Enter Your Choice: e
 
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 
 =====================================================================

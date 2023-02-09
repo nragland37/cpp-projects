@@ -1,3 +1,15 @@
+//*****************************************************************************************************
+//
+//		This program is a simulation of an English-American translation test. It includes reading in
+//      data from two files, Translation.txt and Testers.txt, which contain the words to be translated
+//      and the testers' names, scores, and dates they last took the test, respectively. The program
+//      then gives the option for the user to study before taking the test and randomly selects three
+//      people to take the test. After taking the test, the program updates the testers' scores,
+//      displays the updated information, and writes the updated information back to the Testers.txt
+//      file.
+//
+//*****************************************************************************************************
+
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
@@ -7,22 +19,22 @@
 
 using namespace std;
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 const int NAME_SIZE = 20;
-struct Translation {
+struct Translation {  // struct for translation (american, english)
     string american;
     string english;
 };
-struct Date {
+struct Date {  // struct for date (month, day, year)
     int month;
     int day;
     int year;
 };
-struct Person {
+struct Person {  // struct for person (name, score, date)
     char name[NAME_SIZE];
     double score;
-    Date testTaken;
+    Date testTaken;  // struct within struct since each person has a date
 };
 
 Translation* readTranslation(const string& fileName, int& num);
@@ -33,7 +45,7 @@ void displayTesters(const Person people[], int numP);
 void writeTesters(const string& fileName, const Person people[], int numP);
 void displayTranslateAnswers(const Translation translate[], int numT);
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int main() {
     int numT = 0,
@@ -48,26 +60,33 @@ int main() {
     translate = readTranslation("Translation.txt", numT);
     people = readTesters("Testers.txt", numP);
     displayTesters(people, numP);
-    cout << "\n---------------------------------------------------" << endl;
-    cout << "\tAmerican to English Translation Test" << endl;
-    cout << "---------------------------------------------------" << endl;
-    cout << "   Three people from this list will be randomly" << endl;
-    cout << "            selected to take the test." << endl;
-    cout << "\nWould you like to study before the test? (Y/N)" << endl;  // prompts user to study before test
+
+    cout << "\n"
+         << "--------------------------------------------------- \n"
+         << "\t"
+         << "American to English Translation Test \n"
+         << "--------------------------------------------------- \n"
+         << "   Three people from this list will be randomly \n"
+         << "            selected to take the test \n"
+         << "\n"
+         << "Would you like to study before the test? (Y/N)" << endl;  // prompts user to study before test
     cin >> studyEntry;
     if (studyEntry == 'y' || studyEntry == 'Y') {
         displayTranslateAnswers(translate, numT);
-        cout << "\nPress enter to continue..." << endl;
-        cin.ignore();
-        cin.get();
+        cout << "\n"
+             << "Press enter to continue..." << endl;
+        cin.ignore();  // ignores the enter key from the previous cin
+        cin.get();     // waits for user to press enter before continuing
         cout << "Good Luck!" << endl;
     } else {
         cout << "\nGood Luck!" << endl;
     }
     testingOptions(translate, numT, people, numP);
-    cout << "===================================================" << endl;
-    cout << "\t\tUpdated Information" << endl;
-    cout << "===================================================";
+
+    cout << "=================================================== \n"
+         << "\t\t"
+         << "Updated Information \n"
+         << "===================================================";
     displayTesters(people, numP);
     writeTesters("Testers.txt", people, numP);
 
@@ -79,57 +98,61 @@ int main() {
     return 0;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 Translation* readTranslation(const string& fileName, int& num) {
     Translation* t = nullptr;
     ifstream f(fileName);
-    if (f.is_open()) {
-        f >> num;
+
+    if (f.is_open()) {  // checks if file is open (only needed for reading in from file and not writing to file)
+        f >> num;       // reads in first line of file (number of translations) and stores in num
         f.ignore();
-        t = new Translation[num];
+
+        t = new Translation[num];  // dynamically allocates array of structs (Translation) with size num
         for (int i = 0; i < num; ++i) {
-            getline(f, t[i].american, ',');
+            getline(f, t[i].american, ',');  // getline(reads from file, stores in variable, delimiter)
             getline(f, t[i].english);
         }
-        f.close();
+        f.close();  // closes file after reading in data (only needed for reading in from file and not writing to file)
     } else {
-        cout << "File not found.";
+        cerr << "Error: Unable to open file" << endl;  // cerr is unbuffered and best for error handling
     }
-    return t;
+    return t;  // returns pointer to array of structs (Translation)
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 Person* readTesters(const string& fileName, int& num) {
     Person* p = nullptr;
     ifstream f(fileName);
+
     if (f.is_open()) {
         f >> num;
-        f.ignore();
+        f.ignore();  // ignores the newline character after the number
+
         p = new Person[num];
         for (int i = 0; i < num; ++i) {
             f.getline(p[i].name, NAME_SIZE);
             f >> p[i].score;
-            f.ignore();
+            f.ignore();  // ignores the comma after the score
             f >> p[i].testTaken.month;
-            f.ignore();
+            f.ignore();  // ignores the slash after the month
             f >> p[i].testTaken.day;
-            f.ignore();
+            f.ignore();  // ignores the slash after the day
             f >> p[i].testTaken.year;
-            f.ignore();
+            f.ignore();  // ignores the newline character after the year
         }
         f.close();
     } else {
-        cout << "File not found.";
+        cerr << "Error: Unable to open file" << endl;
     }
     return p;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void testingOptions(const Translation translate[], int numT, Person people[], int numP) {
-    const int numTests = 3;  // # of random tests ~ same people can be tested more than once
+    const int numTests = 3;  // number of tests to take for each person
     int randomPerson = 0,
         month,
         day,
@@ -138,44 +161,58 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
     seed = time(0);
     srand(seed);
 
-    cout << "\n---------------------------------" << endl;
-    cout << "        Enter Today's Date" << endl;
-    cout << "---------------------------------" << endl;
+    cout << "\n"
+         << "--------------------------------- \n"
+         << "        Enter Today's Date \n"
+         << "---------------------------------" << endl;
+
     cout << "Enter month: ";
     cin >> month;
+
     cout << "Enter day: ";
     cin >> day;
+
     cout << "Enter year: ";
     cin >> year;
-    cout << "\n\n---------------------------------" << endl;
-    cout << "            Questions" << endl;
-    cout << "---------------------------------" << endl;
-    cout << "   Five American words will be" << endl;
-    cout << " randomly selected from the list." << endl;
-    cout << "  Enter the English translation." << endl;
+
+    cout << "\n\n"
+         << "--------------------------------- \n"
+         << "            Questions \n"
+         << "--------------------------------- \n"
+         << "   Five American words will be"
+         << " randomly selected from the list \n"
+         << "  Enter the English translation." << endl;
+
     for (int i = 0; i < numTests; ++i) {
-        randomPerson = rand() % numP;  // (numP: 10) range: 0 - 9  // 0 - (numP - 1)
-        people[randomPerson].testTaken.month = month;
-        people[randomPerson].testTaken.day = day;
-        people[randomPerson].testTaken.year = year;
-        cout << "\n=================================" << endl;
-        cout << setfill(' ') << setw(3) << left << "#"
-             << setw(20) << left << "NAME"
-             << "TEST TAKEN" << endl;
-        cout << "---------------------------------" << endl;
+        randomPerson = rand() % numP;                  // (numP: 10) range: 0 - 9  // 0 - (numP - 1) // 0 - (numP - 1) + 1
+        people[randomPerson].testTaken.month = month;  // sets the month, day, and year of the test taken
+        people[randomPerson].testTaken.day = day;      // for the randomly selected person
+        people[randomPerson].testTaken.year = year;    // to the month, day, and year entered by the user
+
+        cout << "\n"
+             << "=================================" << endl;
+        cout << setfill(' ')
+             << setw(3) << left
+             << "#"
+             << setw(20) << left
+             << "NAME"
+             << "TEST TAKEN \n"
+             << "---------------------------------" << endl;
+
         cout << setw(3) << left << randomPerson + 1
-             << setw(20) << left << people[randomPerson].name
-             << people[randomPerson].testTaken.month << "/"
+             << setw(20) << left << people[randomPerson].name  // name of the randomly selected person
+             << people[randomPerson].testTaken.month << "/"    // date of the test taken
              << people[randomPerson].testTaken.day << "/"
              << people[randomPerson].testTaken.year << endl;
-        takeTest(translate, numT, people[randomPerson]);
+
+        takeTest(translate, numT, people[randomPerson]);  // calls takeTest function
     }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void takeTest(const Translation translate[], int numT, Person& p) {
-    const int numQuestions = 5;  // # of questions ~ changing number of questions may result in 'double' avg
+    const int numQuestions = 5;  // number of questions per test and changing this might result in decimal average
     int randomQuestion = 0,
         correct = 0;
     double avg = 0;
@@ -185,41 +222,56 @@ void takeTest(const Translation translate[], int numT, Person& p) {
     seed = time(0);
     srand(seed);
 
-    cout << "\n---------------------------------" << endl;
-    cout << setfill(' ') << setw(3) << left << "#"
-         << setw(18) << left << "American"
+    cout << "\n"
+         << "---------------------------------" << endl;
+    cout << setfill(' ')
+         << setw(3) << left
+         << "#"
+         << setw(18) << left
+         << "American"
          << "English" << endl;
     cout << "---------------------------------" << endl;
+
     for (int i = 0; i < numQuestions; ++i) {
         randomQuestion = rand() % numT;  // (numT: 20) range: 0 - 19  // 0 - (numT - 1)
         cout << setfill(' ') << setw(3) << left << randomQuestion + 1
              << setfill('.') << setw(18) << left << translate[randomQuestion].american;
         cin >> guess;
+
         answer = translate[randomQuestion].english;
         if (guess == answer) {
-            cout << "\n\t    Correct!" << endl
+            cout << "\n\t"
+                 << "    Correct!" << endl
                  << endl;
             correct++;
         } else {
-            cout << "\n\t   Incorrect!" << endl;
-            cout << "\nAnswer: " << translate[randomQuestion].english << endl
+            cout << "\n\t"
+                 << "   Incorrect! \n"
+                 << endl;
+            cout << "Answer: " << translate[randomQuestion].english << endl
                  << endl;
         }
     }
-    avg = (static_cast<double>(correct) / numQuestions) * 100;
+    avg = (static_cast<double>(correct) / numQuestions) * 100;  // static_cast is used to convert int to double for the average
     p.score = avg;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void displayTesters(const Person people[], int numP) {
-    cout << "\n---------------------------------------------------" << endl;
-    cout << setfill(' ') << setw(3) << left << "#"
-         << setw(20) << left << "NAME"
-         << setw(15) << left << "SCORE %"
+    cout << "\n"
+         << "---------------------------------------------------" << endl;
+    cout << setfill(' ')
+         << setw(3) << left
+         << "#"
+         << setw(20) << left
+         << "NAME"
+         << setw(15) << left
+         << "SCORE %"
          << "TEST TAKEN" << endl;
     cout << "---------------------------------------------------" << endl;
-    for (int i = 0; i < numP; ++i) {
+
+    for (int i = 0; i < numP; ++i) {  // displays the name, score, and date of the test taken for each person
         cout << setw(3) << left << i + 1
              << setw(20) << left << people[i].name
              << setw(15) << left << people[i].score
@@ -229,36 +281,43 @@ void displayTesters(const Person people[], int numP) {
     }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void writeTesters(const string& fileName, const Person people[], int numP) {
     ofstream f(fileName);
-    f << numP << endl;
-    for (int i = 0; i < numP; ++i) {
+
+    f << numP << endl;                // writes the number of people to the file and then goes to the next line
+    for (int i = 0; i < numP; ++i) {  // writes the name, score, and date of the test taken for each person to the file
         f << people[i].name << "\n"
           << people[i].score << ","
           << people[i].testTaken.month << "/" << people[i].testTaken.day
           << "/" << people[i].testTaken.year << endl;
     }
-    f.close();
+    f.close();  // closes the file after writing to it
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void displayTranslateAnswers(const Translation translate[], int numT) {
-    cout << "\n---------------------------------" << endl;
-    cout << setw(3) << left << "#"
-         << setw(18) << left << "American"
+    cout << "\n"
+         << "---------------------------------" << endl;
+    cout << setw(3) << left
+         << "#"
+         << setw(18) << left
+         << "American"
          << "English" << endl;
     cout << "---------------------------------" << endl;
-    for (int i = 0; i < numT; ++i) {
+
+    for (int i = 0; i < numT; ++i) {  // displays the american and english translations for each word
         cout << setfill(' ') << setw(3) << left << i + 1
              << setfill('.') << setw(18) << left << translate[i].american
              << translate[i].english << endl;
     }
 }
 
-// comments made throughout sample output ~
+//*****************************************************************************************************
+
+// extra comments throughout the output for clarity
 
 /*
 
@@ -282,12 +341,12 @@ void displayTranslateAnswers(const Translation translate[], int numT) {
    Three people from this list will be randomly
             selected to take the test.
 
-Would you like to study before the test? (Y/N)         //output for not studying
+Would you like to study before the test? (Y/N)
 N
 
 Good Luck!
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 ---------------------------------------------------
 #  NAME                SCORE %        TEST TAKEN
@@ -309,7 +368,7 @@ Good Luck!
    Three people from this list will be randomly
             selected to take the test.
 
-Would you like to study before the test? (Y/N)     // output for studying
+Would you like to study before the test? (Y/N)
 Y
 
 ---------------------------------
@@ -336,9 +395,9 @@ Y
 19 pants.............trousers
 20 mailbox...........postbox
 
-Press enter to continue...                      // program pauses until user is ready and presses enter
+Press enter to continue...                          // program pauses for user to read translation list before test
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 ---------------------------------------------------
 #  NAME                SCORE %        TEST TAKEN
@@ -414,7 +473,7 @@ Enter year: 2022
 ---------------------------------
 #  American          English
 ---------------------------------
-15 cart..............trolley                  // #s added to quickly lookup on 'translation' study guide
+15 cart..............trolley                           // numbers added to easily locate answers from the list
 
             Correct!
 
@@ -455,7 +514,7 @@ Enter year: 2022
 
            Incorrect!
 
-Answer: flat                                  // incorrect answers ~ shows correct answer for learning
+Answer: flat                                            // incorrect answers are displayed with the correct answer
 
 16 candy.............yumyum
 
@@ -516,9 +575,9 @@ Answer: sweet
 10 Mark James          0.0            11/11/2021
 
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
-10                         //updated file
+10                         // updated file with new scores and test dates
 Steve Smith
 56.6,11/11/2019
 Sue Jones
