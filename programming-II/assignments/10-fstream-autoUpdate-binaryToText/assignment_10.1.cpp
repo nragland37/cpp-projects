@@ -8,10 +8,9 @@
 //
 //*****************************************************************************************************
 
-#include <fstream>  //library for input and output operations with files
+#include <fstream>     //library for input and output operations with files
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 //*****************************************************************************************************
@@ -29,18 +28,18 @@ struct Person {
     Date testTaken;
 };
 
-Person* readTesters(const string& fileName, int& num);
-void writeTesters(const string& fileName, Person people[], int numP);
+Person *readTesters(const string &fileName, int &num);
+void writeTesters(const string &fileName, Person people[], int numP);
 
 //*****************************************************************************************************
 
 int main() {
     int numP = 0;
     string fileName;
-    Person* people = nullptr;
+    Person *people = nullptr;
 
-    people = readTesters("Testers.txt", numP);  // read from text file and store in array of structs
-    writeTesters("Testers.dat", people, numP);  // write from array of structs to binary file
+    people = readTesters("Testers.txt", numP);     // read from text file and store in array of structs
+    writeTesters("Testers.dat", people, numP);     // write from array of structs to binary file
 
     delete[] people;
     people = nullptr;
@@ -50,8 +49,8 @@ int main() {
 
 //*****************************************************************************************************
 
-Person* readTesters(const string& fileName, int& num) {
-    Person* p = nullptr;
+Person *readTesters(const string &fileName, int &num) {
+    Person *p = nullptr;
     ifstream f(fileName);
 
     if (f.is_open()) {
@@ -72,18 +71,19 @@ Person* readTesters(const string& fileName, int& num) {
         }
         f.close();
     } else {
-        cerr << "Error: Unable to open file" << endl;  // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
     }
+
     return p;
 }
 
 //*****************************************************************************************************
 
-void writeTesters(const string& fileName, Person people[], int numP) {
-    ofstream f(fileName, ios::binary);  // ios::binary is used to write binary data to a file instead of text
-                                        // ofstream_object_(file_opened, open_mode) is used to write to files
-    f.write(reinterpret_cast<char*>(&numP), sizeof(int));
-    f.write(reinterpret_cast<char*>(people), sizeof(Person) * numP);
+void writeTesters(const string &fileName, Person people[], int numP) {
+    ofstream f(fileName, ios::binary);     // ios::binary is used to write binary data to a file instead of text
+                                           // ofstream_object_(file_opened, open_mode) is used to write to files
+    f.write(reinterpret_cast<char *>(&numP), sizeof(int));
+    f.write(reinterpret_cast<char *>(people), sizeof(Person) * numP);
     f.close();
 }
 

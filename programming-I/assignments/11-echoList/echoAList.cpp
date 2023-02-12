@@ -1,40 +1,46 @@
+//*****************************************************************************************************
+//
+//		This program calculates the sum of 10 numbers entered by the user. The program first prompts
+//      the user to enter 10 numbers and stores them in an array of size 10. It then calculates the
+//      sum of these numbers and displays the result. Finally, the program displays the list of
+//      numbers that were entered by the user.
+//
+//*****************************************************************************************************
+
 #include <iostream>
 using namespace std;
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int main() {
     const int SIZE = 10;
+    int nums[SIZE],     // array of 10 integers (0-9)
+        sum = 0;        // needs to be initialized to 0 or else it will be garbage data (causes undefined behavior)
 
-    int nums[SIZE],
-        sum = 0;
-
-    cout << "Enter 10 numbers" << endl
+    cout << "Enter 10 numbers \n"
          << endl;
 
     for (int i = 0; i < SIZE; i++) {
         cout << "Enter #" << i + 1 << ":";
         cin >> nums[i];
 
-        sum = sum + nums[i];
+        sum += nums[i];     // sum = sum + nums[i] (this is why sum needs to be initialized to 0 or else it will equal garbage data + nums[i])
     }
 
-    cout << endl;
-
-    cout << "Sum is: " << sum << endl;
+    cout << "\n"
+            "Sum is: "
+         << sum << endl;
 
     cout << "The list of numbers were: ";
 
-    for (int i = 0; i < SIZE; i++) {
-        cout << nums[i] << " ";
-    }
-
-    cout << endl;
+    for (int i = 0; i < SIZE; i++)  
+        cout << nums[i] << " "; 
 
     return 0;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
+
 /*
 
 Enter 10 numbers
@@ -53,7 +59,7 @@ Enter #10: 10
 Sum is: 55
 The list of numbers were: 1 2 3 4 5 6 7 8 9 10
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 Enter 10 numbers
 

@@ -9,7 +9,7 @@
 //
 //*****************************************************************************************************
 
-#ifndef DATE_H  // prevent multiple inclusion of header file
+#ifndef DATE_H     // prevent multiple inclusion of header file
 #define DATE_H
 
 // note:: never use "using namespace std;" in a header file because it will cause problems when the
@@ -18,33 +18,33 @@
 //*****************************************************************************************************
 
 class Date {
-   private:  // private member variables are not accessible outside the class
+   private:     // private member variables are not accessible outside the class
     int day;
     int month;
     int year;
 
-   public:  // public member functions are accessible outside the class and can be called from main()
+   public:     // public member functions are accessible outside the class and can be called from main()
     Date();
     ~Date();
     int getDay() const;
-    void setDay(const int& d);
+    void setDay(const int &d);
     int getMonth() const;
-    void setMonth(const int& m);
+    void setMonth(const int &m);
     int getYear() const;
-    void setYear(const int& y);
+    void setYear(const int &y);
     void inputDate();
     void displayDate();
 };
 
 //*****************************************************************************************************
 
-inline int Date::getDay() const {  // inline functions are defined in the header file for efficiency
-    return day;                    // are used for small functions that are called frequently (typically getters and setters)
+inline int Date::getDay() const {     // inline functions are defined in the header file for efficiency
+    return day;                       // are used for small functions that are called frequently (typically getters and setters)
 }
 
 //*****************************************************************************************************
 
-inline void Date::setDay(const int& d) {
+inline void Date::setDay(const int &d) {
     day = d;
 }
 
@@ -56,7 +56,7 @@ inline int Date::getYear() const {
 
 //*****************************************************************************************************
 
-inline void Date::setYear(const int& y) {
+inline void Date::setYear(const int &y) {
     year = y;
 }
 
@@ -68,10 +68,10 @@ inline int Date::getMonth() const {
 
 //*****************************************************************************************************
 
-inline void Date::setMonth(const int& m) {
+inline void Date::setMonth(const int &m) {
     month = m;
 }
 
 //*****************************************************************************************************
 
-#endif  // end of #ifndef preprocessor directive
+#endif     // end of #ifndef preprocessor directive

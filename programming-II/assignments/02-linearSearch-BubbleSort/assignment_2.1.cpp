@@ -12,12 +12,11 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-
 using namespace std;
 
 const int NUM_TESTS = 8;
 
-void readTestScores(ifstream& f, int scores[][NUM_TESTS], int numStds);
+void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds);
 void displayTestScores(const int scores[][NUM_TESTS], int numStds);
 int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber);
 int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber);
@@ -59,40 +58,36 @@ int main() {
          << "Enter average score of student: ";
     cin >> average;
 
-    if (searchStudents(scores, NUM_STDS, average)) {
+    if (searchStudents(scores, NUM_STDS, average))
         cout << "\n"
              << "A student DOES have an average score greater than: " << average << "\n\n";
-    } else {
+    else
         cout << "\n"
              << "A student DOES NOT have an average score greater than: " << average << "\n\n";
-    }
 
     cout << "Find if at least one test has an average score greater \n"
          << "Enter average score of test: ";
     cin >> average;
 
-    if (searchTests(scores, NUM_STDS, average)) {
+    if (searchTests(scores, NUM_STDS, average))
         cout << "\n"
              << "A test DOES have an average score greater than: " << average << endl;
-    } else {
+    else
         cout << "\n"
              << "A test DOES NOT have an average score greater than: " << average << endl;
-    }
 
     return 0;
 }
 
 //*****************************************************************************************************
 
-void readTestScores(ifstream& f, int scores[][NUM_TESTS], int numStds) {
+void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
     if (f.is_open()) {
-        for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
-            for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
+        for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
+            for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
                 f >> scores[studentNumber][testNumber];
-            }
-        }
     } else {
-        cerr << "Error: Unable to open file" << endl;  // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
     }
 }
 
@@ -102,9 +97,8 @@ void displayTestScores(const int scores[][NUM_TESTS], int numStds) {
     cout << "    All Test scores" << endl;
 
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
-        for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
+        for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
             cout << scores[studentNumber][testNumber] << " ";
-        }
         cout << endl;
     }
 }
@@ -114,9 +108,9 @@ void displayTestScores(const int scores[][NUM_TESTS], int numStds) {
 int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
     int sum = 0;
 
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
         sum += scores[studentNumber][testNumber];
-    }
+
     return sum;
 }
 
@@ -125,9 +119,9 @@ int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
 int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int sum = 0;
 
-    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
+    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
         sum += scores[studentNumber][testNumber];
-    }
+
     return sum;
 }
 
@@ -137,9 +131,9 @@ double averageOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber
     int total = 0;
     double average;
 
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
         total += scores[studentNumber][testNumber];
-    }
+
     average = static_cast<double>(total) / numStds;
 
     return average;
@@ -151,9 +145,9 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
     int total = 0;
     double average;
 
-    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
+    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
         total += scores[studentNumber][testNumber];
-    }
+
     average = static_cast<double>(total) / NUM_TESTS;
 
     return average;
@@ -163,11 +157,10 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
 
 int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int highest = scores[studentNumber][0];
-    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber) {
-        if (scores[studentNumber][testNumber] > highest) {
+    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber)
+        if (scores[studentNumber][testNumber] > highest)
             highest = scores[studentNumber][testNumber];
-        }
-    }
+
     return highest;
 }
 
@@ -185,22 +178,24 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
             topStudent = studentNumber;
         }
     }
+
     return topStudent + 1;
 }
 
 //*****************************************************************************************************
 
 bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average) {
-    int studentNumber = 0;  // initialize student number
-    bool found = false;     // initialize found flag
+    int studentNumber = 0;     // initialize student number
+    bool found = false;        // initialize found flag
 
-    while ((studentNumber < numStds) && !found) {                           // loop until all students searched or student found
-        if (averageOneStudent(scores, numStds, studentNumber) > average) {  // check student average against specified average
-            found = true;                                                   // set found flag to true
-        }
-        studentNumber++;  // increment student number
+    while ((studentNumber < numStds) && !found) {                            // loop until all students searched or student found
+        if (averageOneStudent(scores, numStds, studentNumber) > average)     // check student average against specified average
+            found = true;                                                    // set found flag to true
+
+        studentNumber++;     // increment student number
     }
-    return found;  // return found flag
+
+    return found;     // return found flag
 }
 
 //*****************************************************************************************************
@@ -210,11 +205,11 @@ bool searchTests(const int scores[][NUM_TESTS], int numStds, double average) {
     bool found = false;
 
     while ((testNumber < NUM_TESTS) && !found) {
-        if (averageOneTest(scores, numStds, testNumber) > average) {
+        if (averageOneTest(scores, numStds, testNumber) > average)
             found = true;
-        }
         testNumber++;
     }
+
     return found;
 }
 

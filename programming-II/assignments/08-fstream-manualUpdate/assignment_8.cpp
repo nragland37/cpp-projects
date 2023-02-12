@@ -16,24 +16,23 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 //*****************************************************************************************************
-struct dateEmployed {  // struct to store date of employment
+struct dateEmployed {
     int month,
         day,
         year;
 };
-struct Employee {  // struct to store employee information
+struct Employee {
     string name;
     int age;
-    dateEmployed date;  // struct within struct to store date of employment
+    dateEmployed date;
 };
 
-Employee* readEmployees(const string& empFile, int& numEmps);
+Employee *readEmployees(const string &empFile, int &numEmps);
 void displayEmployees(const Employee emps[], int numEmps);
-Employee* inputEmployees(Employee* emps, int& numEmps);
+Employee *inputEmployees(Employee *emps, int &numEmps);
 
 //*****************************************************************************************************
 
@@ -43,19 +42,19 @@ int main() {
     fstream f;
     char entry;
 
-    f.open(empFile, ios::in);  // open file for input (read)
+    f.open(empFile, ios::in);
     while (f.is_open()) {
         f >> numEmps;
-        f.close();  // close file after reading number of employees
+        f.close();
 
-        Employee* emps = readEmployees(empFile, numEmps);
+        Employee *emps = readEmployees(empFile, numEmps);
         displayEmployees(emps, numEmps);
 
         cout << "\n"
              << "Any additional employees need to be added? (Y/N)" << endl;
         cin >> entry;
         if (entry == 'y' || entry == 'Y') {
-            Employee* newEmps = inputEmployees(emps, numEmps);
+            Employee *newEmps = inputEmployees(emps, numEmps);
             displayEmployees(newEmps, numEmps);
 
             delete[] emps;
@@ -69,21 +68,20 @@ int main() {
             break;
         }
     }
-    if (!f) {
-        cerr << "Error: Unable to open file" << endl;  // cerr is unbuffered and best for error handling
-    }
+    if (!f)
+        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
 
     return 0;
 }
 
 //*****************************************************************************************************
 
-Employee* readEmployees(const string& empFile, int& numEmps) {
+Employee *readEmployees(const string &empFile, int &numEmps) {
     fstream f;
 
     f.open(empFile, ios::in);
-    Employee* tmp = new Employee[numEmps];  // dynamically allocate array of structures to store employee data
-    f.ignore(2);                            // ignore first two characters of file (number of employees and newline)
+    Employee *tmp = new Employee[numEmps];     // dynamically allocate array of structures to store employee data
+    f.ignore(2);                               // ignore first two characters of file (number of employees and newline)
 
     for (int i = 0; i < numEmps; ++i) {
         getline(f, tmp[i].name, ',');
@@ -96,17 +94,17 @@ Employee* readEmployees(const string& empFile, int& numEmps) {
         f >> tmp[i].date.year;
         f.ignore();
     }
-    f.close();  // close file after reading employee data
+    f.close();
 
     return tmp;
 }
 
 //*****************************************************************************************************
 
-Employee* inputEmployees(Employee* emps, int& numEmps) {
+Employee *inputEmployees(Employee *emps, int &numEmps) {
     fstream f;
     int newEntries,
-        oldEmps = numEmps,  // store number of employees before adding new ones
+        oldEmps = numEmps,     // store number of employees before adding new ones
         age,
         month,
         day,
@@ -116,9 +114,9 @@ Employee* inputEmployees(Employee* emps, int& numEmps) {
     cout << "\n"
          << "How many?" << endl;
     cin >> newEntries;
-    cin.ignore();  // ignore newline character so getline() works properly
+    cin.ignore();     // ignore newline character so getline() works properly
 
-    Employee* newemps = new Employee[numEmps + newEntries];  // numEmps + newEntries = total number of employees
+    Employee *newemps = new Employee[numEmps + newEntries];     // numEmps + newEntries = total number of employees
     for (int i = 0; i < numEmps; i++) {
         newemps[i].name = emps[i].name;
         newemps[i].age = emps[i].age;
@@ -127,18 +125,17 @@ Employee* inputEmployees(Employee* emps, int& numEmps) {
         newemps[i].date.year = emps[i].date.year;
     }
 
-    numEmps = numEmps + newEntries;     // update number of employees to pass by reference to main()
-    f.open("Employees.txt", ios::out);  // open file for output (write)
+    numEmps = numEmps + newEntries;        // update number of employees to pass by reference to main()
+    f.open("Employees.txt", ios::out);     // open file for writing ( ios::out is for writing)
     f << numEmps << endl;
 
-    for (int i = 0; i < numEmps - newEntries; ++i) {
+    for (int i = 0; i < numEmps - newEntries; ++i)
         f << newemps[i].name << "," << newemps[i].age << ","
           << newemps[i].date.month << "/" << newemps[i].date.day
           << "/" << newemps[i].date.year << endl;
-    }
-    f.close();  // close file after writing number of employees and old employee data to file (overwrite)
+    f.close();
 
-    f.open("Employees.txt", ios::app);  // open file for appending (write at end of file)
+    f.open("Employees.txt", ios::app);     // open file for appending ( ios::app is for appending)
     for (int i = oldEmps; i < numEmps; ++i) {
         cout << "\n"
              << "Name: ";
@@ -168,34 +165,34 @@ Employee* inputEmployees(Employee* emps, int& numEmps) {
           << newemps[i].date.month << "/" << newemps[i].date.day
           << "/" << newemps[i].date.year << endl;
     }
-    f.close();       // close file after writing new employee data to file (append)
-    return newemps;  // return pointer to new array of structures
+    f.close();
+
+    return newemps;     // return pointer to new array of structures
 }
 
 //*****************************************************************************************************
 
 void displayEmployees(const Employee emps[], int numEmps) {
     cout << "\n";
-    cout << left  // Set the text alignment to left for all columns
+    cout << left     // Set the text alignment to left for all columns
          << setw(30)
-         << "Name"  // width for the "NAME" column is 30 characters
+         << "Name"     // width for the "NAME" column is 30 characters
          << setw(20)
-         << "Age"  // width for the "AGE" column is 20 characters
+         << "Age"     // width for the "AGE" column is 20 characters
          << setw(10)
-         << "Date Employed" << endl;  // width for the "DATE EMPLOYED" column is 20 characters
+         << "Date Employed" << endl;     // width for the "DATE EMPLOYED" column is 20 characters
 
-    cout << setfill('-') << setw(63) << "" << endl;  // line of 70 dashes to separate the header from the data
-    cout << setfill(' ');                            // reset the fill character to a space for the data
+    cout << setfill('-') << setw(63) << "" << endl;     // line of 70 dashes to separate the header from the data
+    cout << setfill(' ');                               // reset the fill character to a space for the data
 
-    for (int i = 0; i < numEmps; ++i) {
+    for (int i = 0; i < numEmps; ++i)
         cout << left
              << setw(30) << emps[i].name
              << setw(23) << emps[i].age
-             << right << setw(10)  // right align the date for better formatting
+             << right << setw(10)     // right align the date for better formatting
              << setw(2) << emps[i].date.month << "/"
              << setw(2) << emps[i].date.day << "/"
              << setw(4) << emps[i].date.year << endl;
-    }
 }
 
 //*****************************************************************************************************

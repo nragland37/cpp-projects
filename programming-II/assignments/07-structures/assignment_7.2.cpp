@@ -13,7 +13,6 @@
 #include <iomanip>
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 //*****************************************************************************************************
@@ -24,14 +23,14 @@ struct Speaker {
     double fee;
 };
 
-void inputSpeakers(Speaker members[], int size, int& numSpeakers);
-void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName);
-void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string& speakerName);
-void displayTopicSpeakers(Speaker members[], int numSpeakers, const string& topic);
+void inputSpeakers(Speaker members[], int size, int &numSpeakers);
+void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName);
+void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string &speakerName);
+void displayTopicSpeakers(Speaker members[], int numSpeakers, const string &topic);
 void displayAllSpeakerInfo(Speaker members[], int numSpeakers);
-bool isEmpty(const string& str);
-bool testName(Speaker members[], int numSpeakers, const string& speakerName);
-bool testTopic(Speaker members[], int numSpeakers, const string& topic);
+bool isEmpty(const string &str);
+bool testName(Speaker members[], int numSpeakers, const string &speakerName);
+bool testTopic(Speaker members[], int numSpeakers, const string &topic);
 
 //*****************************************************************************************************
 
@@ -52,17 +51,16 @@ int main() {
     do {
         cout << "Number: ";
         cin >> size;
-        cin.ignore();  // ignore the newline character in the input buffer so getline() works properly
+        cin.ignore();     // ignore the newline character in the input buffer so getline() works properly
 
-        if (size <= 0 || size >= 5000) {
+        if (size <= 0 || size >= 5000)
             cerr << "\n"
-                 << "Number must be greater than 0 and smaller than 5000" << endl;  // cerr is unbuffered and best for error handling
-        }
+                 << "Number must be greater than 0 and smaller than 5000" << endl;     // cerr is unbuffered and best for error handling
+
     } while (size <= 0 || size >= 5000);
 
-    Speaker* members = new Speaker[size];  // dynamically allocate an array of Speaker structs
-
-    inputSpeakers(members, size, numSpeakers);  // input speakers' info with getline() (this is why we used cin.ignore() above)
+    Speaker *members = new Speaker[size];          // dynamically allocate an array of Speaker structs
+    inputSpeakers(members, size, numSpeakers);     // input speakers' info with getline() (this is why we used cin.ignore() above)
 
     do {
         cout << "\n"
@@ -73,10 +71,10 @@ int main() {
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
-        if (nameTest == false) {
+        if (nameTest == false)
             cerr << "\n"
-                 << "Sorry but the name does not exist" << endl;  // cerr is unbuffered and best for error handling
-        }
+                 << "Sorry but the name does not exist" << endl;     // cerr is unbuffered and best for error handling
+
     } while (nameTest == false);
     updateSpeaker(members, numSpeakers, speakerName);
 
@@ -89,10 +87,9 @@ int main() {
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
-        if (nameTest == false) {
+        if (nameTest == false)
             cerr << "\n"
                  << "Sorry but the name does not exist" << endl;
-        }
     } while (nameTest == false);
     displayOneSpeakerInfo(members, numSpeakers, speakerName);
 
@@ -111,9 +108,8 @@ int main() {
                  << endl;
             cout << "Do you have another topic? (Y/N)" << endl;
             cin >> topicEntry;
-            if (topicEntry == 'n' || topicEntry == 'N') {
+            if (topicEntry == 'n' || topicEntry == 'N')
                 break;
-            }
             cin.ignore();
         }
     } while (topicTest == false);
@@ -134,8 +130,9 @@ int main() {
 
 //*****************************************************************************************************
 
-void inputSpeakers(Speaker members[], int size, int& numSpeakers) {
+void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
     char entry;
+
     for (int i = 0; i < size; ++i) {
         numSpeakers++;
 
@@ -197,7 +194,7 @@ void inputSpeakers(Speaker members[], int size, int& numSpeakers) {
 
 //*****************************************************************************************************
 
-void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName) {
+void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName) {
     cout << "\n"
          << "--------------------------------------------------------------- \n"
          << "\t"
@@ -252,15 +249,15 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName
 
 //*****************************************************************************************************
 
-void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string& speakerName) {
+void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string &speakerName) {
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
             cout << "\n"
                  << "Speaker " << i + 1 << endl;
 
-            cout << "\t" << setfill('.') << setw(30) << left << "Name "  // setw(30) is the width of the field
-                 << " " << members[i].name << endl;                      // left is the alignment of the field
-                                                                         // setfill('.') is the character used to fill the empty space
+            cout << "\t" << setfill('.') << setw(30) << left << "Name "     // setw(30) is the width of the field
+                 << " " << members[i].name << endl;                         // left is the alignment of the field
+                                                                            // setfill('.') is the character used to fill the empty space
             cout << "\t" << setfill('.') << setw(30) << left << "Telephone Number "
                  << " "
                  << members[i].phoneNum << endl;
@@ -278,7 +275,7 @@ void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string& spe
 
 //*****************************************************************************************************
 
-void displayTopicSpeakers(Speaker members[], int numSpeakers, const string& topic) {
+void displayTopicSpeakers(Speaker members[], int numSpeakers, const string &topic) {
     for (int i = 0; i < numSpeakers; i++) {
         if (topic == members[i].topic) {
             cout << "\n"
@@ -330,20 +327,19 @@ void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
 
 //*****************************************************************************************************
 
-bool isEmpty(const string& str) {
-    int len = str.length();  // length() is a function that returns the length of the string
+bool isEmpty(const string &str) {
+    int len = str.length();     // length() is a function that returns the length of the string
 
-    for (int i = 0; i < len; ++i) {
-        if (!isspace(str[i])) {  // isspace() is a function that checks if the character is a space
+    for (int i = 0; i < len; ++i)
+        if (!isspace(str[i]))     // isspace() is a function that checks if the character is a space
             return false;
-        }
-    }
+
     return true;
 }
 
 //*****************************************************************************************************
 
-bool testName(Speaker members[], int numSpeakers, const string& speakerName) {
+bool testName(Speaker members[], int numSpeakers, const string &speakerName) {
     bool nameFound = false;
 
     for (int i = 0; i < numSpeakers; ++i) {
@@ -352,12 +348,13 @@ bool testName(Speaker members[], int numSpeakers, const string& speakerName) {
             break;
         }
     }
+
     return nameFound;
 }
 
 //*****************************************************************************************************
 
-bool testTopic(Speaker members[], int numSpeakers, const string& topic) {
+bool testTopic(Speaker members[], int numSpeakers, const string &topic) {
     bool topicFound = false;
 
     for (int i = 0; i < numSpeakers; ++i) {
@@ -366,6 +363,7 @@ bool testTopic(Speaker members[], int numSpeakers, const string& topic) {
             break;
         }
     }
+
     return topicFound;
 }
 

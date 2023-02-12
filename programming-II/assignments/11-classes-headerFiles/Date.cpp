@@ -8,15 +8,14 @@
 //
 //*****************************************************************************************************
 
-#include "Date.h"  // include header file for Date class
+#include "Date.h"     // include header file for Date class
 
 #include <iostream>
-
 using namespace std;
 
 //*****************************************************************************************************
 
-Date::Date() {  // default constructor sets date to 1/1/2000
+Date::Date() {     // default constructor sets date to 1/1/2000
     day = 1;
     month = 1;
     year = 2000;
@@ -30,13 +29,13 @@ Date::~Date() {
 
 //*****************************************************************************************************
 
-void Date::inputDate() {  // checks for valid date (leap years, days in month) and sets date
+void Date::inputDate() {     // checks for valid date (leap years, days in month) and sets date
     cout << "\n"
          << "Enter Year: ";
     cin >> year;
     while (year < 2022 || year > 2100) {
         cerr << "\n"
-             << "Invalid";  // cerr is unbuffered and best for error handling
+             << "Invalid";     // cerr is unbuffered and best for error handling
         cout << "\n"
              << "Enter Year(2022- ): ";
         cin >> year;
@@ -77,25 +76,23 @@ void Date::inputDate() {  // checks for valid date (leap years, days in month) a
             cin >> day;
             cout << endl;
         }
+    } else if (year % 4 == 0) {     // February :: tests leap years
+        while (day < 1 || day > 29) {
+            cerr << "\n"
+                 << "Invalid";
+            cout << "\n"
+                 << "Enter Day(1-29): ";
+            cin >> day;
+            cout << endl;
+        }
     } else {
-        if (year % 4 == 0) {  // February :: tests leap years
-            while (day < 1 || day > 29) {
-                cerr << "\n"
-                     << "Invalid";
-                cout << "\n"
-                     << "Enter Day(1-29): ";
-                cin >> day;
-                cout << endl;
-            }
-        } else {
-            while (day < 1 || day > 28) {
-                cerr << "\n"
-                     << "Invalid";
-                cout << "\n"
-                     << "Enter Day(1-28): ";
-                cin >> day;
-                cout << endl;
-            }
+        while (day < 1 || day > 28) {
+            cerr << "\n"
+                 << "Invalid";
+            cout << "\n"
+                 << "Enter Day(1-28): ";
+            cin >> day;
+            cout << endl;
         }
     }
     setDay(day);
@@ -104,7 +101,7 @@ void Date::inputDate() {  // checks for valid date (leap years, days in month) a
 //*****************************************************************************************************
 
 void Date::displayDate() {
-    cout << getMonth() << "/" << getDay() << "/" << getYear();  // displays date in mm/dd/yyyy format
+    cout << getMonth() << "/" << getDay() << "/" << getYear();     // displays date in mm/dd/yyyy format
 }
 
 //*****************************************************************************************************

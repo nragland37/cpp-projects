@@ -1,98 +1,101 @@
+//*****************************************************************************************************
+//
+//      This program is a simple recipe for making Chocolate Chip Cookies. It lists the ingredients
+//      and step-by-step instructions to prepare the cookies. Then it prompts the user to specify the
+//      number of dozens of cookies they want to make, and it calculates and displays the corresponding
+//      amount of each ingredient required based on the original recipe. The program ensures that the
+//      number of dozens must be a multiple of four, which is the original recipe's serving size.
+//
+//*****************************************************************************************************
+
 #include <iostream>
 using namespace std;
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int main() {
-    float finalAssignPercent,
-        finalTestPercent,
-        finalExamPercent,
-        finalParticPercent,
-        PercentOutOf100,
-        sum;
+    const int BUTTER = 1,
+              EGG = 2,
+              VANILLA = 2,
+              FLOUR = 2,
+              CHOC_CHIP = 2;
+    const double BAKING_SODA = 0.75,     
+                 SUGAR = 1.5,                     
+                 SALT = 0.25;                    
+    int dozen,
+        quantity;
 
-    const int ASSIGN_PERCENT = 15,
-              TEST_PERCENT = 50,
-              EXAM_PERCENT = 30,
-              PARTIC_PERCENT = 5;
-
-    cout << "Grade Calculator - Computer Programming I 'Final Grade'" << endl
+    cout << "Chocolate Chip Cookies - 4 dozen cookies \n"
          << endl;
 
-    cout << "The  weight  of  each  deliverable on their final grade. (shown below)" << endl
-         << endl
-         << "\t"
-         << "Programmig Assignments: " << ASSIGN_PERCENT << "%" << endl
-         << "\t"
-         << "Chapter Tests: " << TEST_PERCENT << "%" << endl
-         << "\t"
-         << "Final Exam: " << EXAM_PERCENT << "%" << endl
-         << "\t"
-         << "Class Participation: " << PARTIC_PERCENT << "%" << endl
+    cout << "\t" << BUTTER << " cup butter \n"
+         << "\t" << SUGAR << " cups white sugar \n"
+         << "\t" << EGG << " eggs \n"
+         << "\t" << VANILLA << " tsp vanilla extract \n"
+         << "\t" << FLOUR << " cups all-purpose flour \n"
+         << "\t" << BAKING_SODA << " baking soda \n"
+         << "\t" << SALT << " tsp salt \n"
+         << "\t" << CHOC_CHIP << " cups chocolate chips \n"
          << endl;
 
-    cout << "What is the graded percentage (out of 100%) for Programming Assignments? ";
-    cin >> PercentOutOf100;
-
-    finalAssignPercent = PercentOutOf100 * 0.15;
-
-    cout << "What is the graded percentage (out of 100%) for Chapter Tests? ";
-    cin >> PercentOutOf100;
-
-    finalTestPercent = PercentOutOf100 * 0.50;
-
-    cout << "What is the graded percentage (out of 100%) for Final Exam? ";
-    cin >> PercentOutOf100;
-
-    finalExamPercent = PercentOutOf100 * 0.30;
-
-    cout << "What is the graded percentage (out of 100%) for Class Participation? ";
-    cin >> PercentOutOf100;
-
-    finalParticPercent = PercentOutOf100 * .05;
-
-    sum = (finalAssignPercent + finalTestPercent + finalExamPercent + finalParticPercent);
-
-    cout << endl
-         << endl
+    cout << "Preheat oven to 350 F. In a large bowl, mix butter, sugar, eggs, and vanilla \n"
+         << "until light and fluffy. In a separate bowl, combine flour, baking soda, and \n"
+         << "salt; stir into the butter mixture until well-blended stir in chocolate chips. \n"
+         << "Drop by rounded teaspoons onto ungreased cookie sheets. Bake 8-10 minutes until \n"
+         << "just set. Cool slightly on cookie sheets before transferring to cooling racks \n"
+         << "to cool completely. \n"
          << endl;
 
-    cout << "\t" << finalAssignPercent << "% in Programming Assignments" << endl
-         << "\t" << finalTestPercent << "% in Chapter Tests" << endl
-         << "\t" << finalExamPercent << "% in Final Exam" << endl
-         << "\t" << finalParticPercent << "% in Class Participation" << endl
-         << endl
-         << endl;
+    cout << "How many dozens are you planning to make (Please give a multiple of four)?" << endl;
+    cin >> dozen;
 
-    cout << "Final Grade: " << sum << "%" << endl;
+    quantity = dozen / 4;     // 4 dozen = 1 quantity of ingredients (original recipe)
+
+    cout << "\n\n\t" << quantity * BUTTER << " cup butter" << endl;
+    cout << "\t" << quantity * SUGAR << " cups white sugar" << endl;
+    cout << "\t" << quantity * EGG << " eggs" << endl;
+    cout << "\t" << quantity * VANILLA << " tsp vanilla extract" << endl;
+    cout << "\t" << quantity * FLOUR << " cups all-purpose flour" << endl;
+    cout << "\t" << quantity * BAKING_SODA << " baking soda" << endl;
+    cout << "\t" << quantity * SALT << " tsp salt" << endl;
+    cout << "\t" << quantity * CHOC_CHIP << " cups chocolate chips" << endl;
 
     return 0;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
+
 /*
 
-Grade Calculator - Computer Programming I 'Final Grade'
+Chocolate Chip Cookies - 4 dozen cookies
 
-The  weight  of  each  deliverable on their final grade. (shown below)
+        1 cup butter
+        1.5 cups white sugar
+        2 eggs
+        2 tsp vanilla extract
+        2 cups all-purpose flour
+        0.75 baking soda
+        0.25 tsp salt
+        2 cups chocolate chips
 
-                Programmig Assignments: 15%
-                Chapter Tests: 50%
-                Final Exam: 30%
-                Class Participation: 5%
+Preheat oven to 350 F. In a large bowl, mix butter, sugar, eggs, and vanilla
+until light and fluffy. In a separate bowl, combine flour, baking soda, and
+salt; stir into the butter mixture until well-blended stir in chocolate chips.
+Drop by rounded teaspoons onto ungreased cookie sheets. Bake 8-10 minutes until
+just set. Cool slightly on cookie sheets before transferring to cooling racks
+to cool completely.
 
-What is the graded percentage (out of 100%) for Programming Assignments? 100
-What is the graded percentage (out of 100%) for Chapter Tests? 100
-What is the graded percentage (out of 100%) for Final Exam? 100
-What is the graded percentage (out of 100%) for Class Participation? 100
-
-
-                15% in Programming Assignments
-                50% in Chapter Tests
-                30% in Final Exam
-                5% in Class Participation
+How many dozens are you planning to make (Please give a multiple of four)?
+12
 
 
-Final Grade: 100%
+        3 cup butter
+        4.5 cups white sugar
+        6 eggs
+        6 tsp vanilla extract
+        6 cups all-purpose flour
+        2.25 baking soda
+        0.75 tsp salt
+        6 cups chocolate chips
 
 */

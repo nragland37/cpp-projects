@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //
-//		This program reads in test scores from a file, performs various calculations on them using a
+//		  This program reads in test scores from a file, performs various calculations on them using a
 //      2D array, and displays the results. It includes functions for tasks such as reading scores,
 //      displaying scores, calculating total and average scores for specific tests or students, and
 //      finding the top-performing student. The main function opens the file, creates the array, and
@@ -12,12 +12,11 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-
 using namespace std;
 
 const int NUM_TESTS = 8;
 
-void readTestScores(ifstream& f, int scores[][NUM_TESTS], int numStds);
+void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds);
 void displayTestScores(const int scores[][NUM_TESTS], int numStds);
 int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber);
 int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber);
@@ -30,8 +29,8 @@ int topStudent(const int scores[][NUM_TESTS], int numStds);
 
 int main() {
     const int NUM_STDS = 10;
-    int scores[NUM_STDS][NUM_TESTS];
-    ifstream f("Assignment1Data.txt");  // file with test scores
+    int scores[NUM_STDS][NUM_TESTS];       // 2D array to hold test scores for 10 students on 8 tests
+    ifstream f("Assignment1Data.txt");     // file with test scores for 10 students on 8 tests
 
     readTestScores(f, scores, NUM_STDS);
     f.close();
@@ -40,7 +39,7 @@ int main() {
     cout << setprecision(2) << fixed;
 
     cin.get();
-    cout << "Total for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0) << "\n\n"  // 0 is the first test
+    cout << "Total for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0) << "\n\n"     // 0 is the first test
          << "Total for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4) << "\n\n"
          << "Total for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2) << "\n\n"
          << "Total for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7) << "\n\n"
@@ -56,15 +55,13 @@ int main() {
 
 //*****************************************************************************************************
 
-void readTestScores(ifstream& f, int scores[][NUM_TESTS], int numStds) {
-    if (f.is_open()) {  // always check if file is open before reading but not necessary for writing
-        for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
-            for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
+void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
+    if (f.is_open()) {
+        for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
+            for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
                 f >> scores[studentNumber][testNumber];
-            }
-        }
     } else {
-        cerr << "Error: Unable to open file" << endl;  // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
     }
 }
 
@@ -74,9 +71,8 @@ void displayTestScores(const int scores[][NUM_TESTS], int numStds) {
     cout << "    All Test scores" << endl;
 
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
-        for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
+        for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
             cout << scores[studentNumber][testNumber] << " ";
-        }
         cout << endl;
     }
 }
@@ -86,9 +82,9 @@ void displayTestScores(const int scores[][NUM_TESTS], int numStds) {
 int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
     int sum = 0;
 
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
         sum += scores[studentNumber][testNumber];
-    }
+
     return sum;
 }
 
@@ -97,9 +93,9 @@ int totalOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber) {
 int totalOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int sum = 0;
 
-    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
+    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
         sum += scores[studentNumber][testNumber];
-    }
+
     return sum;
 }
 
@@ -109,9 +105,9 @@ double averageOneTest(const int scores[][NUM_TESTS], int numStds, int testNumber
     int total = 0;
     double average;
 
-    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
+    for (int studentNumber = 0; studentNumber < numStds; ++studentNumber)
         total += scores[studentNumber][testNumber];
-    }
+
     average = static_cast<double>(total) / numStds;
 
     return average;
@@ -123,9 +119,9 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
     int total = 0;
     double average;
 
-    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber) {
+    for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
         total += scores[studentNumber][testNumber];
-    }
+
     average = static_cast<double>(total) / NUM_TESTS;
 
     return average;
@@ -136,11 +132,10 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
 int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int highest = scores[studentNumber][0];
 
-    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber) {
-        if (scores[studentNumber][testNumber] > highest) {
+    for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber)
+        if (scores[studentNumber][testNumber] > highest)
             highest = scores[studentNumber][testNumber];
-        }
-    }
+
     return highest;
 }
 
@@ -158,7 +153,8 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
             topStudent = studentNumber;
         }
     }
-    return topStudent + 1;  // +1 for display
+
+    return topStudent + 1;     // +1 for display
 }
 
 //*****************************************************************************************************

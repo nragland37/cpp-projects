@@ -11,7 +11,6 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 void readNames(ifstream &inputFile, string names[], int numNames);
@@ -73,51 +72,48 @@ int main() {
 //*****************************************************************************************************
 
 void readNames(ifstream &inputFile, string names[], int numNames) {
-    if (inputFile.is_open()) {
-        for (int nameNumber = 0; nameNumber < numNames; ++nameNumber) {
+    if (inputFile.is_open())
+        for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
             getline(inputFile, names[nameNumber]);
-        }
-    } else {
-        cerr << "Error: Unable to open file" << endl;  // cerr is unbuffered and best for error handling
-    }
+    else
+        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
 }
 
 //*****************************************************************************************************
 
 void displayNames(const string names[], int numNames) {
-    for (int nameNumber = 0; nameNumber < numNames; ++nameNumber) {
+    for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
         cout << "\t" << nameNumber + 1 << "  " << names[nameNumber] << endl;
-    }
 }
 
 //*****************************************************************************************************
 
 int searchNames(const string names[], int numNames, const string &name) {
-    int index = 0,       // current index in the names array
-        position = -1;   // holds the position of the found name in the array
-    bool found = false;  // flag indicating whether the name has been found
+    int index = 0,          // current index in the names array
+        position = -1;      // holds the position of the found name in the array
+    bool found = false;     // flag indicating whether the name has been found
 
     while ((index < numNames) && !found) {
-        if (names[index] == name) {  // check if the current name is equal to the specified name
-            found = true;            // set found flag to true
-            position = index + 1;    // store the position of the found name
+        if (names[index] == name) {     // check if the current name is equal to the specified name
+            found = true;               // set found flag to true
+            position = index + 1;       // store the position of the found name
         }
-        index++;  // increment index
+        index++;     // increment index
     }
-    return position;  // return the position of the found name
+
+    return position;     // return the position of the found name
 }
 
 //*****************************************************************************************************
 
 void displaySearchNames(const string names[], int numNames, const string &name) {
-    if (searchNames(names, numNames, name) == -1) {
+    if (searchNames(names, numNames, name) == -1)
         cout << searchNames(names, numNames, name)
              << "\n"
              << "Name Not Found" << endl;
-    } else {
+    else
         cout << "\n"
              << "Name Found: " << searchNames(names, numNames, name) << endl;
-    }
 }
 
 //*****************************************************************************************************
@@ -132,18 +128,18 @@ void swapValues(string &a, string &b) {
 //*****************************************************************************************************
 
 void bubbleSort(string names[], int numNames) {
-    bool swap;    // boolean flag to track if any swaps were made in the current pass
-    string temp;  // temporary variable to store a string value while swapping
+    bool swap;       // boolean flag to track if any swaps were made in the current pass
+    string temp;     // temporary variable to store a string value while swapping
 
     do {
-        swap = false;                                           // set the flag to false as no swaps have been made yet
-        for (int count = 0; count < (numNames - 1); ++count) {  // loop through all elements of the array, except the last one
-            if (names[count] > names[count + 1]) {              // if the current element is greater than the next element
-                swapValues(names[count], names[count + 1]);     // swap the values
-                swap = true;                                    // set the flag to true as a swap has been made
+        swap = false;                                              // set the flag to false as no swaps have been made yet
+        for (int count = 0; count < (numNames - 1); ++count) {     // loop through all elements of the array, except the last one
+            if (names[count] > names[count + 1]) {                 // if the current element is greater than the next element
+                swapValues(names[count], names[count + 1]);        // swap the values
+                swap = true;                                       // set the flag to true as a swap has been made
             }
         }
-    } while (swap);  // continue looping as long as any swaps were made in the previous pass
+    } while (swap);     // continue looping as long as any swaps were made in the previous pass
 }
 
 //*****************************************************************************************************

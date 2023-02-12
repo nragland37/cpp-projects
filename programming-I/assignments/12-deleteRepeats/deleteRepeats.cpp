@@ -1,47 +1,61 @@
+//*****************************************************************************************************
+//
+//		The program prompts the user to input characters into an array of fixed size 1024. The user is
+//      asked to enter the number of characters they would like to fill the array with. The program
+//      then deletes any repeated characters within the array, prints the updated array, and asks the
+//      user if they would like to repeat the process. The program continues to run until the user
+//      inputs "n" or "N" when asked to repeat.
+//
+//*****************************************************************************************************
+
 #include <iostream>
 using namespace std;
 
-const int SIZE_LIMIT = 1024;
+const int SIZE_LIMIT = 1024;     // global constant (can be used anywhere in the program)
 
 void readArray(char[], int &);
 void deleteRepeats(char[], int &);
 void printArray(char[], int);
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int main() {
-    char array[SIZE_LIMIT],
-        answer;
-
-    int size = 5;
-
+    char array[SIZE_LIMIT],     // array of characters (char) with a size limit of 1024 (SIZE_LIMIT)
+        answer;                 // answer to repeat the program
+    int size;                   // not the size of the array,
+                                // but the number of elements in the array (the size of the array is SIZE_LIMIT)
     do {
         size = 0;
         readArray(array, size);
         cout << endl;
         deleteRepeats(array, size);
-        cout << endl;
-        cout << "The array after delete repeats";
+
+        cout << "\n\n"
+                "The array after delete repeats";
         printArray(array, size);
-        cout << endl;
-        cout << "Repeat? ";
+
+        cout << "\n\n"
+                "Repeat? (y/n): ";
         cin >> answer;
 
+        cout << endl;
     } while (answer != 'n' && answer != 'N');
 
     return 0;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void readArray(char array[], int &size) {
     cout << "What is the size: ";
     cin >> size;
 
-    while (size > SIZE_LIMIT) {
+    while (size > SIZE_LIMIT || size < 0) {
         cout << endl;
 
-        cout << "Please enter size lower than 1024" << endl
+        cerr << " \n"
+                "Error: The size of the array must be between 0 and "
+             << SIZE_LIMIT << endl     // cerr is unbuffered and best for error handling
              << endl;
 
         cout << "What is the size: ";
@@ -50,105 +64,137 @@ void readArray(char array[], int &size) {
 
     cout << "Enter the array: " << endl;
 
-    for (int i = 0; i < size; i++) {
-        cin >> array[i];
-    }
+    for (int i = 0; i < size; i++)
+        cin >> array[i];     // array[i] is the i-th element of the array (input is assigned to the i-th element of the array)
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void deleteRepeats(char array[], int &size) {
-    for (int i = 0; i < size - 1; i++)  // for each char but the last
-    {
-        for (int j = i + 1; j < size; j++)  // for each char after it
-        {
-            // if they are equal
-            while (array[i] == array[j]) {
-                cout << "Found duplicates at " << i + 1
-                     << " and " << j + 1 << " : " << array[i]
-                     << " and " << array[j] << endl;
+    for (int i = 0; i < size - 1; i++) {                          // size - 1 because size (the last element) is the only element that can't be compared
+        for (int j = i + 1; j < size; j++) {                      // j = i + 1 because we are comparing i with i + 1
+            while (array[i] == array[j]) {                        // while loop because we need to delete all the repeats of the same element
+                cout << "Found duplicates at " << i + 1           // i + 1 because we are printing the index of the element
+                     << " and " << j + 1 << " : " << array[i]     // j + 1 because we are printing the index of the element
+                     << " and " << array[j] << endl;              // array[i] and array[j] are the same element
+                for (int k = j + 1; k < size; k++)                // k = j + 1 because we are comparing j with j + 1
+                    array[k - 1] = array[k];                      // k - 1 because we are deleting the element at j and shifting all the elements to the left
 
-                // delete the duplicate
-                // move all remaining char 1 to the left
-                for (int k = j + 1; k < size; k++) {
-                    array[k - 1] = array[k];
-                }
-
-                array[--size] = 0;
-
-                printArray(array, size);
+                array[--size] = 0;           // --size because we are deleting the element at j and shifting all the elements to the left
+                printArray(array, size);     // print the array after deleting the repeats
             }
         }
     }
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 void printArray(char array[], int size) {
     cout << endl;
 
     cout << "Updated array: ";
 
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
         cout << array[i] << " ";
-    }
-
-    cout << endl;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
+
 /*
 
 What is the size: 10
 Enter the array:
-a g g g e n g g e e
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
 
-Found duplicates at 2 and 3 : g and g
+Found duplicates at 1 and 2 : 1 and 1
 
-Updated array: a g g e n g g e e
-Found duplicates at 2 and 3 : g and g
+Updated array: 1 1 1 1 1 1 1 1 1 Found duplicates at 1 and 2 : 1 and 1
 
-Updated array: a g e n g g e e
-Found duplicates at 2 and 5 : g and g
+Updated array: 1 1 1 1 1 1 1 1 Found duplicates at 1 and 2 : 1 and 1
 
-Updated array: a g e n g e e
-Found duplicates at 2 and 5 : g and g
+Updated array: 1 1 1 1 1 1 1 Found duplicates at 1 and 2 : 1 and 1
 
-Updated array: a g e n e e
-Found duplicates at 3 and 5 : e and e
+Updated array: 1 1 1 1 1 1 Found duplicates at 1 and 2 : 1 and 1
 
-Updated array: a g e n e
-Found duplicates at 3 and 5 : e and e
+Updated array: 1 1 1 1 1 Found duplicates at 1 and 2 : 1 and 1
 
-Updated array: a g e n
+Updated array: 1 1 1 1 Found duplicates at 1 and 2 : 1 and 1
+
+Updated array: 1 1 1 Found duplicates at 1 and 2 : 1 and 1
+
+Updated array: 1 1 Found duplicates at 1 and 2 : 1 and 1
+
+Updated array: 1
 
 The array after delete repeats
-Updated array: a g e n
+Updated array: 1
 
-Repeat? Y
+Repeat? n
+
+//*****************************************************************************************************
+
+What is the size: 5000
+
+
+Error: The size of the array must be between 0 and 1024
+
+What is the size: -20
+
+
+Error: The size of the array must be between 0 and 1024
+
 What is the size: 10
 Enter the array:
-a g e n g g e e h h
+a
+a
+a
+t
+5
+0
+3
+j
+n
+a
 
-Found duplicates at 2 and 5 : g and g
+Found duplicates at 1 and 2 : a and a
 
-Updated array: a g e n g e e h h
-Found duplicates at 2 and 5 : g and g
+Updated array: a a t 5 0 3 j n a Found duplicates at 1 and 2 : a and a
 
-Updated array: a g e n e e h h
-Found duplicates at 3 and 5 : e and e
+Updated array: a t 5 0 3 j n a Found duplicates at 1 and 8 : a and a
 
-Updated array: a g e n e h h
-Found duplicates at 3 and 5 : e and e
-
-Updated array: a g e n h h
-Found duplicates at 5 and 6 : h and h
-
-Updated array: a g e n h
+Updated array: a t 5 0 3 j n
 
 The array after delete repeats
-Updated array: a g e n h
+Updated array: a t 5 0 3 j n
 
-Repeat? N
+Repeat? (y/n): y
+
+What is the size: 5
+Enter the array:
+1
+2
+3
+1
+2
+
+Found duplicates at 1 and 4 : 1 and 1
+
+Updated array: 1 2 3 2 Found duplicates at 2 and 4 : 2 and 2
+
+Updated array: 1 2 3
+
+The array after delete repeats
+Updated array: 1 2 3
+
+Repeat? (y/n): n
 
 */

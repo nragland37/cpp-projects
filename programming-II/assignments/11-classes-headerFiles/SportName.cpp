@@ -15,15 +15,14 @@
 #include <iostream>
 #include <string>
 
-#include "Date.h"   // change to "Date.cpp" in visual studio code
-#include "Sport.h"  // change to "Sport.cpp" in visual studio code
-
+#include "Date.h"      // change to "Date.cpp" in visual studio code
+#include "Sport.h"     // change to "Sport.cpp" in visual studio code
 using namespace std;
 
 //*****************************************************************************************************
 
 void displaySports(Sport s[], int size);
-bool testName(Sport s[], int size, const string& sportName);
+bool testName(Sport s[], int size, const string &sportName);
 
 //*****************************************************************************************************
 
@@ -39,12 +38,11 @@ int main() {
 
     cout << "How many Sports need to be processed: ";
     cin >> size;
-    cin.ignore();  // ignore the newline character in the buffer to prevent skipping getline() in populate function
+    cin.ignore();     // ignore the newline character in the buffer to prevent skipping getline() in populate function
 
-    Sport* s = new Sport[size];
-    for (int i = 0; i < size; ++i) {
-        s[i].populate();  // populate function prompts user to enter Sport Name, Date, Number of Teams, and Team Names
-    }
+    Sport *s = new Sport[size];
+    for (int i = 0; i < size; ++i)
+        s[i].populate();     // populate function prompts user to enter Sport Name, Date, Number of Teams, and Team Names
 
     do {
         cout << "\n"
@@ -57,7 +55,7 @@ int main() {
 
         cout << "Enter Your Choice: ";
         cin >> ch;
-        cin.ignore();  // ignore newline character in buffer to prevent skipping getline() in switch statement
+        cin.ignore();     // ignore newline character in buffer to prevent skipping getline() in switch statement
         switch (ch) {
             case 'a': {
                 displaySports(s, size);
@@ -66,35 +64,32 @@ int main() {
             case 'b': {
                 string team,
                     sportAdd;
-                bool addTest;  // addTest is used to test if Sport Name exists
+                bool addTest;     // addTest is used to test if Sport Name exists
                 do {
                     cout << "\n"
                          << "Enter Sport Name to add Team: ";
                     getline(cin, sportAdd);
-                    addTest = testName(s, size, sportAdd);  // testName function tests if Sport Name exists
+                    addTest = testName(s, size, sportAdd);     // testName function tests if Sport Name exists
                     if (addTest == true) {
                         cout << "\n"
                              << "Enter Team Name: ";
                         getline(cin, team);
-                        for (int i = 0; i < size; ++i) {
-                            if (sportAdd == s[i].getName()) {
+                        for (int i = 0; i < size; ++i)
+                            if (sportAdd == s[i].getName())
                                 s[i].addTeam(team);
-                            }
-                        }
                     } else {
                         cerr << "\n\t"
-                             << "Invalid Name" << endl;  // cerr is unbuffered and best for error handling
+                             << "Invalid Name" << endl;     // cerr is unbuffered and best for error handling
                         cout << "\n"
                              << "Back to menu? (Y/N)" << endl;
                         cin >> entry;
-                        if (entry == 'Y' || entry == 'y') {
+                        if (entry == 'Y' || entry == 'y')
                             break;
-                        } else {
+                        else
                             cin.ignore();
-                        }
                     }
                 } while (addTest == false);
-                break;  // break out of switch statement if Sport Name exists and Team Name is added
+                break;     // break out of switch statement if Sport Name exists and Team Name is added
             }
             case 'c': {
                 string s1;
@@ -118,14 +113,13 @@ int main() {
                         cout << "\n"
                              << "Back to menu? (Y/N)" << endl;
                         cin >> entry;
-                        if (entry == 'Y' || entry == 'y') {
+                        if (entry == 'Y' || entry == 'y')
                             break;
-                        } else {
+                        else
                             cin.ignore();
-                        }
                     }
                 } while (s1Test == false);
-                break;  // break out of switch statement if Sport Name exists
+                break;     // break out of switch statement if Sport Name exists
             }
             case 'd': {
                 int temp = s[0].getNumTeams();
@@ -136,14 +130,14 @@ int main() {
                         max = i;
                     }
                 }
-                for (int i = 0; i < size; ++i) {  // test if multiple sports have the same number of teams
+                for (int i = 0; i < size; ++i) {     // test if multiple sports have the same number of teams
                     if (s[max].getNumTeams() == s[i].getNumTeams()) {
                         cout << "\n\t"
                              << "Sport " << i + 1 << endl;
                         s[i].display();
                     }
                 }
-                break;  // break out of switch statement if multiple sports have the same number of teams
+                break;     // break out of switch statement if multiple sports have the same number of teams
             }
             case 'e': {
                 break;
@@ -153,7 +147,7 @@ int main() {
                      << "Error: Invalid Entry" << endl;
             }
         }
-    } while (ch != 'e');  // break out of do-while loop if user enters 'e' to exit program
+    } while (ch != 'e');     // break out of do-while loop if user enters 'e' to exit program
 
     delete[] s;
     s = nullptr;
@@ -174,7 +168,7 @@ void displaySports(Sport s[], int size) {
 
 //*****************************************************************************************************
 
-bool testName(Sport s[], int size, const string& sportName) {
+bool testName(Sport s[], int size, const string &sportName) {
     bool nameFound = false;
 
     for (int i = 0; i < size; ++i) {
@@ -183,6 +177,7 @@ bool testName(Sport s[], int size, const string& sportName) {
             break;
         }
     }
+
     return nameFound;
 }
 

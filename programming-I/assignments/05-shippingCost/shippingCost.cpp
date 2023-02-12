@@ -1,16 +1,20 @@
-#include <iomanip>
+//*****************************************************************************************************
+//
+//		This program calculates the total cost of an online purchase, including the item's price,
+//      shipping, and sales tax. The user inputs the item's price and weight, and the program
+//      calculates the shipping cost based on a tiered system and the sales tax as a fixed rate. The
+//      program then outputs the total cost, which is the sum of the item's price, shipping, and
+//      sales tax.
+//
+//*****************************************************************************************************
+
+#include <iomanip>     // library for setprecision(), fixed, setfill(), setw(), left, right, showpoint, etc. (manipulators for output)
 #include <iostream>
 using namespace std;
 
-//****************************************************************************************************
+//*****************************************************************************************************
 
 int main() {
-    float price,
-        tax,
-        shipping,
-        totalCost,
-        weight;
-
     const float TAXRATE = 4.225 / 100,
                 LESS_ONE_LB = 10,
                 LESS_FIVE_LB = 7,
@@ -18,55 +22,62 @@ int main() {
                 LESS_TEN_LB = 3,
                 LESS_TWENTY_LB = 2,
                 ABOVE_TWENTY = 1;
+    float price,
+        tax,
+        shipping,
+        totalCost,
+        weight;
 
-    cout << "Calculate the total cost of an online purchase." << endl
+    cout << "Calculate the total cost of an online purchase \n"
          << endl;
 
     cout << "Enter the item's price: ";
     cin >> price;
 
-    cout << endl;
-
     cout << "Enter the item's weight: ";
     cin >> weight;
 
     if (weight < 1)
-        shipping = LESS_ONE_LB * weight;
-
+        shipping = LESS_ONE_LB * weight;     // shipping = 10 * weight (if weight < 1)
     else if (weight < 5)
-        shipping = LESS_FIVE_LB * weight;
-
+        shipping = LESS_FIVE_LB * weight;     // shipping = 7 * weight (if weight < 5)
     else if (weight < 8)
-        shipping = LESS_EIGHT_LB * weight;
-
+        shipping = LESS_EIGHT_LB * weight;     // shipping = 5 * weight (if weight < 8)
     else if (weight < 10)
-        shipping = LESS_TEN_LB * weight;
-
+        shipping = LESS_TEN_LB * weight;     // shipping = 3 * weight (if weight < 10)
     else if (weight < 20)
-        shipping = LESS_TWENTY_LB * weight;
-
+        shipping = LESS_TWENTY_LB * weight;     // shipping = 2 * weight (if weight < 20)
     else
-        shipping = ABOVE_TWENTY * weight;
+        shipping = ABOVE_TWENTY * weight;     // shipping = 1 * weight (if weight >= 20)
 
-    tax = price * TAXRATE;
-    totalCost = price + tax + shipping;
+    tax = price * TAXRATE;                  // tax = price * 4.225%
+    totalCost = price + tax + shipping;     // totalCost = price + tax + shipping
 
-    cout << endl;
-
-    cout << "Total price: " << fixed << setprecision(2) << totalCost << endl;
-
+    cout << "\n"
+            "Total price: "
+         << fixed << setprecision(2) << totalCost << endl;     // setprecision() sets the number of decimal places to display
+                                                               // fixed sets the number of decimal places to display to 2
     return 0;
 }
 
-//****************************************************************************************************
+//*****************************************************************************************************
+
 /*
 
-Calculate the total cost of an online purchase.
+Calculate the total cost of an online purchase
 
 Enter the item's price: 10
-
 Enter the item's weight: 50
 
-Total price: 60.4225
+Total price: 60.42
+
+//*****************************************************************************************************
+
+Calculate the total cost of an online purchase
+
+Enter the item's price: 900
+Enter the item's weight: 45.50
+
+Total price: 983.53
 
 */

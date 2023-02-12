@@ -10,29 +10,28 @@
 //
 //*****************************************************************************************************
 
-#include <cctype>
-#include <iomanip>  // library for setprecision(), fixed, setw(), setfill(), etc. (manipulators for output formatting)
+#include <cctype>      // library for toupper(), tolower(), isalpha(), isspace(), etc. (character functions)
+#include <iomanip>     // library for setprecision(), fixed, setw(), setfill(), etc. (manipulators for output formatting)
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 //*****************************************************************************************************
-struct Speaker {  // struct is a user-defined data type that can hold multiple data types (holds speaker info)
+struct Speaker {     // struct is a user-defined data type that can hold multiple data types (holds speaker info)
     string name;
     string phoneNum;
     string topic;
     double fee;
 };
 
-void inputSpeakers(Speaker members[], int size, int& numSpeakers);
-void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName);
-void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string& speakerName);
-void displayTopicSpeakers(Speaker members[], int numSpeakers, const string& topic);
+void inputSpeakers(Speaker members[], int size, int &numSpeakers);
+void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName);
+void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string &speakerName);
+void displayTopicSpeakers(Speaker members[], int numSpeakers, const string &topic);
 void displayAllSpeakerInfo(Speaker members[], int numSpeakers);
-bool isEmpty(const string& str);
-bool testName(Speaker members[], int numSpeakers, const string& speakerName);
-bool testTopic(Speaker members[], int numSpeakers, const string& topic);
+bool isEmpty(const string &str);
+bool testName(Speaker members[], int numSpeakers, const string &speakerName);
+bool testTopic(Speaker members[], int numSpeakers, const string &topic);
 
 //*****************************************************************************************************
 
@@ -57,10 +56,10 @@ int main() {
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
-        if (nameTest == false) {
+        if (nameTest == false)
             cerr << "\n"
-                 << "Sorry but the name does not exist" << endl;  // cerr is unbuffered and best for error handling
-        }
+                 << "Sorry but the name does not exist" << endl;     // cerr is unbuffered and best for error handling
+
     } while (nameTest == false);
     updateSpeaker(members, numSpeakers, speakerName);
 
@@ -73,10 +72,9 @@ int main() {
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
-        if (nameTest == false) {
+        if (nameTest == false)
             cerr << "\n"
                  << "Sorry but the name does not exist" << endl;
-        }
     } while (nameTest == false);
     displayOneSpeakerInfo(members, numSpeakers, speakerName);
 
@@ -96,10 +94,9 @@ int main() {
             cout << "Do you have another topic? (Y/N)" << endl;
             cin >> topicEntry;
 
-            if (topicEntry == 'n' || topicEntry == 'N') {
+            if (topicEntry == 'n' || topicEntry == 'N')
                 break;
-            }
-            cin.ignore();  // ignore the newline character in the input buffer so getline() can work
+            cin.ignore();     // ignore the newline character in the input buffer so getline() can work
         }
     } while (topicTest == false);
     displayTopicSpeakers(members, numSpeakers, topic);
@@ -116,7 +113,7 @@ int main() {
 
 //****************************************************************************************************
 
-void inputSpeakers(Speaker members[], int size, int& numSpeakers) {
+void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
     char entry;
 
     for (int i = 0; i < size; ++i) {
@@ -181,7 +178,7 @@ void inputSpeakers(Speaker members[], int size, int& numSpeakers) {
 
 //****************************************************************************************************
 
-void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName) {
+void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName) {
     cout << "\n"
          << "--------------------------------------------------------------- \n"
          << "\t"
@@ -236,7 +233,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string& speakerName
 
 //****************************************************************************************************
 
-void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string& speakerName) {
+void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string &speakerName) {
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
             cout << "\n"
@@ -262,7 +259,7 @@ void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string& spe
 
 //****************************************************************************************************
 
-void displayTopicSpeakers(Speaker members[], int numSpeakers, const string& topic) {
+void displayTopicSpeakers(Speaker members[], int numSpeakers, const string &topic) {
     for (int i = 0; i < numSpeakers; i++) {
         if (topic == members[i].topic) {
             cout << "\n"
@@ -314,20 +311,19 @@ void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
 
 //****************************************************************************************************
 
-bool isEmpty(const string& str) {
+bool isEmpty(const string &str) {
     int len = str.length();
 
-    for (int i = 0; i < len; ++i) {
-        if (!isspace(str[i])) {  // c standard library function
+    for (int i = 0; i < len; ++i)
+        if (!isspace(str[i]))     // c standard library function
             return false;
-        }
-    }
+
     return true;
 }
 
 //****************************************************************************************************
 
-bool testName(Speaker members[], int numSpeakers, const string& speakerName) {
+bool testName(Speaker members[], int numSpeakers, const string &speakerName) {
     bool nameFound = false;
 
     for (int i = 0; i < numSpeakers; ++i) {
@@ -336,12 +332,13 @@ bool testName(Speaker members[], int numSpeakers, const string& speakerName) {
             break;
         }
     }
+
     return nameFound;
 }
 
 //****************************************************************************************************
 
-bool testTopic(Speaker members[], int numSpeakers, const string& topic) {
+bool testTopic(Speaker members[], int numSpeakers, const string &topic) {
     bool topicFound = false;
 
     for (int i = 0; i < numSpeakers; ++i) {
@@ -350,6 +347,7 @@ bool testTopic(Speaker members[], int numSpeakers, const string& topic) {
             break;
         }
     }
+
     return topicFound;
 }
 

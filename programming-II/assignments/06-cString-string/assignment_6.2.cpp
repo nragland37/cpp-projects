@@ -7,10 +7,9 @@
 //*****************************************************************************************************
 
 #include <cctype>
+#include <cctype>     // c standard library contains functions for character classification: isalpha(), isdigit(), islower(), isupper(), etc.
 #include <iostream>
 #include <string>
-// <cctype> or <ctype.h> (c standard library) contains functions for character classification: isalpha(), isdigit(), islower(), isupper(), etc.
-
 using namespace std;
 
 void sentenceData(const string sentence);
@@ -31,27 +30,23 @@ int main() {
 //*****************************************************************************************************
 
 void sentenceData(const string sentence) {
-    int length = sentence.length(),  // length() returns the length of the string (number of characters)
+    int length = sentence.length(),     // length() returns the length of the string (number of characters)
         alphaCount = 0,
         digitCount = 0,
         lowerCount = 0,
         upperCount = 0,
-        first_s = sentence.find('s'),                // find() returns the index of the first occurrence of a character (or string)
-        second_s = sentence.find('s', first_s + 1);  // find(char, index)
+        first_s = sentence.find('s'),                   // find() returns the index of the first occurrence of a character (or string)
+        second_s = sentence.find('s', first_s + 1);     // find(char, index)
 
     for (int i = 0; i < length; ++i) {
-        if (isalpha(sentence[i])) {  // isalpha() checks if a character is a letter
+        if (isalpha(sentence[i]))     // isalpha() checks if a character is a letter
             alphaCount++;
-        }
-        if (isdigit(sentence[i])) {  // isdigit() checks if a character is a digit
+        if (isdigit(sentence[i]))     // isdigit() checks if a character is a digit
             digitCount++;
-        }
-        if (islower(sentence[i])) {  // islower() checks if a character is a lower case letter
+        if (islower(sentence[i]))     // islower() checks if a character is a lower case letter
             lowerCount++;
-        }
-        if (isupper(sentence[i])) {  // isupper() checks if a character is an upper case letter
+        if (isupper(sentence[i]))     // isupper() checks if a character is an upper case letter
             upperCount++;
-        }
     }
 
     cout << "The size of the string: " << length << "\n"
