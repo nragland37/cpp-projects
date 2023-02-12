@@ -2,7 +2,7 @@
 
 /*
 
-Welcome! Here you will find assignments, notes, exercises, examples, and source code solutions in C++, each with a brief description and helpful comments in the code. To help better understand, there are sample outputs provided at the end of each program. This collection is meant to be a resource for anyone looking to improve their C++ skills and serves as a comprehensive guide for learners of all levels.
+Welcome! Here you will find assignments, notes, exercises, examples, and source code solutions, each with informative descriptions and helpful comments within the code. To help better understand, there are sample outputs provided at the end of each program. This collection is meant to be a resource for anyone looking to improve their C++ skills.
 
 <br>
 
