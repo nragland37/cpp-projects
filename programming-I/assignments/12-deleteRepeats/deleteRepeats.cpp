@@ -11,6 +11,8 @@
 #include <iostream>
 using namespace std;
 
+//*****************************************************************************************************
+
 const int SIZE_LIMIT = 1024;     // global constant (can be used anywhere in the program)
 
 void readArray(char[], int &);
@@ -20,22 +22,24 @@ void printArray(char[], int);
 //*****************************************************************************************************
 
 int main() {
-    char array[SIZE_LIMIT],     // array of characters (char) with a size limit of 1024 (SIZE_LIMIT)
-        answer;                 // answer to repeat the program
+    char array[SIZE_LIMIT];     // array of characters (char) with a size limit of 1024 (SIZE_LIMIT)
+    char answer;                 // answer to repeat the program
     int size;                   // not the size of the array,
                                 // but the number of elements in the array (the size of the array is SIZE_LIMIT)
     do {
         size = 0;
+        
         readArray(array, size);
         cout << endl;
         deleteRepeats(array, size);
 
         cout << "\n\n"
-                "The array after delete repeats";
+             << "The array after delete repeats";
+
         printArray(array, size);
 
         cout << "\n\n"
-                "Repeat? (y/n): ";
+             << "Repeat? (y/n): ";
         cin >> answer;
 
         cout << endl;
@@ -51,18 +55,14 @@ void readArray(char array[], int &size) {
     cin >> size;
 
     while (size > SIZE_LIMIT || size < 0) {
-        cout << endl;
-
-        cerr << " \n"
-                "Error: The size of the array must be between 0 and "
-             << SIZE_LIMIT << endl     // cerr is unbuffered and best for error handling
-             << endl;
+        cerr << "\n\n"     // cerr is unbuffered and best for error handling
+             << "Error: The size of the array must be between 0 and " << SIZE_LIMIT << "\n" << endl;
 
         cout << "What is the size: ";
         cin >> size;
     }
 
-    cout << "Enter the array: " << endl;
+    cout << "Enter the array (one character at a time): " << endl;
 
     for (int i = 0; i < size; i++)
         cin >> array[i];     // array[i] is the i-th element of the array (input is assigned to the i-th element of the array)
@@ -90,9 +90,8 @@ void deleteRepeats(char array[], int &size) {
 //*****************************************************************************************************
 
 void printArray(char array[], int size) {
-    cout << endl;
-
-    cout << "Updated array: ";
+    cout << "\n" 
+         << "Updated array: ";
 
     for (int i = 0; i < size; i++)
         cout << array[i] << " ";
@@ -103,7 +102,7 @@ void printArray(char array[], int size) {
 /*
 
 What is the size: 10
-Enter the array:
+Enter the array (one character at a time):
 1
 1
 1
@@ -153,7 +152,7 @@ What is the size: -20
 Error: The size of the array must be between 0 and 1024
 
 What is the size: 10
-Enter the array:
+Enter the array (one character at a time):
 a
 a
 a
@@ -179,7 +178,7 @@ Updated array: a t 5 0 3 j n
 Repeat? (y/n): y
 
 What is the size: 5
-Enter the array:
+Enter the array (one character at a time):
 1
 2
 3

@@ -13,6 +13,8 @@
 #include <iostream>
 using namespace std;
 
+//*****************************************************************************************************
+
 int numberWords(const char *words, int length);
 
 //*****************************************************************************************************
@@ -25,11 +27,13 @@ int main() {
     char *words = nullptr;
 
     words = new char[SIZE];
+
     for (int i = 0; i < numInput; ++i) {
         cout << "Enter a line of words (less than 50 characters), ended by '.': " << endl;
         cin.getline(words, SIZE);     // cin.getline() is used for c-strings (getline() is used for strings)
 
         length = strlen(words);
+
         while (words[length - 1] != '.') {
             cerr << "ERROR: Input must end with a period '.'" << endl;     // cerr is unbuffered and best for error handling
             cout << "\n"
@@ -39,6 +43,7 @@ int main() {
             length = strlen(words);
         }
         result = numberWords(words, length);
+
         cout << "Total words: " << result << endl
              << endl;
     }

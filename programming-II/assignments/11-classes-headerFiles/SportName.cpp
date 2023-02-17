@@ -33,8 +33,7 @@ int main() {
 
     cout << "===================================================================== \n"
          << setw(44) << "Sport Information \n"
-         << "===================================================================== \n"
-         << endl;
+         << "===================================================================== \n" << endl;
 
     cout << "How many Sports need to be processed: ";
     cin >> size;
@@ -55,6 +54,7 @@ int main() {
 
         cout << "Enter Your Choice: ";
         cin >> ch;
+        
         cin.ignore();     // ignore newline character in buffer to prevent skipping getline() in switch statement
         switch (ch) {
             case 'a': {
@@ -65,15 +65,18 @@ int main() {
                 string team,
                     sportAdd;
                 bool addTest;     // addTest is used to test if Sport Name exists
+               
                 do {
                     cout << "\n"
                          << "Enter Sport Name to add Team: ";
                     getline(cin, sportAdd);
+                    
                     addTest = testName(s, size, sportAdd);     // testName function tests if Sport Name exists
                     if (addTest == true) {
                         cout << "\n"
                              << "Enter Team Name: ";
                         getline(cin, team);
+                        
                         for (int i = 0; i < size; ++i)
                             if (sportAdd == s[i].getName())
                                 s[i].addTeam(team);
@@ -83,6 +86,7 @@ int main() {
                         cout << "\n"
                              << "Back to menu? (Y/N)" << endl;
                         cin >> entry;
+                        
                         if (entry == 'Y' || entry == 'y')
                             break;
                         else
@@ -94,10 +98,12 @@ int main() {
             case 'c': {
                 string s1;
                 bool s1Test;
+                
                 do {
                     cout << "\n"
                          << "Enter Sport Name to Display: ";
                     getline(cin, s1);
+                    
                     s1Test = testName(s, size, s1);
                     if (s1Test == true) {
                         for (int i = 0; i < size; ++i) {
@@ -113,6 +119,7 @@ int main() {
                         cout << "\n"
                              << "Back to menu? (Y/N)" << endl;
                         cin >> entry;
+                        
                         if (entry == 'Y' || entry == 'y')
                             break;
                         else
@@ -124,6 +131,7 @@ int main() {
             case 'd': {
                 int temp = s[0].getNumTeams();
                 int max = 0;
+                
                 for (int i = 1; i < size; ++i) {
                     if (temp < s[i].getNumTeams()) {
                         temp = s[i].getNumTeams();
@@ -158,7 +166,9 @@ int main() {
 //*****************************************************************************************************
 
 void displaySports(Sport s[], int size) {
-    cout << "\n---------------------------------------------------------------------\n";
+    cout << "\n" 
+         << "--------------------------------------------------------------------- \n";
+         
     for (int i = 0; i < size; ++i) {
         cout << "\n\t"
              << "Sport " << i + 1 << endl;

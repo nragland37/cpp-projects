@@ -56,11 +56,13 @@ int main() {
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
+
         if (nameTest == false)
             cerr << "\n"
                  << "Sorry but the name does not exist" << endl;     // cerr is unbuffered and best for error handling
 
     } while (nameTest == false);
+
     updateSpeaker(members, numSpeakers, speakerName);
 
     do {
@@ -72,10 +74,13 @@ int main() {
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
+
         if (nameTest == false)
             cerr << "\n"
                  << "Sorry but the name does not exist" << endl;
+
     } while (nameTest == false);
+
     displayOneSpeakerInfo(members, numSpeakers, speakerName);
 
     do {
@@ -87,6 +92,7 @@ int main() {
         getline(cin, topic);
 
         topicTest = testTopic(members, numSpeakers, topic);
+
         if (topicTest == false) {
             cerr << "\n"
                  << "Sorry but nobody is speaking about this topic \n"
@@ -96,16 +102,18 @@ int main() {
 
             if (topicEntry == 'n' || topicEntry == 'N')
                 break;
+
             cin.ignore();     // ignore the newline character in the input buffer so getline() can work
         }
     } while (topicTest == false);
+
     displayTopicSpeakers(members, numSpeakers, topic);
 
     cout << "\n\n"
          << "------------------------------------------------------------- \n"
-         << "\t\t"
-         << "Speakers' Bureau Information \n"
+         << "\t\t" << "Speakers' Bureau Information \n"
          << "-------------------------------------------------------------" << endl;
+
     displayAllSpeakerInfo(members, numSpeakers);
 
     return 0;
@@ -121,46 +129,44 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
 
         cout << "\n"
              << "--------------------------------------------------------------- \n"
-             << "\t"
-             << "Enter the following information of speaker " << i + 1 << ". \n"
+             << "\t" << "Enter the following information of speaker " << i + 1 << ". \n"
              << "---------------------------------------------------------------" << endl;
-
         cout << "Name: ";
         getline(cin, members[i].name);
+
         while (isEmpty(members[i].name)) {
             cerr << "\n"
-                 << "Sorry but the name could not be empty \n"
-                 << endl;
+                 << "Sorry but the name could not be empty \n" << endl;
             cout << "Name: ";
             getline(cin, members[i].name);
         }
 
         cout << "Telephone Number: ";
         getline(cin, members[i].phoneNum);
+
         while (isEmpty(members[i].phoneNum)) {
             cerr << "\n"
-                 << "Sorry but the telephone number could not be empty \n"
-                 << endl;
+                 << "Sorry but the telephone number could not be empty \n" << endl;
             cout << "Telephone Number: ";
             getline(cin, members[i].phoneNum);
         }
 
         cout << "Topic: ";
         getline(cin, members[i].topic);
+
         while (isEmpty(members[i].topic)) {
             cerr << "\n"
-                 << "Sorry but the topic could not be empty \n"
-                 << endl;
+                 << "Sorry but the topic could not be empty \n" << endl;
             cout << "Topic: ";
             getline(cin, members[i].topic);
         }
 
         cout << "Fee: ";
         cin >> members[i].fee;
+
         while (members[i].fee < 0) {
             cerr << "\n"
-                 << "Sorry but the fees could not be negative \n"
-                 << endl;
+                 << "Sorry but the fees could not be negative \n" << endl;
             cout << "Fee: ";
             cin >> members[i].fee;
         }
@@ -181,8 +187,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
 void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName) {
     cout << "\n"
          << "--------------------------------------------------------------- \n"
-         << "\t"
-         << "Please enter the speaker's updated information \n"
+         << "\t" << "Please enter the speaker's updated information \n"
          << "---------------------------------------------------------------" << endl;
 
     for (int i = 0; i < numSpeakers; ++i) {
@@ -191,38 +196,37 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             getline(cin, members[i].name);
             while (isEmpty(members[i].name)) {
                 cerr << "\n"
-                     << "Sorry but the name could not be empty \n"
-                     << endl;
+                     << "Sorry but the name could not be empty \n" << endl;
                 cout << "Name: ";
                 getline(cin, members[i].name);
             }
 
             cout << "Telephone Number: ";
             getline(cin, members[i].phoneNum);
+
             while (isEmpty(members[i].phoneNum)) {
                 cerr << "\n"
-                     << "Sorry but the telephone number could not be empty \n"
-                     << endl;
+                     << "Sorry but the telephone number could not be empty \n" << endl;
                 cout << "Telephone Number: ";
                 getline(cin, members[i].phoneNum);
             }
 
             cout << "Topic: ";
             getline(cin, members[i].topic);
+
             while (isEmpty(members[i].topic)) {
                 cerr << "\n"
-                     << "Sorry but the topic could not be empty \n"
-                     << endl;
+                     << "Sorry but the topic could not be empty \n" << endl;
                 cout << "Topic: ";
                 getline(cin, members[i].topic);
             }
 
             cout << "Fee: ";
             cin >> members[i].fee;
+
             while (members[i].fee < 0) {
                 cerr << "\n"
-                     << "Sorry but the fees could not be negative \n"
-                     << endl;
+                     << "Sorry but the fees could not be negative \n" << endl;
                 cout << "Fee: ";
                 cin >> members[i].fee;
             }
@@ -243,16 +247,13 @@ void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string &spe
                  << " " << members[i].name << endl;
 
             cout << "\t" << setfill('.') << setw(30) << left << "Telephone Number "
-                 << " "
-                 << members[i].phoneNum << endl;
+                 << " " << members[i].phoneNum << endl;
 
             cout << "\t" << setfill('.') << setw(30) << left << "Topic "
-                 << " "
-                 << members[i].topic << endl;
+                 << " " << members[i].topic << endl;
 
             cout << "\t" << setfill('.') << setw(30) << left << "Fee "
-                 << " "
-                 << members[i].fee << endl;
+                 << " " << members[i].fee << endl;
         }
     }
 }
@@ -266,20 +267,16 @@ void displayTopicSpeakers(Speaker members[], int numSpeakers, const string &topi
                  << "Speaker " << i + 1 << endl;
 
             cout << "\t" << setfill('.') << setw(30) << left << "Name "
-                 << " "
-                 << members[i].name << endl;
+                 << " " << members[i].name << endl;
 
             cout << "\t" << setfill('.') << setw(30) << left << "Telephone Number "
-                 << " "
-                 << members[i].phoneNum << endl;
+                 << " " << members[i].phoneNum << endl;
 
             cout << "\t" << setfill('.') << setw(30) << left << "Topic "
-                 << " "
-                 << members[i].topic << endl;
+                 << " " << members[i].topic << endl;
 
             cout << "\t" << setfill('.') << setw(30) << left << "Fee "
-                 << " "
-                 << members[i].fee << endl;
+                 << " " << members[i].fee << endl;
         }
     }
 }
@@ -292,20 +289,16 @@ void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
              << "Speaker " << i + 1 << endl;
 
         cout << "\t" << setfill('.') << setw(30) << left << "Name "
-             << " "
-             << members[i].name << endl;
+             << " " << members[i].name << endl;
 
         cout << "\t" << setfill('.') << setw(30) << left << "Telephone Number "
-             << " "
-             << members[i].phoneNum << endl;
+             << " " << members[i].phoneNum << endl;
 
         cout << "\t" << setfill('.') << setw(30) << left << "Topic "
-             << " "
-             << members[i].topic << endl;
+             << " " << members[i].topic << endl;
 
         cout << "\t" << setfill('.') << setw(30) << left << "Fee "
-             << " "
-             << members[i].fee << endl;
+             << " " << members[i].fee << endl;
     }
 }
 

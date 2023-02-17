@@ -40,17 +40,14 @@ int main() {
     playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     // random number between 1 and 5 (player 2)
     playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             // random number between 0 and 10  (player 2)
 
-    out << "Fingers"     // out is the output for the file "result.txt" (similar to cout but for files)
-        << "\t"
-        << "Total" << endl;
+    out << "Fingers" << "\t" << "Total" << endl; // out is the output for the file "result.txt" (similar to cout but for files)
 
     out << playerOneFingers << "\t" << playerOneGuess << endl;
 
     out << playerTwoFingers << "\t" << playerTwoGuess << endl;
 
     sum = playerOneFingers + playerTwoFingers;
-    out << "Correct total is " << sum << endl
-        << endl;
+    out << "Correct total is " << sum << "\n" << endl;
 
     if (sum == playerOneGuess && sum == playerTwoGuess)     // if both players guess the correct sum (tie)
         out << "TIE" << endl;

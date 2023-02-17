@@ -33,30 +33,34 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
     cout << "\n"
          << "Enter Year: ";
     cin >> year;
+
     while (year < 2022 || year > 2100) {
         cerr << "\n"
              << "Invalid";     // cerr is unbuffered and best for error handling
         cout << "\n"
              << "Enter Year(2022- ): ";
         cin >> year;
+
         cout << endl;
     }
     setYear(year);
 
     cout << "Enter Month: ";
     cin >> month;
+
     while (month < 1 || month > 12) {
         cerr << "\n"
              << "Invalid";
         cout << "\n"
              << "Enter Month(1-12): ";
         cin >> month;
+
         cout << endl;
     }
     setMonth(month);
-
     cout << "Enter Day: ";
     cin >> day;
+    
     if (month == 1 || month == 3 || month == 5 || month == 7 ||
         month == 8 || month == 10 || month == 12) {
         while (day < 1 || day > 31) {
@@ -65,6 +69,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
             cout << "\n"
                  << "Enter Day(1-31): ";
             cin >> day;
+
             cout << endl;
         }
     } else if (month == 4 || month == 6 || month == 9 || month == 11) {
@@ -74,6 +79,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
             cout << "\n"
                  << "Enter Day(1-30): ";
             cin >> day;
+
             cout << endl;
         }
     } else if (year % 4 == 0) {     // February :: tests leap years
@@ -83,6 +89,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
             cout << "\n"
                  << "Enter Day(1-29): ";
             cin >> day;
+
             cout << endl;
         }
     } else {
@@ -92,6 +99,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
             cout << "\n"
                  << "Enter Day(1-28): ";
             cin >> day;
+
             cout << endl;
         }
     }

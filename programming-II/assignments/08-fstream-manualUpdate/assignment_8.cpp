@@ -114,9 +114,10 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
     cout << "\n"
          << "How many?" << endl;
     cin >> newEntries;
-    cin.ignore();     // ignore newline character so getline() works properly
 
+    cin.ignore();     // ignore newline character so getline() works properly
     Employee *newemps = new Employee[numEmps + newEntries];     // numEmps + newEntries = total number of employees
+    
     for (int i = 0; i < numEmps; i++) {
         newemps[i].name = emps[i].name;
         newemps[i].age = emps[i].age;
@@ -126,6 +127,7 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
     }
 
     numEmps = numEmps + newEntries;        // update number of employees to pass by reference to main()
+
     f.open("Employees.txt", ios::out);     // open file for writing ( ios::out is for writing)
     f << numEmps << endl;
 
@@ -136,6 +138,7 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
     f.close();
 
     f.open("Employees.txt", ios::app);     // open file for appending ( ios::app is for appending)
+    
     for (int i = oldEmps; i < numEmps; ++i) {
         cout << "\n"
              << "Name: ";

@@ -54,16 +54,16 @@ int main() {
 
     translate = readTranslation("Translation.txt", numT);
     displayTesters("Testers.dat");
+
     cout << "\n"
          << "--------------------------------------------------- \n"
-         << "\t"
-         << "American to English Translation Test \n"
+         << "\t" << "American to English Translation Test \n"
          << "--------------------------------------------------- \n"
          << "   Three people from this list will be randomly \n"
-         << "            selected to take the test \n"
-         << "\n"
+         << "            selected to take the test \n\n"
          << "Would you like to study before the test? (Y/N)" << endl;     // prompts user to study before test
     cin >> studyEntry;
+
     if (studyEntry == 'y' || studyEntry == 'Y') {
         displayTranslateAnswers(translate, numT);
         cout << "\nPress enter to continue..." << endl;
@@ -71,13 +71,16 @@ int main() {
         cin.get();
         cout << "Good Luck!" << endl;
     } else {
-        cout << "\nGood Luck!" << endl;
+        cout << "\n" 
+             << "Good Luck!" << endl;
     }
+
     testersUpdates(translate, numT, "Testers.dat");
-    cout << "===================================================" << endl;
-    cout << "\t\t"
-         << "Updated Information" << endl;
-    cout << "===================================================";
+
+    cout << "=================================================== \n"
+         << "\t\t" << "Updated Information \n"
+         << "===================================================";
+
     displayTesters("Testers.dat");
 
     delete[] translate;
@@ -97,6 +100,7 @@ Translation *readTranslation(const string &fileName, int &num) {
         f.ignore();
 
         t = new Translation[num];
+
         for (int i = 0; i < num; ++i) {
             getline(f, t[i].american, ',');
             getline(f, t[i].english);
@@ -127,7 +131,7 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
          << "--------------------------------- \n"
          << "      Enter Today's Date \n"
          << "---------------------------------" << endl;
-
+         
     cout << "Enter month: ";
     cin >> month;
 
@@ -143,11 +147,11 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
          << "--------------------------------- \n"
          << "    Ten American words will be \n"
          << " randomly selected from the list. \n"
-         << "  Enter the English translation. \n"
-         << endl;
+         << "  Enter the English translation. \n" << endl;
 
     fstream f(fileName, ios::in | ios::out | ios::binary);     // opens file in binary mode for input and output
     f.read(reinterpret_cast<char *>(&numP), sizeof(int));      // reads number of people from file and stores in numP
+
     for (int i = 0; i < NUM_TESTS; ++i) {
         randomPerson = (rand() % numP) + 1;     // (numP: 10) range: (0 - 9) + 1 (adds to range)  // range: 1 - 10
 
@@ -169,6 +173,7 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
              << people.testTaken.year << endl;
 
         takeTest(translate, numT, people);                                          // calls takeTest function
+        
         f.seekp((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);     // seekp() is the put pointer (writes)
         f.write(reinterpret_cast<char *>(&people), sizeof(Person));                 // writes person to file and updates information
     }
@@ -256,15 +261,12 @@ void takeTest(const Translation translate[], int numT, Person &p) {
         answer = translate[randomQuestion].english;
         if (guess == answer) {
             cout << "\n\t"
-                 << "    Correct!" << endl
-                 << endl;
+                 << "    Correct! \n" << endl;
             correct++;
         } else {
             cout << "\n\t"
-                 << "   Incorrect! \n"
-                 << endl;
-            cout << "Answer: " << translate[randomQuestion].english << endl
-                 << endl;
+                 << "   Incorrect! \n\n"
+                 << "Answer: " << translate[randomQuestion].english << "\n" << endl;
         }
     }
     avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;
@@ -278,8 +280,10 @@ void displayTesters(const string &fileName) {
     Person people;
 
     fstream f(fileName, ios::in | ios::binary);     // open binary file for reading
+
     if (f.is_open()) {
         f.read(reinterpret_cast<char *>(&numP), sizeof(numP));     // read number of people from binary file (first line)
+       
         cout << "\n---------------------------------------------------" << endl;
         cout << setfill(' ')
              << setw(3) << left

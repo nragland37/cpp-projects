@@ -39,27 +39,19 @@ Sport::~Sport() {
 void Sport::display() const {
     Date d1 = getDate();     // create a Date object to use the displayDate function
 
-    cout << "\t\t" << setfill('.') << setw(30) << left << "Sport Name "
-         << " "
-         << getName() << endl;
-
+    cout << "\t\t" << setfill('.') << setw(30) << left << "Sport Name " 
+         << " " << getName() << endl;
     cout << "\t\t" << setfill('.') << setw(30) << left << "Scheduled Date (M/D/YY) "
          << " ";
+
     d1.displayDate();
 
-    cout << endl
-         << endl;
-
-    cout << "\t\t" << setfill('.') << setw(30) << left << "Number of Teams "
-         << " "
-         << getNumTeams() << endl;
-
+    cout << "\n\n\t\t" << setfill('.') << setw(30) << left << "Number of Teams "
+         << " " << getNumTeams() << endl;
+         
     for (int i = 0; i < getNumTeams(); ++i)
-        cout << "\t\t"
-             << "Team " << i + 1 << setfill('.') << setw(24) << left
-             << " "
-             << " "
-             << teamNames[i] << endl;
+        cout << "\t\t" << "Team " << i + 1 << setfill('.') << setw(24) << left
+             << " " << " " << teamNames[i] << endl;
 }
 
 //*****************************************************************************************************
@@ -70,10 +62,12 @@ void Sport::populate() {
     cout << "\n"
          << "Enter the name of the sport: ";
     getline(cin, name);     // get the name of the sport and store it in the name variable
+
     setName(name);          // set the name variable to the name of the sport
 
     cout << "Sport has a scheduled game? (Y/N)" << endl;
     cin >> entry;
+    
     if (entry == 'Y' || entry == 'y') {
         cout << "Next Scheduled Game";
         nextGame.inputDate();
@@ -82,11 +76,10 @@ void Sport::populate() {
         cout << "\nDefault date will be set to January 1, 2000 \n"
              << endl;
     }
-
     cout << "Enter the number of teams: ";
     cin >> numTeams;
+    
     setNumTeams(numTeams);     // set the number of teams to the number of teams entered by the user
-
     teamNames = new string[numTeams];     // dynamically allocate memory for the teamNames array
     cin.ignore();
     for (int i = 0; i < numTeams; ++i) {

@@ -11,6 +11,8 @@
 #include <iostream>
 using namespace std;
 
+//*****************************************************************************************************
+
 void greet();     // function prototype
 float readRadius();
 float findCircumf(float);
@@ -36,8 +38,7 @@ int main() {
 
 void greet() {
     cout << "Welcome to the Circumference Calculation Program \n"
-         << "Enter the radius and I'll find the circumference of the circle! \n"
-         << endl;
+         << "Enter the radius and I'll find the circumference of the circle! \n" << endl;
 }
 
 //*****************************************************************************************************
@@ -69,8 +70,7 @@ float findCircumf(float radius) {
 
 void printResult(float radius, float circumf) {
     cout << "You entered the radius: " << radius << "\n"
-         << "The circumference of the circle: " << circumf << "\n"
-         << endl;
+         << "The circumference of the circle: " << circumf << "\n" << endl;
 }
 
 //*****************************************************************************************************

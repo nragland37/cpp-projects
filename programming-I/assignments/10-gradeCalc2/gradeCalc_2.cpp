@@ -10,6 +10,8 @@
 #include <iostream>
 using namespace std;
 
+//*****************************************************************************************************
+
 void readGrades(float &, float &, float &, float &);                                  // pass bye reference ( & )
 void calcWeights(float &, float &, float &, float &, float, float, float, float);     // changes the values of the variables in their memory locations permenantly
 float calcFind(float, float, float, float);                                           // pass by value are used for functions to copy the values
@@ -28,19 +30,13 @@ int main() {
         partic,
         finalGrade;
 
-    cout << "Grade Calculator - Computer Programming I \n"
-         << endl;
+    cout << "Grade Calculator - Computer Programming I \n" << endl;
 
     cout << "The weight of each deliverable on their final grade \n\n"
-         << "\t"
-         << "Programmig Assignments: " << ASSIGN_PERCENT << "% \n"
-         << "\t"
-         << "Chapter Tests: " << TEST_PERCENT << "% \n"
-         << "\t"
-         << "Final Exam: " << EXAM_PERCENT << "% \n"
-         << "\t"
-         << "Class Participation: " << PARTIC_PERCENT << "% \n"
-         << endl;
+         << "\t" << "Programmig Assignments: " << ASSIGN_PERCENT << "% \n"
+         << "\t" << "Chapter Tests: " << TEST_PERCENT << "% \n"
+         << "\t" << "Final Exam: " << EXAM_PERCENT << "% \n"
+         << "\t" << "Class Participation: " << PARTIC_PERCENT << "% \n" << endl;
 
     readGrades(assign, test, exam, partic);
     calcWeights(assign, test, exam, partic, ASSIGN_PERCENT, TEST_PERCENT, EXAM_PERCENT, PARTIC_PERCENT);
@@ -49,8 +45,7 @@ int main() {
     cout << "\n\n\t" << assign << "% in Programming Assignments" << endl
          << "\t" << test << "% in Chapter Tests" << endl
          << "\t" << exam << "% in Final Exam" << endl
-         << "\t" << partic << "% in Class Participation \n\n"
-         << endl;
+         << "\t" << partic << "% in Class Participation \n\n" << endl;
 
     displayResults(finalGrade);
 
@@ -99,6 +94,7 @@ void displayResults(float finalGrade) {
 }
 
 //*****************************************************************************************************
+
 /*
 
 Grade Calculator - Computer Programming I

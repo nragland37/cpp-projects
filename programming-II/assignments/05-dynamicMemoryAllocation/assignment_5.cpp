@@ -16,6 +16,8 @@
 #include <string>
 using namespace std;
 
+//*****************************************************************************************************
+
 void input(string names[], int matches[], int size);
 void display(const string names[], const int matches[], int size);
 void displayMostMatches(const string names[], const int matches[], int size);
@@ -25,8 +27,8 @@ void sortStudents(string names[], int matches[], int size);
 //*****************************************************************************************************
 
 int main() {
-    int size,
-        *matches = nullptr;
+    int size;
+    int *matches = nullptr;
     double average;
     string *names = nullptr;
 
@@ -39,8 +41,8 @@ int main() {
 
         if (size <= 0 || size > 5000)
             cerr << "\n"
-                 << "Error: Invalid Entry" << endl
-                 << endl;     // cerr is unbuffered and best for error handling
+                 << "Error: Invalid Entry \n" << endl;     // cerr is unbuffered and best for error handling
+        
         cin.ignore();
     } while (size <= 0 || size > 5000);
 
@@ -54,23 +56,23 @@ int main() {
 
     cout << "\n"
          << "------------------------------------------------- \n"
-         << "\t"
-         << "Student Names & Matches Played \n"
+         << "\t" << "Student Names & Matches Played \n"
          << "-------------------------------------------------" << endl;
+
     display(names, matches, size);
 
     cout << "\n"
          << "------------------------------------------------- \n"
-         << "\t"
-         << "Student Who Played Most Matches \n"
+         << "\t" << "Student Who Played Most Matches \n"
          << "-------------------------------------------------" << endl;
+
     displayMostMatches(names, matches, size);
 
     cout << "\n"
          << "------------------------------------------------- \n"
-         << "\t"
-         << "Average Matches Played for Students \n"
+         << "\t" << "Average Matches Played for Students \n"
          << "-------------------------------------------------" << endl;
+
     average = mean(matches, size);
     cout << "Average: " << average << endl;
 
@@ -78,6 +80,7 @@ int main() {
          << "------------------------------------------------- \n"
          << "Student Names & Matches Played ~ Ascending Order \n"
          << "-------------------------------------------------" << endl;
+
     sortStudents(names, matches, size);
     display(names, matches, size);
 
@@ -100,14 +103,14 @@ void input(string names[], int matches[], int size) {
         while (true) {
             cout << "Enter number of matches for " << names[i] << ": ";
             cin >> matches[i];
+            
             cin.ignore();
 
             if (matches[i] >= 0)
                 break;
             else
                 cerr << "\n"
-                     << "Error: Invalid Entry \n"
-                     << endl;
+                     << "Error: Invalid Entry \n" << endl;
         }
     }
 }
@@ -123,8 +126,8 @@ void display(const string names[], const int matches[], int size) {
 //*****************************************************************************************************
 
 void displayMostMatches(const string names[], const int matches[], int size) {
-    int max = matches[0],
-        temp = 0;
+    int max = matches[0];
+    int temp = 0;
 
     for (int i = 0; i < size; ++i) {
         if (matches[i] > max) {

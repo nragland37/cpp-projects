@@ -14,6 +14,8 @@
 #include <iostream>
 using namespace std;
 
+//*****************************************************************************************************
+
 const int NUM_TESTS = 8;
 
 void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds);
@@ -51,8 +53,7 @@ int main() {
          << "Average for Student #5: " << averageOneStudent(scores, NUM_STDS, 4) << "\n\n"
          << "Average for Student #9: " << averageOneStudent(scores, NUM_STDS, 8) << "\n\n"
          << "Highest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1) << "\n\n"
-         << "The top Student: " << topStudent(scores, NUM_STDS) << "\n"
-         << endl;
+         << "The top Student: " << topStudent(scores, NUM_STDS) << "\n" << endl;
 
     cout << "Find if at least one student has an average score greater \n"
          << "Enter average score of student: ";
@@ -157,6 +158,7 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
 
 int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int highest = scores[studentNumber][0];
+    
     for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber)
         if (scores[studentNumber][testNumber] > highest)
             highest = scores[studentNumber][testNumber];

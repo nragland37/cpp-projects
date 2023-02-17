@@ -14,11 +14,10 @@ using namespace std;
 
 int main() {
     const int SIZE = 10;
-    int nums[SIZE],     // array of 10 integers (0-9)
-        sum = 0;        // needs to be initialized to 0 or else it will be garbage data (causes undefined behavior)
+    int nums[SIZE];     // array of 10 integers (0-9)
+    int sum = 0;        // needs to be initialized to 0 or else it will be garbage data (causes undefined behavior)
 
-    cout << "Enter 10 numbers \n"
-         << endl;
+    cout << "Enter 10 numbers \n" << endl;
 
     for (int i = 0; i < SIZE; i++) {
         cout << "Enter #" << i + 1 << ":";
@@ -28,10 +27,8 @@ int main() {
     }
 
     cout << "\n"
-            "Sum is: "
-         << sum << endl;
-
-    cout << "The list of numbers were: ";
+         << "Sum is: " << sum << "\n"
+         << "The list of numbers were: ";
 
     for (int i = 0; i < SIZE; i++)  
         cout << nums[i] << " "; 

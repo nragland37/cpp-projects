@@ -26,36 +26,18 @@ int main() {
     char itemLetter;
 
     cout << "===================================================== \n"     // \n is a new line character
-         << "\t\t"                                                         // tab character to indent the text
-         << "Welcome to Pizza Palace \n"
+         << "\t\t" << "Welcome to Pizza Palace \n"                         // tab character to indent the text
          << "=====================================================" << endl;
 
     cout << fixed << setprecision(2) << right;
 
     do {
         cout << "----------------------------------------------------- \n\n"
-             << "\t"
-             << "A"
-             << "\t"
-             << "Pizza" << setw(26) << PIZZA << "\n"
-             << "\t"
-             << "B"
-             << "\t"
-             << "Soda" << setw(27) << SODA << "\n"
-             << "\t"
-             << "C"
-             << "\t"
-             << "Chicken Nuggets" << setw(16) << CHICKEN_NUGGETS << "\n"
-             << "\t"
-             << "D"
-             << "\t"
-             << "Breadsticks" << setw(20) << BREADSTICKS << "\n"
-             << "\t"
-             << "E"
-             << "\t"
-             << "Exit"
-             << "\n"
-             << endl;
+             << "\t" << "A" << "\t" << "Pizza" << setw(26) << PIZZA << "\n"
+             << "\t" << "B" << "\t" << "Soda" << setw(27) << SODA << "\n"
+             << "\t" << "C" << "\t" << "Chicken Nuggets" << setw(16) << CHICKEN_NUGGETS << "\n"
+             << "\t" << "D" << "\t" << "Breadsticks" << setw(20) << BREADSTICKS << "\n"
+             << "\t" << "E" << "\t" << "Exit" << "\n" << endl;
 
         cout << "Please enter the next menu item Letter: ";
         cin >> itemLetter;
@@ -76,12 +58,10 @@ int main() {
                 menuItem = BREADSTICKS;
                 break;
             case 'E':
-                cout << "Thank you! Enjoy! \n"
-                     << endl;
+                cout << "Thank you! Enjoy! \n" << endl;
                 break;
             default:
-                cout << "Please pick a valid option \n"
-                     << endl;
+                cout << "Please pick a valid option \n" << endl;
         }
 
         if (itemLetter == 'A' || itemLetter == 'B' || itemLetter == 'C' || itemLetter == 'D')
@@ -92,14 +72,12 @@ int main() {
         if (itemLetter == 'A' || itemLetter == 'B' || itemLetter == 'C' || itemLetter == 'D')
             total += menuItem;
 
-        cout << "Your total so far: " << setprecision(2) << total << "\n"
-             << endl;
+        cout << "Your total so far: " << setprecision(2) << total << "\n" << endl;
 
     } while (itemLetter != 'E');     // while the user does not enter 'E' for exit the program will continue
-    {
-        cout << "Your total is " << total << endl;
-    }
-
+    
+    cout << "Your total is " << total << endl;
+    
     return 0;
 }
 

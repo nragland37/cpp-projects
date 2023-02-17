@@ -19,14 +19,13 @@ int main() {
               VANILLA = 2,
               FLOUR = 2,
               CHOC_CHIP = 2;
-    const double BAKING_SODA = 0.75,     
-                 SUGAR = 1.5,                     
-                 SALT = 0.25;                    
+    const double BAKING_SODA = 0.75,
+                 SUGAR = 1.5,
+                 SALT = 0.25;
     int dozen,
         quantity;
 
-    cout << "Chocolate Chip Cookies - 4 dozen cookies \n"
-         << endl;
+    cout << "Chocolate Chip Cookies - 4 dozen cookies \n" << endl;
 
     cout << "\t" << BUTTER << " cup butter \n"
          << "\t" << SUGAR << " cups white sugar \n"
@@ -35,30 +34,28 @@ int main() {
          << "\t" << FLOUR << " cups all-purpose flour \n"
          << "\t" << BAKING_SODA << " baking soda \n"
          << "\t" << SALT << " tsp salt \n"
-         << "\t" << CHOC_CHIP << " cups chocolate chips \n"
-         << endl;
+         << "\t" << CHOC_CHIP << " cups chocolate chips \n" << endl;
 
     cout << "Preheat oven to 350 F. In a large bowl, mix butter, sugar, eggs, and vanilla \n"
          << "until light and fluffy. In a separate bowl, combine flour, baking soda, and \n"
          << "salt; stir into the butter mixture until well-blended stir in chocolate chips. \n"
          << "Drop by rounded teaspoons onto ungreased cookie sheets. Bake 8-10 minutes until \n"
          << "just set. Cool slightly on cookie sheets before transferring to cooling racks \n"
-         << "to cool completely. \n"
-         << endl;
+         << "to cool completely. \n" << endl;
 
     cout << "How many dozens are you planning to make (Please give a multiple of four)?" << endl;
     cin >> dozen;
 
     quantity = dozen / 4;     // 4 dozen = 1 quantity of ingredients (original recipe)
 
-    cout << "\n\n\t" << quantity * BUTTER << " cup butter" << endl;
-    cout << "\t" << quantity * SUGAR << " cups white sugar" << endl;
-    cout << "\t" << quantity * EGG << " eggs" << endl;
-    cout << "\t" << quantity * VANILLA << " tsp vanilla extract" << endl;
-    cout << "\t" << quantity * FLOUR << " cups all-purpose flour" << endl;
-    cout << "\t" << quantity * BAKING_SODA << " baking soda" << endl;
-    cout << "\t" << quantity * SALT << " tsp salt" << endl;
-    cout << "\t" << quantity * CHOC_CHIP << " cups chocolate chips" << endl;
+    cout << "\n\n\t" << quantity * BUTTER << " cup butter \n"
+         << "\t" << quantity * SUGAR << " cups white sugar \n"
+         << "\t" << quantity * EGG << " eggs \n"
+         << "\t" << quantity * VANILLA << " tsp vanilla extract \n"
+         << "\t" << quantity * FLOUR << " cups all-purpose flour \n"
+         << "\t" << quantity * BAKING_SODA << " baking soda \n"
+         << "\t" << quantity * SALT << " tsp salt \n"
+         << "\t" << quantity * CHOC_CHIP << " cups chocolate chips \n" << endl;
 
     return 0;
 }

@@ -58,18 +58,18 @@ int main() {
 
     translate = readTranslation("Translation.txt", numT);
     people = readTesters("Testers.txt", numP);
+
     displayTesters(people, numP);
 
     cout << "\n"
          << "--------------------------------------------------- \n"
-         << "\t"
-         << "American to English Translation Test \n"
+         << "\t" << "American to English Translation Test \n"
          << "--------------------------------------------------- \n"
          << "   Three people from this list will be randomly \n"
-         << "            selected to take the test \n"
-         << "\n"
+         << "            selected to take the test \n\n"
          << "Would you like to study before the test? (Y/N)" << endl;     // prompts user to study before test
     cin >> studyEntry;
+
     if (studyEntry == 'y' || studyEntry == 'Y') {
         displayTranslateAnswers(translate, numT);
         cout << "\n"
@@ -78,14 +78,16 @@ int main() {
         cin.get();        // waits for user to press enter before continuing
         cout << "Good Luck!" << endl;
     } else {
-        cout << "\nGood Luck!" << endl;
+        cout << "\n" 
+             << "Good Luck!" << endl;
     }
+
     testingOptions(translate, numT, people, numP);
 
     cout << "=================================================== \n"
-         << "\t\t"
-         << "Updated Information \n"
+         << "\t\t" << "Updated Information \n"
          << "===================================================";
+
     displayTesters(people, numP);
     writeTesters("Testers.txt", people, numP);
 
@@ -108,6 +110,7 @@ Translation *readTranslation(const string &fileName, int &num) {
         f.ignore();
 
         t = new Translation[num];     // dynamically allocates array of structs (Translation) with size num
+
         for (int i = 0; i < num; ++i) {
             getline(f, t[i].american, ',');     // getline(reads from file, stores in variable, delimiter)
             getline(f, t[i].english);
@@ -131,6 +134,7 @@ Person *readTesters(const string &fileName, int &num) {
         f.ignore();     // ignores the newline character after the number
 
         p = new Person[num];
+
         for (int i = 0; i < num; ++i) {
             f.getline(p[i].name, NAME_SIZE);
             f >> p[i].score;
@@ -180,12 +184,13 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
          << "--------------------------------- \n"
          << "            Questions \n"
          << "--------------------------------- \n"
-         << "   Five American words will be"
+         << "   Five American words will be \n"
          << " randomly selected from the list \n"
          << "  Enter the English translation." << endl;
 
     for (int i = 0; i < NUM_TESTS; ++i) {
         randomPerson = rand() % numP;                     // (numP: 10) range: 0 - 9  // 0 - (numP - 1) // 0 - (numP - 1) + 1
+        
         people[randomPerson].testTaken.month = month;     // sets the month, day, and year of the test taken
         people[randomPerson].testTaken.day = day;         // for the randomly selected person
         people[randomPerson].testTaken.year = year;       // to the month, day, and year entered by the user
@@ -240,17 +245,13 @@ void takeTest(const Translation translate[], int numT, Person &p) {
         cin >> guess;
 
         answer = translate[randomQuestion].english;
+
         if (guess == answer) {
-            cout << "\n\t"
-                 << "    Correct!" << endl
-                 << endl;
+            cout << "\n\t" << "    Correct! \n" << endl;
             correct++;
         } else {
-            cout << "\n\t"
-                 << "   Incorrect! \n"
-                 << endl;
-            cout << "Answer: " << translate[randomQuestion].english << endl
-                 << endl;
+            cout << "\n\t" << "   Incorrect! \n\n"
+                 << "Answer: " << translate[randomQuestion].english << "\n" << endl;
         }
     }
     avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;     // static_cast is used to convert int to double for the average

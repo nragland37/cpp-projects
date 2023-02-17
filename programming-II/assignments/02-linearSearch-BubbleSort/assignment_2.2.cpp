@@ -13,6 +13,8 @@
 #include <string>
 using namespace std;
 
+//*****************************************************************************************************
+
 void readNames(ifstream &inputFile, string names[], int numNames);
 void displayNames(const string names[], int numNames);
 int searchNames(const string names[], int numNames, const string &name);
@@ -25,17 +27,17 @@ void bubbleSortDescending(string names[], int numNames);
 
 int main() {
     const int NUM_NAMES = 10;
-    string names[NUM_NAMES],
-        name;
+    string names[NUM_NAMES];
+    string name;
     ifstream inputFile("StudentNames.txt");
 
     readNames(inputFile, names, NUM_NAMES);
     inputFile.close();
 
     cout << "---------------------------------\n"
-         << "\t"
-         << "Student Names \n"
+         << "\t" << "Student Names \n"
          << "---------------------------------" << endl;
+
     displayNames(names, NUM_NAMES);
 
     cout << "\n"
@@ -50,6 +52,7 @@ int main() {
          << "--------------------------------- \n"
          << " Student Names: Ascending Order \n"
          << "---------------------------------" << endl;
+
     bubbleSort(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
 
@@ -60,6 +63,7 @@ int main() {
          << "--------------------------------- \n"
          << " Student Names: Descending Order \n"
          << "---------------------------------" << endl;
+
     bubbleSortDescending(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
 
