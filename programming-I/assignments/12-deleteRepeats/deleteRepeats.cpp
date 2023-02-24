@@ -23,23 +23,21 @@ void printArray(char[], int);
 
 int main() {
     char array[SIZE_LIMIT];     // array of characters (char) with a size limit of 1024 (SIZE_LIMIT)
-    char answer;                 // answer to repeat the program
+    char answer;                // answer to repeat the program
     int size;                   // not the size of the array,
                                 // but the number of elements in the array (the size of the array is SIZE_LIMIT)
     do {
         size = 0;
-        
+
         readArray(array, size);
         cout << endl;
         deleteRepeats(array, size);
 
-        cout << "\n\n"
-             << "The array after delete repeats";
+        cout << "\n\nThe array after delete repeats";
 
         printArray(array, size);
 
-        cout << "\n\n"
-             << "Repeat? (y/n): ";
+        cout << "\n\nRepeat? (y/n): ";
         cin >> answer;
 
         cout << endl;
@@ -55,8 +53,8 @@ void readArray(char array[], int &size) {
     cin >> size;
 
     while (size > SIZE_LIMIT || size < 0) {
-        cerr << "\n\n"     // cerr is unbuffered and best for error handling
-             << "Error: The size of the array must be between 0 and " << SIZE_LIMIT << "\n" << endl;
+        cerr << "\nInvalid size. Please enter a size between 0 and " << SIZE_LIMIT << "\n"
+             << endl;
 
         cout << "What is the size: ";
         cin >> size;
@@ -90,8 +88,7 @@ void deleteRepeats(char array[], int &size) {
 //*****************************************************************************************************
 
 void printArray(char array[], int size) {
-    cout << "\n" 
-         << "Updated array: ";
+    cout << "\nUpdated array: ";
 
     for (int i = 0; i < size; i++)
         cout << array[i] << " ";
@@ -139,7 +136,7 @@ Updated array: 1
 
 Repeat? n
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 What is the size: 5000
 

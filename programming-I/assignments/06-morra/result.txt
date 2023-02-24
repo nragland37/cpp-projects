@@ -1,6 +1,6 @@
 Fingers	Total
-2	3
-1	4
-Correct total is 3
+2		1
+4		6
+Correct total is 6
 
-PLAYER 1 WINS
+PLAYER 2 WINS

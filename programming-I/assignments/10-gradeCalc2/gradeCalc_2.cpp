@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //
-//		This program is a grade calculator program for a computer programming course that uses
+//	This program is a grade calculator program for a computer programming course that uses
 //      functions to calculate the final grade. The program takes in four grades as percentages and
 //      uses predefined weights to calculate the weighted grades for each deliverable. The final grade
 //      is then displayed as a percentage.
@@ -30,13 +30,15 @@ int main() {
         partic,
         finalGrade;
 
-    cout << "Grade Calculator - Computer Programming I \n" << endl;
+    cout << "Grade Calculator - Computer Programming I \n"
+         << endl;
 
     cout << "The weight of each deliverable on their final grade \n\n"
-         << "\t" << "Programmig Assignments: " << ASSIGN_PERCENT << "% \n"
-         << "\t" << "Chapter Tests: " << TEST_PERCENT << "% \n"
-         << "\t" << "Final Exam: " << EXAM_PERCENT << "% \n"
-         << "\t" << "Class Participation: " << PARTIC_PERCENT << "% \n" << endl;
+         << "\tProgrammig Assignments: " << ASSIGN_PERCENT << "% \n"
+         << "\tChapter Tests: " << TEST_PERCENT << "% \n"
+         << "\tFinal Exam: " << EXAM_PERCENT << "% \n"
+         << "\tClass Participation: " << PARTIC_PERCENT << "% \n"
+         << endl;
 
     readGrades(assign, test, exam, partic);
     calcWeights(assign, test, exam, partic, ASSIGN_PERCENT, TEST_PERCENT, EXAM_PERCENT, PARTIC_PERCENT);
@@ -45,7 +47,8 @@ int main() {
     cout << "\n\n\t" << assign << "% in Programming Assignments" << endl
          << "\t" << test << "% in Chapter Tests" << endl
          << "\t" << exam << "% in Final Exam" << endl
-         << "\t" << partic << "% in Class Participation \n\n" << endl;
+         << "\t" << partic << "% in Class Participation \n\n"
+         << endl;
 
     displayResults(finalGrade);
 

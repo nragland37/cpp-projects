@@ -43,21 +43,19 @@ int main() {
     inputFile.close();
 
     cout << "--------------------------------- \n"
-         << "\t" << "Student Names \n"
+         << "\tStudent Names \n"
          << "---------------------------------" << endl;
 
     displayNames(names, NUM_NAMES);
 
-    cout << "\n"
-         << "Find a Students place in the list \n"
+    cout << "\nFind a Students place in the list \n"
          << "Enter Student name (e.g., last name, first name): " << endl;
     getline(cin, name);
 
     displayLinearSearchNames(names, NUM_NAMES, name);
 
     cin.get();
-    cout << "\n"
-         << "--------------------------------- \n"
+    cout << "\n--------------------------------- \n"
          << " Student Names: Ascending Order \n"
          << "---------------------------------" << endl;
 
@@ -66,8 +64,7 @@ int main() {
     displayLinearSearchNames(names, NUM_NAMES, name);
 
     cin.get();
-    cout << "\n"
-         << "--------------------------------- \n"
+    cout << "\n--------------------------------- \n"
          << " Student Names: Descending Order \n"
          << "---------------------------------" << endl;
 
@@ -76,24 +73,21 @@ int main() {
     displayLinearSearchNames(names, NUM_NAMES, name);
 
     cin.get();
-    cout << "\n"
-         << "--------------------------------- \n"
+    cout << "\n--------------------------------- \n"
          << " Student Names: Ascending Order \n"
          << "---------------------------------" << endl;
 
     selectionSort(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
 
-    cout << "\n"
-         << "Find another Students place in the ascending list \n"
+    cout << "\nFind another Students place in the ascending list \n"
          << "Enter Student name (e.g., last name, first name): " << endl;
     getline(cin, name);
 
     displayBinarySearchNames(names, NUM_NAMES, name);
 
     cin.get();
-    cout << "\n"
-         << "--------------------------------- \n"
+    cout << "\n--------------------------------- \n"
          << " Student Names: Descending Order \n"
          << "---------------------------------" << endl;
 
@@ -147,11 +141,9 @@ void displayLinearSearchNames(const string names[], int numNames, const string &
     result = linearSearchNames(names, numNames, name);
     if (result == -1)
         cout << result
-             << "\n"
-             << "Name Not Found" << endl;
+             << "\nName Not Found" << endl;
     else
-        cout << "\n"
-             << "Name Found: " << result + 1 << endl;
+        cout << "\nName Found: " << result + 1 << endl;
 }
 
 //*****************************************************************************************************
@@ -229,11 +221,9 @@ void displayBinarySearchNames(const string names[], int numNames, const string &
     result = binarySearchNames(names, numNames, name);
     if (result == -1)
         cout << result
-             << "\n"
-             << "Name Not Found" << endl;
+             << "\nName Not Found" << endl;
     else
-        cout << "\n"
-             << "Name Found: " << result + 1 << endl;
+        cout << "\nName Found: " << result + 1 << endl;
 }
 
 //*****************************************************************************************************
@@ -372,7 +362,7 @@ Name Not Found
 -1
 Name Not Found
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 ---------------------------------
         Student Names

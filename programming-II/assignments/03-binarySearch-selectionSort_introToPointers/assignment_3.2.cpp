@@ -30,8 +30,7 @@ int main() {
          << "n3 = " << n3 << "\n"
          << "Memory address: " << &n3 << endl;
 
-    cout << "\n"
-         << "Two pointers: p1 p2 \n"
+    cout << "\nTwo pointers: p1 p2 \n"
          << "p1 \n"
          << "Memory address: " << &p1 << "\n"     // memory address of the pointer p1 variable (not the value it points to)
          << "p1 is pointing to n1 \n\n"
@@ -39,8 +38,7 @@ int main() {
          << "Memory address: " << &p2 << "\n"
          << "p2 is pointing to n2" << endl;
 
-    cout << "\n"
-         << "Value at the address (n1) to which p1 points \n"
+    cout << "\nValue at the address (n1) to which p1 points \n"
          << "*p1 = " << *p1 << "\n"     // dereference of the pointer p1 variable (value stored in the memory location it points to (same as n1))
          << "Memory address (n1) to which p1 points \n"
          << "p1 = " << p1 << "\n\n"     // memory address of the value p1 points to (same as &n1)
@@ -51,20 +49,17 @@ int main() {
 
     *p1 *= 2;
 
-    cout << "\n"
-         << "Value of n1 has been multiplied by two using pointer arithmetic (*p1 *= 2) \n"     // dereference p1 and multiply by 2 (same as n1 *= 2)
+    cout << "\nValue of n1 has been multiplied by two using pointer arithmetic (*p1 *= 2) \n"     // dereference p1 and multiply by 2 (same as n1 *= 2)
          << "n1 = " << n1 << endl;
 
     sum = *p1 + *p2;
 
-    cout << "\n"
-         << "Sum of values (n1 n2) to which p1 p2 point using pointer arithmetic (sum = *p1 + *p2) \n"     // dereference p1 and p2 and add them together (same as n1 + n2)
+    cout << "\nSum of values (n1 n2) to which p1 p2 point using pointer arithmetic (sum = *p1 + *p2) \n"     // dereference p1 and p2 and add them together (same as n1 + n2)
          << "p1(20) + p2(25) = " << sum << endl;
 
     p1 = &n3;     // re-assign p1 to point to n3 and hold the memory address of n3
 
-    cout << "\n"
-         << "p1 re-assigned pointing to n3 \n"
+    cout << "\np1 re-assigned pointing to n3 \n"
          << "Value at the address (n3) to which p1 points \n"
          << "*p1 = " << *p1 << "\n"     // dereference p1 (same as n3 since p1 re-assigned to n3)
          << "Memory address (n3) to which p1 points \n"
@@ -72,8 +67,7 @@ int main() {
 
     sum = *p1 + *p2;
 
-    cout << "\n"
-         << "Sum of values (n3 n2) to which p1 p2 point using pointer arithmetic (sum = *p1 + *p2) \n"     // dereference p1 (reassigned to n3) and p2 and add them together (same as n3 + n2)
+    cout << "\nSum of values (n3 n2) to which p1 p2 point using pointer arithmetic (sum = *p1 + *p2) \n"     // dereference p1 (reassigned to n3) and p2 and add them together (same as n3 + n2)
          << "p1(50) + p2(25) = " << sum << endl;
 
     return 0;

@@ -10,14 +10,11 @@
 //
 //*****************************************************************************************************
 
-#include "Sport.h"
-
-#include <iomanip>
 #include <iostream>
-#include <string>
-
-#include "Date.h"     // include Date.h to use Date class
+#include <iomanip>
 using namespace std;
+
+#include "Sport.h"     // include Sport.h to use Sport class
 
 //*****************************************************************************************************
 
@@ -39,7 +36,7 @@ Sport::~Sport() {
 void Sport::display() const {
     Date d1 = getDate();     // create a Date object to use the displayDate function
 
-    cout << "\t\t" << setfill('.') << setw(30) << left << "Sport Name " 
+    cout << "\t\t" << setfill('.') << setw(30) << left << "Sport Name "
          << " " << getName() << endl;
     cout << "\t\t" << setfill('.') << setw(30) << left << "Scheduled Date (M/D/YY) "
          << " ";
@@ -48,10 +45,12 @@ void Sport::display() const {
 
     cout << "\n\n\t\t" << setfill('.') << setw(30) << left << "Number of Teams "
          << " " << getNumTeams() << endl;
-         
+
     for (int i = 0; i < getNumTeams(); ++i)
-        cout << "\t\t" << "Team " << i + 1 << setfill('.') << setw(24) << left
-             << " " << " " << teamNames[i] << endl;
+        cout << "\t\t"
+             << "Team " << i + 1 << setfill('.') << setw(24) << left
+             << " "
+             << " " << teamNames[i] << endl;
 }
 
 //*****************************************************************************************************
@@ -59,15 +58,14 @@ void Sport::display() const {
 void Sport::populate() {
     char entry;
 
-    cout << "\n"
-         << "Enter the name of the sport: ";
+    cout << "\nEnter the name of the sport: ";
     getline(cin, name);     // get the name of the sport and store it in the name variable
 
-    setName(name);          // set the name variable to the name of the sport
+    setName(name);     // set the name variable to the name of the sport
 
     cout << "Sport has a scheduled game? (Y/N)" << endl;
     cin >> entry;
-    
+
     if (entry == 'Y' || entry == 'y') {
         cout << "Next Scheduled Game";
         nextGame.inputDate();
@@ -78,8 +76,8 @@ void Sport::populate() {
     }
     cout << "Enter the number of teams: ";
     cin >> numTeams;
-    
-    setNumTeams(numTeams);     // set the number of teams to the number of teams entered by the user
+
+    setNumTeams(numTeams);                // set the number of teams to the number of teams entered by the user
     teamNames = new string[numTeams];     // dynamically allocate memory for the teamNames array
     cin.ignore();
     for (int i = 0; i < numTeams; ++i) {

@@ -35,21 +35,19 @@ int main() {
     inputFile.close();
 
     cout << "---------------------------------\n"
-         << "\t" << "Student Names \n"
+         << "\tStudent Names \n"
          << "---------------------------------" << endl;
 
     displayNames(names, NUM_NAMES);
 
-    cout << "\n"
-         << "Find a Students place in the list \n"
+    cout << "\nFind a Students place in the list \n"
          << "Enter Student name (e.g., last name, first name): " << endl;
     getline(cin, name);
 
     searchNames(names, NUM_NAMES, name);
     displaySearchNames(names, NUM_NAMES, name);
 
-    cout << "\n"
-         << "--------------------------------- \n"
+    cout << "\n--------------------------------- \n"
          << " Student Names: Ascending Order \n"
          << "---------------------------------" << endl;
 
@@ -59,8 +57,7 @@ int main() {
     searchNames(names, NUM_NAMES, name);
     displaySearchNames(names, NUM_NAMES, name);
 
-    cout << "\n"
-         << "--------------------------------- \n"
+    cout << "\n--------------------------------- \n"
          << " Student Names: Descending Order \n"
          << "---------------------------------" << endl;
 
@@ -113,11 +110,9 @@ int searchNames(const string names[], int numNames, const string &name) {
 void displaySearchNames(const string names[], int numNames, const string &name) {
     if (searchNames(names, numNames, name) == -1)
         cout << searchNames(names, numNames, name)
-             << "\n"
-             << "Name Not Found" << endl;
+             << "\nName Not Found" << endl;
     else
-        cout << "\n"
-             << "Name Found: " << searchNames(names, numNames, name) << endl;
+        cout << "\nName Found: " << searchNames(names, numNames, name) << endl;
 }
 
 //*****************************************************************************************************
@@ -219,7 +214,7 @@ Name Found: 8
 
 Name Found: 3
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 ---------------------------------
         Student Names

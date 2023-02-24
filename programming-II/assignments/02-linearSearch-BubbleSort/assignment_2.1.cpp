@@ -53,29 +53,26 @@ int main() {
          << "Average for Student #5: " << averageOneStudent(scores, NUM_STDS, 4) << "\n\n"
          << "Average for Student #9: " << averageOneStudent(scores, NUM_STDS, 8) << "\n\n"
          << "Highest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1) << "\n\n"
-         << "The top Student: " << topStudent(scores, NUM_STDS) << "\n" << endl;
+         << "The top Student: " << topStudent(scores, NUM_STDS) << "\n"
+         << endl;
 
     cout << "Find if at least one student has an average score greater \n"
          << "Enter average score of student: ";
     cin >> average;
 
     if (searchStudents(scores, NUM_STDS, average))
-        cout << "\n"
-             << "A student DOES have an average score greater than: " << average << "\n\n";
+        cout << "\nA student DOES have an average score greater than: " << average << "\n\n";
     else
-        cout << "\n"
-             << "A student DOES NOT have an average score greater than: " << average << "\n\n";
+        cout << "\nA student DOES NOT have an average score greater than: " << average << "\n\n";
 
     cout << "Find if at least one test has an average score greater \n"
          << "Enter average score of test: ";
     cin >> average;
 
     if (searchTests(scores, NUM_STDS, average))
-        cout << "\n"
-             << "A test DOES have an average score greater than: " << average << endl;
+        cout << "\nA test DOES have an average score greater than: " << average << endl;
     else
-        cout << "\n"
-             << "A test DOES NOT have an average score greater than: " << average << endl;
+        cout << "\nA test DOES NOT have an average score greater than: " << average << endl;
 
     return 0;
 }
@@ -158,7 +155,7 @@ double averageOneStudent(const int scores[][NUM_TESTS], int numStds, int student
 
 int highestOneStudent(const int scores[][NUM_TESTS], int numStds, int studentNumber) {
     int highest = scores[studentNumber][0];
-    
+
     for (int testNumber = 1; testNumber < NUM_TESTS; ++testNumber)
         if (scores[studentNumber][testNumber] > highest)
             highest = scores[studentNumber][testNumber];

@@ -21,34 +21,34 @@
 
 class Sport {
    private:
-    std::string name;
+    string name;
     Date nextGame;     // use Date class to store date of next game
     int numTeams;
-    std::string *teamNames;     // use dynamic array to store names of teams (array size is numTeams)
+    string *teamNames;     // use dynamic array to store names of teams (array size is numTeams)
 
    public:
-    Sport(const std::string &n = "");     // initialize name to empty string if no argument is passed
+    Sport(const string &n = "");     // initialize name to empty string if no argument is passed
     ~Sport();
-    std::string getName() const;     // const used to indicate that the function does not modify the object
-    void setName(const std::string &n);
+    string getName() const;     // const used to indicate that the function does not modify the object
+    void setName(const string &n);
     Date getDate() const;
     void setDate(const Date &d);
     int getNumTeams() const;
     void setNumTeams(const int &n);
     void display() const;
     void populate();
-    void addTeam(const std::string &n);
+    void addTeam(const string &n);
 };
 
 //*****************************************************************************************************
 
-inline std::string Sport::getName() const {
+inline string Sport::getName() const {
     return name;
 }
 
 //*****************************************************************************************************
 
-inline void Sport::setName(const std::string &n) {
+inline void Sport::setName(const string &n) {
     name = n;
 }
 

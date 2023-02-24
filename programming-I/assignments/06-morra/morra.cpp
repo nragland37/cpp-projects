@@ -40,14 +40,15 @@ int main() {
     playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     // random number between 1 and 5 (player 2)
     playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             // random number between 0 and 10  (player 2)
 
-    out << "Fingers" << "\t" << "Total" << endl; // out is the output for the file "result.txt" (similar to cout but for files)
+    out << "Fingers\tTotal" << endl;     // out is the output for the file "result.txt" (similar to cout but for files)
 
-    out << playerOneFingers << "\t" << playerOneGuess << endl;
+    out << playerOneFingers << "\t\t" << playerOneGuess << endl;
 
-    out << playerTwoFingers << "\t" << playerTwoGuess << endl;
+    out << playerTwoFingers << "\t\t" << playerTwoGuess << endl;
 
     sum = playerOneFingers + playerTwoFingers;
-    out << "Correct total is " << sum << "\n" << endl;
+    out << "Correct total is " << sum << "\n"
+        << endl;
 
     if (sum == playerOneGuess && sum == playerTwoGuess)     // if both players guess the correct sum (tie)
         out << "TIE" << endl;
@@ -66,37 +67,29 @@ int main() {
 /*
 
 Fingers	Total
-2		6
-1		9
-Correct total is 3
+4		5
+3		9
+Correct total is 7
 
 NO ONE WINS
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 Fingers	Total
-4	2
-3	7
-Correct total is 7
+1		2
+1		6
+Correct total is 2
+
+PLAYER 1 WINS
+
+*****************************************************************************************************
+
+Fingers	Total
+2		1
+4		6
+Correct total is 6
 
 PLAYER 2 WINS
 
-//*****************************************************************************************************
-
-Fingers	Total
-3	2
-3	7
-Correct total is 6
-
-NO ONE WINS
-
-//*****************************************************************************************************
-
-Fingers	Total
-2	3
-1	4
-Correct total is 3
-
-PLAYER 1 WINS
 
 */

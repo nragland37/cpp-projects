@@ -28,7 +28,8 @@ int main() {
         totalCost,
         weight;
 
-    cout << "Calculate the total cost of an online purchase \n" << endl;
+    cout << "Calculate the total cost of an online purchase \n" 
+         << endl;
 
     cout << "Enter the item's price: ";
     cin >> price;
@@ -52,9 +53,8 @@ int main() {
     tax = price * TAXRATE;                    // tax = price * 4.225%
     totalCost = price + tax + shipping;       // totalCost = price + tax + shipping
 
-    cout << "\n" 
-         << "Total price: " << fixed << setprecision(2) << totalCost << endl;     // setprecision() sets the number of decimal places to display
-                                                                                  // fixed sets the number of decimal places to display to 2
+    cout << "\nTotal price: " << fixed << setprecision(2) << totalCost << endl;     // setprecision() sets the number of decimal places to display
+                                                                                    // fixed sets the number of decimal places to display to 2
     return 0;
 }
 
@@ -69,7 +69,7 @@ Enter the item's weight: 50
 
 Total price: 60.42
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 Calculate the total cost of an online purchase
 

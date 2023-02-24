@@ -58,7 +58,7 @@ Person *readTesters(const string &fileName, int &num) {
         f.ignore();
 
         p = new Person[num];
-        
+
         for (int i = 0; i < num; ++i) {
             f.getline(p[i].name, NAME_SIZE);
             f >> p[i].score;

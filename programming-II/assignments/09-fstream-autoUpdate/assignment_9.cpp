@@ -61,9 +61,8 @@ int main() {
 
     displayTesters(people, numP);
 
-    cout << "\n"
-         << "--------------------------------------------------- \n"
-         << "\t" << "American to English Translation Test \n"
+    cout << "\n--------------------------------------------------- \n"
+         << "\tAmerican to English Translation Test \n"
          << "--------------------------------------------------- \n"
          << "   Three people from this list will be randomly \n"
          << "            selected to take the test \n\n"
@@ -72,20 +71,18 @@ int main() {
 
     if (studyEntry == 'y' || studyEntry == 'Y') {
         displayTranslateAnswers(translate, numT);
-        cout << "\n"
-             << "Press enter to continue..." << endl;
+        cout << "\nPress enter to continue..." << endl;
         cin.ignore();     // ignores the enter key from the previous cin
         cin.get();        // waits for user to press enter before continuing
         cout << "Good Luck!" << endl;
     } else {
-        cout << "\n" 
-             << "Good Luck!" << endl;
+        cout << "\nGood Luck!" << endl;
     }
 
     testingOptions(translate, numT, people, numP);
 
     cout << "=================================================== \n"
-         << "\t\t" << "Updated Information \n"
+         << "\t\tUpdated Information \n"
          << "===================================================";
 
     displayTesters(people, numP);
@@ -166,8 +163,7 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
     seed = time(0);
     srand(seed);
 
-    cout << "\n"
-         << "--------------------------------- \n"
+    cout << "\n--------------------------------- \n"
          << "        Enter Today's Date \n"
          << "---------------------------------" << endl;
 
@@ -180,8 +176,7 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
     cout << "Enter year: ";
     cin >> year;
 
-    cout << "\n\n"
-         << "--------------------------------- \n"
+    cout << "\n\n--------------------------------- \n"
          << "            Questions \n"
          << "--------------------------------- \n"
          << "   Five American words will be \n"
@@ -189,14 +184,13 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
          << "  Enter the English translation." << endl;
 
     for (int i = 0; i < NUM_TESTS; ++i) {
-        randomPerson = rand() % numP;                     // (numP: 10) range: 0 - 9  // 0 - (numP - 1) // 0 - (numP - 1) + 1
-        
+        randomPerson = rand() % numP;     // (numP: 10) range: 0 - 9  // 0 - (numP - 1) // 0 - (numP - 1) + 1
+
         people[randomPerson].testTaken.month = month;     // sets the month, day, and year of the test taken
         people[randomPerson].testTaken.day = day;         // for the randomly selected person
         people[randomPerson].testTaken.year = year;       // to the month, day, and year entered by the user
 
-        cout << "\n"
-             << "=================================" << endl;
+        cout << "\n=================================" << endl;
         cout << setfill(' ')
              << setw(3) << left
              << "#"
@@ -228,8 +222,7 @@ void takeTest(const Translation translate[], int numT, Person &p) {
     seed = time(0);
     srand(seed);
 
-    cout << "\n"
-         << "---------------------------------" << endl;
+    cout << "\n---------------------------------" << endl;
     cout << setfill(' ')
          << setw(3) << left
          << "#"
@@ -247,11 +240,14 @@ void takeTest(const Translation translate[], int numT, Person &p) {
         answer = translate[randomQuestion].english;
 
         if (guess == answer) {
-            cout << "\n\t" << "    Correct! \n" << endl;
+            cout << "\n\t"
+                 << "    Correct! \n"
+                 << endl;
             correct++;
         } else {
-            cout << "\n\t" << "   Incorrect! \n\n"
-                 << "Answer: " << translate[randomQuestion].english << "\n" << endl;
+            cout << "\n\t   Incorrect! \n\n"
+                 << "Answer: " << translate[randomQuestion].english << "\n"
+                 << endl;
         }
     }
     avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;     // static_cast is used to convert int to double for the average
@@ -261,8 +257,7 @@ void takeTest(const Translation translate[], int numT, Person &p) {
 //*****************************************************************************************************
 
 void displayTesters(const Person people[], int numP) {
-    cout << "\n"
-         << "---------------------------------------------------" << endl;
+    cout << "\n---------------------------------------------------" << endl;
     cout << setfill(' ')
          << setw(3) << left
          << "#"
@@ -299,8 +294,7 @@ void writeTesters(const string &fileName, const Person people[], int numP) {
 //*****************************************************************************************************
 
 void displayTranslateAnswers(const Translation translate[], int numT) {
-    cout << "\n"
-         << "---------------------------------" << endl;
+    cout << "\n---------------------------------" << endl;
     cout << setw(3) << left
          << "#"
          << setw(18) << left
@@ -345,7 +339,7 @@ N
 
 Good Luck!
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 ---------------------------------------------------
 #  NAME                SCORE %        TEST TAKEN
@@ -396,7 +390,7 @@ Y
 
 Press enter to continue...                          // program pauses for user to read translation list before test
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 ---------------------------------------------------
 #  NAME                SCORE %        TEST TAKEN
@@ -574,7 +568,7 @@ Answer: sweet
 10 Mark James          0.0            11/11/2021
 
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 10                         // updated file with new scores and test dates
 Steve Smith

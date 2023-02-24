@@ -45,21 +45,26 @@ int main() {
         cout << setw(12) << "1"
              << "|" << setw(11) << playerOneFingers << "|" << playerOneGuess << endl;
         cout << setw(12) << "2"
-             << "|" << setw(11) << playerTwoFingers << "|" << playerTwoGuess << "\n" << endl;
+             << "|" << setw(11) << playerTwoFingers << "|" << playerTwoGuess << "\n"
+             << endl;
 
         sum = playerOneFingers + playerTwoFingers;
         cout << "Correct total is " << sum << endl;
 
         if (sum == playerOneGuess && sum == playerTwoGuess) {
-            cout << "TIE" << "\n" << endl;
+            cout << "TIE \n"
+                 << endl;
         } else if (sum == playerOneGuess) {
-            cout << "Player 1 Wins" << "\n" << endl;
+            cout << "Player 1 Wins \n"
+                 << endl;
             playerOneWins++;
         } else if (sum == playerTwoGuess) {
-            cout << "Player 2 Wins" << "\n" << endl;
+            cout << "Player 2 Wins \n"
+                 << endl;
             playerTwoWins++;
         } else {
-            cout << "NO ONE WINS" << "\n" << endl;
+            cout << "NO ONE WINS \n"
+                 << endl;
         }
 
         cout << "-------------------------------------" << endl;

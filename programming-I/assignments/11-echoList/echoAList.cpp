@@ -17,7 +17,8 @@ int main() {
     int nums[SIZE];     // array of 10 integers (0-9)
     int sum = 0;        // needs to be initialized to 0 or else it will be garbage data (causes undefined behavior)
 
-    cout << "Enter 10 numbers \n" << endl;
+    cout << "Enter 10 numbers \n"
+         << endl;
 
     for (int i = 0; i < SIZE; i++) {
         cout << "Enter #" << i + 1 << ":";
@@ -26,12 +27,11 @@ int main() {
         sum += nums[i];     // sum = sum + nums[i] (this is why sum needs to be initialized to 0 or else it will equal garbage data + nums[i])
     }
 
-    cout << "\n"
-         << "Sum is: " << sum << "\n"
-         << "The list of numbers were: ";
+    cout << "\nSum is: " << sum
+         << "\nThe list of numbers were: ";
 
-    for (int i = 0; i < SIZE; i++)  
-        cout << nums[i] << " "; 
+    for (int i = 0; i < SIZE; i++)
+        cout << nums[i] << " ";
 
     return 0;
 }
@@ -56,7 +56,7 @@ Enter #10: 10
 Sum is: 55
 The list of numbers were: 1 2 3 4 5 6 7 8 9 10
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 Enter 10 numbers
 

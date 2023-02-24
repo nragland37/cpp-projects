@@ -40,9 +40,9 @@ int main() {
         cin >> size;
 
         if (size <= 0 || size > 5000)
-            cerr << "\n"
-                 << "Error: Invalid Entry \n" << endl;     // cerr is unbuffered and best for error handling
-        
+            cerr << "\nError: Invalid Entry \n"
+                 << endl;     // cerr is unbuffered and best for error handling
+
         cin.ignore();
     } while (size <= 0 || size > 5000);
 
@@ -54,30 +54,26 @@ int main() {
     // overflow error if the amount of memory needed is too large.
     input(names, matches, size);
 
-    cout << "\n"
-         << "------------------------------------------------- \n"
-         << "\t" << "Student Names & Matches Played \n"
+    cout << "\n------------------------------------------------- \n"
+         << "\tStudent Names & Matches Played \n"
          << "-------------------------------------------------" << endl;
 
     display(names, matches, size);
 
-    cout << "\n"
-         << "------------------------------------------------- \n"
-         << "\t" << "Student Who Played Most Matches \n"
+    cout << "\n------------------------------------------------- \n"
+         << "\tStudent Who Played Most Matches \n"
          << "-------------------------------------------------" << endl;
 
     displayMostMatches(names, matches, size);
 
-    cout << "\n"
-         << "------------------------------------------------- \n"
-         << "\t" << "Average Matches Played for Students \n"
+    cout << "\n------------------------------------------------- \n"
+         << "\tAverage Matches Played for Students \n"
          << "-------------------------------------------------" << endl;
 
     average = mean(matches, size);
     cout << "Average: " << average << endl;
 
-    cout << "\n"
-         << "------------------------------------------------- \n"
+    cout << "\n------------------------------------------------- \n"
          << "Student Names & Matches Played ~ Ascending Order \n"
          << "-------------------------------------------------" << endl;
 
@@ -103,14 +99,15 @@ void input(string names[], int matches[], int size) {
         while (true) {
             cout << "Enter number of matches for " << names[i] << ": ";
             cin >> matches[i];
-            
+
             cin.ignore();
 
             if (matches[i] >= 0)
                 break;
             else
                 cerr << "\n"
-                     << "Error: Invalid Entry \n" << endl;
+                     << "Error: Invalid Entry \n"
+                     << endl;
         }
     }
 }
@@ -202,7 +199,7 @@ Enter number of matches for Ragland, Nicholas: -1
 
 Error: Invalid Entry
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 -------------------------------------------------
  Cricket Matches College Students Play in a Year

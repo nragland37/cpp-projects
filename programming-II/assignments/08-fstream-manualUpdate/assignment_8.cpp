@@ -50,8 +50,7 @@ int main() {
         Employee *emps = readEmployees(empFile, numEmps);
         displayEmployees(emps, numEmps);
 
-        cout << "\n"
-             << "Any additional employees need to be added? (Y/N)" << endl;
+        cout << "\nAny additional employees need to be added? (Y/N)" << endl;
         cin >> entry;
         if (entry == 'y' || entry == 'Y') {
             Employee *newEmps = inputEmployees(emps, numEmps);
@@ -111,13 +110,12 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
         year;
     string name;
 
-    cout << "\n"
-         << "How many?" << endl;
+    cout << "\nHow many?" << endl;
     cin >> newEntries;
 
-    cin.ignore();     // ignore newline character so getline() works properly
+    cin.ignore();                                               // ignore newline character so getline() works properly
     Employee *newemps = new Employee[numEmps + newEntries];     // numEmps + newEntries = total number of employees
-    
+
     for (int i = 0; i < numEmps; i++) {
         newemps[i].name = emps[i].name;
         newemps[i].age = emps[i].age;
@@ -126,7 +124,7 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
         newemps[i].date.year = emps[i].date.year;
     }
 
-    numEmps = numEmps + newEntries;        // update number of employees to pass by reference to main()
+    numEmps = numEmps + newEntries;     // update number of employees to pass by reference to main()
 
     f.open("Employees.txt", ios::out);     // open file for writing ( ios::out is for writing)
     f << numEmps << endl;
@@ -138,17 +136,15 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
     f.close();
 
     f.open("Employees.txt", ios::app);     // open file for appending ( ios::app is for appending)
-    
+
     for (int i = oldEmps; i < numEmps; ++i) {
-        cout << "\n"
-             << "Name: ";
+        cout << "\nName: ";
         getline(cin, name);
 
         cout << "Age: ";
         cin >> age;
 
-        cout << "\n"
-             << "Date Employed \n"
+        cout << "\nDate Employed \n"
              << "Month: ";
         cin >> month;
 
@@ -211,7 +207,7 @@ Praew Chaem Choi              52                      8/22/1999
 Any additional employees need to be added? (Y/N)
 N
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 Name                          Age                 Date Employed
 ---------------------------------------------------------------

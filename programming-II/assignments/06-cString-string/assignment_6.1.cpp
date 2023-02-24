@@ -36,15 +36,14 @@ int main() {
 
         while (words[length - 1] != '.') {
             cerr << "ERROR: Input must end with a period '.'" << endl;     // cerr is unbuffered and best for error handling
-            cout << "\n"
-                 << "Enter a line of words (less than 50 characters), ended by '.': " << endl;
+            cout << "\nEnter a line of words (less than 50 characters), ended by '.': " << endl;
             cin.getline(words, SIZE);
 
             length = strlen(words);
         }
         result = numberWords(words, length);
 
-        cout << "Total words: " << result << endl
+        cout << "Total words: " << result << "\n"
              << endl;
     }
 
@@ -94,7 +93,7 @@ Enter a line of words (less than 50 characters), ended by '.':
 ,,,,,,,This      contains,, a name.
 Total words: 4
 
-//*****************************************************************************************************
+*****************************************************************************************************
 
 Enter a line of words (less than 50 characters), ended by '.':
 ,,, DEF,,, ABC,, 1234.
