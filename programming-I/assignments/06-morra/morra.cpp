@@ -1,13 +1,8 @@
 //*****************************************************************************************************
+//      Morra Game Simulation
 //
-//		This program simulates a two-player game of guessing the sum of fingers. Both players randomly
-//      display a number of fingers between 1 and 5 and guess the total number of fingers displayed.
-//      The program then calculates the actual sum of the fingers and determines the winner of the
-//      game. The results of the game, including the number of fingers displayed by each player and
-//      the winner, are stored in a text file named "result.txt". If both players correctly guess the
-//      sum of fingers, the game is declared a tie. If neither player correctly guesses the sum, then
-//      no one wins. The output is written to the "result.txt" file, which is created if it does not
-//      already exist.
+//		This program is a simple game of Morra (a game played with fingers) between two players and
+//      the results of each game are written to a file.
 //
 //*****************************************************************************************************
 
@@ -47,8 +42,7 @@ int main() {
     out << playerTwoFingers << "\t\t" << playerTwoGuess << endl;
 
     sum = playerOneFingers + playerTwoFingers;
-    out << "Correct total is " << sum << "\n"
-        << endl;
+    out << "\nCorrect total is " << sum << endl;
 
     if (sum == playerOneGuess && sum == playerTwoGuess)     // if both players guess the correct sum (tie)
         out << "TIE" << endl;
@@ -69,8 +63,8 @@ int main() {
 Fingers	Total
 4		5
 3		9
-Correct total is 7
 
+Correct total is 7
 NO ONE WINS
 
 *****************************************************************************************************
@@ -78,8 +72,8 @@ NO ONE WINS
 Fingers	Total
 1		2
 1		6
-Correct total is 2
 
+Correct total is 2
 PLAYER 1 WINS
 
 *****************************************************************************************************
@@ -87,9 +81,8 @@ PLAYER 1 WINS
 Fingers	Total
 2		1
 4		6
+
 Correct total is 6
-
 PLAYER 2 WINS
-
 
 */

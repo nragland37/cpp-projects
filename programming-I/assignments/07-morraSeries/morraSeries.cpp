@@ -1,8 +1,8 @@
 //*****************************************************************************************************
+//      Morra Series Game Simulation
 //
-//		This program simulates a series of 10 games of the game Morra. Players randomly display a
-//      number of fingers and guess the total sum. The program determines the winner of each game,
-//      outputs the results to both the console and a text file, and outputs the winner of the series.
+//		This program is a series of 10 games of Morra (a game played with fingers) between two players
+//      and the results of each game are written to a file.
 //
 //*****************************************************************************************************
 
@@ -45,29 +45,24 @@ int main() {
         cout << setw(12) << "1"
              << "|" << setw(11) << playerOneFingers << "|" << playerOneGuess << endl;
         cout << setw(12) << "2"
-             << "|" << setw(11) << playerTwoFingers << "|" << playerTwoGuess << "\n"
-             << endl;
+             << "|" << setw(11) << playerTwoFingers << "|" << playerTwoGuess << endl;
 
         sum = playerOneFingers + playerTwoFingers;
-        cout << "Correct total is " << sum << endl;
+        cout << "\nCorrect total is " << sum << endl;
 
         if (sum == playerOneGuess && sum == playerTwoGuess) {
-            cout << "TIE \n"
-                 << endl;
+            cout << "TIE" << endl;
         } else if (sum == playerOneGuess) {
-            cout << "Player 1 Wins \n"
-                 << endl;
+            cout << "Player 1 Wins" << endl;
             playerOneWins++;
         } else if (sum == playerTwoGuess) {
-            cout << "Player 2 Wins \n"
-                 << endl;
+            cout << "Player 2 Wins" << endl;
             playerTwoWins++;
         } else {
-            cout << "NO ONE WINS \n"
-                 << endl;
+            cout << "NO ONE WINS" << endl;
         }
 
-        cout << "-------------------------------------" << endl;
+        cout << "\n-------------------------------------" << endl;
     }
 
     cout << "=====================================" << endl;     // Print results to console
@@ -78,13 +73,11 @@ int main() {
     out << "=====================================" << endl;
     cout << "Player 1 won " << playerOneWins << " games" << endl;
     out << "Player 1 won " << playerOneWins << " games" << endl;
-    cout << "Player 2 won " << playerTwoWins << " games" << endl
-         << endl;
-    out << "Player 2 won " << playerTwoWins << " games" << endl
-        << endl;
+    cout << "Player 2 won " << playerTwoWins << " games" << endl;
+    out << "Player 2 won " << playerTwoWins << " games" << endl;
 
-    cout << "Winner of the series: ";
-    out << "Winner of the series: ";
+    cout << "\nWinner of the series: ";
+    out << "\nWinner of the series: ";
     if (playerOneWins > playerTwoWins) {
         cout << "Player 1" << endl;
         out << "Player 1" << endl;

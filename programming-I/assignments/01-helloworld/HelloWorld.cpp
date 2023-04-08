@@ -1,8 +1,7 @@
 //*****************************************************************************************************
+//      Hello, World!
 //
-//      The "Hello, World!" program is often used as a first program for people learning to code due
-//      to its simplicity, clear output, standardization, and familiarity across different programming
-//      languages.
+//      The "Hello, World!" program is often used as a first program for people learning to code.
 //
 //*****************************************************************************************************
 

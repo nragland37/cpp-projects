@@ -1,14 +1,13 @@
 //*****************************************************************************************************
+//      Sorting and Searching Student Names
 //
-//		This program reads in student names from a file "StudentNames.txt", and then performs several
-//      operations on the names. First, it displays all the names that were read in. Then, it prompts
-//      the user to enter a student name, and performs a linear search to find the name's position in
-//      the list (if it exists). It also sorts the names in ascending order using the bubble sort
-//      algorithm, and then again in descending order using the bubble sort algorithm. Then it uses
-//      the selection sort algorithm to sort the names in ascending order and also implements binary
-//      search algorithm to find the position of a student name in the sorted list. Finally, it sorts
-//      the names in descending order using the selection sort algorithm and again performs a linear
-//      search to find the position of a student name in the list.
+//      This program reads in a list of student names from a file, allows the user to search for a
+//      specific name using linear search and binary search, sorts the names in ascending and 
+//      descending order using bubble sort and selection sort, and displays the sorted lists and
+//      search results.
+//
+//     Other files required:
+//		  1.	 StudentNames.txt - contains the names of 10 students
 //
 //*****************************************************************************************************
 
@@ -42,53 +41,49 @@ int main() {
     readNames(inputFile, names, NUM_NAMES);
     inputFile.close();
 
-    cout << "--------------------------------- \n"
-         << "\tStudent Names \n"
+    cout << "---------------------------------\n"
+         << "\tStudent Names\n"
          << "---------------------------------" << endl;
 
     displayNames(names, NUM_NAMES);
 
-    cout << "\nFind a Students place in the list \n"
+    cout << "\nFind a Students place in the list\n"
          << "Enter Student name (e.g., last name, first name): " << endl;
     getline(cin, name);
 
     displayLinearSearchNames(names, NUM_NAMES, name);
 
-    cin.get();
-    cout << "\n--------------------------------- \n"
-         << " Student Names: Ascending Order \n"
+    cout << "\n---------------------------------\n"
+         << " Student Names: Ascending Order\n"
          << "---------------------------------" << endl;
 
     bubbleSort(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
     displayLinearSearchNames(names, NUM_NAMES, name);
 
-    cin.get();
-    cout << "\n--------------------------------- \n"
-         << " Student Names: Descending Order \n"
+    cout << "\n---------------------------------\n"
+         << " Student Names: Descending Order\n"
          << "---------------------------------" << endl;
 
     bubbleSortDescending(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
     displayLinearSearchNames(names, NUM_NAMES, name);
 
-    cin.get();
-    cout << "\n--------------------------------- \n"
-         << " Student Names: Ascending Order \n"
+    cout << "\n---------------------------------\n"
+         << " Student Names: Ascending Order\n"
          << "---------------------------------" << endl;
 
     selectionSort(names, NUM_NAMES);
     displayNames(names, NUM_NAMES);
 
-    cout << "\nFind another Students place in the ascending list \n"
+    cout << "\nFind another Students place in the ascending list\n"
          << "Enter Student name (e.g., last name, first name): " << endl;
     getline(cin, name);
 
     displayBinarySearchNames(names, NUM_NAMES, name);
 
-    cin.get();
-    cout << "\n--------------------------------- \n"
-         << " Student Names: Descending Order \n"
+    cout << "\n---------------------------------\n"
+         << " Student Names: Descending Order\n"
          << "---------------------------------" << endl;
 
     selectionSortDescending(names, NUM_NAMES);
@@ -105,7 +100,7 @@ void readNames(ifstream &inputFile, string names[], int numNames) {
         for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
             getline(inputFile, names[nameNumber]);
     else
-        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
 }
 
 //*****************************************************************************************************
@@ -136,14 +131,12 @@ int linearSearchNames(const string names[], int numNames, const string &name) {
 //*****************************************************************************************************
 
 void displayLinearSearchNames(const string names[], int numNames, const string &name) {
-    int result;
+    int position = linearSearchNames(names, numNames, name);
 
-    result = linearSearchNames(names, numNames, name);
-    if (result == -1)
-        cout << result
-             << "\nName Not Found" << endl;
+    if (position == -1)
+        cerr << position << "\nName Not Found\n";
     else
-        cout << "\nName Found: " << result + 1 << endl;
+        cout << "\nName Found: " << position + 1 << endl;
 }
 
 //*****************************************************************************************************
@@ -216,14 +209,12 @@ int binarySearchNames(const string names[], int numNames, const string &name) { 
 //*****************************************************************************************************
 
 void displayBinarySearchNames(const string names[], int numNames, const string &name) {
-    int result;
+    int position = binarySearchNames(names, numNames, name);
 
-    result = binarySearchNames(names, numNames, name);
-    if (result == -1)
-        cout << result
-             << "\nName Not Found" << endl;
+    if (position == -1)
+        cerr << position << "\nName Not Found\n";
     else
-        cout << "\nName Found: " << result + 1 << endl;
+        cout << "\nName Found: " << position + 1 << endl;
 }
 
 //*****************************************************************************************************

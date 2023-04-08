@@ -1,13 +1,10 @@
 //*****************************************************************************************************
+//      Cricket Matches Survey Analysis
 //
-//		This program is a survey that collects the number of cricket matches played by
-// college
-//      students in a year. The user inputs the number of students surveyed and their names and the
-//      number of matches they played. The program then displays the names and number of matches
-//      played by each student, the student who played the most matches, the average number of
-//      matches played by all students, and the names and number of matches played in ascending
-//      order. It uses arrays, pointers, and functions such as input, display, displayMostMatches,
-//      mean, and sortStudents.
+//		This program prompts the user to input data on cricket matches played by college students,
+//      dynamically allocates memory for the data, and performs various operations such as displaying
+//      the data, finding the student who played the most matches, calculating the mean number of
+//      matches played, and sorting the data in ascending order by student names.
 //
 //*****************************************************************************************************
 
@@ -27,61 +24,59 @@ void sortStudents(string names[], int matches[], int size);
 //*****************************************************************************************************
 
 int main() {
-    int size;
+    int size;     // size of the array to be dynamically allocated
     int *matches = nullptr;
     double average;
-    string *names = nullptr;
-
-    cout << "------------------------------------------------- \n"
-         << " Cricket Matches College Students Play in a Year \n"
+    string *names = nullptr;     // before dynamically allocating memory, initialize the pointer to nullptr
+                                 // prevent undefined behavior or program crashes caused by uninitialized pointers
+    cout << "-------------------------------------------------\n"
+         << " Cricket Matches College Students Play in a Year\n"
          << "-------------------------------------------------" << endl;
+
     do {
         cout << "How many students were surveyed? (1-5000): ";
         cin >> size;
 
         if (size <= 0 || size > 5000)
-            cerr << "\nError: Invalid Entry \n"
-                 << endl;     // cerr is unbuffered and best for error handling
+            cerr << "\nError: Invalid Entry\n";     // cerr is unbuffered and best for error handling
 
         cin.ignore();
     } while (size <= 0 || size > 5000);
 
-    names = new string[size];     // new operator to dynamically allocate memory on the heap
-    matches = new int[size];      // to ensure sufficient memory for storing the data
-
-    // Dynamic memory allocation is necessary because allocating memory on the stack (In C++, arrays
-    // declared inside a function are stored on the stack by default) would result in a stack
-    // overflow error if the amount of memory needed is too large.
+    names = new string[size];     // dynamically allocate memory for the arrays
+    matches = new int[size];
+    // To dynamically allocate memory in C++, use the 'new' operator followed
+    // by the type and size, and assign the address to a pointer variable
     input(names, matches, size);
 
-    cout << "\n------------------------------------------------- \n"
-         << "\tStudent Names & Matches Played \n"
+    cout << "\n-------------------------------------------------\n"
+         << "\tStudent Names & Matches Played\n"
          << "-------------------------------------------------" << endl;
 
     display(names, matches, size);
 
-    cout << "\n------------------------------------------------- \n"
-         << "\tStudent Who Played Most Matches \n"
+    cout << "\n-------------------------------------------------\n"
+         << "\tStudent Who Played Most Matches\n"
          << "-------------------------------------------------" << endl;
 
     displayMostMatches(names, matches, size);
 
-    cout << "\n------------------------------------------------- \n"
-         << "\tAverage Matches Played for Students \n"
+    cout << "\n-------------------------------------------------\n"
+         << "\tAverage Matches Played for Students\n"
          << "-------------------------------------------------" << endl;
 
     average = mean(matches, size);
     cout << "Average: " << average << endl;
 
-    cout << "\n------------------------------------------------- \n"
-         << "Student Names & Matches Played ~ Ascending Order \n"
+    cout << "\n-------------------------------------------------\n"
+         << "Student Names & Matches Played ~ Ascending Order\n"
          << "-------------------------------------------------" << endl;
 
     sortStudents(names, matches, size);
     display(names, matches, size);
 
-    delete[] names;      // delete operator to deallocate memory on the heap to prevent memory leaks
-    names = nullptr;     // set the pointer to nullptr to prevent dangling pointers
+    delete[] names;      // delete operator to deallocate memory to prevent memory leaks
+    names = nullptr;     // manual memory management is required in C++ because it does not have a garbage collector
     delete[] matches;
     matches = nullptr;
 
@@ -92,8 +87,7 @@ int main() {
 
 void input(string names[], int matches[], int size) {
     for (int i = 0; i < size; ++i) {
-        cout << "\n"
-             << "Enter name of student " << i + 1 << ": ";
+        cout << "\nEnter name of student " << i + 1 << ": ";
         getline(cin, names[i]);
 
         while (true) {
@@ -105,9 +99,7 @@ void input(string names[], int matches[], int size) {
             if (matches[i] >= 0)
                 break;
             else
-                cerr << "\n"
-                     << "Error: Invalid Entry \n"
-                     << endl;
+                cerr << "\nError: Invalid Entry\n";
         }
     }
 }
@@ -145,7 +137,7 @@ double mean(const int matches[], int size) {
     for (int i = 0; i < size; ++i)
         sum += matches[i];
 
-    return sum / size;
+    return (sum / size);
 }
 
 //*****************************************************************************************************
@@ -178,35 +170,23 @@ void sortStudents(string names[], int matches[], int size) {     // selection so
 /*
 
 -------------------------------------------------
-Cricket Matches College Students Play in a Year
+ Cricket Matches College Students Play in a Year
 -------------------------------------------------
 How many students were surveyed? (1-5000): 0
 
 Error: Invalid Entry
-
 How many students were surveyed? (1-5000): -1
 
 Error: Invalid Entry
-
 How many students were surveyed? (1-5000): 10000
 
 Error: Invalid Entry
-
 How many students were surveyed? (1-5000): 5
 
 Enter name of student 1: Ragland, Nicholas
 Enter number of matches for Ragland, Nicholas: -1
 
 Error: Invalid Entry
-
-*****************************************************************************************************
-
--------------------------------------------------
- Cricket Matches College Students Play in a Year
--------------------------------------------------
-How many students were surveyed? (1-5000): 5
-
-Enter name of student 1: Ragland, Nicholas
 Enter number of matches for Ragland, Nicholas: 23
 
 Enter name of student 2: Smith, John

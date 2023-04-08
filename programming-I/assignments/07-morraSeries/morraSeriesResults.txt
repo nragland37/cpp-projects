@@ -1,7 +1,7 @@
 =====================================
 Summary of the series
 =====================================
-Player 1 won 0 games
-Player 2 won 0 games
+Player 1 won 1 games
+Player 2 won 2 games
 
-Winner of the series: It is a TIE
+Winner of the series: Player 2

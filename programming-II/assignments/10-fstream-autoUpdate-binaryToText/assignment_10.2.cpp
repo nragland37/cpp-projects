@@ -1,12 +1,14 @@
 //*****************************************************************************************************
+//      American to English Translation Test with Binary File Updates
 //
-//		This program is a survey that collects the number of cricket matches played by college
-//      students in a year. The user inputs the number of students surveyed and their names and the
-//      number of matches they played. The program then displays the names and number of matches
-//      played by each student, the student who played the most matches, the average number of matches
-//      played by all students, and the names and number of matches played in ascending order. It uses
-//      arrays, pointers, and functions such as input, display, displayMostMatches, mean, and
-//      sortStudents.
+//		The program prompts the user to take an American to English translation test for three
+//      randomly selected people from a list of employees, records the test results along with the
+//      date taken for each person, and automatically writes the updated testers information back to 
+//      the file in binary format for future use, asking only 10 questions per person.
+//
+//      Other files required:
+//		  1.	 Testers.txt - number of testers and the tester information
+//        2.     Translation.txt - number of translations and the translation information
 //
 //*****************************************************************************************************
 
@@ -55,10 +57,10 @@ int main() {
     translate = readTranslation("Translation.txt", numT);
     displayTesters("Testers.dat");
 
-    cout << "\n--------------------------------------------------- \n"
-         << "\tAmerican to English Translation Test \n"
-         << "--------------------------------------------------- \n"
-         << "   Three people from this list will be randomly \n"
+    cout << "\n---------------------------------------------------\n"
+         << "\tAmerican to English Translation Test\n"
+         << "---------------------------------------------------\n"
+         << "   Three people from this list will be randomly\n"
          << "            selected to take the test \n\n"
          << "Would you like to study before the test? (Y/N)" << endl;     // prompts user to study before test
     cin >> studyEntry;
@@ -75,8 +77,8 @@ int main() {
 
     testersUpdates(translate, numT, "Testers.dat");
 
-    cout << "=================================================== \n"
-         << "\t\tUpdated Information \n"
+    cout << "===================================================\n"
+         << "\t\tUpdated Information\n"
          << "===================================================";
 
     displayTesters("Testers.dat");
@@ -105,7 +107,7 @@ Translation *readTranslation(const string &fileName, int &num) {
         }
         f.close();     // closes file after reading data
     } else {
-        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
     }
 
     return t;
@@ -125,8 +127,8 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
     seed = time(0);
     srand(seed);
 
-    cout << "\n--------------------------------- \n"
-         << "      Enter Today's Date \n"
+    cout << "\n---------------------------------\n"
+         << "      Enter Today's Date\n"
          << "---------------------------------" << endl;
 
     cout << "Enter month: ";
@@ -138,13 +140,12 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
     cout << "Enter year: ";
     cin >> year;
 
-    cout << "\n\n--------------------------------- \n"
-         << "            Questions \n"
-         << "--------------------------------- \n"
-         << "    Ten American words will be \n"
-         << " randomly selected from the list. \n"
-         << "  Enter the English translation. \n"
-         << endl;
+    cout << "\n\n---------------------------------\n"
+         << "            Questions\n"
+         << "---------------------------------\n"
+         << "    Ten American words will be\n"
+         << " randomly selected from the list.\n"
+         << "  Enter the English translation." << endl;
 
     fstream f(fileName, ios::in | ios::out | ios::binary);     // opens file in binary mode for input and output
     f.read(reinterpret_cast<char *>(&numP), sizeof(int));      // reads number of people from file and stores in numP
@@ -161,8 +162,8 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
         cout << "\n=================================" << endl;
         cout << setfill(' ') << setw(3) << left << "#"
              << setw(20) << left << "NAME"
-             << "TEST TAKEN" << endl;
-        cout << "---------------------------------" << endl;
+             << "TEST TAKEN\n"
+             << "---------------------------------" << endl;
         cout << setw(3) << left << randomPerson
              << setw(20) << left << people.name
              << people.testTaken.month << "/"
@@ -178,13 +179,16 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
 }
 
 //*****************************************************************************************************
-/* randomPerson range: (0 - 9) ~
+
+/*
+
+randomPerson range: (0 - 9) ~
 
     fstream f(fileName, ios::in | ios::out | ios::binary);
     f.read(reinterpret_cast<char*>(&numP), sizeof(int));
     for (int i = 0; i < NUM_TESTS; ++i) {
-        randomPerson = rand() % numP;                                        <<<<<<<<<<
-        f.seekg((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);  <<<<<<<<<<
+        randomPerson = rand() % numP;                                                        <<<<<<<<<<
+        f.seekg((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);                  <<<<<<<<<<
         f.read(reinterpret_cast<char*>(&people), sizeof(Person));
         people.testTaken.month = month;
         people.testTaken.day = day;
@@ -200,12 +204,13 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
              << people.testTaken.day << "/"
              << people.testTaken.year << endl;
         takeTest(translate, numT, people);
-        f.seekp((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg); <<<<<<<<<<
+        f.seekp((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);                  <<<<<<<<<<
         f.write(reinterpret_cast<char*>(&people), sizeof(Person));
     }
 
-//*****************************************************************************************************
-// seekp begins at current location ~
+*****************************************************************************************************
+
+seekp begins at current location ~
 
         for (int i = 0; i < NUM_TESTS; ++i) {
         randomPerson = (rand() % numP) + 1;
@@ -225,11 +230,12 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
              << people.testTaken.day << "/"
              << people.testTaken.year << endl;
         takeTest(translate, numT, people);
-        f.seekp(((-1) * sizeof(Person)), ios::cur);                    <<<<<<<<<<
+        f.seekp(((-1) * sizeof(Person)), ios::cur);                                          <<<<<<<<<<
         f.write(reinterpret_cast<char*>(&people), sizeof(Person));
     }
 
 */
+
 //*****************************************************************************************************
 
 void takeTest(const Translation translate[], int numT, Person &p) {
@@ -246,8 +252,8 @@ void takeTest(const Translation translate[], int numT, Person &p) {
     cout << "\n---------------------------------" << endl;
     cout << setfill(' ') << setw(3) << left << "#"
          << setw(18) << left << "American"
-         << "English" << endl;
-    cout << "---------------------------------" << endl;
+         << "English\n"
+         << "---------------------------------" << endl;
 
     for (int i = 0; i < NUM_QUESTIONS; ++i) {
         randomQuestion = rand() % numT;     // (numT: 20) range: 0 - 19
@@ -256,15 +262,15 @@ void takeTest(const Translation translate[], int numT, Person &p) {
         cin >> guess;
 
         answer = translate[randomQuestion].english;
+
         if (guess == answer) {
-            cout << "\n\t    Correct! \n"
-                 << endl;
+            cout << "\n\t    Correct!" << endl;
             correct++;
         } else {
             cout << "\n\t   Incorrect! \n\n"
-                 << "Answer: " << translate[randomQuestion].english << "\n"
-                 << endl;
+                 << "Answer: " << translate[randomQuestion].english << endl;
         }
+        cout << endl;
     }
     avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;
     p.score = avg;
@@ -289,8 +295,8 @@ void displayTesters(const string &fileName) {
              << "NAME"
              << setw(15) << left
              << "SCORE %"
-             << "TEST TAKEN" << endl;
-        cout << "---------------------------------------------------" << endl;
+             << "TEST TAKEN\n"
+             << "---------------------------------------------------" << endl;
 
         for (int i = 0; i < numP; ++i) {
             f.read(reinterpret_cast<char *>(&people), sizeof(Person));     // read people from binary file (remaining lines)
@@ -303,7 +309,7 @@ void displayTesters(const string &fileName) {
         }
         f.close();     // close binary file after reading
     } else {
-        cerr << "Error: Unable to open file" << endl;
+        cerr << "Error: Unable to open file\n";
     }
 }
 
@@ -313,8 +319,8 @@ void displayTranslateAnswers(const Translation translate[], int numT) {
     cout << "\n---------------------------------" << endl;
     cout << setw(3) << left << "#"
          << setw(18) << left << "American"
-         << "English" << endl;
-    cout << "---------------------------------" << endl;
+         << "English\n"
+         << "---------------------------------" << endl;
 
     for (int i = 0; i < numT; ++i)
         cout << setfill(' ') << setw(3) << left << i + 1
@@ -345,6 +351,33 @@ void displayTranslateAnswers(const Translation translate[], int numT) {
 ---------------------------------------------------
    Three people from this list will be randomly
             selected to take the test.
+
+Would you like to study before the test? (Y/N)
+N
+
+Good Luck!
+
+*****************************************************************************************************
+
+---------------------------------------------------
+#  NAME                SCORE %        TEST TAKEN
+---------------------------------------------------
+1  Steve Smith         56.6           11/11/2019
+2  Sue Jones           10.0           11/11/2011
+3  Li Ying             0.0            11/11/2011
+4  Kun Joom            20.0           11/11/2021
+5  Joe Bush            10.0           11/11/2021
+6  Kim Long            0.0            11/11/2011
+7  Fred Ring           33.3           5/5/2019
+8  Frank Pearse        20.0           11/11/2011
+9  Helen Hu            0.1            11/11/2011
+10 Mark James          0.0            11/11/2021
+
+---------------------------------------------------
+        American to English Translation Test
+---------------------------------------------------
+   Three people from this list will be randomly
+            selected to take the test
 
 Would you like to study before the test? (Y/N)
 Y
@@ -378,7 +411,7 @@ Press enter to continue...
 Good Luck!
 
 ---------------------------------
-        Enter Today's Date
+      Enter Today's Date
 ---------------------------------
 Enter month: 4
 Enter day: 22
@@ -388,9 +421,58 @@ Enter year: 2022
 ---------------------------------
             Questions
 ---------------------------------
-   Five American words will be
+    Ten American words will be
  randomly selected from the list.
   Enter the English translation.
+
+=================================
+#  NAME                TEST TAKEN
+---------------------------------
+10 Mark James          4/22/2022
+
+---------------------------------
+#  American          English
+---------------------------------
+13 last name.........surname
+
+            Correct!
+
+1  chips.............crisps
+
+            Correct!
+
+8  soccer............football
+
+            Correct!
+
+4  cookie............biscuit
+
+            Correct!
+
+1  chips.............crisps
+
+            Correct!
+
+9  movie.............film
+
+            Correct!
+
+13 last name.........surname
+
+            Correct!
+
+4  cookie............biscuit
+
+            Correct!
+
+12 hood..............bonnet
+
+            Correct!
+
+10 sweater...........jumper
+
+            Correct!
+
 
 =================================
 #  NAME                TEST TAKEN
@@ -400,60 +482,17 @@ Enter year: 2022
 ---------------------------------
 #  American          English
 ---------------------------------
-12 hood..............bonnet
-
-            Correct!
-
-8  soccer............football
-
-            Correct!
-
-6  elevator..........lift
-
-            Correct!
-
-8  soccer............football
-
-            Correct!
-
-2  french fries......chips
-
-            Correct!
-
 4  cookie............biscuit
 
             Correct!
 
-6  elevator..........lift
+7  gas...............gasoline
 
-            Correct!
+           Incorrect!
 
-9  movie.............film
-
-            Correct!
-
-4  cookie............biscuit
-
-            Correct!
+Answer: petrol
 
 2  french fries......chips
-
-            Correct!
-
-
-=================================
-#  NAME                TEST TAKEN
----------------------------------
-2  Sue Jones           4/22/2022
-
----------------------------------
-#  American          English
----------------------------------
-3  sidewalk..........pavement
-
-            Correct!
-
-12 hood..............bonnet
 
             Correct!
 
@@ -465,15 +504,9 @@ Enter year: 2022
 
             Correct!
 
-1  chips.............crisps
+9  movie.............film
 
             Correct!
-
-14 restroom..........bathroom
-
-           Incorrect!
-
-Answer: toilet
 
 12 hood..............hoodie
 
@@ -481,15 +514,17 @@ Answer: toilet
 
 Answer: bonnet
 
-10 sweater...........jumper
+20 mailbox...........email
+
+           Incorrect!
+
+Answer: postbox
+
+6  elevator..........lift
 
             Correct!
 
-8  soccer............football
-
-            Correct!
-
-4  cookie............biscuit
+5  apartment.........flat
 
             Correct!
 
@@ -497,68 +532,74 @@ Answer: bonnet
 =================================
 #  NAME                TEST TAKEN
 ---------------------------------
-6  Kim Long            4/22/2022
+9  Helen Hu            4/22/2022
 
 ---------------------------------
 #  American          English
 ---------------------------------
+3  sidewalk..........walk
+
+           Incorrect!
+
+Answer: pavement
+
+5  apartment.........flat
+
+            Correct!
+
 12 hood..............bonnet
 
             Correct!
 
-6  elevator..........lift
-
-            Correct!
-
-20 mailbox...........postbox
-
-            Correct!
-
-19 pants.............trousers
-
-            Correct!
-
 8  soccer............football
 
             Correct!
 
-10 sweater...........jumper
+15 cart..............trolley
 
             Correct!
 
-11 trunk.............boot
-
-            Correct!
-
-8  soccer............football
-
-            Correct!
-
-1  chips.............fries
+3  sidewalk..........walkside
 
            Incorrect!
 
-Answer: crisps
+Answer: pavement
+
+17 vacation..........holiday
+
+            Correct!
 
 20 mailbox...........postbox
 
             Correct!
-                                                             // checks updated binary file
-===================================================          // read from 'Testers.dat' file after testersUpdates function
-                Updated Information
+
+19 pants.............trouser
+
+           Incorrect!
+
+Answer: trousers
+
+2  french fries......crisps
+
+           Incorrect!
+
+Answer: chips
+
+===================================================            checks updated binary file
+                Updated Information                            writes updates to 'Testers.dat' file
 ===================================================
 ---------------------------------------------------
 #  NAME                SCORE %        TEST TAKEN
 ---------------------------------------------------
 1  Steve Smith         56.6           11/11/2019
-2  Sue Jones           80.0           4/22/2022
-3  Li Ying             100.0          4/22/2022
+2  Sue Jones           10.0           11/11/2011
+3  Li Ying             70.0           4/22/2022
 4  Kun Joom            20.0           11/11/2021
 5  Joe Bush            10.0           11/11/2021
-6  Kim Long            90.0           4/22/2022
+6  Kim Long            0.0            11/11/2011
 7  Fred Ring           33.3           5/5/2019
 8  Frank Pearse        20.0           11/11/2011
-9  Helen Hu            0.1            11/11/2011
-10 Mark James          0.0            11/11/2021
+9  Helen Hu            60.0           4/22/2022
+10 Mark James          100.0          4/22/2022
 
 */

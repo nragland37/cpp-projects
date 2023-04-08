@@ -1,13 +1,13 @@
 //*****************************************************************************************************
+//      Sports Information Management  
 //
-//		This program implements object-oriented programming (OOP) by using classes and objects. The
-//      program is designed to manage and store information about different sports. The user can add
-//      information about multiple sports, including the sport's name, number of teams playing, and
-//      the names of teams playing. The user can then display information about all sports, a
-//      particular sport, the sport with the highest number of teams playing, or exit the program.
-//      The program includes error handling for invalid inputs, ensuring that the user only enters
-//      valid information. The program uses classes and objects to store and manage the information,
-//      providing a clear and organized way to store and access the information.
+//      This program is a sport information system that implements Object Oriented Programming (OOP) 
+//      concepts that allows the user to add, display, and compare different sports based on their 
+//      name, date, and team information.
+//
+//      Other files required:
+//		  1.	 Date.cpp - implementation file for Date class (includes Date.h)
+//        2.     Sport.cpp - implementation file for Sport class (includes Sport.h)
 //
 //*****************************************************************************************************
 
@@ -30,26 +30,28 @@ int main() {
     int size;
     char ch,
         entry;
+    Sport *s = nullptr;
 
-    cout << "===================================================================== \n"
-         << setw(44) << "Sport Information \n"
-         << "===================================================================== \n"
-         << endl;
+    cout << "=====================================================================\n"
+         << setw(44) << "Sport Information\n"
+         << "=====================================================================" << endl;
 
-    cout << "How many Sports need to be processed: ";
+    cout << "\nHow many Sports need to be processed: ";
     cin >> size;
+
+    s = new Sport[size];
+
     cin.ignore();     // ignore the newline character in the buffer to prevent skipping getline() in populate function
 
-    Sport *s = new Sport[size];
     for (int i = 0; i < size; ++i)
         s[i].populate();     // populate function prompts user to enter Sport Name, Date, Number of Teams, and Team Names
 
     do {
-        cout << "\n--------------------------------------------------------------------- \n"
-             << "a) Display all Sports \n"
-             << "b) Add a team to an existing Sport \n"
-             << "c) Display a particular Sport \n"
-             << "d) Display the Sport that has the highest number of teams playing \n"
+        cout << "\n---------------------------------------------------------------------\n"
+             << "a) Display all Sports\n"
+             << "b) Add a team to an existing Sport\n"
+             << "c) Display a particular Sport\n"
+             << "d) Display the Sport that has the highest number of teams playing\n"
              << "e) Exit" << endl;
 
         cout << "Enter Your Choice: ";
@@ -71,6 +73,7 @@ int main() {
                     getline(cin, sportAdd);
 
                     addTest = testName(s, size, sportAdd);     // testName function tests if Sport Name exists
+
                     if (addTest == true) {
                         cout << "\nEnter Team Name: ";
                         getline(cin, team);
@@ -79,7 +82,7 @@ int main() {
                             if (sportAdd == s[i].getName())
                                 s[i].addTeam(team);
                     } else {
-                        cerr << "\n\tInvalid Name" << endl;     // cerr is unbuffered and best for error handling
+                        cerr << "\n\tInvalid Name\n";     // cerr is unbuffered and best for error handling
                         cout << "\nBack to menu? (Y/N)" << endl;
                         cin >> entry;
 
@@ -100,16 +103,16 @@ int main() {
                     getline(cin, s1);
 
                     s1Test = testName(s, size, s1);
+
                     if (s1Test == true) {
                         for (int i = 0; i < size; ++i) {
                             if (s1 == s[i].getName()) {
-                                cout << "\n\t"
-                                     << "Sport " << i + 1 << endl;
+                                cout << "\n\tSport " << i + 1 << endl;
                                 s[i].display();
                             }
                         }
                     } else {
-                        cerr << "\n\tInvalid Name" << endl;
+                        cerr << "\n\tInvalid Name\n";
                         cout << "\nBack to menu? (Y/N)" << endl;
                         cin >> entry;
 
@@ -131,10 +134,10 @@ int main() {
                         max = i;
                     }
                 }
+
                 for (int i = 0; i < size; ++i) {     // test if multiple sports have the same number of teams
                     if (s[max].getNumTeams() == s[i].getNumTeams()) {
-                        cout << "\n\t"
-                             << "Sport " << i + 1 << endl;
+                        cout << "\n\tSport " << i + 1 << endl;
                         s[i].display();
                     }
                 }
@@ -144,7 +147,7 @@ int main() {
                 break;
             }
             default: {
-                cerr << "\n\tError: Invalid Entry" << endl;
+                cerr << "\n\tError: Invalid Entry\n";
             }
         }
     } while (ch != 'e');     // break out of do-while loop if user enters 'e' to exit program
@@ -158,11 +161,10 @@ int main() {
 //*****************************************************************************************************
 
 void displaySports(Sport s[], int size) {
-    cout << "\n--------------------------------------------------------------------- \n";
+    cout << "\n---------------------------------------------------------------------\n";
 
     for (int i = 0; i < size; ++i) {
-        cout << "\n\t"
-             << "Sport " << i + 1 << endl;
+        cout << "\n\tSport " << i + 1 << endl;
         s[i].display();
     }
 }
@@ -191,13 +193,16 @@ bool testName(Sport s[], int size, const string &sportName) {
 =====================================================================
 
 How many Sports need to be processed: 3
+
 Enter the name of the sport: Baseball
 Sport has a scheduled game? (Y/N)
 Y
+
 Next Scheduled Game
 Enter Year: 2022
 Enter Month: 7
 Enter Day: 8
+
 Enter the number of teams: 2
 Enter the name of team 1: Cardinals
 Enter the name of team 2: Cubs
@@ -208,17 +213,18 @@ Y
 Next Scheduled Game
 Enter Year: 1901
 
- Invalid
-Enter Year(2022- ): 2024              // Leap Year
+Invalid
 
+Enter Year(2022- ): 2024                                                      Leap Year
 Enter Month: 15
 
- Invalid
-Enter Month(1-12): 2
+Invalid
 
+Enter Month(1-12): 2
 Enter Day: -13
 
- Invalid
+Invalid
+
 Enter Day(1-29): 29
 
 Enter the number of teams: 3
@@ -244,7 +250,7 @@ d) Display the Sport that has the highest number of teams playing
 e) Exit
 Enter Your Choice: a
 
----------------------------------------------------------------------      // Display all Sports
+---------------------------------------------------------------------       Display all Sports
 
         Sport 1
                 Sport Name ................... Baseball
@@ -271,7 +277,7 @@ Enter Your Choice: a
                 Team 1 ....................... Rams
                 Team 2 ....................... Patriots
 
----------------------------------------------------------------------      // Display highest number
+---------------------------------------------------------------------       Display highest number
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -288,7 +294,7 @@ Enter Your Choice: d
                 Team 2 ....................... Penguins
                 Team 3 ....................... Red Wings
 
----------------------------------------------------------------------      // Display particular Sport
+---------------------------------------------------------------------       Display particular Sport
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -306,8 +312,8 @@ Enter Sport Name to Display: Baseball
                 Team 1 ....................... Cardinals
                 Team 2 ....................... Cubs
 
----------------------------------------------------------------------      // Display particular Sport
-a) Display all Sports                                                      // Invalid Name / back to menu (N)
+---------------------------------------------------------------------       Display particular Sport
+a) Display all Sports                                                       Invalid Name / back to menu (N)
 b) Add a team to an existing Sport
 c) Display a particular Sport
 d) Display the Sport that has the highest number of teams playing
@@ -331,8 +337,8 @@ Enter Sport Name to Display: Football
                 Team 1 ....................... Rams
                 Team 2 ....................... Patriots
 
----------------------------------------------------------------------      // Display particular Sport
-a) Display all Sports                                                      // Invalid Name / back to menu (Y)
+---------------------------------------------------------------------       Display particular Sport
+a) Display all Sports                                                       Invalid Name / back to menu (Y)
 b) Add a team to an existing Sport
 c) Display a particular Sport
 d) Display the Sport that has the highest number of teams playing
@@ -346,7 +352,7 @@ Enter Sport Name to Display: Soccer
 Back to menu? (Y/N)
 Y
 
----------------------------------------------------------------------      // Add team
+---------------------------------------------------------------------       Add team
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -366,7 +372,7 @@ d) Display the Sport that has the highest number of teams playing
 e) Exit
 Enter Your Choice: a
 
----------------------------------------------------------------------     // Display all Sports
+---------------------------------------------------------------------      Display all Sports
 
         Sport 1
                 Sport Name ................... Baseball
@@ -394,7 +400,7 @@ Enter Your Choice: a
                 Team 1 ....................... Rams
                 Team 2 ....................... Patriots
 
----------------------------------------------------------------------      // Display multiple highest numbers
+---------------------------------------------------------------------       Display multiple highest numbers
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -420,7 +426,7 @@ Enter Your Choice: d
                 Team 2 ....................... Penguins
                 Team 3 ....................... Red Wings
 
----------------------------------------------------------------------      // Invalid Choice
+---------------------------------------------------------------------      Invalid Choice
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -430,7 +436,7 @@ Enter Your Choice: w
 
         Invalid Choice
 
----------------------------------------------------------------------      // Add team
+---------------------------------------------------------------------       Add team
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -442,7 +448,7 @@ Enter Sport Name to add Team: Hockey
 
 Enter Team Name: Stars
 
----------------------------------------------------------------------      // Display highest number
+---------------------------------------------------------------------       Display highest number
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -460,8 +466,8 @@ Enter Your Choice: d
                 Team 3 ....................... Red Wings
                 Team 4 ....................... Stars
 
----------------------------------------------------------------------      // Add team
-a) Display all Sports                                                      // Invalid Name / back to menu (Y)
+---------------------------------------------------------------------       Add team
+a) Display all Sports                                                       Invalid Name / back to menu (Y)
 b) Add a team to an existing Sport
 c) Display a particular Sport
 d) Display the Sport that has the highest number of teams playing
@@ -475,8 +481,8 @@ Enter Sport Name to add Team: Soccer
 Back to menu? (Y/N)
 Y
 
----------------------------------------------------------------------    // Add Team
-a) Display all Sports                                                    // Invalid Name / back to menu (N)
+---------------------------------------------------------------------     Add Team
+a) Display all Sports                                                     Invalid Name / back to menu (N)
 b) Add a team to an existing Sport
 c) Display a particular Sport
 d) Display the Sport that has the highest number of teams playing
@@ -494,7 +500,7 @@ Enter Sport Name to add Team: Baseball
 
 Enter Team Name: Red Sox
 
----------------------------------------------------------------------       // Display all Sports
+---------------------------------------------------------------------        Display all Sports
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -532,7 +538,7 @@ Enter Your Choice: a
                 Team 1 ....................... Rams
                 Team 2 ....................... Patriots
 
----------------------------------------------------------------------      // Display multiple highest numbers
+---------------------------------------------------------------------       Display multiple highest numbers
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -560,7 +566,7 @@ Enter Your Choice: d
                 Team 3 ....................... Red Wings
                 Team 4 ....................... Stars
 
----------------------------------------------------------------------      // Exit
+---------------------------------------------------------------------       Exit
 a) Display all Sports
 b) Add a team to an existing Sport
 c) Display a particular Sport
@@ -615,7 +621,7 @@ Enter Your Choice: a
                 Team 1 ....................... test
                 Team 2 ....................... test
 
-Destructor called                                                           // Destructor test
+Destructor called                                                            Destructor test
 
         Sport 2
                 Sport Name ................... test
@@ -625,7 +631,7 @@ Destructor called                                                           // D
                 Team 1 ....................... test
                 Team 2 ....................... test
 
-Destructor called                                                          // Destructor test
+Destructor called                                                           Destructor test
 
 ---------------------------------------------------------------------
 a) Display all Sports
@@ -635,7 +641,7 @@ d) Display the Sport that has the highest number of teams playing
 e) Exit
 Enter Your Choice: e
 
-Destructor called                                                          // Destructor test
+Destructor called                                                           Destructor test
 
 Destructor called
 

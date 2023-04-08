@@ -1,10 +1,8 @@
 //*****************************************************************************************************
+//      Counting Words in C-Strings
 //
-//      This program counts the number of words in a string of less than 50 characters that ends with
-//      a period ('.'). The user is prompted for input and the function numberWords() is used to
-//      count the words by checking if each character is a letter. If the input doesn't end with a
-//      period, an error is displayed. The program runs for 3 inputs and displays the total number
-//      of words for each.
+//      This program takes a user input c-string and counts the number of words ending with a period 
+//      and ignores any punctuation, spaces, numbers, special characters, mispelled words, etc.
 //
 //*****************************************************************************************************
 
@@ -29,13 +27,13 @@ int main() {
     words = new char[SIZE];
 
     for (int i = 0; i < numInput; ++i) {
-        cout << "Enter a line of words (less than 50 characters), ended by '.': " << endl;
+        cout << "\nEnter a line of words (less than 50 characters), ended by '.': " << endl;
         cin.getline(words, SIZE);     // cin.getline() is used for c-strings (getline() is used for strings)
 
         length = strlen(words);
 
         while (words[length - 1] != '.') {
-            cerr << "ERROR: Input must end with a period '.'" << endl;     // cerr is unbuffered and best for error handling
+            cerr << "ERROR: Input must end with a period '.'\n";     // cerr is unbuffered and best for error handling
             cout << "\nEnter a line of words (less than 50 characters), ended by '.': " << endl;
             cin.getline(words, SIZE);
 
@@ -43,8 +41,7 @@ int main() {
         }
         result = numberWords(words, length);
 
-        cout << "Total words: " << result << "\n"
-             << endl;
+        cout << "Total words: " << result << endl;
     }
 
     delete[] words;      // must always delete dynamic memory to avoid memory leaks

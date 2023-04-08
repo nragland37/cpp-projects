@@ -1,11 +1,11 @@
 //*****************************************************************************************************
+//      Test Score Analysis
 //
-//		  This program reads in test scores from a file, performs various calculations on them using a
-//      2D array, and displays the results. It includes functions for tasks such as reading scores,
-//      displaying scores, calculating total and average scores for specific tests or students, and
-//      finding the top-performing student. The main function opens the file, creates the array, and
-//      calls the relevant functions to read in and analyze the scores, and prompts the user to press
-//      enter after each calculation.
+//		This program reads a list of test scores from a file, performs various calculations, and
+//      displays the scores and calculations.
+//
+//      Other files required:
+//		  1.	 Assignment1Data.txt - test scores for 10 students on 8 tests
 //
 //*****************************************************************************************************
 
@@ -40,17 +40,16 @@ int main() {
 
     cout << setprecision(2) << fixed;
 
-    cin.get();
-    cout << "Total for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0) << "\n\n"     // 0 is the first test
-         << "Total for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4) << "\n\n"
-         << "Total for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2) << "\n\n"
-         << "Total for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7) << "\n\n"
-         << "Average for Test #5: " << averageOneTest(scores, NUM_STDS, 4) << "\n\n"
-         << "Average for Test #8: " << averageOneTest(scores, NUM_STDS, 7) << "\n\n"
-         << "Average for Student #5: " << averageOneStudent(scores, NUM_STDS, 4) << "\n\n"
-         << "Average for Student #9: " << averageOneStudent(scores, NUM_STDS, 8) << "\n\n"
-         << "Highest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1) << "\n\n"
-         << "The top Student: " << topStudent(scores, NUM_STDS) << endl;
+    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0)     // 0 is the first test
+         << "\n\nTotal for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4)
+         << "\n\nTotal for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2)
+         << "\n\nTotal for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7)
+         << "\n\nAverage for Test #5: " << averageOneTest(scores, NUM_STDS, 4)
+         << "\n\nAverage for Test #8: " << averageOneTest(scores, NUM_STDS, 7)
+         << "\n\nAverage for Student #5: " << averageOneStudent(scores, NUM_STDS, 4)
+         << "\n\nAverage for Student #9: " << averageOneStudent(scores, NUM_STDS, 8)
+         << "\n\nHighest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1)
+         << "\n\nThe top Student: " << topStudent(scores, NUM_STDS) << endl;
 
     return 0;
 }
@@ -63,7 +62,7 @@ void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
             for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
                 f >> scores[studentNumber][testNumber];
     } else {
-        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
     }
 }
 
@@ -156,7 +155,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
         }
     }
 
-    return topStudent + 1;     // +1 for display
+    return (topStudent + 1);     // +1 for display
 }
 
 //*****************************************************************************************************

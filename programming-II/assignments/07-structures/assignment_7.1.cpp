@@ -1,16 +1,11 @@
 //*****************************************************************************************************
+//      Speaker Management
 //
-//		This program manages a speakers' bureau and allows users to input speaker information, update
-//      speaker information, display information for one speaker, display speakers for a specific
-//      topic, and display all speaker information. The Speaker struct holds the name, phone number,
-//      topic, and fee of a speaker. In main(), the program prompts the user for actions such as
-//      updating speaker information, displaying information for one speaker, or displaying speakers
-//      for a specific topic. The program also calls the displayAllSpeakerInfo() function to display
-//      all speaker information.
+//      This program is a speaker bureau system with a limit of 10 speakers that allows users to input, 
+//      update, and display information on speakers, as well as search for speakers by topic.
 //
 //*****************************************************************************************************
 
-#include <cctype>      // library for toupper(), tolower(), isalpha(), isspace(), etc. (character functions)
 #include <iomanip>     // library for setprecision(), fixed, setw(), setfill(), etc. (manipulators for output formatting)
 #include <iostream>
 #include <string>
@@ -48,8 +43,8 @@ int main() {
     inputSpeakers(members, SIZE, numSpeakers);
 
     do {
-        cout << "\n--------------------------------------------------------------- \n"
-             << "    Enter the name of the speaker you would like to update \n"
+        cout << "\n---------------------------------------------------------------\n"
+             << "    Enter the name of the speaker you would like to update\n"
              << "---------------------------------------------------------------" << endl;
         cout << "Name: ";
         getline(cin, speakerName);
@@ -57,15 +52,15 @@ int main() {
         nameTest = testName(members, numSpeakers, speakerName);
 
         if (nameTest == false)
-            cerr << "\nSorry but the name does not exist" << endl;     // cerr is unbuffered and best for error handling
+            cerr << "\nSorry but the name does not exist\n";     // cerr is unbuffered and best for error handling
 
     } while (nameTest == false);
 
     updateSpeaker(members, numSpeakers, speakerName);
 
     do {
-        cout << "\n--------------------------------------------------------------- \n"
-             << "   Enter the name of the speaker you would like to display \n"
+        cout << "\n---------------------------------------------------------------\n"
+             << "   Enter the name of the speaker you would like to display\n"
              << "---------------------------------------------------------------" << endl;
         cout << "Name: ";
         getline(cin, speakerName);
@@ -73,15 +68,15 @@ int main() {
         nameTest = testName(members, numSpeakers, speakerName);
 
         if (nameTest == false)
-            cerr << "\nSorry but the name does not exist" << endl;
+            cerr << "\nSorry but the name does not exist\n";
 
     } while (nameTest == false);
 
     displayOneSpeakerInfo(members, numSpeakers, speakerName);
 
     do {
-        cout << "\n--------------------------------------------------------------- \n"
-             << "     Enter the topic you would like to display names for \n"
+        cout << "\n---------------------------------------------------------------\n"
+             << "     Enter the topic you would like to display names for\n"
              << "---------------------------------------------------------------" << endl;
         cout << "Topic: ";
         getline(cin, topic);
@@ -89,8 +84,7 @@ int main() {
         topicTest = testTopic(members, numSpeakers, topic);
 
         if (topicTest == false) {
-            cerr << "\nSorry but nobody is speaking about this topic \n"
-                 << endl;
+            cerr << "\nSorry but nobody is speaking about this topic\n\n";
             cout << "Do you have another topic? (Y/N)" << endl;
             cin >> topicEntry;
 
@@ -103,8 +97,8 @@ int main() {
 
     displayTopicSpeakers(members, numSpeakers, topic);
 
-    cout << "\n\n------------------------------------------------------------- \n"
-         << "\t\tSpeakers' Bureau Information \n"
+    cout << "\n\n-------------------------------------------------------------\n"
+         << "\t\tSpeakers' Bureau Information\n"
          << "-------------------------------------------------------------" << endl;
 
     displayAllSpeakerInfo(members, numSpeakers);
@@ -120,15 +114,14 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
     for (int i = 0; i < size; ++i) {
         numSpeakers++;
 
-        cout << "\n--------------------------------------------------------------- \n"
-             << "\tEnter the following information of speaker " << i + 1 << ". \n"
+        cout << "\n---------------------------------------------------------------\n"
+             << "\tEnter the following information of speaker " << i + 1 << ".\n"
              << "---------------------------------------------------------------" << endl;
         cout << "Name: ";
         getline(cin, members[i].name);
 
         while (isEmpty(members[i].name)) {
-            cerr << "\nSorry but the name could not be empty \n"
-                 << endl;
+            cerr << "\nSorry but the name could not be empty\n\n";
             cout << "Name: ";
             getline(cin, members[i].name);
         }
@@ -137,8 +130,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
         getline(cin, members[i].phoneNum);
 
         while (isEmpty(members[i].phoneNum)) {
-            cerr << "\nSorry but the telephone number could not be empty \n"
-                 << endl;
+            cerr << "\nSorry but the telephone number could not be empty\n\n";
             cout << "Telephone Number: ";
             getline(cin, members[i].phoneNum);
         }
@@ -147,8 +139,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
         getline(cin, members[i].topic);
 
         while (isEmpty(members[i].topic)) {
-            cerr << "\nSorry but the topic could not be empty \n"
-                 << endl;
+            cerr << "\nSorry but the topic could not be empty\n\n";
             cout << "Topic: ";
             getline(cin, members[i].topic);
         }
@@ -157,8 +148,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
         cin >> members[i].fee;
 
         while (members[i].fee < 0) {
-            cerr << "\nSorry but the fees could not be negative \n"
-                 << endl;
+            cerr << "\nSorry but the fees could not be negative\n\n";
             cout << "Fee: ";
             cin >> members[i].fee;
         }
@@ -177,8 +167,8 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
 //****************************************************************************************************
 
 void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName) {
-    cout << "\n--------------------------------------------------------------- \n"
-         << "\tPlease enter the speaker's updated information \n"
+    cout << "\n---------------------------------------------------------------\n"
+         << "\tPlease enter the speaker's updated information\n"
          << "---------------------------------------------------------------" << endl;
 
     for (int i = 0; i < numSpeakers; ++i) {
@@ -186,8 +176,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             cout << "Name: ";
             getline(cin, members[i].name);
             while (isEmpty(members[i].name)) {
-                cerr << "\nSorry but the name could not be empty \n"
-                     << endl;
+                cerr << "\nSorry but the name could not be empty\n\n";
                 cout << "Name: ";
                 getline(cin, members[i].name);
             }
@@ -196,8 +185,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             getline(cin, members[i].phoneNum);
 
             while (isEmpty(members[i].phoneNum)) {
-                cerr << "\nSorry but the telephone number could not be empty \n"
-                     << endl;
+                cerr << "\nSorry but the telephone number could not be empty\n\n";
                 cout << "Telephone Number: ";
                 getline(cin, members[i].phoneNum);
             }
@@ -206,8 +194,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             getline(cin, members[i].topic);
 
             while (isEmpty(members[i].topic)) {
-                cerr << "\nSorry but the topic could not be empty \n"
-                     << endl;
+                cerr << "\nSorry but the topic could not be empty\n\n";
                 cout << "Topic: ";
                 getline(cin, members[i].topic);
             }
@@ -216,8 +203,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             cin >> members[i].fee;
 
             while (members[i].fee < 0) {
-                cerr << "\nSorry but the fees could not be negative \n"
-                     << endl;
+                cerr << "\nSorry but the fees could not be negative\n\n";
                 cout << "Fee: ";
                 cin >> members[i].fee;
             }
@@ -293,43 +279,42 @@ void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
 //****************************************************************************************************
 
 bool isEmpty(const string &str) {
-    int len = str.length();
+    bool success = false;
 
-    for (int i = 0; i < len; ++i)
-        if (!isspace(str[i]))     // c standard library function
-            return false;
+    if (str.empty())     // empty() is a string function that returns true if the string is empty
+        success = true;
 
-    return true;
+    return success;
 }
 
 //****************************************************************************************************
 
 bool testName(Speaker members[], int numSpeakers, const string &speakerName) {
-    bool nameFound = false;
+    bool success = false;
 
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
-            nameFound = true;
-            break;
+            success = true;
+            break;     // break out of the loop if the name is found
         }
     }
 
-    return nameFound;
+    return success;
 }
 
 //****************************************************************************************************
 
 bool testTopic(Speaker members[], int numSpeakers, const string &topic) {
-    bool topicFound = false;
+    bool success = false;
 
     for (int i = 0; i < numSpeakers; ++i) {
         if (topic == members[i].topic) {
-            topicFound = true;
+            success = true;
             break;
         }
     }
 
-    return topicFound;
+    return success;
 }
 
 //*****************************************************************************************************
@@ -339,10 +324,6 @@ bool testTopic(Speaker members[], int numSpeakers, const string &topic) {
 ---------------------------------------------------------------
         Enter the following information of speaker 1.
 ---------------------------------------------------------------
-Name:
-
-Sorry but the name could not be empty
-
 Name: John Smith
 Telephone Number: 314-111-1111
 Topic: Art
@@ -353,7 +334,7 @@ Y
 ---------------------------------------------------------------
         Enter the following information of speaker 2.
 ---------------------------------------------------------------
-Name: Olivia Davisson
+Name: Olivia Potters
 Telephone Number: 314-222-2222
 Topic: Computer Science
 Fee: 40
@@ -392,14 +373,14 @@ Sorry but the name does not exist
 ---------------------------------------------------------------
     Enter the name of the speaker you would like to update
 ---------------------------------------------------------------
-Name: Nicholas Ragland
+Name: Nick Plant
 
 Sorry but the name does not exist
 
 ---------------------------------------------------------------
     Enter the name of the speaker you would like to update
 ---------------------------------------------------------------
-Name: Nicholas Kretschmer
+Name: Joe Slow
 
 Sorry but the name does not exist
 
@@ -411,8 +392,8 @@ Name: John Smith
 ---------------------------------------------------------------
         Please enter the speaker's updated information
 ---------------------------------------------------------------
-Name: Nicholas Ragland
-Telephone Number: 314-219-9993
+Name: Nick Plant
+Telephone Number: 314-219-9392
 Topic: Computer Science
 Fee: 55
 
@@ -426,11 +407,11 @@ Sorry but the name does not exist
 ---------------------------------------------------------------
    Enter the name of the speaker you would like to display
 ---------------------------------------------------------------
-Name: Nicholas Ragland
+Name: Nick Plant
 
 Speaker 1
-        Name ......................... Nicholas Ragland
-        Telephone Number ............. 314-219-9993
+        Name ......................... Nick Plant
+        Telephone Number ............. 314-219-9392
         Topic ........................ Computer Science
         Fee .......................... 55
 
@@ -450,17 +431,16 @@ Y
 Topic: Computer Science
 
 Speaker 1
-        Name ......................... Nicholas Ragland
-        Telephone Number ............. 314-219-9993
+        Name ......................... Nick Plant
+        Telephone Number ............. 314-219-9392
         Topic ........................ Computer Science
         Fee .......................... 55
 
 Speaker 2
-        Name ......................... Olivia Davisson
+        Name ......................... Olivia Potters
         Telephone Number ............. 314-222-2222
         Topic ........................ Computer Science
         Fee .......................... 40
-
 
 
 -------------------------------------------------------------
@@ -468,13 +448,13 @@ Speaker 2
 -------------------------------------------------------------
 
 Speaker 1
-        Name ......................... Nicholas Ragland
-        Telephone Number ............. 314-219-9993
+        Name ......................... Nick Plant
+        Telephone Number ............. 314-219-9392
         Topic ........................ Computer Science
         Fee .......................... 55
 
 Speaker 2
-        Name ......................... Olivia Davisson
+        Name ......................... Olivia Potters
         Telephone Number ............. 314-222-2222
         Topic ........................ Computer Science
         Fee .......................... 40

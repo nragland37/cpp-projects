@@ -1,10 +1,12 @@
 //*****************************************************************************************************
+//      Sorting and Searching Student Names
 //
-//		This program reads in a list of student names from a file named "StudentNames.txt" and stores
-//      them in an array of strings. It then displays the names, allows the user to search for a
-//      specific name in the array, and provides the index of the name if it is found. The program
-//      also sorts the names in ascending and descending order using the bubble sort algorithm and
-//      displays the names in the sorted order. Finally, the program closes the input file and ends.
+//		This program reads in a list of student names from a file, allows the user to search for a
+//      specific name using a linear search, and then sorts the names in ascending and descending
+//      order using a bubble sort.
+//
+//      Other files required:
+//		  1.	 StudentNames.txt - names of 10 students
 //
 //*****************************************************************************************************
 
@@ -35,20 +37,20 @@ int main() {
     inputFile.close();
 
     cout << "---------------------------------\n"
-         << "\tStudent Names \n"
+         << "\tStudent Names\n"
          << "---------------------------------" << endl;
 
     displayNames(names, NUM_NAMES);
 
-    cout << "\nFind a Students place in the list \n"
+    cout << "\nFind a Students place in the list\n"
          << "Enter Student name (e.g., last name, first name): " << endl;
     getline(cin, name);
 
     searchNames(names, NUM_NAMES, name);
     displaySearchNames(names, NUM_NAMES, name);
 
-    cout << "\n--------------------------------- \n"
-         << " Student Names: Ascending Order \n"
+    cout << "\n---------------------------------\n"
+         << " Student Names: Ascending Order\n"
          << "---------------------------------" << endl;
 
     bubbleSort(names, NUM_NAMES);
@@ -57,8 +59,8 @@ int main() {
     searchNames(names, NUM_NAMES, name);
     displaySearchNames(names, NUM_NAMES, name);
 
-    cout << "\n--------------------------------- \n"
-         << " Student Names: Descending Order \n"
+    cout << "\n---------------------------------\n"
+         << " Student Names: Descending Order\n"
          << "---------------------------------" << endl;
 
     bubbleSortDescending(names, NUM_NAMES);
@@ -77,7 +79,7 @@ void readNames(ifstream &inputFile, string names[], int numNames) {
         for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
             getline(inputFile, names[nameNumber]);
     else
-        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
 }
 
 //*****************************************************************************************************
@@ -89,7 +91,7 @@ void displayNames(const string names[], int numNames) {
 
 //*****************************************************************************************************
 
-int searchNames(const string names[], int numNames, const string &name) {
+int searchNames(const string names[], int numNames, const string &name) { 
     int index = 0,          // current index in the names array
         position = -1;      // holds the position of the found name in the array
     bool found = false;     // flag indicating whether the name has been found
@@ -108,11 +110,12 @@ int searchNames(const string names[], int numNames, const string &name) {
 //*****************************************************************************************************
 
 void displaySearchNames(const string names[], int numNames, const string &name) {
-    if (searchNames(names, numNames, name) == -1)
-        cout << searchNames(names, numNames, name)
-             << "\nName Not Found" << endl;
+    int position = searchNames(names, numNames, name);
+
+    if (position == -1)
+        cerr << position << "\nName Not Found\n";
     else
-        cout << "\nName Found: " << searchNames(names, numNames, name) << endl;
+        cout << "\nName Found: " << position << endl;
 }
 
 //*****************************************************************************************************

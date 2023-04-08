@@ -1,4 +1,5 @@
 //*****************************************************************************************************
+//      String Processing
 //
 //		This program takes a string and uses various string functions to extract and display
 //      information about the string such as the length, number of letters, digits, upper and lower
@@ -22,8 +23,8 @@ int main() {
     string sentence("This is a 101 SAMPLE to demonstrate string processing");
 
     cout << "------------------------------------------------------ \n"
-         << sentence << "\n"
-         << "------------------------------------------------------" << endl;
+         << sentence
+         << "\n------------------------------------------------------" << endl;
     sentenceData(sentence);
 
     return 0;
@@ -51,16 +52,16 @@ void sentenceData(const string sentence) {
             upperCount++;
     }
 
-    cout << "The size of the string: " << length << "\n"
-         << "The number of letters in the string: " << alphaCount << "\n"
-         << "The number of digits in the string: " << digitCount << "\n"
-         << "The number of lower case letters in the string: " << lowerCount << "\n"
-         << "The number of upper case letters in the string: " << upperCount << "\n"
-         << "The character that is at index 12 of the string: " << sentence.at(12) << "\n"
-         << "The first character of the string: " << sentence.front() << "\n"
-         << "The last character of the string: " << sentence.back() << "\n"
-         << "The index of the first 's' in the string: " << first_s << "\n"
-         << "The index of the second 's' in the string: " << second_s << endl;
+    cout << "The size of the string: " << length
+         << "\nThe number of letters in the string: " << alphaCount
+         << "\nThe number of digits in the string: " << digitCount
+         << "\nThe number of lower case letters in the string: " << lowerCount
+         << "\nThe number of upper case letters in the string: " << upperCount
+         << "\nThe character that is at index 12 of the string: " << sentence.at(12)
+         << "\nThe first character of the string: " << sentence.front()
+         << "\nThe last character of the string: " << sentence.back()
+         << "\nThe index of the first 's' in the string: " << first_s
+         << "\nThe index of the second 's' in the string: " << second_s << endl;
 }
 
 //*****************************************************************************************************

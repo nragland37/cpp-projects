@@ -1,11 +1,11 @@
 //*****************************************************************************************************
+//      Test Score Analysis
 //
-//		This program reads and analyzes test scores for 10 students and 8 tests. It reads the test
-//      scores from a file and displays them. The program calculates and displays the total score
-//      for each student and each test, the average score for each student and each test, and the
-//      highest score for each student. It also finds the student with the highest average score and
-//      searches for a student with an average score greater than a user-specified value or for a test
-//      with an average score greater than a user-specified value.
+//      This program reads in test scores from a file, performs various calculations on the data, and
+//      allows the user to search for students using a linear search algorithm.
+//
+//      Other files required:
+//		  1.	 Assignment1Data.txt - test scores for 10 students
 //
 //*****************************************************************************************************
 
@@ -43,29 +43,27 @@ int main() {
 
     cout << setprecision(2) << fixed;
 
-    cin.get();
-    cout << "Total for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0) << "\n\n"
-         << "Total for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4) << "\n\n"
-         << "Total for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2) << "\n\n"
-         << "Total for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7) << "\n\n"
-         << "Average for Test #5: " << averageOneTest(scores, NUM_STDS, 4) << "\n\n"
-         << "Average for Test #8: " << averageOneTest(scores, NUM_STDS, 7) << "\n\n"
-         << "Average for Student #5: " << averageOneStudent(scores, NUM_STDS, 4) << "\n\n"
-         << "Average for Student #9: " << averageOneStudent(scores, NUM_STDS, 8) << "\n\n"
-         << "Highest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1) << "\n\n"
-         << "The top Student: " << topStudent(scores, NUM_STDS) << "\n"
-         << endl;
+    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0)
+         << "\n\nTotal for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4)
+         << "\n\nTotal for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2)
+         << "\n\nTotal for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7)
+         << "\n\nAverage for Test #5: " << averageOneTest(scores, NUM_STDS, 4)
+         << "\n\nAverage for Test #8: " << averageOneTest(scores, NUM_STDS, 7)
+         << "\n\nAverage for Student #5: " << averageOneStudent(scores, NUM_STDS, 4)
+         << "\n\nAverage for Student #9: " << averageOneStudent(scores, NUM_STDS, 8)
+         << "\n\nHighest test score for Student #2: " << highestOneStudent(scores, NUM_STDS, 1)
+         << "\n\nThe top Student: " << topStudent(scores, NUM_STDS) << endl;
 
-    cout << "Find if at least one student has an average score greater \n"
+    cout << "\nFind if at least one student has an average score greater\n"
          << "Enter average score of student: ";
     cin >> average;
-
+    
     if (searchStudents(scores, NUM_STDS, average))
-        cout << "\nA student DOES have an average score greater than: " << average << "\n\n";
+        cout << "\nA student DOES have an average score greater than: " << average;
     else
-        cout << "\nA student DOES NOT have an average score greater than: " << average << "\n\n";
+        cout << "\nA student DOES NOT have an average score greater than: " << average;
 
-    cout << "Find if at least one test has an average score greater \n"
+    cout << "\n\nFind if at least one test has an average score greater\n"
          << "Enter average score of test: ";
     cin >> average;
 
@@ -85,7 +83,7 @@ void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
             for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
                 f >> scores[studentNumber][testNumber];
     } else {
-        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
     }
 }
 
@@ -178,7 +176,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
         }
     }
 
-    return topStudent + 1;
+    return (topStudent + 1);
 }
 
 //*****************************************************************************************************
@@ -257,5 +255,49 @@ Find if at least one test has an average score greater
 Enter average score of test: 95
 
 A test DOES have an average score greater than: 95.00
+
+*****************************************************************************************************
+
+    All Test scores
+87 90 65 45 88 89 75 80
+89 85 78 56 90 91 99 82
+80 90 72 95 99 66 77 88
+90 65 80 98 99 76 77 88
+55 75 66 99 99 56 87 86
+30 60 80 90 99 56 67 88
+90 55 95 35 98 86 37 88
+99 97 99 98 98 96 87 83
+90 65 80 98 99 76 87 88
+35 75 60 99 99 56 87 88
+
+Total for Test #1 is: 745
+
+Total for Test #5 is: 968
+
+Total for Student #3 is: 667
+
+Total for Student #8 is: 757
+
+Average for Test #5: 96.80
+
+Average for Test #8: 85.90
+
+Average for Student #5: 77.88
+
+Average for Student #9: 85.38
+
+Highest test score for Student #2: 99
+
+The top Student: 8
+
+Find if at least one student has an average score greater
+Enter average score of student: 60
+
+A student DOES have an average score greater than: 60.00
+
+Find if at least one test has an average score greater
+Enter average score of test: 99
+
+A test DOES NOT have an average score greater than: 99.00
 
 */

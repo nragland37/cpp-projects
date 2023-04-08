@@ -1,12 +1,9 @@
 //*****************************************************************************************************
+//      Speaker Management
 //
-//		This program is a survey that collects the number of cricket matches played by college
-//      students in a year. The user inputs the number of students surveyed and their names and the
-//      number of matches they played. The program then displays the names and number of matches
-//      played by each student, the student who played the most matches, the average number of matches
-//      played by all students, and the names and number of matches played in ascending order. It uses
-//      arrays, pointers, and functions such as input, display, displayMostMatches, mean, and
-//      sortStudents.
+//      This program is a speaker bureau system that allows users to dynamically allocate memory for a
+//      specified number of speakers, up to a limit of 5000, and allows users to input, update, and
+//      display information on speakers, as well as search for speakers by topic.
 //
 //*****************************************************************************************************
 
@@ -43,8 +40,8 @@ int main() {
         topicTest;
     char topicEntry;
 
-    cout << "\n--------------------------------------------------------------- \n"
-         << "     Enter the number of speakers at the Speakers' Bureau \n"
+    cout << "\n---------------------------------------------------------------\n"
+         << "     Enter the number of speakers at the Speakers' Bureau\n"
          << "---------------------------------------------------------------" << endl;
 
     do {
@@ -54,7 +51,7 @@ int main() {
         cin.ignore();     // ignore the newline character in the input buffer so getline() works properly
 
         if (size <= 0 || size >= 5000)
-            cerr << "\nNumber must be greater than 0 and smaller than 5000" << endl;     // cerr is unbuffered and best for error handling
+            cerr << "\nNumber must be greater than 0 and smaller than 5000\n";     // cerr is unbuffered and best for error handling
 
     } while (size <= 0 || size >= 5000);
 
@@ -62,23 +59,23 @@ int main() {
     inputSpeakers(members, size, numSpeakers);     // input speakers' info with getline() (this is why we used cin.ignore() above)
 
     do {
-        cout << "\n--------------------------------------------------------------- \n"
-             << "    Enter the name of the speaker you would like to update \n"
+        cout << "\n---------------------------------------------------------------\n"
+             << "    Enter the name of the speaker you would like to update\n"
              << "---------------------------------------------------------------" << endl;
         cout << "Name: ";
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
         if (nameTest == false)
-            cerr << "\nSorry but the name does not exist" << endl;     // cerr is unbuffered and best for error handling
+            cerr << "\nSorry but the name does not exist\n";     // cerr is unbuffered and best for error handling
 
     } while (nameTest == false);
 
     updateSpeaker(members, numSpeakers, speakerName);
 
     do {
-        cout << "\n--------------------------------------------------------------- \n"
-             << "   Enter the name of the speaker you would like to display \n"
+        cout << "\n---------------------------------------------------------------\n"
+             << "   Enter the name of the speaker you would like to display\n"
              << "---------------------------------------------------------------" << endl;
         cout << "Name: ";
         getline(cin, speakerName);
@@ -86,14 +83,14 @@ int main() {
         nameTest = testName(members, numSpeakers, speakerName);
 
         if (nameTest == false)
-            cerr << "\nSorry but the name does not exist" << endl;
+            cerr << "\nSorry but the name does not exist\n";
     } while (nameTest == false);
 
     displayOneSpeakerInfo(members, numSpeakers, speakerName);
 
     do {
-        cout << "\n--------------------------------------------------------------- \n"
-             << "     Enter the topic you would like to display names for \n"
+        cout << "\n---------------------------------------------------------------\n"
+             << "     Enter the topic you would like to display names for\n"
              << "---------------------------------------------------------------" << endl;
         cout << "Topic: ";
         getline(cin, topic);
@@ -101,8 +98,7 @@ int main() {
         topicTest = testTopic(members, numSpeakers, topic);
 
         if (topicTest == false) {
-            cerr << "\nSorry but nobody is speaking about this topic \n"
-                 << endl;
+            cerr << "\nSorry but nobody is speaking about this topic\n\n";
             cout << "Do you have another topic? (Y/N)" << endl;
             cin >> topicEntry;
 
@@ -115,8 +111,8 @@ int main() {
 
     displayTopicSpeakers(members, numSpeakers, topic);
 
-    cout << "\n\n------------------------------------------------------------- \n"
-         << "\t\tSpeakers' Bureau Information \n"
+    cout << "\n\n-------------------------------------------------------------\n"
+         << "\t\tSpeakers' Bureau Information\n"
          << "-------------------------------------------------------------" << endl;
 
     displayAllSpeakerInfo(members, numSpeakers);
@@ -135,15 +131,15 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
     for (int i = 0; i < size; ++i) {
         numSpeakers++;
 
-        cout << "\n--------------------------------------------------------------- \n"
-             << "\tEnter the following information of speaker " << i + 1 << ". \n"
+        cout << "\n---------------------------------------------------------------\n"
+             << "\tEnter the following information of speaker " << i + 1 << ".\n"
              << "---------------------------------------------------------------" << endl;
 
         cout << "Name: ";
         getline(cin, members[i].name);
 
         while (isEmpty(members[i].name)) {
-            cerr << "\nSorry but the name could not be empty" << endl;
+            cerr << "\nSorry but the name could not be empty\n";
             cout << "\nName: ";
             getline(cin, members[i].name);
         }
@@ -152,7 +148,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
         getline(cin, members[i].phoneNum);
 
         while (isEmpty(members[i].phoneNum)) {
-            cerr << "\nSorry but the telephone number could not be empty" << endl;
+            cerr << "\nSorry but the telephone number could not be empty\n";
             cout << "\nTelephone Number: ";
             getline(cin, members[i].phoneNum);
         }
@@ -161,7 +157,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
         getline(cin, members[i].topic);
 
         while (isEmpty(members[i].topic)) {
-            cerr << "\nSorry but the topic could not be empty" << endl;
+            cerr << "\nSorry but the topic could not be empty\n";
             cout << "\nTopic: ";
             getline(cin, members[i].topic);
         }
@@ -170,7 +166,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
         cin >> members[i].fee;
 
         while (members[i].fee < 0) {
-            cerr << "\nSorry but the fees could not be negative" << endl;
+            cerr << "\nSorry but the fees could not be negative\n";
             cout << "\nFee: ";
             cin >> members[i].fee;
         }
@@ -189,8 +185,8 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
 //*****************************************************************************************************
 
 void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName) {
-    cout << "\n--------------------------------------------------------------- \n"
-         << "\tPlease enter the speaker's updated information \n"
+    cout << "\n---------------------------------------------------------------\n"
+         << "\tPlease enter the speaker's updated information\n"
          << "---------------------------------------------------------------" << endl;
 
     for (int i = 0; i < numSpeakers; ++i) {
@@ -199,7 +195,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             getline(cin, members[i].name);
 
             while (isEmpty(members[i].name)) {
-                cerr << "\nSorry but the name could not be empty" << endl;
+                cerr << "\nSorry but the name could not be empty\n";
                 cout << "\nName: ";
                 getline(cin, members[i].name);
             }
@@ -208,7 +204,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             getline(cin, members[i].phoneNum);
 
             while (isEmpty(members[i].phoneNum)) {
-                cerr << "\nSorry but the telephone number could not be empty" << endl;
+                cerr << "\nSorry but the telephone number could not be empty\n";
                 cout << "\nTelephone Number: ";
                 getline(cin, members[i].phoneNum);
             }
@@ -217,7 +213,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             getline(cin, members[i].topic);
 
             while (isEmpty(members[i].topic)) {
-                cerr << "\nSorry but the topic could not be empty" << endl;
+                cerr << "\nSorry but the topic could not be empty\n";
                 cout << "\nTopic: ";
                 getline(cin, members[i].topic);
             }
@@ -226,7 +222,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
             cin >> members[i].fee;
 
             while (members[i].fee < 0) {
-                cerr << "\nSorry but the fees could not be negative" << endl;
+                cerr << "\nSorry but the fees could not be negative\n";
                 cout << "\nFee: ";
                 cin >> members[i].fee;
             }
@@ -302,13 +298,12 @@ void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
 //*****************************************************************************************************
 
 bool isEmpty(const string &str) {
-    int len = str.length();     // length() is a function that returns the length of the string
+    bool success = false;
 
-    for (int i = 0; i < len; ++i)
-        if (!isspace(str[i]))     // isspace() is a function that checks if the character is a space
-            return false;
+    if (str.empty())     // empty() is a string function that returns true if the string is empty
+        success = true;
 
-    return true;
+    return success;
 }
 
 //*****************************************************************************************************
@@ -319,7 +314,7 @@ bool testName(Speaker members[], int numSpeakers, const string &speakerName) {
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
             nameFound = true;
-            break;
+            break;     // break out of the loop if the name is found
         }
     }
 

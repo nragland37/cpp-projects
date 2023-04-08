@@ -1,14 +1,15 @@
 //*****************************************************************************************************
+//      Text File to Binary Conversion 
 //
-//		This program reads in information about testers from a text file "Testers.txt" and writes the
-//      information into a binary file "Testers.dat". The information includes the tester's name,
-//      score, and the date the test was taken. The program makes use of a struct called "Person" to
-//      store the information of each tester and two functions, "readTesters" and "writeTesters", to
-//      handle reading from the text file and writing to the binary file, respectively.
+//		This program reads data from a text file and writes it to a binary file, using an array of 
+//      structs to store the data.
+//
+//      Other files required:
+//		  1.	 Testers.txt - number of testers and the tester information
 //
 //*****************************************************************************************************
 
-#include <fstream>     //library for input and output operations with files
+#include <fstream>     
 #include <iostream>
 #include <string>
 using namespace std;
@@ -72,7 +73,7 @@ Person *readTesters(const string &fileName, int &num) {
         }
         f.close();
     } else {
-        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
     }
 
     return p;
@@ -91,18 +92,25 @@ void writeTesters(const string &fileName, Person people[], int numP) {
 //*****************************************************************************************************
 
 /*
+
 reinterpret_cast<new_type>(expression)
+
 C++ type cast operator used to cast an expression to a different type, regardless of the relationship
 between the original type and the new type.
 
+*****************************************************************************************************
+
 f.write(reinterpret_cast<char*>(&numP), sizeof(int));
+
 (&numP) - casts it to a char* pointer, allowing it to be written to the binary file
 sizeof(int) - specifies the size of the data being written is an int type
 
+*****************************************************************************************************
+
 f.write(reinterpret_cast<char*>(people), sizeof(Person) * numP);
+
 (people) - casts it to a char* pointer, allowing it to be written to the binary file.
 sizeof(Person) * numP - specifies the size of the data being written is an array of Person structs with
                        numP number of elements.
-
 
 */

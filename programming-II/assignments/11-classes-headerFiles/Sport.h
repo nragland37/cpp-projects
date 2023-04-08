@@ -1,9 +1,11 @@
 //*****************************************************************************************************
+//      Sport Class Header File
+//		
+//      This header file defines the private and public members and methods of the Sport class and
+//      defines the inline functions (getters and setters).
 //
-//		The program defines a class "Sport" that stores information about a sport event including its
-//      name, date of the next game, number of teams, and names of the teams. The class has functions
-//      for accessing and modifying the stored information, as well as functions for displaying the
-//      information and populating the names of the teams.
+//     Other files required:
+//		  1.	 Date.h - header file for Date class
 //
 //*****************************************************************************************************
 

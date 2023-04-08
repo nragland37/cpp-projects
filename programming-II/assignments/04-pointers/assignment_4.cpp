@@ -1,8 +1,9 @@
 //*****************************************************************************************************
+//      Pointer and Array Manipulation
 //
-//		This program creates an array of integers, and uses a pointer and array notation to display
-//      the values and memory addresses of each element in the array. The program also allows the user
-//      to input values and display the value and memory address at that index.
+//		This program demonstrates various uses of arrays and pointers, including printing the values
+//      and addresses of array elements, getting user input to access specific array elements, and
+//      performing pointer arithmetic to add the values of two array elements.
 //
 //*****************************************************************************************************
 
@@ -34,26 +35,25 @@ int main() {
 //*****************************************************************************************************
 
 void f1(int nums[], int size) {
-    cout << "----------------------------- \n"
-         << " Values and Addresses: Array \n"
+    cout << "-----------------------------\n"
+         << " Values and Addresses: Array\n"
          << "-----------------------------" << endl;
 
     for (int i = 0; i < size; ++i)
-        cout << "\nValue of index " << i << ": " << nums[i] << " "
-             << "\n"                                                             // array notation to get the value at that index
-             << "Address of index " << i << ": " << &nums[i] << " " << endl;     // array notation to get the address of that index
+        cout << "\nValue of index " << i << ": " << nums[i]                 // array notation to get the value at that index
+             << "\nAddress of index " << i << ": " << &nums[i] << endl;     // array notation to get the address of that index
 }
 
 //*****************************************************************************************************
 
 void f2(int *ptr, int size) {
-    cout << "\n------------------------------- \n"
-         << " Values and Addresses: Pointer \n"
+    cout << "\n-------------------------------\n"
+         << " Values and Addresses: Pointer\n"
          << "-------------------------------" << endl;
 
     for (int i = 0; i < size; ++i)
-        cout << "\nValue of index " << i << ": " << *(ptr + i) << "\n"          // dereference pointer ptr and add i to the address to get the value at that index
-             << "Address of index " << i << ": " << ptr + i << " " << endl;     // add i to the address to get the address of that index
+        cout << "\nValue of index " << i << ": " << *(ptr + i)             // dereference pointer ptr and add i to the address to get the value at that index
+             << "\nAddress of index " << i << ": " << ptr + i << endl;     // add i to the address to get the address of that index
 }
 
 //*****************************************************************************************************
@@ -63,8 +63,8 @@ void f3(int nums[], int size) {
     int *p = nums;     // pointer p points to the first element in the array nums
     int input;
 
-    cout << "\n------------------------------------------------------------ \n"
-         << "  Enter three integer values within the range of the index \n"
+    cout << "\n------------------------------------------------------------\n"
+         << "  Enter three integer values within the range of the index\n"
          << "------------------------------------------------------------" << endl;
 
     for (int i = 0; i < SIZE; ++i) {
@@ -76,12 +76,12 @@ void f3(int nums[], int size) {
                 p = &nums[input];
                 break;
             } else {
-                cerr << "\nError: Invalid Entry" << endl;     // cerr is unbuffered and best for error handling
+                cerr << "\nError: Invalid Entry\n";     // cerr is unbuffered and best for error handling
             }
         }
 
-        cout << "Value of index " << input << ": " << *p << "\n"
-             << "Address of index " << input << ": " << p << " " << endl;
+        cout << "Value of index " << input << ": " << *p
+             << "\nAddress of index " << input << ": " << p << endl;
     }
 }
 
@@ -94,8 +94,8 @@ void f4(int nums[], int size) {
     int input1,
         input2;
 
-    cout << "\n---------------------------------------------------------- \n"
-         << "  Enter two integer values within the range of the index \n"
+    cout << "\n----------------------------------------------------------\n"
+         << "  Enter two integer values within the range of the index\n"
          << "----------------------------------------------------------" << endl;
 
     while (true) {
@@ -106,7 +106,7 @@ void f4(int nums[], int size) {
             p1 = &nums[input1];     // pointer p1 points to the address of the value at index input1
             break;
         } else {
-            cerr << "\nError: Invalid Entry" << endl;
+            cerr << "\nError: Invalid Entry\n";
         }
     }
 
@@ -120,12 +120,12 @@ void f4(int nums[], int size) {
             p2 = &nums[input2];
             break;
         } else {
-            cerr << "\nError: Invalid Entry" << endl;
+            cerr << "\nError: Invalid Entry\n";
         }
     }
 
-    cout << "Value of index " << input2 << ": " << *p2 << "\n\n"                                   // dereference pointer p2 to get the value at that index
-         << "The sum of index " << input1 << " and " << input2 << " is " << *p1 + *p2 << endl;     // dereference pointer p1 and p2 to get the value at that index and add them together (pointer arithmetic)
+    cout << "Value of index " << input2 << ": " << *p2                                                 // dereference pointer p2 to get the value at that index
+         << "\n\nThe sum of index " << input1 << " and " << input2 << " is " << *p1 + *p2 << endl;     // dereference pointer p1 and p2 to get the value at that index and add them together (pointer arithmetic)
 }
 
 //*****************************************************************************************************

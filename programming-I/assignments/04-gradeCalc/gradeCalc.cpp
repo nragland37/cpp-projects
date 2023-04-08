@@ -1,10 +1,7 @@
 //*****************************************************************************************************
+//      Computer Programming I Grade Calculator
 //
-//      This is a grade calculator program that calculates the final grade for a student in a Computer
-//      Programming I course. It takes the percentage for each deliverable (Programming Assignments,
-//      Chapter Tests, Final Exam, and Class Participation) and multiplies it by its weight to obtain
-//      the final percentage. The final grades for each deliverable are summed up to produce the final
-//      grade for the course.
+//      This program is a simple grade calculator for a Computer Programming I class.
 //
 //*****************************************************************************************************
 
@@ -27,17 +24,15 @@ int main() {
         sum_of_all_weights,
         avg;
 
-    cout << "Grade Calculator - Computer Programming I \n"
-         << endl;
+    cout << "Grade Calculator - Computer Programming I" << endl;
 
-    cout << "The weight of each deliverable on their final grade \n"
-         << "\tProgrammig Assignments: " << ASSIGN_PERCENT << "% \n"
-         << "\tChapter Tests: " << TEST_PERCENT << "% \n"
-         << "\tFinal Exam: " << EXAM_PERCENT << "% \n"
-         << "\tClass Participation: " << PARTIC_PERCENT << "% \n"
-         << endl;
+    cout << "\nThe weight of each deliverable on their final grade\n"
+         << "\tProgrammig Assignments: " << ASSIGN_PERCENT << "%\n"
+         << "\tChapter Tests: " << TEST_PERCENT << "%\n"
+         << "\tFinal Exam: " << EXAM_PERCENT << "%\n"
+         << "\tClass Participation: " << PARTIC_PERCENT << "%" << endl;
 
-    cout << "What is the graded percentage (out of 100%) for Programming Assignments? ";
+    cout << "\nWhat is the graded percentage (out of 100%) for Programming Assignments? ";
     cin >> PercentOutOf100;
 
     assignWeight = PercentOutOf100 * ASSIGN_PERCENT;
@@ -62,37 +57,35 @@ int main() {
 
     cout << fixed << setprecision(2);
 
-    cout << "\n\n\t" << assignWeight / sum_of_all_weights << "% in Programming Assignments \n"
-         << "\t" << testWeight / sum_of_all_weights << "% in Chapter Tests \n"
-         << "\t" << examWeight / sum_of_all_weights << "% in Final Exam \n"
-         << "\t" << particWeight / sum_of_all_weights << "% in Class Participation \n"
-         << endl;
+    cout << "\n\n\t" << assignWeight / sum_of_all_weights << "% in Programming Assignments\n"
+         << "\t" << testWeight / sum_of_all_weights << "% in Chapter Tests\n"
+         << "\t" << examWeight / sum_of_all_weights << "% in Final Exam\n"
+         << "\t" << particWeight / sum_of_all_weights << "% in Class Participation" << endl;
 
-    cout << "\nFinal Grade: " << avg << "% \n"
-         << endl;
+    cout << "\n\nFinal Grade: " << avg << "%" << endl;
 
     if (avg >= 97 || avg == 100)     // 97% is the lowest A+
-        cout << "Your Grade is A+";
+        cout << "\nYour Grade is A+";
     else if (avg >= 94 && avg <= 96)     // 94% is the lowest A
-        cout << "Your Grade is A";
+        cout << "\nYour Grade is A";
     else if (avg >= 90 && avg <= 93)     // 90% is the lowest A-
-        cout << "Your Grade is A-";
+        cout << "\nYour Grade is A-";
     else if (avg >= 87 && avg <= 89)     // 87% is the lowest B+
-        cout << "Your Grade is B+";
+        cout << "\nYour Grade is B+";
     else if (avg >= 84 && avg <= 86)     // 84% is the lowest B
-        cout << "Your Grade is B";
+        cout << "\nYour Grade is B";
     else if (avg >= 80 && avg <= 83)     // 80% is the lowest B-
-        cout << "Your Grade is B-";
+        cout << "\nYour Grade is B-";
     else if (avg >= 77 && avg <= 79)     // 77% is the lowest C+
-        cout << "Your Grade is C+";
+        cout << "\nYour Grade is C+";
     else if (avg >= 74 && avg <= 76)     // 74% is the lowest C
-        cout << "Your Grade is C";
+        cout << "\nYour Grade is C";
     else if (avg >= 70 && avg <= 73)     // 70% is the lowest C-
-        cout << "Your Grade is C-";
+        cout << "\nYour Grade is C-";
     else if (avg >= 60 && avg <= 69)     // 60% is the lowest D
-        cout << "Your Grade is D";
+        cout << "\nYour Grade is D";
     else
-        cout << "Your Grade is F";     // 59% is the lowest F
+        cout << "\nYour Grade is F";     // 59% is the lowest F
 
     return 0;
 }

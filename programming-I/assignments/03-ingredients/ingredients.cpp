@@ -1,10 +1,8 @@
 //*****************************************************************************************************
+//      Chocolate Chip Cookies Recipe - Scaling Ingredients
 //
-//      This program is a simple recipe for making Chocolate Chip Cookies. It lists the ingredients
-//      and step-by-step instructions to prepare the cookies. Then it prompts the user to specify the
-//      number of dozens of cookies they want to make, and it calculates and displays the corresponding
-//      amount of each ingredient required based on the original recipe. The program ensures that the
-//      number of dozens must be a multiple of four, which is the original recipe's serving size.
+//      This program is a simple recipe for making Chocolate Chip Cookies that can be scaled to any
+//      number of dozens.
 //
 //*****************************************************************************************************
 
@@ -25,41 +23,37 @@ int main() {
     int dozen,
         quantity;
 
-    cout << "Chocolate Chip Cookies - 4 dozen cookies \n"
-         << endl;
+    cout << "Chocolate Chip Cookies - 4 dozen cookies" << endl;
 
-    cout << "\t" << BUTTER << " cup butter \n"
-         << "\t" << SUGAR << " cups white sugar \n"
-         << "\t" << EGG << " eggs \n"
-         << "\t" << VANILLA << " tsp vanilla extract \n"
-         << "\t" << FLOUR << " cups all-purpose flour \n"
-         << "\t" << BAKING_SODA << " baking soda \n"
-         << "\t" << SALT << " tsp salt \n"
-         << "\t" << CHOC_CHIP << " cups chocolate chips \n"
-         << endl;
+    cout << "\n\t" << BUTTER << " cup butter\n"
+         << "\t" << SUGAR << " cups white sugar\n"
+         << "\t" << EGG << " eggs\n"
+         << "\t" << VANILLA << " tsp vanilla extract\n"
+         << "\t" << FLOUR << " cups all-purpose flour\n"
+         << "\t" << BAKING_SODA << " baking soda\n"
+         << "\t" << SALT << " tsp salt\n"
+         << "\t" << CHOC_CHIP << " cups chocolate chips" << endl;
 
-    cout << "Preheat oven to 350 F. In a large bowl, mix butter, sugar, eggs, and vanilla \n"
-         << "until light and fluffy. In a separate bowl, combine flour, baking soda, and \n"
-         << "salt; stir into the butter mixture until well-blended stir in chocolate chips. \n"
-         << "Drop by rounded teaspoons onto ungreased cookie sheets. Bake 8-10 minutes until \n"
-         << "just set. Cool slightly on cookie sheets before transferring to cooling racks \n"
-         << "to cool completely. \n"
-         << endl;
+    cout << "\nPreheat oven to 350 F. In a large bowl, mix butter, sugar, eggs, and vanilla\n"
+         << "until light and fluffy. In a separate bowl, combine flour, baking soda, and\n"
+         << "salt; stir into the butter mixture until well-blended stir in chocolate chips.\n"
+         << "Drop by rounded teaspoons onto ungreased cookie sheets. Bake 8-10 minutes until\n"
+         << "just set. Cool slightly on cookie sheets before transferring to cooling racks\n"
+         << "to cool completely." << endl;
 
-    cout << "How many dozens are you planning to make (Please give a multiple of four)?" << endl;
+    cout << "\nHow many dozens are you planning to make (Please give a multiple of four)?" << endl;
     cin >> dozen;
 
     quantity = dozen / 4;     // 4 dozen = 1 quantity of ingredients (original recipe)
 
-    cout << "\n\n\t" << quantity * BUTTER << " cup butter \n"
-         << "\t" << quantity * SUGAR << " cups white sugar \n"
-         << "\t" << quantity * EGG << " eggs \n"
-         << "\t" << quantity * VANILLA << " tsp vanilla extract \n"
-         << "\t" << quantity * FLOUR << " cups all-purpose flour \n"
-         << "\t" << quantity * BAKING_SODA << " baking soda \n"
-         << "\t" << quantity * SALT << " tsp salt \n"
-         << "\t" << quantity * CHOC_CHIP << " cups chocolate chips \n"
-         << endl;
+    cout << "\n\n\t" << quantity * BUTTER << " cup butter\n"
+         << "\t" << quantity * SUGAR << " cups white sugar\n"
+         << "\t" << quantity * EGG << " eggs\n"
+         << "\t" << quantity * VANILLA << " tsp vanilla extract\n"
+         << "\t" << quantity * FLOUR << " cups all-purpose flour\n"
+         << "\t" << quantity * BAKING_SODA << " baking soda\n"
+         << "\t" << quantity * SALT << " tsp salt\n"
+         << "\t" << quantity * CHOC_CHIP << " cups chocolate chips" << endl;
 
     return 0;
 }

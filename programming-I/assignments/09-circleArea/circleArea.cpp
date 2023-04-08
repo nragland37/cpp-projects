@@ -1,12 +1,12 @@
 //*****************************************************************************************************
+//      Circumference Calculation
 //
-//		The "Hello, World!" program is often used as a first program for people learning to code due
-//      to its simplicity, clear output, standardization, and familiarity across different programming
-//      languages.
+//		This program is a simple circumference calculator for a circle.
 //
 //*****************************************************************************************************
 
-#include <cmath>     // library for math functions (sin(), cos(), tan(), pow(), sqrt(), etc.) and constants (M_PI, M_E, etc.)
+#define _USE_MATH_DEFINES     // needed to define M_PI with math.h or cmath on some platforms
+#include <cmath>              // library for math functions (sin(), cos(), tan(), pow(), sqrt(), etc.) and constants (M_PI, M_E, etc.)
 #include <iostream>
 using namespace std;
 
@@ -36,9 +36,8 @@ int main() {
 //*****************************************************************************************************
 
 void greet() {
-    cout << "Welcome to the Circumference Calculation Program \n"
-         << "Enter the radius and I'll find the circumference of the circle! \n"
-         << endl;
+    cout << "Welcome to the Circumference Calculation Program\n"
+         << "Enter the radius and I'll find the circumference of the circle!" << endl;
 }
 
 //*****************************************************************************************************
@@ -47,10 +46,9 @@ float readRadius() {
     float posInput;     // positive input beecause radius must be positive
 
     do {
-        cout << "Please enter a positive radius: ";
+        cout << "\nPlease enter a positive radius: ";
         cin >> posInput;
 
-        cout << endl;
     } while (posInput <= 0);     // while input is not positive, keep asking for input
 
     return posInput;     // return the positive input to main() and assign it to radius
@@ -61,7 +59,7 @@ float readRadius() {
 float findCircumf(float radius) {
     float circumf;
 
-    circumf = (2 * M_PI) * radius;     // circumf = (2 * pi) * radius
+    circumf = (2 * M_PI) * radius;
 
     return circumf;     // or return (2 * M_PI) * radius;
 }
@@ -69,15 +67,14 @@ float findCircumf(float radius) {
 //*****************************************************************************************************
 
 void printResult(float radius, float circumf) {
-    cout << "You entered the radius: " << radius << "\n"
-         << "The circumference of the circle: " << circumf << "\n"
-         << endl;
+    cout << "\nYou entered the radius: " << radius
+         << "\nThe circumference of the circle: " << circumf << endl;
 }
 
 //*****************************************************************************************************
 
 void signOff() {
-    cout << "Have A Great Day!" << endl;
+    cout << "\nHave A Great Day!" << endl;
 }
 
 //*****************************************************************************************************

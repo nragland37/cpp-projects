@@ -1,11 +1,8 @@
 //*****************************************************************************************************
-//
-//		This is the header file for a Date class in C++. The class has private member variables to
-//      store the day, month, and year of a date. The class has a default constructor, a destructor,
-//      and methods for getting and setting the day, month, and year. It also has methods for
-//      inputting a date and displaying a date. The member functions are declared inline for
-//      efficiency. Additionally, the header file includes an #ifndef preprocessor directive to
-//      prevent multiple inclusion of the header file.
+//      Date class header file
+//		
+//      This header file defines the private and public members and methods of the Date class and
+//      defines the inline functions (getters and setters).
 //
 //*****************************************************************************************************
 

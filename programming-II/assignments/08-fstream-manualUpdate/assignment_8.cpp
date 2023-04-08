@@ -1,14 +1,13 @@
 //*****************************************************************************************************
+//      Employee Management
 //
-//		This program reads employee data from a file, stores it in an array of structures, and allows
-//      users to add more employees. The code displays the current list of employees after each
-//      update, using standard input and file input/output. The program opens the file "Employees.txt"
-//      and reads the number of employees, calling the readEmployees function to store the data in an
-//      array of structures. The displayEmployees function shows the employee information. The user
-//      can add new employees by inputting the information through the inputEmployees function. The
-//      process can be repeated until the user stops, and the combined list is displayed each time. If
-//      the file can't be opened, an error message is displayed and memory is deallocated at the end
-//      of the program.
+//		This program demonstrates the use of file input/output, dynamic memory allocation, and 
+//      structures to read employee information from a text file, allow the user to add new employees, 
+//      display all employee information, and manually write the updated employee information back to 
+//      the file.
+//
+//      Other files required:
+//		  1.	 Employees.txt - number of employees and the employee information
 //
 //*****************************************************************************************************
 
@@ -68,7 +67,7 @@ int main() {
         }
     }
     if (!f)
-        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
 
     return 0;
 }
@@ -144,7 +143,7 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
         cout << "Age: ";
         cin >> age;
 
-        cout << "\nDate Employed \n"
+        cout << "\nDate Employed\n"
              << "Month: ";
         cin >> month;
 
@@ -221,7 +220,7 @@ Y
 How many?
 3
 
-Name: Nicholas Ragland
+Name: Nick Plant
 Age: 31
 
 Date Employed
@@ -229,7 +228,7 @@ Month: 7
 Day: 8
 Year: 1991
 
-Name: Olivia Davisson
+Name: Olivia Potters
 Age: 24
 
 Date Employed
@@ -250,9 +249,8 @@ Name                          Age                 Date Employed
 Stephen Smith                 25                     12/15/2001
 Susan Kim-Jones               33                      1/ 9/2012
 Praew Chaem Choi              52                      8/22/1999
-Nicholas Ragland              31                      7/ 8/1991
-Olivia Davisson               24                      2/27/1999
+Nick Plant                    31                      7/ 8/1991
+Olivia Potters                24                      2/27/1999
 Bob Bobbers                   55                      1/ 1/2023
-
 
 */

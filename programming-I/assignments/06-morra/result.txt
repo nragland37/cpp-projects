@@ -1,6 +1,6 @@
 Fingers	Total
-2		1
-4		6
-Correct total is 6
+3		5
+2		5
 
-PLAYER 2 WINS
+Correct total is 5
+TIE

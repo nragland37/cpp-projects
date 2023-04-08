@@ -1,12 +1,14 @@
 //*****************************************************************************************************
+//      American to English Translation Test
 //
-//		This program is a simulation of an English-American translation test. It includes reading in
-//      data from two files, Translation.txt and Testers.txt, which contain the words to be translated
-//      and the testers' names, scores, and dates they last took the test, respectively. The program
-//      then gives the option for the user to study before taking the test and randomly selects three
-//      people to take the test. After taking the test, the program updates the testers' scores,
-//      displays the updated information, and writes the updated information back to the Testers.txt
-//      file.
+//		The program prompts the user to take an American to English translation test for three
+//      randomly selected people from a list of employees, records the test results along with the
+//      date taken for each person, and automatically writes the updated testers information back to
+//      the file for future use, asking only 5 questions per person.
+//
+//      Other files required:
+//		  1.	 Testers.txt - number of testers and the tester information
+//        2.     Translation.txt - number of translations and the translation information
 //
 //*****************************************************************************************************
 
@@ -61,10 +63,10 @@ int main() {
 
     displayTesters(people, numP);
 
-    cout << "\n--------------------------------------------------- \n"
-         << "\tAmerican to English Translation Test \n"
-         << "--------------------------------------------------- \n"
-         << "   Three people from this list will be randomly \n"
+    cout << "\n---------------------------------------------------\n"
+         << "\tAmerican to English Translation Test\n"
+         << "---------------------------------------------------\n"
+         << "   Three people from this list will be randomly\n"
          << "            selected to take the test \n\n"
          << "Would you like to study before the test? (Y/N)" << endl;     // prompts user to study before test
     cin >> studyEntry;
@@ -81,8 +83,8 @@ int main() {
 
     testingOptions(translate, numT, people, numP);
 
-    cout << "=================================================== \n"
-         << "\t\tUpdated Information \n"
+    cout << "===================================================\n"
+         << "\t\tUpdated Information\n"
          << "===================================================";
 
     displayTesters(people, numP);
@@ -114,7 +116,7 @@ Translation *readTranslation(const string &fileName, int &num) {
         }
         f.close();     // closes file after reading in data (only needed for reading in from file and not writing to file)
     } else {
-        cerr << "Error: Unable to open file" << endl;     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
     }
 
     return t;     // returns pointer to array of structs (Translation)
@@ -145,7 +147,7 @@ Person *readTesters(const string &fileName, int &num) {
         }
         f.close();
     } else {
-        cerr << "Error: Unable to open file" << endl;
+        cerr << "Error: Unable to open file\n";
     }
 
     return p;
@@ -163,8 +165,8 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
     seed = time(0);
     srand(seed);
 
-    cout << "\n--------------------------------- \n"
-         << "        Enter Today's Date \n"
+    cout << "\n---------------------------------\n"
+         << "        Enter Today's Date\n"
          << "---------------------------------" << endl;
 
     cout << "Enter month: ";
@@ -176,11 +178,11 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
     cout << "Enter year: ";
     cin >> year;
 
-    cout << "\n\n--------------------------------- \n"
-         << "            Questions \n"
-         << "--------------------------------- \n"
-         << "   Five American words will be \n"
-         << " randomly selected from the list \n"
+    cout << "\n\n---------------------------------\n"
+         << "            Questions\n"
+         << "---------------------------------\n"
+         << "   Five American words will be\n"
+         << " randomly selected from the list\n"
          << "  Enter the English translation." << endl;
 
     for (int i = 0; i < NUM_TESTS; ++i) {
@@ -196,7 +198,7 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
              << "#"
              << setw(20) << left
              << "NAME"
-             << "TEST TAKEN \n"
+             << "TEST TAKEN\n"
              << "---------------------------------" << endl;
 
         cout << setw(3) << left << randomPerson + 1
@@ -228,8 +230,8 @@ void takeTest(const Translation translate[], int numT, Person &p) {
          << "#"
          << setw(18) << left
          << "American"
-         << "English" << endl;
-    cout << "---------------------------------" << endl;
+         << "English\n"
+         << "---------------------------------" << endl;
 
     for (int i = 0; i < NUM_QUESTIONS; ++i) {
         randomQuestion = rand() % numT;     // (numT: 20) range: 0 - 19  // 0 - (numT - 1)
@@ -240,15 +242,13 @@ void takeTest(const Translation translate[], int numT, Person &p) {
         answer = translate[randomQuestion].english;
 
         if (guess == answer) {
-            cout << "\n\t"
-                 << "    Correct! \n"
-                 << endl;
+            cout << "\n\t    Correct!" << endl;
             correct++;
         } else {
-            cout << "\n\t   Incorrect! \n\n"
-                 << "Answer: " << translate[randomQuestion].english << "\n"
-                 << endl;
+            cout << "\n\t   Incorrect!\n\n"
+                 << "Answer: " << translate[randomQuestion].english << endl;
         }
+        cout << endl;
     }
     avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;     // static_cast is used to convert int to double for the average
     p.score = avg;
@@ -265,8 +265,8 @@ void displayTesters(const Person people[], int numP) {
          << "NAME"
          << setw(15) << left
          << "SCORE %"
-         << "TEST TAKEN" << endl;
-    cout << "---------------------------------------------------" << endl;
+         << "TEST TAKEN\n"
+         << "---------------------------------------------------" << endl;
 
     for (int i = 0; i < numP; ++i)     // displays the name, score, and date of the test taken for each person
         cout << setw(3) << left << i + 1
@@ -309,8 +309,6 @@ void displayTranslateAnswers(const Translation translate[], int numT) {
 }
 
 //*****************************************************************************************************
-
-// extra comments throughout the output for clarity
 
 /*
 
@@ -388,7 +386,7 @@ Y
 19 pants.............trousers
 20 mailbox...........postbox
 
-Press enter to continue...                          // program pauses for user to read translation list before test
+Press enter to continue...
 
 *****************************************************************************************************
 
@@ -466,7 +464,7 @@ Enter year: 2022
 ---------------------------------
 #  American          English
 ---------------------------------
-15 cart..............trolley                           // numbers added to easily locate answers from the list
+15 cart..............trolley                    numbers added to easily locate answers from the list
 
             Correct!
 
@@ -507,7 +505,7 @@ Enter year: 2022
 
            Incorrect!
 
-Answer: flat                                            // incorrect answers are displayed with the correct answer
+Answer: flat                                 incorrect answers are displayed with the correct answer
 
 16 candy.............yumyum
 
@@ -570,7 +568,7 @@ Answer: sweet
 
 *****************************************************************************************************
 
-10                         // updated file with new scores and test dates
+10                                                       updated file with new scores and test dates
 Steve Smith
 56.6,11/11/2019
 Sue Jones

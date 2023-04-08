@@ -1,11 +1,8 @@
 //*****************************************************************************************************
+//      Pizza Palace Menu Order System
 //
-//		This program is a simulation of a menu ordering system for a restaurant called "Pizza Palace".
-//      The menu consists of 4 items: Pizza, Soda, Chicken Nuggets, and Breadsticks. The program
-//      displays the menu options and prompts the user to enter the letter of the item they would like
-//      to order. The program then keeps track of the number of items ordered and the running total
-//      for the order. The user can continue ordering items until they choose to exit the program by
-//      entering 'E'. The final total for the order is displayed at the end of the program.
+//		This program is a simple pizza ordering program that will calculate the total cost of the
+//      order.
 //
 //*****************************************************************************************************
 
@@ -25,25 +22,22 @@ int main() {
            total = 0;
     char itemLetter;
 
-    cout << "===================================================== \n"     // \n is a new line character
-         << "\t\tWelcome to Pizza Palace \n"                               // tab character to indent the text
+    cout << "=====================================================\n"     // \n is a new line character
+         << "\t\tWelcome to Pizza Palace\n"                               // tab character to indent the text
          << "=====================================================" << endl;
 
     cout << fixed << setprecision(2) << right;
 
     do {
-        cout << "----------------------------------------------------- \n\n"
-             << "\tA\tPizza" << setw(26) << PIZZA << "\n"
-             << "\tB\tSoda" << setw(27) << SODA << "\n"
-             << "\tC\tChicken Nuggets" << setw(16) << CHICKEN_NUGGETS << "\n"
-             << "\tD\tBreadsticks" << setw(20) << BREADSTICKS << "\n"
-             << "\tE\tExit \n"
-             << endl;
+        cout << "-----------------------------------------------------\n\n"
+             << "\tA\tPizza" << setw(26) << PIZZA
+             << "\n\tB\tSoda" << setw(27) << SODA
+             << "\n\tC\tChicken Nuggets" << setw(16) << CHICKEN_NUGGETS
+             << "\n\tD\tBreadsticks" << setw(20) << BREADSTICKS
+             << "\n\tE\tExit" << endl;
 
-        cout << "Please enter the next menu item Letter: ";
+        cout << "\nPlease enter the next menu item Letter: ";
         cin >> itemLetter;
-
-        cout << endl;
 
         switch (itemLetter) {
             case 'A':
@@ -59,28 +53,24 @@ int main() {
                 menuItem = BREADSTICKS;
                 break;
             case 'E':
-                cout << "Thank you! Enjoy! \n"
-                     << endl;
                 break;
             default:
-                cout << "Please pick a valid option \n"
-                     << endl;
+                cerr << "\nPlease pick a valid option\n";
         }
 
         if (itemLetter == 'A' || itemLetter == 'B' || itemLetter == 'C' || itemLetter == 'D')
             numItems++;     // if the user enters a valid menu item, the number of items will increase by 1
 
-        cout << "Number of items so far: " << setprecision(0) << numItems << endl;
+        cout << "\nNumber of items: " << setprecision(0) << numItems << endl;
 
         if (itemLetter == 'A' || itemLetter == 'B' || itemLetter == 'C' || itemLetter == 'D')
             total += menuItem;
 
-        cout << "Your total so far: " << setprecision(2) << total << "\n"
-             << endl;
+        cout << "Total: " << setprecision(2) << total << endl;
 
     } while (itemLetter != 'E');     // while the user does not enter 'E' for exit the program will continue
 
-    cout << "Your total is " << total << endl;
+    cout << "\nThank you! Enjoy!" << endl;
 
     return 0;
 }
@@ -102,9 +92,8 @@ int main() {
 
 Please enter the next menu item Letter: A
 
-Number of items so far: 1
-Your total so far: 15.50
-
+Number of items: 1
+Total: 15.50
 -----------------------------------------------------
 
         A       Pizza                     15.50
@@ -117,9 +106,8 @@ Please enter the next menu item Letter: S
 
 Please pick a valid option
 
-Number of items so far: 1
-Your total so far: 15.50
-
+Number of items: 1
+Total: 15.50
 -----------------------------------------------------
 
         A       Pizza                     15.50
@@ -132,9 +120,8 @@ Please enter the next menu item Letter: d
 
 Please pick a valid option
 
-Number of items so far: 1
-Your total so far: 15.50
-
+Number of items: 1
+Total: 15.50
 -----------------------------------------------------
 
         A       Pizza                     15.50
@@ -145,9 +132,8 @@ Your total so far: 15.50
 
 Please enter the next menu item Letter: D
 
-Number of items so far: 2
-Your total so far: 25.25
-
+Number of items: 2
+Total: 25.25
 -----------------------------------------------------
 
         A       Pizza                     15.50
@@ -158,9 +144,8 @@ Your total so far: 25.25
 
 Please enter the next menu item Letter: C
 
-Number of items so far: 3
-Your total so far: 32.25
-
+Number of items: 3
+Total: 32.25
 -----------------------------------------------------
 
         A       Pizza                     15.50
@@ -171,11 +156,9 @@ Your total so far: 32.25
 
 Please enter the next menu item Letter: E
 
+Number of items: 3
+Total: 32.25
+
 Thank you! Enjoy!
-
-Number of items so far: 3
-Your total so far: 32.25
-
-Your total is 32.25
 
 */
