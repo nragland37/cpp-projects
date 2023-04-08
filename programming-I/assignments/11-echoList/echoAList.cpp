@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Array Sum Calculator
 //
-//		This program calculates the sum of 10 numbers entered by the user.
+//      This program calculates the sum of 10 numbers entered by the user.
 //
 //*****************************************************************************************************
 

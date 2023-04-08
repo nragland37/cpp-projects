@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Delete Repeats in Array
 //
-//		The program will read a list of characters from the user and then delete all the repeated
+//      This program reads a list of characters from the user and then delete all the repeated
 //      characters in the list.
 //
 //*****************************************************************************************************
