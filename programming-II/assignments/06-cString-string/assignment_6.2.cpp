@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      String Processing
 //
-//		This program takes a string and uses various string functions to extract and display
+//      This program takes a string and uses various string functions to extract and display
 //      information about the string such as the length, number of letters, digits, upper and lower
 //      case letters, specific characters and indexes of certain characters.
 //

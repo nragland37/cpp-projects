@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      American to English Translation Test with Binary File Updates
 //
-//		The program prompts the user to take an American to English translation test for three
+//      The program prompts the user to take an American to English translation test for three
 //      randomly selected people from a list of employees, records the test results along with the
 //      date taken for each person, and automatically writes the updated testers information back to 
 //      the file in binary format for future use, asking only 10 questions per person.

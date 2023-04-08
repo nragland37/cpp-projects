@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Date Class Implementation File
 //
-//		This class implementation file defines the methods (member functions) of the Date class.
+//      This class implementation file defines the methods (member functions) of the Date class.
 //
 //      Other files required:
 //		  1.	 Date.h - header file for Date class

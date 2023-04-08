@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Cricket Matches Survey Analysis
 //
-//		This program prompts the user to input data on cricket matches played by college students,
+//      This program prompts the user to input data on cricket matches played by college students,
 //      dynamically allocates memory for the data, and performs various operations such as displaying
 //      the data, finding the student who played the most matches, calculating the mean number of
 //      matches played, and sorting the data in ascending order by student names.

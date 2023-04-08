@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Sorting and Searching Student Names
 //
-//		This program reads in a list of student names from a file, allows the user to search for a
+//      This program reads in a list of student names from a file, allows the user to search for a
 //      specific name using a linear search, and then sorts the names in ascending and descending
 //      order using a bubble sort.
 //

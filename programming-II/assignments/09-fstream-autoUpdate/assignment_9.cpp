@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      American to English Translation Test
 //
-//		The program prompts the user to take an American to English translation test for three
+//      The program prompts the user to take an American to English translation test for three
 //      randomly selected people from a list of employees, records the test results along with the
 //      date taken for each person, and automatically writes the updated testers information back to
 //      the file for future use, asking only 5 questions per person.

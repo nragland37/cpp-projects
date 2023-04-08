@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Pointer and Array Manipulation
 //
-//		This program demonstrates various uses of arrays and pointers, including printing the values
+//      This program demonstrates various uses of arrays and pointers, including printing the values
 //      and addresses of array elements, getting user input to access specific array elements, and
 //      performing pointer arithmetic to add the values of two array elements.
 //

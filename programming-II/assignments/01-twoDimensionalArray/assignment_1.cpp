@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Test Score Analysis
 //
-//		This program reads a list of test scores from a file, performs various calculations, and
+//      This program reads a list of test scores from a file, performs various calculations, and
 //      displays the scores and calculations.
 //
 //      Other files required:

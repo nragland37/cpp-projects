@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Text File to Binary Conversion 
 //
-//		This program reads data from a text file and writes it to a binary file, using an array of 
+//      This program reads data from a text file and writes it to a binary file, using an array of 
 //      structs to store the data.
 //
 //      Other files required:

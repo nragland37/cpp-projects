@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Employee Management
 //
-//		This program demonstrates the use of file input/output, dynamic memory allocation, and 
+//      This program demonstrates the use of file input/output, dynamic memory allocation, and 
 //      structures to read employee information from a text file, allow the user to add new employees, 
 //      display all employee information, and manually write the updated employee information back to 
 //      the file.
