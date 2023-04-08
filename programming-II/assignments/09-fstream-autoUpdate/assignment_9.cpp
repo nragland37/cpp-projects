@@ -7,8 +7,8 @@
 //      the file for future use, asking only 5 questions per person.
 //
 //      Other files required:
-//		  1.	 Testers.txt - number of testers and the tester information
-//        2.     Translation.txt - number of translations and the translation information
+//          1.  Testers.txt - number of testers and the tester information
+//          2.  Translation.txt - number of translations and the translation information
 //
 //*****************************************************************************************************
 

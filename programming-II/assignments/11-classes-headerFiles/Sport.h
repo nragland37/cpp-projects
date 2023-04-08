@@ -4,8 +4,8 @@
 //      This header file defines the private and public members and methods of the Sport class and
 //      defines the inline functions (getters and setters).
 //
-//     Other files required:
-//		  1.	 Date.h - header file for Date class
+//      Other files required:
+//          1.  Date.h - header file for Date class
 //
 //*****************************************************************************************************
 

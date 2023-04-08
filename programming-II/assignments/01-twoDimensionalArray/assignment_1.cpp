@@ -5,7 +5,7 @@
 //      displays the scores and calculations.
 //
 //      Other files required:
-//		  1.	 Assignment1Data.txt - test scores for 10 students on 8 tests
+//          1.  Assignment1Data.txt - test scores for 10 students on 8 tests
 //
 //*****************************************************************************************************
 

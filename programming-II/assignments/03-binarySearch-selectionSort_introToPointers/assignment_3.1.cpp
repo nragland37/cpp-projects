@@ -6,8 +6,8 @@
 //      descending order using bubble sort and selection sort, and displays the sorted lists and
 //      search results.
 //
-//     Other files required:
-//		  1.	 StudentNames.txt - contains the names of 10 students
+//      Other files required:
+//          1.  StudentNames.txt - contains the names of 10 students
 //
 //*****************************************************************************************************
 

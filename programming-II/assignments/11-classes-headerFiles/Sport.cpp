@@ -4,7 +4,7 @@
 //      This class implementation file defines the methods (member functions) of the Sport class.
 //
 //      Other files required:
-//		  1.	 Sport.h - header file for Sport class
+//          1.  Sport.h - header file for Sport class
 //
 //*****************************************************************************************************
 
