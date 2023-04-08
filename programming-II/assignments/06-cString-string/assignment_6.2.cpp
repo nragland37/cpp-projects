@@ -22,7 +22,7 @@ void sentenceData(const string sentence);
 int main() {
     string sentence("This is a 101 SAMPLE to demonstrate string processing");
 
-    cout << "------------------------------------------------------ \n"
+    cout << "------------------------------------------------------\n"
          << sentence
          << "\n------------------------------------------------------" << endl;
     sentenceData(sentence);
