@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Pizza Palace Menu Order System
 //
-//		This program is a simple pizza ordering program that will calculate the total cost of the
+//      This program is a simple pizza ordering program that will calculate the total cost of the
 //      order.
 //
 //*****************************************************************************************************

@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Circumference Calculation
 //
-//		This program is a simple circumference calculator for a circle.
+//      This program is a simple circumference calculator for a circle.
 //
 //*****************************************************************************************************
 

@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Morra Series Game Simulation
 //
-//		This program is a series of 10 games of Morra (a game played with fingers) between two players
+//      This program is a series of 10 games of Morra (a game played with fingers) between two players
 //      and the results of each game are written to a file.
 //
 //*****************************************************************************************************

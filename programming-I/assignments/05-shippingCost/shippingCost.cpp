@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Online Purchase Cost Calculator
 //
-//		This program calculates the total cost of an online purchase based on the item's price and
+//      This program calculates the total cost of an online purchase based on the item's price and
 //      weight.
 //
 //*****************************************************************************************************

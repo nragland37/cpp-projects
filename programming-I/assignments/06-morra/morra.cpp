@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //      Morra Game Simulation
 //
-//		This program is a simple game of Morra (a game played with fingers) between two players and
+//      This program is a simple game of Morra (a game played with fingers) between two players and
 //      the results of each game are written to a file.
 //
 //*****************************************************************************************************
