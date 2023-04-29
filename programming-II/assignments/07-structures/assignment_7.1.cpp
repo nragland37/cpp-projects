@@ -160,6 +160,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
             cin.ignore();
             break;
         }
+
         cin.ignore();
     }
 }
@@ -175,6 +176,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
         if (speakerName == members[i].name) {
             cout << "Name: ";
             getline(cin, members[i].name);
+
             while (isEmpty(members[i].name)) {
                 cerr << "\nSorry but the name could not be empty\n\n";
                 cout << "Name: ";
@@ -207,6 +209,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
                 cout << "Fee: ";
                 cin >> members[i].fee;
             }
+            
             cin.ignore();
         }
     }

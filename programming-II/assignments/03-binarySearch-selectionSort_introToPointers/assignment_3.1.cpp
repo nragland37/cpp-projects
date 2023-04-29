@@ -2,7 +2,7 @@
 //      Sorting and Searching Student Names
 //
 //      This program reads in a list of student names from a file, allows the user to search for a
-//      specific name using linear search and binary search, sorts the names in ascending and 
+//      specific name using linear search and binary search, sorts the names in ascending and
 //      descending order using bubble sort and selection sort, and displays the sorted lists and
 //      search results.
 //
@@ -122,6 +122,7 @@ int linearSearchNames(const string names[], int numNames, const string &name) {
             found = true;
             position = index;
         }
+        
         index++;
     }
 
@@ -156,6 +157,7 @@ void bubbleSort(string names[], int numNames) {
 
     do {
         swap = false;
+
         for (int count = 0; count < (numNames - 1); ++count) {
             if (names[count] > names[count + 1]) {
                 swapValues(names[count], names[count + 1]);
@@ -173,6 +175,7 @@ void bubbleSortDescending(string names[], int numNames) {
 
     do {
         swap = false;
+
         for (int count = 0; count < (numNames - 1); ++count) {
             if (names[count] < names[count + 1]) {
                 swapValues(names[count], names[count + 1]);
@@ -191,8 +194,9 @@ int binarySearchNames(const string names[], int numNames, const string &name) { 
         position = -1;                                                              // position with -1 indicates that the name was not found
     bool found = false;                                                             // flag to indicate if the name was found
 
-    while (!found && (first <= last)) {        // loop until the name is found or the first index is greater than the last index
-        middle = (first + last) / 2;           // calculate the middle index of the array
+    while (!found && (first <= last)) {     // loop until the name is found or the first index is greater than the last index
+        middle = (first + last) / 2;        // calculate the middle index of the array
+
         if (names[middle] == name) {           // check if the name at the middle index matches the searched name
             found = true;                      // if yes, set the boolean variable found to true
             position = middle;                 // set the position to the middle index
@@ -226,12 +230,14 @@ void selectionSort(string names[], int numNames) {     // selection sort algorit
     for (int startScan = 0; startScan < (numNames - 1); ++startScan) {     // outer loop to iterate through the array
         minIndex = startScan;                                              // set the initial minimum index as the current startScan index
         minValue = names[minIndex];                                        // set the initial minimum value as the value at the current startScan index
-        for (int index = startScan + 1; index < numNames; ++index) {       // inner loop to compare the current minimum value with the rest of the array
-            if (names[index] < minValue) {                                 // if a value smaller than the current minimum value is found
-                minValue = names[index];                                   // update the minimum value to the new smaller value
-                minIndex = index;                                          // update the minimum index to the index of the new smaller value
+
+        for (int index = startScan + 1; index < numNames; ++index) {     // inner loop to compare the current minimum value with the rest of the array
+            if (names[index] < minValue) {                               // if a value smaller than the current minimum value is found
+                minValue = names[index];                                 // update the minimum value to the new smaller value
+                minIndex = index;                                        // update the minimum index to the index of the new smaller value
             }
         }
+
         names[minIndex] = names[startScan];     // swap the current startScan value with the minimum value found
         names[startScan] = minValue;            // update the value at the current startScan index with the minimum value found
     }
@@ -246,12 +252,14 @@ void selectionSortDescending(string names[], int numNames) {
     for (int startScan = 0; startScan < (numNames - 1); ++startScan) {
         maxIndex = startScan;
         maxValue = names[maxIndex];
+
         for (int index = startScan + 1; index < numNames; ++index) {
             if (names[index] > maxValue) {
                 maxValue = names[index];
                 maxIndex = index;
             }
         }
+
         names[maxIndex] = names[startScan];
         names[startScan] = maxValue;
     }

@@ -1,9 +1,9 @@
 //*****************************************************************************************************
 //      Employee Management
 //
-//      This program demonstrates the use of file input/output, dynamic memory allocation, and 
-//      structures to read employee information from a text file, allow the user to add new employees, 
-//      display all employee information, and manually write the updated employee information back to 
+//      This program demonstrates the use of file input/output, dynamic memory allocation, and
+//      structures to read employee information from a text file, allow the user to add new employees,
+//      display all employee information, and manually write the updated employee information back to
 //      the file.
 //
 //      Other files required:
@@ -42,6 +42,7 @@ int main() {
     char entry;
 
     f.open(empFile, ios::in);
+
     while (f.is_open()) {
         f >> numEmps;
         f.close();
@@ -51,6 +52,7 @@ int main() {
 
         cout << "\nAny additional employees need to be added? (Y/N)" << endl;
         cin >> entry;
+
         if (entry == 'y' || entry == 'Y') {
             Employee *newEmps = inputEmployees(emps, numEmps);
             displayEmployees(newEmps, numEmps);
@@ -92,6 +94,7 @@ Employee *readEmployees(const string &empFile, int &numEmps) {
         f >> tmp[i].date.year;
         f.ignore();
     }
+
     f.close();
 
     return tmp;
@@ -129,9 +132,12 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
     f << numEmps << endl;
 
     for (int i = 0; i < numEmps - newEntries; ++i)
-        f << newemps[i].name << "," << newemps[i].age << ","
-          << newemps[i].date.month << "/" << newemps[i].date.day
+        f << newemps[i].name << ","
+          << newemps[i].age << ","
+          << newemps[i].date.month
+          << "/" << newemps[i].date.day
           << "/" << newemps[i].date.year << endl;
+
     f.close();
 
     f.open("Employees.txt", ios::app);     // open file for appending ( ios::app is for appending)
@@ -159,8 +165,10 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
         newemps[i].date.month = month;
         newemps[i].date.day = day;
         newemps[i].date.year = year;
-        f << newemps[i].name << "," << newemps[i].age << ","
-          << newemps[i].date.month << "/" << newemps[i].date.day
+        f << newemps[i].name << "," 
+          << newemps[i].age << ","
+          << newemps[i].date.month 
+          << "/" << newemps[i].date.day
           << "/" << newemps[i].date.year << endl;
     }
     f.close();

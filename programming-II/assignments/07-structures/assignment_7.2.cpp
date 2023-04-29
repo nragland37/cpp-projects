@@ -66,6 +66,7 @@ int main() {
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
+
         if (nameTest == false)
             cerr << "\nSorry but the name does not exist\n";     // cerr is unbuffered and best for error handling
 
@@ -178,6 +179,7 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
             cin.ignore();
             break;
         }
+
         cin.ignore();
     }
 }
@@ -226,6 +228,7 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
                 cout << "\nFee: ";
                 cin >> members[i].fee;
             }
+
             cin.ignore();
         }
     }
@@ -310,7 +313,7 @@ bool isEmpty(const string &str) {
 
 bool testName(Speaker members[], int numSpeakers, const string &speakerName) {
     bool nameFound = false;
-
+    
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
             nameFound = true;

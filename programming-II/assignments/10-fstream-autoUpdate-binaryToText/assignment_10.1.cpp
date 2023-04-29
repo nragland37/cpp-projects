@@ -71,6 +71,7 @@ Person *readTesters(const string &fileName, int &num) {
             f >> p[i].testTaken.year;
             f.ignore();
         }
+        
         f.close();
     } else {
         cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling

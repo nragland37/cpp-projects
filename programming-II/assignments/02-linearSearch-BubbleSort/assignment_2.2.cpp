@@ -101,6 +101,7 @@ int searchNames(const string names[], int numNames, const string &name) {
             found = true;               // set found flag to true
             position = index + 1;       // store the position of the found name
         }
+
         index++;     // increment index
     }
 
@@ -152,6 +153,7 @@ void bubbleSortDescending(string names[], int numNames) {
 
     do {
         swap = false;
+        
         for (int count = 0; count < (numNames - 1); ++count) {
             if (names[count] < names[count + 1]) {
                 swapValues(names[count], names[count + 1]);

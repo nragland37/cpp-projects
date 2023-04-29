@@ -38,6 +38,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
         cout << "Enter Year(2022- ): ";
         cin >> year;
     }
+
     setYear(year);
 
     cout << "Enter Month: ";
@@ -48,7 +49,9 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
         cout << "Enter Month(1-12): ";
         cin >> month;
     }
+
     setMonth(month);
+
     cout << "Enter Day: ";
     cin >> day;
 
@@ -78,6 +81,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
             cin >> day;
         }
     }
+    
     setDay(day);
 }
 

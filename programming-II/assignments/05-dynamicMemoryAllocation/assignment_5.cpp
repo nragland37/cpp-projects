@@ -151,6 +151,7 @@ void sortStudents(string names[], int matches[], int size) {     // selection so
         minIndex = startScan;
         minValueNames = names[minIndex];
         minValueMatches = matches[minIndex];
+
         for (int index = startScan + 1; index < size; ++index) {
             if (names[index] < minValueNames) {
                 minValueNames = names[index];
@@ -158,6 +159,7 @@ void sortStudents(string names[], int matches[], int size) {     // selection so
                 minIndex = index;
             }
         }
+
         names[minIndex] = names[startScan];
         names[startScan] = minValueNames;
         matches[minIndex] = matches[startScan];

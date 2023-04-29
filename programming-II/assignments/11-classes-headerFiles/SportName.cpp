@@ -58,6 +58,7 @@ int main() {
         cin >> ch;
 
         cin.ignore();     // ignore newline character in buffer to prevent skipping getline() in switch statement
+        
         switch (ch) {
             case 'a': {
                 displaySports(s, size);

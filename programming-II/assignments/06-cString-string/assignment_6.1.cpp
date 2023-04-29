@@ -39,8 +39,8 @@ int main() {
 
             length = strlen(words);
         }
-        result = numberWords(words, length);
 
+        result = numberWords(words, length);
         cout << "Total words: " << result << endl;
     }
 
@@ -63,6 +63,7 @@ int numberWords(const char *words, int length) {
             total++;
             isLetter = false;     // isLetter is set to false so that the next word can be counted
         }
+
         if (words[i] == '.')
             break;
     }

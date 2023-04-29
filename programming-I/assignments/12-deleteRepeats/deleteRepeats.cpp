@@ -68,6 +68,7 @@ void deleteRepeats(char array[], int &size) {
                 cout << "\nFound duplicates at " << i + 1         // i + 1 because we are printing the index of the element
                      << " and " << j + 1 << " : " << array[i]     // j + 1 because we are printing the index of the element
                      << " and " << array[j] << endl;              // array[i] and array[j] are the same element
+                
                 for (int k = j + 1; k < size; k++)                // k = j + 1 because we are comparing j with j + 1
                     array[k - 1] = array[k];                      // k - 1 because we are deleting the element at j and shifting all the elements to the left
 

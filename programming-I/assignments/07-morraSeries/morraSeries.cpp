@@ -78,6 +78,7 @@ int main() {
 
     cout << "\nWinner of the series: ";
     out << "\nWinner of the series: ";
+    
     if (playerOneWins > playerTwoWins) {
         cout << "Player 1" << endl;
         out << "Player 1" << endl;

@@ -25,8 +25,10 @@ int main() {
         circumf;
 
     greet();
+
     radius = readRadius();             // radius is assigned the value returned by readRadius()
     circumf = findCircumf(radius);     // radius is passed by value to findCircumf() and circumf is assigned the value returned by findCircumf()
+    
     printResult(radius, circumf);      // radius and circumf are passed by value to printResult() and the values are printed
     signOff();
 
@@ -48,7 +50,6 @@ float readRadius() {
     do {
         cout << "\nPlease enter a positive radius: ";
         cin >> posInput;
-
     } while (posInput <= 0);     // while input is not positive, keep asking for input
 
     return posInput;     // return the positive input to main() and assign it to radius

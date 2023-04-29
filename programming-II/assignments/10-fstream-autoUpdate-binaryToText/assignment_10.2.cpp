@@ -3,7 +3,7 @@
 //
 //      The program prompts the user to take an American to English translation test for three
 //      randomly selected people from a list of employees, records the test results along with the
-//      date taken for each person, and automatically writes the updated testers information back to 
+//      date taken for each person, and automatically writes the updated testers information back to
 //      the file in binary format for future use, asking only 10 questions per person.
 //
 //      Other files required:
@@ -246,11 +246,13 @@ void takeTest(const Translation translate[], int numT, Person &p) {
     string answer,
         guess;
     short seed;
+
     seed = time(0);     // seed for random number generator (time(0) returns the current time in seconds)
     srand(seed);        // srand() seeds the random number generator with the value of seed
 
     cout << "\n---------------------------------" << endl;
-    cout << setfill(' ') << setw(3) << left << "#"
+    cout << setfill(' ')
+         << setw(3) << left << "#"
          << setw(18) << left << "American"
          << "English\n"
          << "---------------------------------" << endl;
@@ -270,8 +272,10 @@ void takeTest(const Translation translate[], int numT, Person &p) {
             cout << "\n\t   Incorrect! \n\n"
                  << "Answer: " << translate[randomQuestion].english << endl;
         }
+
         cout << endl;
     }
+
     avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;
     p.score = avg;
 }
@@ -289,12 +293,9 @@ void displayTesters(const string &fileName) {
 
         cout << "\n---------------------------------------------------" << endl;
         cout << setfill(' ')
-             << setw(3) << left
-             << "#"
-             << setw(20) << left
-             << "NAME"
-             << setw(15) << left
-             << "SCORE %"
+             << setw(3) << left << "#"
+             << setw(20) << left << "NAME"
+             << setw(15) << left << "SCORE %"
              << "TEST TAKEN\n"
              << "---------------------------------------------------" << endl;
 
@@ -307,6 +308,7 @@ void displayTesters(const string &fileName) {
                  << people.testTaken.day << "/"
                  << people.testTaken.year << endl;
         }
+
         f.close();     // close binary file after reading
     } else {
         cerr << "Error: Unable to open file\n";

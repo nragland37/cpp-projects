@@ -95,6 +95,7 @@ void displayTestScores(const int scores[][NUM_TESTS], int numStds) {
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
             cout << scores[studentNumber][testNumber] << " ";
+
         cout << endl;
     }
 }
@@ -170,6 +171,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
 
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         current = averageOneStudent(scores, numStds, studentNumber);
+
         if (current > topPercent) {
             topPercent = current;
             topStudent = studentNumber;
@@ -204,6 +206,7 @@ bool searchTests(const int scores[][NUM_TESTS], int numStds, double average) {
     while ((testNumber < NUM_TESTS) && !found) {
         if (averageOneTest(scores, numStds, testNumber) > average)
             found = true;
+            
         testNumber++;
     }
 

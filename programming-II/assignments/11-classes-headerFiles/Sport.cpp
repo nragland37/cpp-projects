@@ -34,20 +34,20 @@ Sport::~Sport() {
 void Sport::display() const {
     Date d1 = getDate();     // create a Date object to use the displayDate function
 
-    cout << "\t\t" << setfill('.') << setw(30) << left << "Sport Name "
-         << " " << getName() << endl;
-    cout << "\t\t" << setfill('.') << setw(30) << left << "Scheduled Date (M/D/YY) "
-         << " ";
+    cout << "\t\t" << setfill('.') << setw(30) << left 
+         << "Sport Name " << " " << getName() << endl;
+
+    cout << "\t\t" << setfill('.') << setw(30) << left 
+         << "Scheduled Date (M/D/YY) " << " ";
 
     d1.displayDate();
 
-    cout << "\n\n\t\t" << setfill('.') << setw(30) << left << "Number of Teams "
-         << " " << getNumTeams() << endl;
+    cout << "\n\n\t\t" << setfill('.') << setw(30) << left 
+         << "Number of Teams " << " " << getNumTeams() << endl;
 
     for (int i = 0; i < getNumTeams(); ++i)
         cout << "\t\tTeam " << i + 1 << setfill('.') << setw(24) << left
-             << " "
-             << " " << teamNames[i] << endl;
+             << " " << " " << teamNames[i] << endl;
 }
 
 //*****************************************************************************************************
@@ -70,6 +70,7 @@ void Sport::populate() {
     } else {
         cout << "\nDefault date will be set to January 1, 2000" << endl;
     }
+
     cout << "\nEnter the number of teams: ";
     cin >> numTeams;
 
@@ -91,6 +92,7 @@ void Sport::addTeam(const string &n) {
 
     for (int i = 0; i < numTeams; ++i)     // copy the team names from the teamNames array to the temp array
         temp[i] = teamNames[i];
+
     temp[numTeams] = n;     // add the new team name to the end of the temp array
     delete[] teamNames;     // delete the teamNames array
     teamNames = temp;       // set the teamNames array to the temp array

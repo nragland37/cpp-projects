@@ -149,6 +149,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
 
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         current = averageOneStudent(scores, numStds, studentNumber);
+        
         if (current > topPercent) {
             topPercent = current;
             topStudent = studentNumber;

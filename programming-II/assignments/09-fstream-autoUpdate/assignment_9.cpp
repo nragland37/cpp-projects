@@ -114,6 +114,7 @@ Translation *readTranslation(const string &fileName, int &num) {
             getline(f, t[i].american, ',');     // getline(reads from file, stores in variable, delimiter)
             getline(f, t[i].english);
         }
+
         f.close();     // closes file after reading in data (only needed for reading in from file and not writing to file)
     } else {
         cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
@@ -145,6 +146,7 @@ Person *readTesters(const string &fileName, int &num) {
             f >> p[i].testTaken.year;
             f.ignore();     // ignores the newline character after the year
         }
+
         f.close();
     } else {
         cerr << "Error: Unable to open file\n";
@@ -162,6 +164,7 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
         day,
         year;
     short seed;
+
     seed = time(0);
     srand(seed);
 
@@ -194,10 +197,8 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
 
         cout << "\n=================================" << endl;
         cout << setfill(' ')
-             << setw(3) << left
-             << "#"
-             << setw(20) << left
-             << "NAME"
+             << setw(3) << left << "#"
+             << setw(20) << left << "NAME"
              << "TEST TAKEN\n"
              << "---------------------------------" << endl;
 
@@ -221,15 +222,14 @@ void takeTest(const Translation translate[], int numT, Person &p) {
     string answer,
         guess;
     short seed;
+
     seed = time(0);
     srand(seed);
 
     cout << "\n---------------------------------" << endl;
     cout << setfill(' ')
-         << setw(3) << left
-         << "#"
-         << setw(18) << left
-         << "American"
+         << setw(3) << left << "#"
+         << setw(18) << left << "American"
          << "English\n"
          << "---------------------------------" << endl;
 
@@ -248,8 +248,10 @@ void takeTest(const Translation translate[], int numT, Person &p) {
             cout << "\n\t   Incorrect!\n\n"
                  << "Answer: " << translate[randomQuestion].english << endl;
         }
+
         cout << endl;
     }
+
     avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;     // static_cast is used to convert int to double for the average
     p.score = avg;
 }
@@ -259,12 +261,9 @@ void takeTest(const Translation translate[], int numT, Person &p) {
 void displayTesters(const Person people[], int numP) {
     cout << "\n---------------------------------------------------" << endl;
     cout << setfill(' ')
-         << setw(3) << left
-         << "#"
-         << setw(20) << left
-         << "NAME"
-         << setw(15) << left
-         << "SCORE %"
+         << setw(3) << left << "#"
+         << setw(20) << left << "NAME"
+         << setw(15) << left << "SCORE %"
          << "TEST TAKEN\n"
          << "---------------------------------------------------" << endl;
 
@@ -282,12 +281,15 @@ void displayTesters(const Person people[], int numP) {
 void writeTesters(const string &fileName, const Person people[], int numP) {
     ofstream f(fileName);
 
-    f << numP << endl;                 // writes the number of people to the file and then goes to the next line
+    f << numP << endl;     // writes the number of people to the file and then goes to the next line
+
     for (int i = 0; i < numP; ++i)     // writes the name, score, and date of the test taken for each person to the file
         f << people[i].name << "\n"
           << people[i].score << ","
-          << people[i].testTaken.month << "/" << people[i].testTaken.day
+          << people[i].testTaken.month
+          << "/" << people[i].testTaken.day
           << "/" << people[i].testTaken.year << endl;
+
     f.close();     // closes the file after writing to it
 }
 
@@ -295,12 +297,10 @@ void writeTesters(const string &fileName, const Person people[], int numP) {
 
 void displayTranslateAnswers(const Translation translate[], int numT) {
     cout << "\n---------------------------------" << endl;
-    cout << setw(3) << left
-         << "#"
-         << setw(18) << left
-         << "American"
-         << "English" << endl;
-    cout << "---------------------------------" << endl;
+    cout << setw(3) << left << "#"
+         << setw(18) << left << "American"
+         << "English\n"
+         << "---------------------------------" << endl;
 
     for (int i = 0; i < numT; ++i)     // displays the american and english translations for each word
         cout << setfill(' ') << setw(3) << left << i + 1

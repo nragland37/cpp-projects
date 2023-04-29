@@ -38,6 +38,7 @@ int main() {
 
     readGrades(assign, test, exam, partic);
     calcWeights(assign, test, exam, partic, ASSIGN_PERCENT, TEST_PERCENT, EXAM_PERCENT, PARTIC_PERCENT);
+    
     finalGrade = calcFind(assign, test, exam, partic);
 
     cout << "\n\t" << assign << "% in Programming Assignments"
