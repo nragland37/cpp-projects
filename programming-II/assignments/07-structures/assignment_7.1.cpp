@@ -225,9 +225,9 @@ void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string &spe
                  << " " << members[i].name
                  << "\n\t" << setw(30) << "Telephone Number "
                  << " " << members[i].phoneNum
-                 << "\n\t" << setw(30) << left << "Topic "
+                 << "\n\t" << setw(30) << "Topic "
                  << " " << members[i].topic
-                 << "\n\t" << setw(30) << left << "Fee "
+                 << "\n\t" << setw(30) << "Fee "
                  << " " << members[i].fee << endl;
 }
 
@@ -239,11 +239,11 @@ void displayTopicSpeakers(Speaker members[], int numSpeakers, const string &topi
             cout << "\nSpeaker " << i + 1
                  << "\n\t" << setfill('.') << setw(30) << left << "Name "
                  << " " << members[i].name
-                 << "\n\t" << setw(30) << left << "Telephone Number "
+                 << "\n\t" << setw(30) << "Telephone Number "
                  << " " << members[i].phoneNum
-                 << "\n\t" << setw(30) << left << "Topic "
+                 << "\n\t" << setw(30) << "Topic "
                  << " " << members[i].topic
-                 << "\n\t" << setw(30) << left << "Fee "
+                 << "\n\t" << setw(30) << "Fee "
                  << " " << members[i].fee << endl;
 }
 
@@ -254,11 +254,11 @@ void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
         cout << "\nSpeaker " << i + 1
              << "\n\t" << setfill('.') << setw(30) << left << "Name "
              << " " << members[i].name
-             << "\n\t" << setw(30) << left << "Telephone Number "
+             << "\n\t" << setw(30) << "Telephone Number "
              << " " << members[i].phoneNum
-             << "\n\t" << setw(30) << left << "Topic "
+             << "\n\t" << setw(30) << "Topic "
              << " " << members[i].topic
-             << "\n\t" << setw(30) << left << "Fee "
+             << "\n\t" << setw(30) << "Fee "
              << " " << members[i].fee << endl;
 }
 
