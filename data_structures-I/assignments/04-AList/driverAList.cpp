@@ -4,7 +4,7 @@
 //      value, and checking its empty/full status.
 //
 //      Other files required:
-//		  1.	 AList.h - header file for the AList class
+//        1.	 AList.h - header file for the AList class
 //
 //*****************************************************************************************************
 

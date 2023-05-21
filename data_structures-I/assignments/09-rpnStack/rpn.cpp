@@ -3,7 +3,7 @@
 //      This program reads in a file of RPN expressions and evaluates them using a stack.
 //
 //      Other files required:
-//		  1.	 stack.h - header file for the Stack class
+//        1.	 stack.h - header file for the Stack class
 //        2.	 expressions.txt - file containing RPN expressions
 //
 //*****************************************************************************************************

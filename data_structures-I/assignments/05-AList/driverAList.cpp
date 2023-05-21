@@ -3,7 +3,7 @@
 //      This program tests the AList class by inserting, retrieving, updating, and removing data.
 //
 //      Other files required:
-//		  1.	 AList.h - header file for the AList class
+//        1.	 AList.h - header file for the AList class
 //
 //*****************************************************************************************************
 

@@ -4,7 +4,7 @@
 //      methods for accessing and manipulating them.
 //
 //      Other files required:
-//			1.	dyadDriver.cpp
+//        1.	dyadDriver.cpp
 //
 //*****************************************************************************************************
 

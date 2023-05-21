@@ -4,7 +4,7 @@
 //      palindromes using a stack and a queue to reverse the order and compare the characters.
 //
 //      Other files required:
-//		  1.	 stack.h - header file for the Stack class
+//        1.	 stack.h - header file for the Stack class
 //        2.	 queue.h - header file for the Queue class
 //        3.	 palindromes.txt - file containing palindromes with punctuation and spaces
 //

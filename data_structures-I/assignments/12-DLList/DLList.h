@@ -4,7 +4,7 @@
 //      various functions that can be performed on the list.
 //
 //      Other files required:
-//		  1.	 Node.h - header file for the Node struct
+//        1.	 Node.h - header file for the Node struct
 //
 //*****************************************************************************************************
 

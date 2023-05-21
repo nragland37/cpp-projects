@@ -5,7 +5,7 @@
 //      list.
 //
 //      Other files required:
-//		  1.	 DLList.h - header file for the DLList class
+//        1.	 DLList.h - header file for the DLList class
 //        2.	 student.h - header file for the Student struct
 //        3.	 studentFile.txt - file containing student data of 61 students
 //

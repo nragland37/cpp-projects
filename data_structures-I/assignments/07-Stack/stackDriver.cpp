@@ -3,7 +3,7 @@
 //      This driver file tests the functions of the Stack class.
 //
 //      Other files required:
-//		  1.	 stack.h - header file for the Stack class
+//        1.	 stack.h - header file for the Stack class
 //
 //*****************************************************************************************************
 
