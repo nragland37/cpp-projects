@@ -49,19 +49,20 @@ Welcome! Here you will find assignments, notes, exercises, examples, and source 
 ### [Data Structures I](/data_structures-I)
 * [Documents](data_structures-I/docs/)
 
-| # | Assignment | C++ Solutions | Resource Files |
+| # | Assignment | Files |
 |:---:|:---|:---:|:---:|
-| 1 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 2 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 3 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 4 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 5 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 6 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 7 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 8 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 9 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 10 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
-| 11 | [](data_structures-I/assignments/) | [:one:](./data_structures-I/assignments/)| [:white_check_mark:](./data_structures-I/assignments/) |
+| 1 | [Default Arguments](data_structures-I/assignments/01-defaultArgs/docs) | [:white_check_mark:](./data_structures-I/assignments/01-defaultArgs) |
+| 2 | [Function Overloading & Templates](data_structures-I/assignments/02-max/docs) | [:white_check_mark:](./data_structures-I/assignments/02-max) |
+| 3 | [Class Template Header & Driver Files](data_structures-I/assignments/03-dyad/docs) | [:white_check_mark:](./data_structures-I/assignments/03-dyad) |
+| 4 | [Dynamic Array](data_structures-I/assignments/04-AList/docs) | [:white_check_mark:](./data_structures-I/assignments/04-AList) |
+| 5 | [Dynamic Array (Continued)](data_structures-I/assignments/05-AList/docs) | [:white_check_mark:](./data_structures-I/assignments/05-AList) |
+| 6 | [Linked List](data_structures-I/assignments/06-LList/docs) | [:white_check_mark:](./data_structures-I/assignments/06-LList) |
+| 7 | [Stack](data_structures-I/assignments/07-Stack/docs) | [:white_check_mark:](./data_structures-I/assignments/07-Stack) |
+| 8 | [Queue](data_structures-I/assignments/08-Queue/docs) | [:white_check_mark:](./data_structures-I/assignments/08-Queue) |
+| 9 | [Reverse Polish Notation Evaluator: Stack](data_structures-I/assignments/09-rpnStack/docs) | [:white_check_mark:](./data_structures-I/assignments/09-rpnStack) |
+| 10 | [Palindrome Evaluator: Stack](data_structures-I/assignments/10-palindromes/docs) | [:white_check_mark:](./data_structures-I/assignments/10-palindromes) |
+| 11 | [Palindrome Evaluator: Stack & Queue](data_structures-I/assignments/11-pal2/docs) | [:white_check_mark:](./data_structures-I/assignments/11-pal2) |
+| 12 | [Operator Overloading & Doubly Linked List](data_structures-I/assignments/12-DLList/docs) | [:white_check_mark:](./data_structures-I/assignments/12-DLList) |
 
 <br>
 <br>

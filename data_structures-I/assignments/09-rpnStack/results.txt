@@ -1,0 +1,126 @@
+
+(Token: 2)		Push 2
+(Token: 4)		Push 4
+(Token: *)		Pop  4	Pop  2	Push 8
+(Token: 5)		Push 5
+(Token: +)		Pop  5	Pop  8	Push 13
+(Token: ;)		Pop  13
+		Valid:  result = 13
+
+
+(Token: 13)		Push 13
+(Token: 5)		Push 5
+(Token: %)		Pop  5	Pop  13	Push 3
+(Token: 5)		Push 5
+(Token: +)		Pop  5	Pop  3	Push 8
+(Token: ;)		Pop  8
+		Valid:  result = 8
+
+
+(Token: 15)		Push 15
+(Token: 1)		Push 1
+(Token: +)		Pop  1	Pop  15	Push 16
+(Token: 2)		Push 2
+(Token: /)		Pop  2	Pop  16	Push 8
+(Token: 1)		Push 1
+(Token: -)		Pop  1	Pop  8	Push 7
+(Token: ;)		Pop  7
+		Valid:  result = 7
+
+
+(Token: 15)		Push 15
+(Token: +)		
+(Token: 1)		
+(Token: +)		
+(Token: 2)		
+(Token: /)		
+(Token: 1)		
+(Token: -)		
+(Token: ;)		
+		Invalid RPN expression - not enough operands
+
+
+(Token: 3)		Push 3
+(Token: 4)		Push 4
+(Token: +)		Pop  4	Pop  3	Push 7
+(Token: 15)		Push 15
+(Token: 10)		Push 10
+(Token: -)		Pop  10	Pop  15	Push 5
+(Token: *)		Pop  5	Pop  7	Push 35
+(Token: ;)		Pop  35
+		Valid:  result = 35
+
+
+(Token: 3)		Push 3
+(Token: 4)		Push 4
+(Token: +)		Pop  4	Pop  3	Push 7
+(Token: 6)		Push 6
+(Token: 15)		Push 15
+(Token: 10)		Push 10
+(Token: -)		Pop  10	Pop  15	Push 5
+(Token: *)		Pop  5	Pop  6	Push 30
+(Token: ;)		
+		Invalid RPN expression - too many operands
+
+
+(Token: 2)		Push 2
+(Token: 13)		Push 13
+(Token: +)		Pop  13	Pop  2	Push 15
+(Token: 14)		Push 14
+(Token: 6)		Push 6
+(Token: -)		Pop  6	Pop  14	Push 8
+(Token: -)		Pop  8	Pop  15	Push 7
+(Token: 5)		Push 5
+(Token: *)		Pop  5	Pop  7	Push 35
+(Token: 4)		Push 4
+(Token: +)		Pop  4	Pop  35	Push 39
+(Token: ;)		Pop  39
+		Valid:  result = 39
+
+
+(Token: 35)		Push 35
+(Token: 6)		Push 6
+(Token: 4)		Push 4
+(Token: 2)		Push 2
+(Token: 2)		Push 2
+(Token: /)		Pop  2	Pop  2	Push 1
+(Token: +)		Pop  1	Pop  4	Push 5
+(Token: *)		Pop  5	Pop  6	Push 30
+(Token: -)		Pop  30	Pop  35	Push 5
+(Token: ;)		Pop  5
+		Valid:  result = 5
+
+
+(Token: 3)		Push 3
+(Token: 4)		Push 4
+(Token: +)		Pop  4	Pop  3	Push 7
+(Token: 1)		Push 1
+(Token: 2)		Push 2
+(Token: -)		Pop  2	Pop  1	Push -1
+(Token: *)		Pop  -1	Pop  7	Push -7
+(Token: 4)		Push 4
+(Token: 2)		Push 2
+(Token: /)		Pop  2	Pop  4	Push 2
+(Token: 3)		Push 3
+(Token: -)		Pop  3	Pop  2	Push -1
+(Token: +)		Pop  -1	Pop  -7	Push -8
+(Token: ;)		Pop  -8
+		Valid:  result = -8
+
+
+(Token: 3)		Push 3
+(Token: 14)		Push 14
+(Token: 1)		Push 1
+(Token: 2)		Push 2
+(Token: 4)		Push 4
+(Token: 2)		Push 2
+(Token: 3)		Push 3
+(Token: +)		Pop  3	Pop  2	Push 5
+(Token: %)		Pop  5	Pop  4	Push 4
+(Token: *)		Pop  4	Pop  2	Push 8
+(Token: +)		Pop  8	Pop  1	Push 9
+(Token: -)		Pop  9	Pop  14	Push 5
+(Token: +)		Pop  5	Pop  3	Push 8
+(Token: ;)		Pop  8
+		Valid:  result = 8
+

@@ -1,0 +1,305 @@
+9743 Johnson, James L
+Waupun, Wisconsin
+7345229
+M 1 15 3.15
+ENGR
+10236 Andrews, Peter J
+Grand-Rapids, Michigan
+9493301
+M 2 42 2.78
+CPSC
+15755 VandenVander, Vanessa V
+Fremont, Michigan
+5509237
+F 4 110 3.74
+HIST
+31631 Aristotle, Alice A
+Chino, California
+3330861
+F 3 78 3.10
+PHIL
+18264 Lucky, Lucy L
+Grandville, Michigan
+7745424
+F 5 66 2.29
+HIST
+24237 Euler, Lennie L
+Three_Rivers, Michigan
+6290017
+M 1 15 3.83
+MATH
+17424 Nakamura, Toky O
+Chicago, Illinois
+4249665
+F 1 12 1.95
+SOCI
+32631 Freud, JR, Fred E
+Lynden, Washington
+8340115
+M 1 15 1.85
+PSYC
+14815 Tchaikovsky, Wolfgang A
+Byron-Center, Michigan
+8845115
+M 3 79 2.75
+MUSC
+5873 Psycho, II,  Prunella E
+De_Motte, Indiana
+5384609
+F 4 120 2.99
+PSYC
+26316 Custer, General G
+Badlands, South_Dakota
+5552995
+M 3 40 1.95
+HIST
+27503 Fahrenheit, Felicia O
+Sheboygan, Wisconsin
+5154997
+F 2 40 3.85
+CHEM
+10304 Deutsch, Sprechen Z
+Sparta, Michigan
+8861201
+F 5 14 3.05
+GERM
+30749 Mendelssohn, Mozart W
+Peoria, Illinois
+2410747
+M 3 76 2.87
+MUSC
+20991 Augusta, Ada B
+Lakewood, California
+7172339
+F 2 46 3.83
+CPSC
+4777 Gauss, Carl F
+Yorktown, Pennsylvania
+3385494
+M 2 41 4.00
+MATH
+11688 Kronecker, Leo P
+Traverse_City, Michigan
+6763991
+M 3 77 2.75
+MATH
+11749 Issacson, Jacob A
+Silver_Springs, Maryland
+4847932
+M 5 25 2.99
+RELI
+16622 Issacson, Esau B
+Silver_Springs, Maryland
+4847932
+M 5 25 2.98
+RELI
+30280 Dewey, Johanna A
+Salt_Lake_City, Utah
+6841129
+F 2 41 3.83
+EDUC
+19918 Virus, Vera W
+Saginaw, Michigan
+6634401
+F 4 115 3.25
+CPSC
+22447 Zylstra, Zelda A
+Downs, Kansas
+7514008
+F 1 16 1.95
+ENGL
+25377 Porgy, Bess N
+Columbus, Ohio
+4841771
+F 2 44 2.78
+MUSI
+30268 Newmann, Alfred E
+Cheyenne, Wyoming
+7712399
+M 4 115 0.99
+EDUC
+19077 Medes, Archie L
+Whitinsville, Maryland
+9294401
+M 3 80 3.10
+ENGR
+23314 Macdonald, Ronald B
+Seattle, Washington
+5582911
+M 1 15 2.99
+CPSC
+7844 Aardvark, Anthony A
+Grandville, Michigan
+5325912
+M 2 43 2.79
+ENGR
+23544 Gestalt, Gloria G
+Wheaton, Illinois
+6631212
+F 2 42 2.48
+PSYC
+5316 GotoDijkstra, Edgar G
+Cawker_City, Kansas
+6349971
+M 1 15 4.00
+CPSC
+15671 Rembrandt, Roberta E
+Sioux_Center, Iowa
+2408113
+F 1 77 2.20
+ART
+7107 Shoemaker, Imelda M
+Honolulu, Hawaii
+9193001
+F 1 15 3.15
+POLS
+18213 Marx, Karl Z
+Hawthorne, New_Jersey
+5513915
+M 3 78 2.75
+ECON
+17376 Scrooge, Ebenezer T
+Troy, Michigan
+8134001
+M 4 118 3.25
+SOCI
+5430 Nightingale, Florence K
+Rochester, New_York
+7175118
+F 1 15 3.15
+NURS
+15889 Gazelle, Gwendolyn D
+Chino, California
+3132446
+F 2 43 2.78
+PE
+21144 Pasteur, Louise A
+Window_Rock, Arizona
+4245170
+F 1 16 3.10
+BIOL
+30381 Elba, Able M
+Bozeman, Montana
+8183226
+M 3 77 3.40
+SPEE
+30878 Lewis, Clark N
+New_Era, Michigan
+6461125
+M 4 114 3.37
+GEOG
+11951 Mouse, Michael E
+Boise, Idaho
+5132771
+M 5 87 1.99
+EDUC
+20454 Chicita, Juanita A
+Oklahoma_City, Oklahoma
+3714377
+F 5 95 2.66
+BIOL
+5710 Busch, Arch E
+St_Louis, Missouri
+8354112
+M 3 74 2.75
+ENGR
+23497 Fault, Paige D
+Petoskey, Michigan
+4543116
+F 5 55 2.95
+CPSC
+25831 Santamaria, Nina P
+Plymouth, Massachusetts
+2351181
+F 1 15 1.77
+HIST
+4559 Shyster, Samuel D
+Everglades, Florida
+4421885
+M 1 13 1.95
+SOCI
+29583 Yewliss, Cal C
+Rudyard, Michigan
+3451220
+M 3 76 2.99
+MATH
+16183 Kuts, Cole
+Chicken, Alaska
+8664993
+M 3 105 3.98
+FOOD
+4454 Atanasoff, Eniac C
+Springfield, Illinois
+6142449
+F 1 14 1.88
+CPSC
+14674 Rockne, Newton K
+New_York, New_York
+4631744
+M 4 116 1.98
+PE
+7448 Roosevelt, Rose Y
+Spring_Lake, Michigan
+9491221
+F 5 135 2.95
+POLS
+32598 Xerxes, Art I
+Cincinnati, Ohio
+3701228
+M 4 119 3.25
+GREE
+3930 Leibniz, Gottfried W
+Boulder, Colorado
+5140228
+M 1 13 1.95
+MATH
+13511 Pitt, Stew
+Idiotville, Oregon
+3261243
+M 1 12 0.21
+GNED
+23750 Vespucci, Vera D
+Ripon, California
+4341883
+F 5 89 2.29
+GEOG
+22277 Principal, Pamela P
+Albany, New_York
+7145513
+F 1 14 1.75
+EDUC
+28658 Cicero, Marsha
+Rapid_City, South_Dakota
+3335910
+F 3 77 2.87
+LATI
+16540 Weerd, Dewey L
+Detroit, Michigan
+4841962
+M 4 115 2.99
+PHIL
+9463 Hochschule, Hortense C
+Lincoln, Nebraska
+7120111
+F 5 100 2.70
+EDUC
+15052 Einstein, Alfred M
+Newark, New_Jersey
+3710225
+M 2 41 2.78
+ENGR
+7885 Fibonacci, Leonard O
+Nashville, Tennessee
+4921107
+M 4 115 3.25
+MATH
+30655 Angelo, Mike L
+Austin, Texas
+5132201
+M 4 117 3.74
+ART
+15802 Pascal, Blaze R
+Brooklyn, New_York
+7412993
+M 1 15 1.98
+CPSC
