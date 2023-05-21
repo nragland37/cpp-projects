@@ -40,7 +40,7 @@ int main() {
 
     cout << setprecision(2) << fixed;
 
-    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0)     // 0 is the first test
+    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0)     
          << "\n\nTotal for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4)
          << "\n\nTotal for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2)
          << "\n\nTotal for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7)
@@ -62,7 +62,7 @@ void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
             for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
                 f >> scores[studentNumber][testNumber];
     } else {
-        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";    
     }
 }
 
@@ -156,7 +156,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
         }
     }
 
-    return (topStudent + 1);     // +1 for display
+    return (topStudent + 1);     // +1 for display purposes
 }
 
 //*****************************************************************************************************

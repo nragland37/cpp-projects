@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //      Date class header file
-//		
+//
 //      This header file defines the private and public members and methods of the Date class and
 //      defines the inline functions (getters and setters).
 //
@@ -22,7 +22,7 @@ class Date {
 
    public:     // public member functions are accessible outside the class and can be called from main()
     Date();
-    ~Date();
+    ~Date();     // optional destructor since there is no dynamic memory allocation or
     int getDay() const;
     void setDay(const int &d);
     int getMonth() const;
@@ -36,7 +36,7 @@ class Date {
 //*****************************************************************************************************
 
 inline int Date::getDay() const {     // inline functions are defined in the header file for efficiency
-    return day;                       // are used for small functions that are called frequently (typically getters and setters)
+    return day;                       // used for small functions that are called frequently (typically getters and setters)
 }
 
 //*****************************************************************************************************

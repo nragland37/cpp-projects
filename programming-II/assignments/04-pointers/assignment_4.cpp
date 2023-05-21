@@ -40,8 +40,8 @@ void f1(int nums[], int size) {
          << "-----------------------------" << endl;
 
     for (int i = 0; i < size; ++i)
-        cout << "\nValue of index " << i << ": " << nums[i]                 // array notation to get the value at that index
-             << "\nAddress of index " << i << ": " << &nums[i] << endl;     // array notation to get the address of that index
+        cout << "\nValue of index " << i << ": " << nums[i]                 
+             << "\nAddress of index " << i << ": " << &nums[i] << endl;    
 }
 
 //*****************************************************************************************************
@@ -52,15 +52,15 @@ void f2(int *ptr, int size) {
          << "-------------------------------" << endl;
 
     for (int i = 0; i < size; ++i)
-        cout << "\nValue of index " << i << ": " << *(ptr + i)             // dereference pointer ptr and add i to the address to get the value at that index
-             << "\nAddress of index " << i << ": " << ptr + i << endl;     // add i to the address to get the address of that index
+        cout << "\nValue of index " << i << ": " << *(ptr + i)             
+             << "\nAddress of index " << i << ": " << ptr + i << endl;     
 }
 
 //*****************************************************************************************************
 
 void f3(int nums[], int size) {
     const int SIZE = 3;
-    int *p = nums;     // pointer p points to the first element in the array nums
+    int *p = nums;     
     int input;
 
     cout << "\n------------------------------------------------------------\n"
@@ -76,7 +76,7 @@ void f3(int nums[], int size) {
                 p = &nums[input];
                 break;
             } else {
-                cerr << "\nError: Invalid Entry\n";     // cerr is unbuffered and best for error handling
+                cerr << "\nError: Invalid Entry\n";     
             }
         }
 
@@ -103,14 +103,14 @@ void f4(int nums[], int size) {
         cin >> input1;
 
         if (input1 >= 0 && input1 < size) {
-            p1 = &nums[input1];     // pointer p1 points to the address of the value at index input1
+            p1 = &nums[input1];     
             break;
         } else {
             cerr << "\nError: Invalid Entry\n";
         }
     }
 
-    cout << "Value of index " << input1 << ": " << *p1 << endl;     // dereference pointer p1 to get the value at that index
+    cout << "Value of index " << input1 << ": " << *p1 << endl;    
 
     while (true) {
         cout << "\nEnter value: ";
@@ -124,8 +124,8 @@ void f4(int nums[], int size) {
         }
     }
 
-    cout << "Value of index " << input2 << ": " << *p2                                                 // dereference pointer p2 to get the value at that index
-         << "\n\nThe sum of index " << input1 << " and " << input2 << " is " << *p1 + *p2 << endl;     // dereference pointer p1 and p2 to get the value at that index and add them together (pointer arithmetic)
+    cout << "Value of index " << input2 << ": " << *p2                                                 
+         << "\n\nThe sum of index " << input1 << " and " << input2 << " is " << *p1 + *p2 << endl;     
 }
 
 //*****************************************************************************************************

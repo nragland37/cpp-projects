@@ -26,7 +26,7 @@ struct dateEmployed {
 struct Employee {
     string name;
     int age;
-    dateEmployed date;
+    dateEmployed date;     // nested structure
 };
 
 Employee *readEmployees(const string &empFile, int &numEmps);
@@ -69,7 +69,7 @@ int main() {
         }
     }
     if (!f)
-        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";    
 
     return 0;
 }
@@ -79,12 +79,12 @@ int main() {
 Employee *readEmployees(const string &empFile, int &numEmps) {
     fstream f;
 
-    f.open(empFile, ios::in);
-    Employee *tmp = new Employee[numEmps];     // dynamically allocate array of structures to store employee data
+    f.open(empFile, ios::in);                  // open file for only reading
+    Employee *tmp = new Employee[numEmps];     
     f.ignore(2);                               // ignore first two characters of file (number of employees and newline)
 
     for (int i = 0; i < numEmps; ++i) {
-        getline(f, tmp[i].name, ',');
+        getline(f, tmp[i].name, ',');          // read until comma
         f >> tmp[i].age;
         f.ignore();
         f >> tmp[i].date.month;
@@ -105,7 +105,7 @@ Employee *readEmployees(const string &empFile, int &numEmps) {
 Employee *inputEmployees(Employee *emps, int &numEmps) {
     fstream f;
     int newEntries,
-        oldEmps = numEmps,     // store number of employees before adding new ones
+        oldEmps = numEmps,   
         age,
         month,
         day,
@@ -115,8 +115,8 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
     cout << "\nHow many?" << endl;
     cin >> newEntries;
 
-    cin.ignore();                                               // ignore newline character so getline() works properly
-    Employee *newemps = new Employee[numEmps + newEntries];     // numEmps + newEntries = total number of employees
+    cin.ignore();                                               
+    Employee *newemps = new Employee[numEmps + newEntries];     
 
     for (int i = 0; i < numEmps; i++) {
         newemps[i].name = emps[i].name;
@@ -126,9 +126,9 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
         newemps[i].date.year = emps[i].date.year;
     }
 
-    numEmps = numEmps + newEntries;     // update number of employees to pass by reference to main()
+    numEmps = numEmps + newEntries;     
 
-    f.open("Employees.txt", ios::out);     // open file for writing ( ios::out is for writing)
+    f.open("Employees.txt", ios::out);     // open file for only writing
     f << numEmps << endl;
 
     for (int i = 0; i < numEmps - newEntries; ++i)
@@ -140,7 +140,7 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
 
     f.close();
 
-    f.open("Employees.txt", ios::app);     // open file for appending ( ios::app is for appending)
+    f.open("Employees.txt", ios::app);     // open file for only appending
 
     for (int i = oldEmps; i < numEmps; ++i) {
         cout << "\nName: ";
@@ -173,29 +173,22 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
     }
     f.close();
 
-    return newemps;     // return pointer to new array of structures
+    return newemps;    
 }
 
 //*****************************************************************************************************
 
 void displayEmployees(const Employee emps[], int numEmps) {
-    cout << "\n";
-    cout << left     // Set the text alignment to left for all columns
-         << setw(30)
-         << "Name"     // width for the "NAME" column is 30 characters
-         << setw(20)
-         << "Age"     // width for the "AGE" column is 20 characters
-         << setw(10)
-         << "Date Employed" << endl;     // width for the "DATE EMPLOYED" column is 20 characters
+    cout << left << setw(30) << "\nName" << setw(20) << "Age" << setw(10) << "Date Employed" << endl;     
 
-    cout << setfill('-') << setw(63) << "" << endl;     // line of 70 dashes to separate the header from the data
+    cout << setfill('-') << setw(63) << "" << endl;     // line of dashes to separate header from data
     cout << setfill(' ');                               // reset the fill character to a space for the data
 
     for (int i = 0; i < numEmps; ++i)
         cout << left
              << setw(30) << emps[i].name
              << setw(23) << emps[i].age
-             << right << setw(10)     // right align the date for better formatting
+             << right << setw(10)     
              << setw(2) << emps[i].date.month << "/"
              << setw(2) << emps[i].date.day << "/"
              << setw(4) << emps[i].date.year << endl;

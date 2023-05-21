@@ -28,3 +28,4 @@
 | 10 | [Palindrome Evaluator: Stack](assignments/10-palindromes/docs) | [:white_check_mark:](./assignments/10-palindromes) |
 | 11 | [Palindrome Evaluator: Stack & Queue](assignments/11-pal2/docs) | [:white_check_mark:](./assignments/11-pal2) |
 | 12 | [Operator Overloading & Doubly Linked List](assignments/12-DLList/docs) | [:white_check_mark:](./assignments/12-DLList) |
+| 13 | [Operator Overloading & Doubly Linked List (Continued)](assignments/13-DLList/docs) | [:white_check_mark:](./assignments/13-DLList) |

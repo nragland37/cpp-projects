@@ -1,8 +1,8 @@
 //*****************************************************************************************************
-//      Sports Information Management  
+//      Sports Information Management
 //
-//      This program is a sport information system that implements Object Oriented Programming (OOP) 
-//      concepts that allows the user to add, display, and compare different sports based on their 
+//      This program is a sport information system that implements Object Oriented Programming (OOP)
+//      concepts that allows the user to add, display, and compare different sports based on their
 //      name, date, and team information.
 //
 //      Other files required:
@@ -15,9 +15,8 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-#include "Date.h"      // change to "Date.cpp" in visual studio code
-#include "Sport.h"     // change to "Sport.cpp" in visual studio code
+#include "Date.cpp"
+#include "Sport.cpp"
 
 //*****************************************************************************************************
 
@@ -41,10 +40,10 @@ int main() {
 
     s = new Sport[size];
 
-    cin.ignore();     // ignore the newline character in the buffer to prevent skipping getline() in populate function
+    cin.ignore();     
 
     for (int i = 0; i < size; ++i)
-        s[i].populate();     // populate function prompts user to enter Sport Name, Date, Number of Teams, and Team Names
+        s[i].populate();     
 
     do {
         cout << "\n---------------------------------------------------------------------\n"
@@ -57,8 +56,8 @@ int main() {
         cout << "Enter Your Choice: ";
         cin >> ch;
 
-        cin.ignore();     // ignore newline character in buffer to prevent skipping getline() in switch statement
-        
+        cin.ignore();     
+
         switch (ch) {
             case 'a': {
                 displaySports(s, size);
@@ -67,13 +66,13 @@ int main() {
             case 'b': {
                 string team,
                     sportAdd;
-                bool addTest;     // addTest is used to test if Sport Name exists
+                bool addTest;     
 
                 do {
                     cout << "\nEnter Sport Name to add Team: ";
                     getline(cin, sportAdd);
 
-                    addTest = testName(s, size, sportAdd);     // testName function tests if Sport Name exists
+                    addTest = testName(s, size, sportAdd);     
 
                     if (addTest == true) {
                         cout << "\nEnter Team Name: ";
@@ -83,7 +82,7 @@ int main() {
                             if (sportAdd == s[i].getName())
                                 s[i].addTeam(team);
                     } else {
-                        cerr << "\n\tInvalid Name\n";     // cerr is unbuffered and best for error handling
+                        cerr << "\n\tInvalid Name\n";     
                         cout << "\nBack to menu? (Y/N)" << endl;
                         cin >> entry;
 
@@ -93,7 +92,7 @@ int main() {
                             cin.ignore();
                     }
                 } while (addTest == false);
-                break;     // break out of switch statement if Sport Name exists and Team Name is added
+                break;     
             }
             case 'c': {
                 string s1;
@@ -123,7 +122,7 @@ int main() {
                             cin.ignore();
                     }
                 } while (s1Test == false);
-                break;     // break out of switch statement if Sport Name exists
+                break;    
             }
             case 'd': {
                 int temp = s[0].getNumTeams();
@@ -136,13 +135,13 @@ int main() {
                     }
                 }
 
-                for (int i = 0; i < size; ++i) {     // test if multiple sports have the same number of teams
+                for (int i = 0; i < size; ++i) {     
                     if (s[max].getNumTeams() == s[i].getNumTeams()) {
                         cout << "\n\tSport " << i + 1 << endl;
                         s[i].display();
                     }
                 }
-                break;     // break out of switch statement if multiple sports have the same number of teams
+                break;    
             }
             case 'e': {
                 break;
@@ -151,7 +150,7 @@ int main() {
                 cerr << "\n\tError: Invalid Entry\n";
             }
         }
-    } while (ch != 'e');     // break out of do-while loop if user enters 'e' to exit program
+    } while (ch != 'e');     
 
     delete[] s;
     s = nullptr;
@@ -584,6 +583,7 @@ Enter Your Choice: e
 =====================================================================
 
 How many Sports need to be processed: 2
+
 Enter the name of the sport: test
 Sport has a scheduled game? (Y/N)
 n
@@ -622,7 +622,7 @@ Enter Your Choice: a
                 Team 1 ....................... test
                 Team 2 ....................... test
 
-Destructor called                                                            Destructor test
+Date object destroyed                                                  destructor called
 
         Sport 2
                 Sport Name ................... test
@@ -632,7 +632,7 @@ Destructor called                                                            Des
                 Team 1 ....................... test
                 Team 2 ....................... test
 
-Destructor called                                                           Destructor test
+Date object destroyed
 
 ---------------------------------------------------------------------
 a) Display all Sports
@@ -642,12 +642,12 @@ d) Display the Sport that has the highest number of teams playing
 e) Exit
 Enter Your Choice: e
 
-Destructor called                                                           Destructor test
+Sport object destroyed                                                 destructor called
 
-Destructor called
+Date object destroyed
 
-Destructor called
+Sport object destroyed
 
-Destructor called
+Date object destroyed
 
 */

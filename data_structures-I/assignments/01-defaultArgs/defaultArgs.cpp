@@ -25,12 +25,12 @@ int main() {
 //*****************************************************************************************************
 
 void displayMsg(const char msg[], char symbol, int num) {
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < num; ++i)
         cout << symbol;
 
     cout << msg;
 
-    for (int i = 0; i < num; i++)
+    for (int i = 0; i < num; ++i)
         cout << symbol;
 
     cout << endl;

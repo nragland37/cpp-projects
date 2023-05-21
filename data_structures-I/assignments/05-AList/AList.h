@@ -87,7 +87,7 @@ bool AList<TYPE>::_resize() {
     newList = new (nothrow) TYPE[newCapacity];
 
     if (newList) {
-        for (int i = 0; i < numValues; i++)
+        for (int i = 0; i < numValues; ++i)
             newList[i] = list[i];
 
         delete[] list;
@@ -109,7 +109,7 @@ bool AList<TYPE>::insertFront(const TYPE &dataIn) {
         success = _resize();
 
     if (success) {
-        for (int i = numValues; i > 0; i--)
+        for (int i = numValues; i > 0; --i)
             list[i] = list[i - 1];
 
         list[0] = dataIn;
@@ -149,7 +149,7 @@ bool AList<TYPE>::insertAtIndex(const TYPE &dataIn, int index) {
             success = _resize();
 
         if (success) {
-            for (int i = numValues; i > index; i--)
+            for (int i = numValues; i > index; --i)
                 list[i] = list[i - 1];
 
             list[index] = dataIn;
@@ -169,7 +169,7 @@ bool AList<TYPE>::removeFront(TYPE &dataOut) {
     if (numValues > 0) {
         dataOut = list[0];
 
-        for (int i = 0; i < numValues - 1; i++)
+        for (int i = 0; i < numValues - 1; ++i)
             list[i] = list[i + 1];
 
         numValues--;
@@ -203,7 +203,7 @@ bool AList<TYPE>::removeAtIndex(TYPE &dataOut, int index) {
     if ((index >= 0) && (index < numValues)) {
         dataOut = list[index];
 
-        for (int i = index; i < numValues - 1; i++)
+        for (int i = index; i < numValues - 1; ++i)
             list[i] = list[i + 1];
 
         numValues--;
@@ -219,7 +219,7 @@ template <typename TYPE>
 bool AList<TYPE>::remove(TYPE &dataOut) {
     bool success = false;
 
-    for (int i = 0; i < (numValues) && (!success); i++) {
+    for (int i = 0; i < (numValues) && (!success); ++i) {
         if (list[i] == dataOut) {
             dataOut = list[i];
 
@@ -282,7 +282,7 @@ template <typename TYPE>
 bool AList<TYPE>::retrieve(TYPE &dataOut) const {
     bool success = false;
 
-    for (int i = 0; i < (numValues) && (!success); i++)
+    for (int i = 0; i < (numValues) && (!success); ++i)
         if (list[i] == dataOut) {
             dataOut = list[i];
             success = true;
@@ -339,7 +339,7 @@ template <typename TYPE>
 bool AList<TYPE>::update(const TYPE &dataIn) {
     bool success = false;
 
-    for (int i = 0; i < (numValues) && (!success); i++)
+    for (int i = 0; i < (numValues) && (!success); ++i)
         if (list[i] == dataIn) {
             list[i] = dataIn;
             success = true;
@@ -355,7 +355,7 @@ bool AList<TYPE>::display() const {
     bool success = false;
 
     if (numValues > 0) {
-        for (int i = 0; i < numValues; i++)
+        for (int i = 0; i < numValues; ++i)
             cout << "[" << i << "] " << list[i] << "\t";
 
         cout << endl;
@@ -375,7 +375,7 @@ bool AList<TYPE>::getSmallest(TYPE &dataOut) const {
     if (numValues > 0) {
         dataOut = list[0];
 
-        for (int i = 1; i < numValues; i++)
+        for (int i = 1; i < numValues; ++i)
             if (list[i] < dataOut)
                 dataOut = list[i];
 

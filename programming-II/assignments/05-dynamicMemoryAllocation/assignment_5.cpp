@@ -38,7 +38,7 @@ int main() {
         cin >> size;
 
         if (size <= 0 || size > 5000)
-            cerr << "\nError: Invalid Entry\n";     // cerr is unbuffered and best for error handling
+            cerr << "\nError: Invalid Entry\n";
 
         cin.ignore();
     } while (size <= 0 || size > 5000);
@@ -75,8 +75,9 @@ int main() {
     sortStudents(names, matches, size);
     display(names, matches, size);
 
+    // manual memory management is required in C++ because it does not have a garbage collector
     delete[] names;      // delete operator to deallocate memory to prevent memory leaks
-    names = nullptr;     // manual memory management is required in C++ because it does not have a garbage collector
+    names = nullptr;     // not necessary but good practice to set the pointer to nullptr after deleting to prevent dangling pointers
     delete[] matches;
     matches = nullptr;
 

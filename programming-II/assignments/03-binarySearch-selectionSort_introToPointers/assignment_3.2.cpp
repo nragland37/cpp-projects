@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //      Pointer Variables and Pointer Arithmetic Example
-//      
+//
 //      This program demonstrates the use of pointers and pointer arithmetic to manipulate and perform
 //      operations
 //

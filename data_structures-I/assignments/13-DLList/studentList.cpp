@@ -1,11 +1,23 @@
 //*****************************************************************************************************
 //
+//		File:					studentList.cpp
+//
+//		Student:				Nicholas Ragland
+//
+//		Assignment:				Assignment #12
+//
+//		Course Name:			Data Structures I
+//
+//		Course Number:			COSC 3050-01
+//
+//		Due:					May 3, 2023
+//
 //      This program reads in a file of student data and stores it in a doubly linked list of Student
 //      structs. The user is then presented with a menu of options to perform various tasks on the
 //      list.
 //
 //      Other files required:
-//        1.	 DLList.h - header file for the DLList class
+//		  1.	 DLList.h - header file for the DLList class
 //        2.	 student.h - header file for the Student struct
 //        3.	 studentFile.txt - file containing student data of 61 students
 //
@@ -27,7 +39,13 @@ void displayStudent(DLList<Student> &studentList);
 void displayStudentRev(DLList<Student> &studentList);
 void countStudents(DLList<Student> &studentList);
 void addNewStudent(DLList<Student> &studentList);
+void insertFront(DLList<Student> &studentList);
+void insertRear(DLList<Student> &studentList);
+void insertAfter(DLList<Student> &studentList);
+void insertBefore(DLList<Student> &studentList);
 void removeStudent(DLList<Student> &studentList);
+void removeFront(DLList<Student> &studentList);
+void removeRear(DLList<Student> &studentList);
 void findStudent(DLList<Student> &studentList);
 
 //*****************************************************************************************************
@@ -49,8 +67,14 @@ char getChoice() {
 
     cout << "============= MENU =============\n"
          << "A: Add a new student\n"
+         << "I: Front Insert a new student\n"
+         << "B: Rear Insert a new student\n"
+         << "O: Insert after a student\n"
+         << "U: Insert before a student\n"
          << "F: Find a student\n"
          << "R: Remove a student\n"
+         << "E: Front Remove a student\n"
+         << "Z: Rear Remove a student\n"
          << "C: Count the students\n"
          << "V: Reverse display the students\n"
          << "D: Display the students\n"
@@ -64,8 +88,14 @@ char getChoice() {
 
         switch (choice) {
             case 'A':
+            case 'I':
+            case 'B':
+            case 'O':
+            case 'U':
             case 'F':
             case 'R':
+            case 'E':
+            case 'Z':
             case 'C':
             case 'V':
             case 'D':
@@ -95,11 +125,29 @@ void process(DLList<Student> &studentList) {
             case 'A':
                 addNewStudent(studentList);
                 break;
+            case 'I':
+                insertFront(studentList);
+                break;
+            case 'B':
+                insertRear(studentList);
+                break;
+            case 'O':
+                insertAfter(studentList);
+                break;
+            case 'U':
+                insertBefore(studentList);
+                break;
             case 'F':
                 findStudent(studentList);
                 break;
             case 'R':
                 removeStudent(studentList);
+                break;
+            case 'E':
+                removeFront(studentList);
+                break;
+            case 'Z':
+                removeRear(studentList);
                 break;
             case 'C':
                 countStudents(studentList);
@@ -124,18 +172,22 @@ void buildList(DLList<Student> &studentList) {
 
     studentData.open("studentFile.txt");
 
-    while (studentData >> student.id) {
-        studentData.ignore();
-        studentData.getline(student.name, 50);
-        studentData.getline(student.cityState, 50);
-        studentData >> student.phone 
-                    >> student.gender 
-                    >> student.year 
-                    >> student.credits 
-                    >> student.gpa 
-                    >> student.major;
+    if (studentData.is_open()) {
+        while (studentData >> student.id) {
+            studentData.ignore();
+            studentData.getline(student.name, 50);
+            studentData.getline(student.cityState, 50);
+            studentData >> student.phone 
+                        >> student.gender 
+                        >> student.year 
+                        >> student.credits 
+                        >> student.gpa 
+                        >> student.major;
 
-        studentList.insert(student);
+            studentList.insert(student);
+        }
+    } else {
+        cerr << "Error opening file\n\n";
     }
 
     studentData.close();
@@ -217,6 +269,190 @@ void addNewStudent(DLList<Student> &studentList) {
 
 //*****************************************************************************************************
 
+void insertFront(DLList<Student> &studentList) {
+    Student student;
+
+    cout << "\n\nID: ";
+    cin >> student.id;
+
+    cout << "Name (e.g. Smith, John A): ";
+    cin.ignore();
+    cin.getline(student.name, 50);
+
+    cout << "City, State (e.g. San Diego, California): ";
+    cin.ignore();
+    cin.getline(student.cityState, 50);
+
+    cout << "Phone Number (e.g. 3145551212): ";
+    cin >> student.phone;
+
+    cout << "Gender (M/F): ";
+    cin >> student.gender;
+
+    cout << "Year (1-5): ";
+    cin >> student.year;
+
+    cout << "Credits (0-200): ";
+    cin >> student.credits;
+
+    cout << "Gpa (0.00-4.00): ";
+    cin >> student.gpa;
+
+    cout << "Major (e.g. MATH): ";
+    cin >> student.major;
+
+    studentList.insertFront(student);
+
+    cout << "\n\n"
+         << setw(31) << right << "STUDENT ADDED\n"
+         << "==================================================\n"
+         << setw(11) << left << "ID" << setw(25) << "NAME" << setw(10) << "MAJOR" << "GPA\n"
+         << "==================================================\n"
+         << student << endl;
+}
+
+//*****************************************************************************************************
+
+void insertRear(DLList<Student> &studentList) {
+    Student student;
+
+    cout << "\n\nID: ";
+    cin >> student.id;
+
+    cout << "Name (e.g. Smith, John A): ";
+    cin.ignore();
+    cin.getline(student.name, 50);
+
+    cout << "City, State (e.g. San Diego, California): ";
+    cin.ignore();
+    cin.getline(student.cityState, 50);
+
+    cout << "Phone Number (e.g. 3145551212): ";
+    cin >> student.phone;
+
+    cout << "Gender (M/F): ";
+    cin >> student.gender;
+
+    cout << "Year (1-5): ";
+    cin >> student.year;
+
+    cout << "Credits (0-200): ";
+    cin >> student.credits;
+
+    cout << "Gpa (0.00-4.00): ";
+    cin >> student.gpa;
+
+    cout << "Major (e.g. MATH): ";
+    cin >> student.major;
+
+    studentList.insertRear(student);
+
+    cout << "\n\n"
+         << setw(31) << right << "STUDENT ADDED\n"
+         << "==================================================\n"
+         << setw(11) << left << "ID" << setw(25) << "NAME" << setw(10) << "MAJOR" << "GPA\n"
+         << "==================================================\n"
+         << student << endl;
+}
+
+//*****************************************************************************************************
+
+void insertAfter(DLList<Student> &studentList) {
+    Student student;
+    Student dataAfter;
+
+    cout << "\n\nEnter the student data (ID) before which new student will be added: ";
+    cin >> dataAfter.id;
+
+    cout << "\n\nID: ";
+    cin >> student.id;
+
+    cout << "Name (e.g. Smith, John A): ";
+    cin.ignore();
+    cin.getline(student.name, 50);
+
+    cout << "City, State (e.g. San Diego, California): ";
+    cin.ignore();
+    cin.getline(student.cityState, 50);
+
+    cout << "Phone Number (e.g. 3145551212): ";
+    cin >> student.phone;
+
+    cout << "Gender (M/F): ";
+    cin >> student.gender;
+
+    cout << "Year (1-5): ";
+    cin >> student.year;
+
+    cout << "Credits (0-200): ";
+    cin >> student.credits;
+
+    cout << "Gpa (0.00-4.00): ";
+    cin >> student.gpa;
+
+    cout << "Major (e.g. MATH): ";
+    cin >> student.major;
+
+    studentList.insertAfter(student, dataAfter);
+
+    cout << "\n\n"
+         << setw(31) << right << "STUDENT ADDED\n"
+         << "==================================================\n"
+         << setw(11) << left << "ID" << setw(25) << "NAME" << setw(10) << "MAJOR" << "GPA\n"
+         << "==================================================\n"
+         << student << endl;
+}
+
+//*****************************************************************************************************
+
+void insertBefore(DLList<Student> &studentList) {
+    Student student;
+    Student dataAfter;
+
+    cout << "\n\nEnter the student data (ID) before which new student will be added: ";
+    cin >> dataAfter.id;
+
+    cout << "\n\nID: ";
+    cin >> student.id;
+
+    cout << "Name (e.g. Smith, John A): ";
+    cin.ignore();
+    cin.getline(student.name, 50);
+
+    cout << "City, State (e.g. San Diego, California): ";
+    cin.ignore();
+    cin.getline(student.cityState, 50);
+
+    cout << "Phone Number (e.g. 3145551212): ";
+    cin >> student.phone;
+
+    cout << "Gender (M/F): ";
+    cin >> student.gender;
+
+    cout << "Year (1-5): ";
+    cin >> student.year;
+
+    cout << "Credits (0-200): ";
+    cin >> student.credits;
+
+    cout << "Gpa (0.00-4.00): ";
+    cin >> student.gpa;
+
+    cout << "Major (e.g. MATH): ";
+    cin >> student.major;
+
+    studentList.insertBefore(student, dataAfter);
+
+    cout << "\n\n"
+         << setw(31) << right << "STUDENT ADDED\n"
+         << "==================================================\n"
+         << setw(11) << left << "ID" << setw(25) << "NAME" << setw(10) << "MAJOR" << "GPA\n"
+         << "==================================================\n"
+         << student << endl;
+}
+
+//*****************************************************************************************************
+
 void removeStudent(DLList<Student> &studentList) {
     Student student;
 
@@ -232,6 +468,38 @@ void removeStudent(DLList<Student> &studentList) {
              << student << endl;
     else
         cerr << "\n\nStudent not found\n\n";
+}
+
+//*****************************************************************************************************
+
+void removeFront(DLList<Student> &studentList) {
+    Student student;
+
+    if (studentList.removeFront(student))
+        cout << "\n\n"
+             << setw(32) << right << "STUDENT REMOVED\n"
+             << "==================================================\n"
+             << setw(11) << left << "ID" << setw(25) << "NAME" << setw(10) << "MAJOR" << "GPA\n"
+             << "==================================================\n"
+             << student << endl;
+    else
+        cerr << "\n\nList is empty\n\n";
+}
+
+//*****************************************************************************************************
+
+void removeRear(DLList<Student> &studentList) {
+    Student student;
+
+    if (studentList.removeRear(student))
+        cout << "\n\n"
+             << setw(32) << right << "STUDENT REMOVED\n"
+             << "==================================================\n"
+             << setw(11) << left << "ID" << setw(25) << "NAME" << setw(10) << "MAJOR" << "GPA\n"
+             << "==================================================\n"
+             << student << endl;
+    else
+        cerr << "\n\nList is empty\n\n";
 }
 
 //*****************************************************************************************************
@@ -259,8 +527,14 @@ void findStudent(DLList<Student> &studentList) {
 
 ============= MENU =============
 A: Add a new student
+I: Front Insert a new student
+B: Rear Insert a new student
+O: Insert after a student
+U: Insert before a student
 F: Find a student
 R: Remove a student
+E: Front Remove a student
+Z: Rear Remove a student
 C: Count the students
 V: Reverse display the students
 D: Display the students

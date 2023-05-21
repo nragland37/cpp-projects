@@ -23,8 +23,8 @@ Date::Date() {     // default constructor sets date to 1/1/2000
 
 //*****************************************************************************************************
 
-Date::~Date() {
-    // cout << "\nDestructor called" << endl;
+Date::~Date() { 
+    //cout << "\nDate object destroyed\n";
 }
 
 //*****************************************************************************************************
@@ -34,7 +34,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
     cin >> year;
 
     while (year < 2022 || year > 2100) {
-        cerr << "\nInvalid\n\n";     // cerr is unbuffered and best for error handling
+        cerr << "\nInvalid\n\n";     
         cout << "Enter Year(2022- ): ";
         cin >> year;
     }
@@ -88,7 +88,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
 //*****************************************************************************************************
 
 void Date::displayDate() {
-    cout << getMonth() << "/" << getDay() << "/" << getYear();     // displays date in mm/dd/yyyy format
+    cout << getMonth() << "/" << getDay() << "/" << getYear();     
 }
 
 //*****************************************************************************************************

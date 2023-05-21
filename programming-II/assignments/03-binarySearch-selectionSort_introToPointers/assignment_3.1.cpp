@@ -100,7 +100,7 @@ void readNames(ifstream &inputFile, string names[], int numNames) {
         for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
             getline(inputFile, names[nameNumber]);
     else
-        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";
 }
 
 //*****************************************************************************************************
@@ -122,7 +122,7 @@ int linearSearchNames(const string names[], int numNames, const string &name) {
             found = true;
             position = index;
         }
-        
+
         index++;
     }
 
@@ -188,26 +188,26 @@ void bubbleSortDescending(string names[], int numNames) {
 //*****************************************************************************************************
 
 int binarySearchNames(const string names[], int numNames, const string &name) {     // binary search algorithm (time complexity: O(log n))
-    int first = 0,                                                                  // first index of the array
-        last = numNames - 1,                                                        // last index of the array
-        middle,                                                                     // middle index of the array
-        position = -1;                                                              // position with -1 indicates that the name was not found
-    bool found = false;                                                             // flag to indicate if the name was found
+    int first = 0,                                                                  
+        last = numNames - 1,                                                       
+        middle,                                                                     
+        position = -1;                                                              
+    bool found = false;                                                             
 
-    while (!found && (first <= last)) {     // loop until the name is found or the first index is greater than the last index
-        middle = (first + last) / 2;        // calculate the middle index of the array
+    while (!found && (first <= last)) {     
+        middle = (first + last) / 2;        
 
-        if (names[middle] == name) {           // check if the name at the middle index matches the searched name
-            found = true;                      // if yes, set the boolean variable found to true
-            position = middle;                 // set the position to the middle index
-        } else if (names[middle] > name) {     // if the name at the middle index is greater than the searched name
-            last = middle - 1;                 // set the last index to the middle - 1
-        } else {                               // if the name at the middle index is less than the searched name
-            first = middle + 1;                // set the first index to the middle + 1
+        if (names[middle] == name) {           
+            found = true;                      
+            position = middle;                 
+        } else if (names[middle] > name) {     
+            last = middle - 1;                 
+        } else {                               
+            first = middle + 1;                
         }
     }
 
-    return position;     // return the position of the searched name in the array
+    return position;     
 }
 
 //*****************************************************************************************************
@@ -224,22 +224,22 @@ void displayBinarySearchNames(const string names[], int numNames, const string &
 //*****************************************************************************************************
 
 void selectionSort(string names[], int numNames) {     // selection sort algorithm (time complexity: O(n^2))
-    int minIndex;                                      // index of the minimum value
-    string minValue;                                   // minimum value
+    int minIndex;                                      
+    string minValue;                                   
 
-    for (int startScan = 0; startScan < (numNames - 1); ++startScan) {     // outer loop to iterate through the array
-        minIndex = startScan;                                              // set the initial minimum index as the current startScan index
-        minValue = names[minIndex];                                        // set the initial minimum value as the value at the current startScan index
+    for (int startScan = 0; startScan < (numNames - 1); ++startScan) {     
+        minIndex = startScan;                                              
+        minValue = names[minIndex];                                        
 
-        for (int index = startScan + 1; index < numNames; ++index) {     // inner loop to compare the current minimum value with the rest of the array
-            if (names[index] < minValue) {                               // if a value smaller than the current minimum value is found
-                minValue = names[index];                                 // update the minimum value to the new smaller value
-                minIndex = index;                                        // update the minimum index to the index of the new smaller value
+        for (int index = startScan + 1; index < numNames; ++index) {     
+            if (names[index] < minValue) {                               
+                minValue = names[index];                                 
+                minIndex = index;                                        
             }
         }
 
-        names[minIndex] = names[startScan];     // swap the current startScan value with the minimum value found
-        names[startScan] = minValue;            // update the value at the current startScan index with the minimum value found
+        names[minIndex] = names[startScan];     
+        names[startScan] = minValue;            
     }
 }
 

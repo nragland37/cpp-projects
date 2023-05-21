@@ -48,27 +48,27 @@ int main() {
         cout << "Number: ";
         cin >> size;
 
-        cin.ignore();     // ignore the newline character in the input buffer so getline() works properly
+        cin.ignore();
 
         if (size <= 0 || size >= 5000)
-            cerr << "\nNumber must be greater than 0 and smaller than 5000\n";     // cerr is unbuffered and best for error handling
+            cerr << "\nNumber must be greater than 0 and smaller than 5000\n";
 
     } while (size <= 0 || size >= 5000);
 
-    Speaker *members = new Speaker[size];          // dynamically allocate an array of Speaker structs
-    inputSpeakers(members, size, numSpeakers);     // input speakers' info with getline() (this is why we used cin.ignore() above)
+    Speaker *members = new Speaker[size];
+    inputSpeakers(members, size, numSpeakers);
 
     do {
         cout << "\n---------------------------------------------------------------\n"
              << "    Enter the name of the speaker you would like to update\n"
-             << "---------------------------------------------------------------" << endl;
-        cout << "Name: ";
+             << "---------------------------------------------------------------\n"
+             << "Name: ";
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
 
         if (nameTest == false)
-            cerr << "\nSorry but the name does not exist\n";     // cerr is unbuffered and best for error handling
+            cerr << "\nSorry but the name does not exist\n";
 
     } while (nameTest == false);
 
@@ -77,8 +77,8 @@ int main() {
     do {
         cout << "\n---------------------------------------------------------------\n"
              << "   Enter the name of the speaker you would like to display\n"
-             << "---------------------------------------------------------------" << endl;
-        cout << "Name: ";
+             << "---------------------------------------------------------------\n"
+             << "Name: ";
         getline(cin, speakerName);
 
         nameTest = testName(members, numSpeakers, speakerName);
@@ -92,8 +92,8 @@ int main() {
     do {
         cout << "\n---------------------------------------------------------------\n"
              << "     Enter the topic you would like to display names for\n"
-             << "---------------------------------------------------------------" << endl;
-        cout << "Topic: ";
+             << "---------------------------------------------------------------\n"
+             << "Topic: ";
         getline(cin, topic);
 
         topicTest = testTopic(members, numSpeakers, topic);
@@ -237,65 +237,48 @@ void updateSpeaker(Speaker members[], int numSpeakers, const string &speakerName
 //*****************************************************************************************************
 
 void displayOneSpeakerInfo(Speaker members[], int numSpeakers, const string &speakerName) {
-    for (int i = 0; i < numSpeakers; ++i) {
-        if (speakerName == members[i].name) {
-            cout << "\nSpeaker " << i + 1 << endl;
-
-            cout << "\t" << setfill('.') << setw(30) << left << "Name "     // setw(30) is the width of the field
-                 << " " << members[i].name << endl;                         // left is the alignment of the field
-                                                                            // setfill('.') is the character used to fill the empty space
-            cout << "\t" << setfill('.') << setw(30) << left << "Telephone Number "
-                 << " " << members[i].phoneNum << endl;
-
-            cout << "\t" << setfill('.') << setw(30) << left << "Topic "
-                 << " " << members[i].topic << endl;
-
-            cout << "\t" << setfill('.') << setw(30) << left << "Fee "
+    for (int i = 0; i < numSpeakers; ++i)
+        if (speakerName == members[i].name)
+            cout << "\nSpeaker " << i + 1
+                 << "\n\t" << setfill('.') << setw(30) << left << "Name "
+                 << " " << members[i].name
+                 << "\n\t" << setw(30) << "Telephone Number "
+                 << " " << members[i].phoneNum
+                 << "\n\t" << setw(30) << left << "Topic "
+                 << " " << members[i].topic
+                 << "\n\t" << setw(30) << left << "Fee "
                  << " " << members[i].fee << endl;
-        }
-    }
 }
 
 //*****************************************************************************************************
 
 void displayTopicSpeakers(Speaker members[], int numSpeakers, const string &topic) {
-    for (int i = 0; i < numSpeakers; i++) {
-        if (topic == members[i].topic) {
-            cout << "\nSpeaker " << i + 1 << endl;
-
-            cout << "\t" << setfill('.') << setw(30) << left << "Name "
-                 << " " << members[i].name << endl;
-
-            cout << "\t" << setfill('.') << setw(30) << left << "Telephone Number "
-                 << " " << members[i].phoneNum << endl;
-
-            cout << "\t" << setfill('.') << setw(30) << left << "Topic "
-                 << " " << members[i].topic << endl;
-
-            cout << "\t" << setfill('.') << setw(30) << left << "Fee "
+    for (int i = 0; i < numSpeakers; ++i)
+        if (topic == members[i].topic)
+            cout << "\nSpeaker " << i + 1
+                 << "\n\t" << setfill('.') << setw(30) << left << "Name "
+                 << " " << members[i].name
+                 << "\n\t" << setw(30) << left << "Telephone Number "
+                 << " " << members[i].phoneNum
+                 << "\n\t" << setw(30) << left << "Topic "
+                 << " " << members[i].topic
+                 << "\n\t" << setw(30) << left << "Fee "
                  << " " << members[i].fee << endl;
-        }
-    }
 }
 
 //*****************************************************************************************************
 
 void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
-    for (int i = 0; i < numSpeakers; ++i) {
-        cout << "\nSpeaker " << i + 1 << endl;
-
-        cout << "\t" << setfill('.') << setw(30) << left << "Name "
-             << " " << members[i].name << endl;
-
-        cout << "\t" << setfill('.') << setw(30) << left << "Telephone Number "
-             << " " << members[i].phoneNum << endl;
-
-        cout << "\t" << setfill('.') << setw(30) << left << "Topic "
-             << " " << members[i].topic << endl;
-
-        cout << "\t" << setfill('.') << setw(30) << left << "Fee "
+    for (int i = 0; i < numSpeakers; ++i)
+        cout << "\nSpeaker " << i + 1
+             << "\n\t" << setfill('.') << setw(30) << left << "Name "
+             << " " << members[i].name
+             << "\n\t" << setw(30) << left << "Telephone Number "
+             << " " << members[i].phoneNum
+             << "\n\t" << setw(30) << left << "Topic "
+             << " " << members[i].topic
+             << "\n\t" << setw(30) << left << "Fee "
              << " " << members[i].fee << endl;
-    }
 }
 
 //*****************************************************************************************************
@@ -303,7 +286,7 @@ void displayAllSpeakerInfo(Speaker members[], int numSpeakers) {
 bool isEmpty(const string &str) {
     bool success = false;
 
-    if (str.empty())     // empty() is a string function that returns true if the string is empty
+    if (str.empty())
         success = true;
 
     return success;
@@ -313,11 +296,11 @@ bool isEmpty(const string &str) {
 
 bool testName(Speaker members[], int numSpeakers, const string &speakerName) {
     bool nameFound = false;
-    
+
     for (int i = 0; i < numSpeakers; ++i) {
         if (speakerName == members[i].name) {
             nameFound = true;
-            break;     // break out of the loop if the name is found
+            break;
         }
     }
 

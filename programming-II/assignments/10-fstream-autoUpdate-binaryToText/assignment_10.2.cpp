@@ -62,7 +62,7 @@ int main() {
          << "---------------------------------------------------\n"
          << "   Three people from this list will be randomly\n"
          << "            selected to take the test \n\n"
-         << "Would you like to study before the test? (Y/N)" << endl;     // prompts user to study before test
+         << "Would you like to study before the test? (Y/N)" << endl;    
     cin >> studyEntry;
 
     if (studyEntry == 'y' || studyEntry == 'Y') {
@@ -95,7 +95,7 @@ Translation *readTranslation(const string &fileName, int &num) {
     Translation *t = nullptr;
     ifstream f(fileName);
 
-    if (f.is_open()) {     // checks if file is open and reads data
+    if (f.is_open()) {    
         f >> num;
         f.ignore();
 
@@ -105,9 +105,9 @@ Translation *readTranslation(const string &fileName, int &num) {
             getline(f, t[i].american, ',');
             getline(f, t[i].english);
         }
-        f.close();     // closes file after reading data
+        f.close();     
     } else {
-        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";    
     }
 
     return t;
@@ -116,7 +116,7 @@ Translation *readTranslation(const string &fileName, int &num) {
 //*****************************************************************************************************
 
 void testersUpdates(const Translation translate[], int numT, const string &fileName) {
-    const int NUM_TESTS = 3;     // # of random tests ~ same people can be tested more than once
+    const int NUM_TESTS = 3;    
     int randomPerson = 0,
         numP,
         month,
@@ -124,6 +124,7 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
         year;
     Person people;
     short seed;
+
     seed = time(0);
     srand(seed);
 
@@ -147,30 +148,28 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
          << " randomly selected from the list.\n"
          << "  Enter the English translation." << endl;
 
-    fstream f(fileName, ios::in | ios::out | ios::binary);     // opens file in binary mode for input and output
+    fstream f(fileName, ios::in | ios::out | ios::binary);     // opens file for only reading and writing in binary mode
     f.read(reinterpret_cast<char *>(&numP), sizeof(int));      // reads number of people from file and stores in numP
 
     for (int i = 0; i < NUM_TESTS; ++i) {
-        randomPerson = (rand() % numP) + 1;     // (numP: 10) range: (0 - 9) + 1 (adds to range)  // range: 1 - 10
+        randomPerson = (rand() % numP) + 1;     
 
         f.seekg((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);     // seekg() is the get pointer (reads)
         f.read(reinterpret_cast<char *>(&people), sizeof(Person));                  // reads person from file and stores in people
-        people.testTaken.month = month;                                             // updates testTaken date
+        people.testTaken.month = month;                                             
         people.testTaken.day = day;
         people.testTaken.year = year;
 
-        cout << "\n=================================" << endl;
-        cout << setfill(' ') << setw(3) << left << "#"
-             << setw(20) << left << "NAME"
-             << "TEST TAKEN\n"
-             << "---------------------------------" << endl;
-        cout << setw(3) << left << randomPerson
-             << setw(20) << left << people.name
+        cout << "\n=================================\n"
+             << setfill(' ') << setw(3) << left << "#" << setw(20) << "NAME" << "TEST TAKEN\n"
+             << "---------------------------------\n"
+             << setw(3) << randomPerson
+             << setw(20) << people.name
              << people.testTaken.month << "/"
              << people.testTaken.day << "/"
              << people.testTaken.year << endl;
 
-        takeTest(translate, numT, people);     // calls takeTest function
+        takeTest(translate, numT, people);     
 
         f.seekp((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);     // seekp() is the put pointer (writes)
         f.write(reinterpret_cast<char *>(&people), sizeof(Person));                 // writes person to file and updates information
@@ -186,24 +185,28 @@ randomPerson range: (0 - 9) ~
 
     fstream f(fileName, ios::in | ios::out | ios::binary);
     f.read(reinterpret_cast<char*>(&numP), sizeof(int));
+    
     for (int i = 0; i < NUM_TESTS; ++i) {
         randomPerson = rand() % numP;                                                        <<<<<<<<<<
+
         f.seekg((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);                  <<<<<<<<<<
         f.read(reinterpret_cast<char*>(&people), sizeof(Person));
+
         people.testTaken.month = month;
         people.testTaken.day = day;
         people.testTaken.year = year;
-        cout << "\n=================================" << endl;
-        cout << setfill(' ') << setw(3) << left << "#"
-             << setw(20) << left << "NAME"
-             << "TEST TAKEN" << endl;
-        cout << "---------------------------------" << endl;
-        cout << setw(3) << left << randomPerson + 1
-             << setw(20) << left << people.name
+
+        cout << "\n=================================\n"
+             << setfill(' ') << setw(3) << left << "#" << setw(20) << "NAME" << "TEST TAKEN\n"
+             << "---------------------------------\n"
+             << setw(3) << randomPerson + 1
+             << setw(20) << people.name
              << people.testTaken.month << "/"
              << people.testTaken.day << "/"
              << people.testTaken.year << endl;
+
         takeTest(translate, numT, people);
+
         f.seekp((sizeof(int) + (randomPerson) * sizeof(Person)), ios::beg);                  <<<<<<<<<<
         f.write(reinterpret_cast<char*>(&people), sizeof(Person));
     }
@@ -214,22 +217,25 @@ seekp begins at current location ~
 
         for (int i = 0; i < NUM_TESTS; ++i) {
         randomPerson = (rand() % numP) + 1;
+
         f.seekg((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);
         f.read(reinterpret_cast<char*>(&people), sizeof(Person));
+
         people.testTaken.month = month;
         people.testTaken.day = day;
         people.testTaken.year = year;
-        cout << "\n=================================" << endl;
-        cout << setfill(' ') << setw(3) << left << "#"
-             << setw(20) << left << "NAME"
-             << "TEST TAKEN" << endl;
-        cout << "---------------------------------" << endl;
-        cout << setw(3) << left << randomPerson
-             << setw(20) << left << people.name
+
+        cout << "\n=================================\n"
+             << setfill(' ') << setw(3) << left << "#" << setw(20) << "NAME" << "TEST TAKEN\n"
+             << "---------------------------------\n"
+             << setw(3) << randomPerson
+             << setw(20) << people.name
              << people.testTaken.month << "/"
              << people.testTaken.day << "/"
              << people.testTaken.year << endl;
+
         takeTest(translate, numT, people);
+
         f.seekp(((-1) * sizeof(Person)), ios::cur);                                          <<<<<<<<<<
         f.write(reinterpret_cast<char*>(&people), sizeof(Person));
     }
@@ -252,15 +258,13 @@ void takeTest(const Translation translate[], int numT, Person &p) {
 
     cout << "\n---------------------------------" << endl;
     cout << setfill(' ')
-         << setw(3) << left << "#"
-         << setw(18) << left << "American"
-         << "English\n"
+         << setw(3) << left << "#" << setw(18) << "American" << "English\n"
          << "---------------------------------" << endl;
 
     for (int i = 0; i < NUM_QUESTIONS; ++i) {
         randomQuestion = rand() % numT;     // (numT: 20) range: 0 - 19
         cout << setfill(' ') << setw(3) << left << randomQuestion + 1
-             << setfill('.') << setw(18) << left << translate[randomQuestion].american;
+             << setfill('.') << setw(18) << translate[randomQuestion].american;
         cin >> guess;
 
         answer = translate[randomQuestion].english;
@@ -286,30 +290,27 @@ void displayTesters(const string &fileName) {
     int numP = 0;
     Person people;
 
-    fstream f(fileName, ios::in | ios::binary);     // open binary file for reading
+    fstream f(fileName, ios::in | ios::binary);     // open file for only reading in binary mode
 
     if (f.is_open()) {
-        f.read(reinterpret_cast<char *>(&numP), sizeof(numP));     // read number of people from binary file (first line)
+        f.read(reinterpret_cast<char *>(&numP), sizeof(numP));     
 
         cout << "\n---------------------------------------------------" << endl;
         cout << setfill(' ')
-             << setw(3) << left << "#"
-             << setw(20) << left << "NAME"
-             << setw(15) << left << "SCORE %"
-             << "TEST TAKEN\n"
+             << setw(3) << left << "#" << setw(20) << "NAME" << setw(15) << "SCORE %" << "TEST TAKEN\n"
              << "---------------------------------------------------" << endl;
 
         for (int i = 0; i < numP; ++i) {
-            f.read(reinterpret_cast<char *>(&people), sizeof(Person));     // read people from binary file (remaining lines)
+            f.read(reinterpret_cast<char *>(&people), sizeof(Person));     
             cout << setw(3) << left << i + 1
-                 << setw(20) << left << people.name
-                 << setw(15) << left << people.score
+                 << setw(20) << people.name
+                 << setw(15) << people.score
                  << people.testTaken.month << "/"
                  << people.testTaken.day << "/"
                  << people.testTaken.year << endl;
         }
 
-        f.close();     // close binary file after reading
+        f.close();     
     } else {
         cerr << "Error: Unable to open file\n";
     }
@@ -318,15 +319,13 @@ void displayTesters(const string &fileName) {
 //*****************************************************************************************************
 
 void displayTranslateAnswers(const Translation translate[], int numT) {
-    cout << "\n---------------------------------" << endl;
-    cout << setw(3) << left << "#"
-         << setw(18) << left << "American"
-         << "English\n"
+    cout << "\n---------------------------------\n"
+         << setw(3) << left << "#" << setw(18) << "American" << "English\n"
          << "---------------------------------" << endl;
 
     for (int i = 0; i < numT; ++i)
         cout << setfill(' ') << setw(3) << left << i + 1
-             << setfill('.') << setw(18) << left << translate[i].american
+             << setfill('.') << setw(18) << translate[i].american
              << translate[i].english << endl;
 }
 

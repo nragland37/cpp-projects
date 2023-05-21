@@ -1,15 +1,15 @@
 //*****************************************************************************************************
 //      Counting Words in C-Strings
 //
-//      This program takes a user input c-string and counts the number of words ending with a period 
+//      This program takes a user input c-string and counts the number of words ending with a period
 //      and ignores any punctuation, spaces, numbers, special characters, mispelled words, etc.
 //
 //*****************************************************************************************************
 
 #include <cctype>     
-#include <cstring>
-#include <iostream>
-using namespace std;
+#include <cstring>     
+#include <iostream> 
+using namespace std; 
 
 //*****************************************************************************************************
 
@@ -33,7 +33,7 @@ int main() {
         length = strlen(words);
 
         while (words[length - 1] != '.') {
-            cerr << "ERROR: Input must end with a period '.'\n";     // cerr is unbuffered and best for error handling
+            cerr << "ERROR: Input must end with a period '.'\n";
             cout << "\nEnter a line of words (less than 50 characters), ended by '.': " << endl;
             cin.getline(words, SIZE);
 
@@ -44,8 +44,8 @@ int main() {
         cout << "Total words: " << result << endl;
     }
 
-    delete[] words;      // must always delete dynamic memory to avoid memory leaks
-    words = nullptr;     // not necessary, but good practice to set the pointer to nullptr after deleting it
+    delete[] words;
+    words = nullptr;
 
     return 0;
 }
@@ -57,11 +57,11 @@ int numberWords(const char *words, int length) {
     bool isLetter = false;
 
     for (int i = 0; i < length; ++i) {
-        if (isalpha(words[i])) {           // isalpha() checks if a character is a letter in the array
-            isLetter = true;               // if the character is a letter, isLetter is set to true
-        } else if (isLetter == true) {     // if the character is not a letter and the previous character was a letter, the word is counted
+        if (isalpha(words[i])) {
+            isLetter = true;
+        } else if (isLetter == true) {
             total++;
-            isLetter = false;     // isLetter is set to false so that the next word can be counted
+            isLetter = false;
         }
 
         if (words[i] == '.')

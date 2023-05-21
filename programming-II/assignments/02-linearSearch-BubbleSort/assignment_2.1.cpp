@@ -57,7 +57,7 @@ int main() {
     cout << "\nFind if at least one student has an average score greater\n"
          << "Enter average score of student: ";
     cin >> average;
-    
+
     if (searchStudents(scores, NUM_STDS, average))
         cout << "\nA student DOES have an average score greater than: " << average;
     else
@@ -83,7 +83,7 @@ void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
             for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
                 f >> scores[studentNumber][testNumber];
     } else {
-        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";
     }
 }
 
@@ -183,18 +183,18 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
 
 //*****************************************************************************************************
 
-bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average) {
-    int studentNumber = 0;     
-    bool found = false;        
+bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average) {     // linear search algorithm (time complexity: O(n))
+    int studentNumber = 0;
+    bool found = false;
 
-    while ((studentNumber < numStds) && !found) {                            
-        if (averageOneStudent(scores, numStds, studentNumber) > average)     
-            found = true;                                                   
+    while ((studentNumber < numStds) && !found) {
+        if (averageOneStudent(scores, numStds, studentNumber) > average)
+            found = true;
 
-        studentNumber++;     
+        studentNumber++;
     }
 
-    return found;    
+    return found;
 }
 
 //*****************************************************************************************************
@@ -206,7 +206,7 @@ bool searchTests(const int scores[][NUM_TESTS], int numStds, double average) {
     while ((testNumber < NUM_TESTS) && !found) {
         if (averageOneTest(scores, numStds, testNumber) > average)
             found = true;
-            
+
         testNumber++;
     }
 

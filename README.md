@@ -63,6 +63,7 @@ Welcome! Here you will find assignments, notes, exercises, examples, and solutio
 | 10 | [Palindrome Evaluator: Stack](data_structures-I/assignments/10-palindromes/docs) | [:white_check_mark:](./data_structures-I/assignments/10-palindromes) |
 | 11 | [Palindrome Evaluator: Stack & Queue](data_structures-I/assignments/11-pal2/docs) | [:white_check_mark:](./data_structures-I/assignments/11-pal2) |
 | 12 | [Operator Overloading & Doubly Linked List](data_structures-I/assignments/12-DLList/docs) | [:white_check_mark:](./data_structures-I/assignments/12-DLList) |
+| 13 | [Operator Overloading & Doubly Linked List (Continued)](assignments/13-DLList/docs) | [:white_check_mark:](./assignments/13-DLList) |
 
 <br>
 <br>

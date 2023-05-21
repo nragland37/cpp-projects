@@ -79,7 +79,7 @@ void readNames(ifstream &inputFile, string names[], int numNames) {
         for (int nameNumber = 0; nameNumber < numNames; ++nameNumber)
             getline(inputFile, names[nameNumber]);
     else
-        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";
 }
 
 //*****************************************************************************************************
@@ -91,21 +91,21 @@ void displayNames(const string names[], int numNames) {
 
 //*****************************************************************************************************
 
-int searchNames(const string names[], int numNames, const string &name) { 
-    int index = 0,          
-        position = -1;      
-    bool found = false;     
+int searchNames(const string names[], int numNames, const string &name) {
+    int index = 0,
+        position = -1;
+    bool found = false;
 
     while ((index < numNames) && !found) {
-        if (names[index] == name) {     
-            found = true;              
-            position = index + 1;       
+        if (names[index] == name) {
+            found = true;
+            position = index + 1;
         }
 
-        index++;    
+        index++;
     }
 
-    return position;     
+    return position;
 }
 
 //*****************************************************************************************************
@@ -130,19 +130,19 @@ void swapValues(string &a, string &b) {
 
 //*****************************************************************************************************
 
-void bubbleSort(string names[], int numNames) {
-    bool swap;       
-    string temp;    
+void bubbleSort(string names[], int numNames) {     // bubble sort algorithm (time complexity: O(n^2)
+    bool swap;
+    string temp;
 
     do {
-        swap = false;                                              
-        for (int count = 0; count < (numNames - 1); ++count) {    
-            if (names[count] > names[count + 1]) {                
-                swapValues(names[count], names[count + 1]);        
-                swap = true;                                     
+        swap = false;
+        for (int count = 0; count < (numNames - 1); ++count) {
+            if (names[count] > names[count + 1]) {
+                swapValues(names[count], names[count + 1]);
+                swap = true;
             }
         }
-    } while (swap);     
+    } while (swap);
 }
 
 //*****************************************************************************************************
@@ -153,7 +153,7 @@ void bubbleSortDescending(string names[], int numNames) {
 
     do {
         swap = false;
-        
+
         for (int count = 0; count < (numNames - 1); ++count) {
             if (names[count] < names[count + 1]) {
                 swapValues(names[count], names[count + 1]);

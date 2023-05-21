@@ -25,29 +25,26 @@ Sport::Sport(const string &n) {     // default constructor sets name to empty st
 //*****************************************************************************************************
 
 Sport::~Sport() {
-    delete[] teamNames;     // dynamically allocated memory must be added to the destructor to prevent memory leaks
-    // cout << "\nDestructor called" << endl;
+    delete[] teamNames;     // destructors need to explicitly delete any dynamically allocated memory
+    //cout << "\nSport object destroyed\n";
 }
 
 //*****************************************************************************************************
 
 void Sport::display() const {
-    Date d1 = getDate();     // create a Date object to use the displayDate function
+    Date d1 = getDate();     // getDate() returns a Date object (nextGame) which is assigned to d1
 
     cout << "\t\t" << setfill('.') << setw(30) << left 
-         << "Sport Name " << " " << getName() << endl;
+         << "Sport Name " << " " << getName() 
+         << "\n\t\t" << setw(30) << "Scheduled Date (M/D/YY) " << " ";
 
-    cout << "\t\t" << setfill('.') << setw(30) << left 
-         << "Scheduled Date (M/D/YY) " << " ";
-
-    d1.displayDate();
+    d1.displayDate();      
 
     cout << "\n\n\t\t" << setfill('.') << setw(30) << left 
          << "Number of Teams " << " " << getNumTeams() << endl;
 
     for (int i = 0; i < getNumTeams(); ++i)
-        cout << "\t\tTeam " << i + 1 << setfill('.') << setw(24) << left
-             << " " << " " << teamNames[i] << endl;
+        cout << "\t\tTeam " << i + 1 << setw(24) << " " << " " << teamNames[i] << endl;
 }
 
 //*****************************************************************************************************
@@ -56,9 +53,9 @@ void Sport::populate() {
     char entry;
 
     cout << "\nEnter the name of the sport: ";
-    getline(cin, name);     // get the name of the sport and store it in the name variable
+    getline(cin, name);     
 
-    setName(name);     // set the name variable to the name of the sport
+    setName(name);     
 
     cout << "Sport has a scheduled game? (Y/N)" << endl;
     cin >> entry;
@@ -74,29 +71,29 @@ void Sport::populate() {
     cout << "\nEnter the number of teams: ";
     cin >> numTeams;
 
-    setNumTeams(numTeams);                // set the number of teams to the number of teams entered by the user
-    teamNames = new string[numTeams];     // dynamically allocate memory for the teamNames array
+    setNumTeams(numTeams);               
+    teamNames = new string[numTeams];     
 
     cin.ignore();
 
     for (int i = 0; i < numTeams; ++i) {
         cout << "Enter the name of team " << i + 1 << ": ";
-        getline(cin, teamNames[i]);     // get the name of the team and store it in the teamNames array
+        getline(cin, teamNames[i]);     
     }
 }
 
 //*****************************************************************************************************
 
 void Sport::addTeam(const string &n) {
-    string *temp = new string[numTeams + 1];     // numTeams + 1 because we are adding a team
+    string *temp = new string[numTeams + 1];     
 
-    for (int i = 0; i < numTeams; ++i)     // copy the team names from the teamNames array to the temp array
+    for (int i = 0; i < numTeams; ++i)     
         temp[i] = teamNames[i];
 
-    temp[numTeams] = n;     // add the new team name to the end of the temp array
-    delete[] teamNames;     // delete the teamNames array
-    teamNames = temp;       // set the teamNames array to the temp array
-    numTeams++;             // increment the number of teams
+    temp[numTeams] = n;     
+    delete[] teamNames;     
+    teamNames = temp;       
+    numTeams++;             
 }
 
 //*****************************************************************************************************
@@ -105,9 +102,10 @@ void Sport::addTeam(const string &n) {
 
 numTeams++;
 string* tempTNames = new string[numTeams];
-for (int i = 0; i < numTeams - 1; i++) {
+
+for (int i = 0; i < numTeams - 1; i++) 
     tempTNames[i] = teamNames[i];
-}
+
 tempTNames[numTeams - 1] = n;
 teamNames = new string[numTeams];
 teamNames = tempTNames;

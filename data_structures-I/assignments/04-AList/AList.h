@@ -57,7 +57,8 @@ AList<TYPE>::AList(int cap) {
 template <typename TYPE>
 AList<TYPE>::~AList() {
     delete[] list;
-    capacity = 0;
+    list = nullptr;
+    capacity = 0; 
     numValues = 0;
 }
 
@@ -73,7 +74,7 @@ bool AList<TYPE>::_resize() {
     newList = new (nothrow) TYPE[newCapacity];
 
     if (newList) {
-        for (int i = 0; i < numValues; i++)
+        for (int i = 0; i < numValues; ++i)
             newList[i] = list[i];
 
         delete[] list;
@@ -135,7 +136,7 @@ bool AList<TYPE>::insertAtIndex(const TYPE &dataIn, int index) {
             success = _resize();
 
         if (success) {
-            for (int i = numValues; i > index; i--)
+            for (int i = numValues; i > index; --i)
                 list[i] = list[i - 1];
 
             list[index] = dataIn;
@@ -153,7 +154,7 @@ bool AList<TYPE>::display() const {
     bool success = false;
 
     if (numValues > 0) {
-        for (int i = 0; i < numValues; i++)
+        for (int i = 0; i < numValues; ++i)
             cout << "[" << i << "] " << list[i] << "\t";
 
         cout << endl;
@@ -173,7 +174,7 @@ bool AList<TYPE>::getSmallest(TYPE &dataOut) const {
     if (numValues > 0) {
         dataOut = list[0];
 
-        for (int i = 1; i < numValues; i++)
+        for (int i = 1; i < numValues; ++i)
             if (list[i] < dataOut)
                 dataOut = list[i];
 

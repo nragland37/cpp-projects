@@ -1,7 +1,7 @@
 //*****************************************************************************************************
-//      Text File to Binary Conversion 
+//      Text File to Binary Conversion
 //
-//      This program reads data from a text file and writes it to a binary file, using an array of 
+//      This program reads data from a text file and writes it to a binary file, using an array of
 //      structs to store the data.
 //
 //      Other files required:
@@ -9,7 +9,7 @@
 //
 //*****************************************************************************************************
 
-#include <fstream>     
+#include <fstream>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -71,10 +71,10 @@ Person *readTesters(const string &fileName, int &num) {
             f >> p[i].testTaken.year;
             f.ignore();
         }
-        
+
         f.close();
     } else {
-        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";
     }
 
     return p;
@@ -83,8 +83,7 @@ Person *readTesters(const string &fileName, int &num) {
 //*****************************************************************************************************
 
 void writeTesters(const string &fileName, Person people[], int numP) {
-    ofstream f(fileName, ios::binary);     // ios::binary is used to write binary data to a file instead of text
-                                           // ofstream_object_(file_opened, open_mode) is used to write to files
+    ofstream f(fileName, ios::binary);     // open file for only writing in binary mode
     f.write(reinterpret_cast<char *>(&numP), sizeof(int));
     f.write(reinterpret_cast<char *>(people), sizeof(Person) * numP);
     f.close();

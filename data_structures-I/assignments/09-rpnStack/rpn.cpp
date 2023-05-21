@@ -55,8 +55,7 @@ int main() {
 //*****************************************************************************************************
 
 void outputToken(char token[], ofstream &resultsFile) {
-    resultsFile << endl
-                << "(Token: " << token << ")\t\t";
+    resultsFile << endl << "(Token: " << token << ")\t\t";
 
     if (token[0] != ';')
         cout << token << " ";
@@ -119,19 +118,16 @@ void displayResult(Stack<int> &rpnStack, ofstream &resultsFile, bool &isValid) {
     if (isValid) {
         if (rpnStack.getNumValues() == 1) {
             rpnStack.pop(result);
-            resultsFile << "Pop  " << result << "\n\t\tValid:  result = " << result << "\n"
-                        << endl;
+            resultsFile << "Pop  " << result << "\n\t\tValid:  result = " << result << "\n" << endl;
             cout << "= " << result << endl;
         } else if (rpnStack.getNumValues() > 1) {
-            resultsFile << "\n\t\tInvalid RPN expression - too many operands\n"
-                        << endl;
+            resultsFile << "\n\t\tInvalid RPN expression - too many operands\n" << endl;
             cerr << "\t\tinvalid\n";
 
             isValid = false;
         }
     } else {
-        resultsFile << "\n\t\tInvalid RPN expression - not enough operands\n"
-                    << endl;
+        resultsFile << "\n\t\tInvalid RPN expression - not enough operands\n" << endl;
         cerr << "\t\tinvalid\n";
     }
 }
@@ -141,8 +137,7 @@ void displayResult(Stack<int> &rpnStack, ofstream &resultsFile, bool &isValid) {
 void resetFlagStack(Stack<int> &rpnStack, bool &isValid) {
     int popVal;
 
-    while (rpnStack.pop(popVal))
-        ;
+    while (rpnStack.pop(popVal));
 
     isValid = true;
 }

@@ -45,7 +45,7 @@ int main() {
             hasSpace = false;
             hasPunct = false;
 
-            for (int i = 0; i < len; i++) {
+            for (int i = 0; i < len; ++i) {
                 if (isalpha(pal[i])) {
                     pal[i] = tolower(pal[i]);
                     s1.push(pal[i]);

@@ -29,7 +29,7 @@ class Sport {
     string *teamNames;     // use dynamic array to store names of teams (array size is numTeams)
 
    public:
-    Sport(const string &n = "");     // initialize name to empty string if no argument is passed
+    Sport(const string &n = "");     // default argument so that Sport object can be created without arguments
     ~Sport();
     string getName() const;     // const used to indicate that the function does not modify the object
     void setName(const string &n);

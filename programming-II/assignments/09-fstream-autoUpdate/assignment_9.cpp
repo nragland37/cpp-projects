@@ -35,7 +35,7 @@ struct Date {
 struct Person {    
     char name[NAME_SIZE];
     double score;
-    Date testTaken;     // struct within struct since each person has a date
+    Date testTaken;     // nested structure
 };
 
 Translation *readTranslation(const string &fileName, int &num);
@@ -74,8 +74,8 @@ int main() {
     if (studyEntry == 'y' || studyEntry == 'Y') {
         displayTranslateAnswers(translate, numT);
         cout << "\nPress enter to continue..." << endl;
-        cin.ignore();     // ignores the enter key from the previous cin
-        cin.get();        // waits for user to press enter before continuing
+        cin.ignore();     
+        cin.get();        
         cout << "Good Luck!" << endl;
     } else {
         cout << "\nGood Luck!" << endl;
@@ -104,23 +104,23 @@ Translation *readTranslation(const string &fileName, int &num) {
     Translation *t = nullptr;
     ifstream f(fileName);
 
-    if (f.is_open()) {     // checks if file is open (only needed for reading in from file and not writing to file)
-        f >> num;          // reads in first line of file (number of translations) and stores in num
+    if (f.is_open()) {     // checks if file is open (only needed for reading in from file)
+        f >> num;          
         f.ignore();
 
-        t = new Translation[num];     // dynamically allocates array of structs (Translation) with size num
+        t = new Translation[num];    
 
         for (int i = 0; i < num; ++i) {
-            getline(f, t[i].american, ',');     // getline(reads from file, stores in variable, delimiter)
+            getline(f, t[i].american, ',');    
             getline(f, t[i].english);
         }
 
-        f.close();     // closes file after reading in data (only needed for reading in from file and not writing to file)
+        f.close();     
     } else {
-        cerr << "Error: Unable to open file\n";     // cerr is unbuffered and best for error handling
+        cerr << "Error: Unable to open file\n";     
     }
 
-    return t;     // returns pointer to array of structs (Translation)
+    return t;     
 }
 
 //*****************************************************************************************************
@@ -131,20 +131,20 @@ Person *readTesters(const string &fileName, int &num) {
 
     if (f.is_open()) {
         f >> num;
-        f.ignore();     // ignores the newline character after the number
+        f.ignore();     
 
         p = new Person[num];
 
         for (int i = 0; i < num; ++i) {
             f.getline(p[i].name, NAME_SIZE);
             f >> p[i].score;
-            f.ignore();     // ignores the comma after the score
+            f.ignore();    
             f >> p[i].testTaken.month;
-            f.ignore();     // ignores the slash after the month
+            f.ignore();     
             f >> p[i].testTaken.day;
-            f.ignore();     // ignores the slash after the day
+            f.ignore();     
             f >> p[i].testTaken.year;
-            f.ignore();     // ignores the newline character after the year
+            f.ignore();    
         }
 
         f.close();
@@ -158,7 +158,7 @@ Person *readTesters(const string &fileName, int &num) {
 //*****************************************************************************************************
 
 void testingOptions(const Translation translate[], int numT, Person people[], int numP) {
-    const int NUM_TESTS = 3;     // number of tests to take for each person
+    const int NUM_TESTS = 3;     
     int randomPerson = 0,
         month,
         day,
@@ -189,33 +189,31 @@ void testingOptions(const Translation translate[], int numT, Person people[], in
          << "  Enter the English translation." << endl;
 
     for (int i = 0; i < NUM_TESTS; ++i) {
-        randomPerson = rand() % numP;     // (numP: 10) range: 0 - 9  // 0 - (numP - 1) // 0 - (numP - 1) + 1
+        randomPerson = rand() % numP;     
 
-        people[randomPerson].testTaken.month = month;     // sets the month, day, and year of the test taken
-        people[randomPerson].testTaken.day = day;         // for the randomly selected person
-        people[randomPerson].testTaken.year = year;       // to the month, day, and year entered by the user
+        people[randomPerson].testTaken.month = month;     
+        people[randomPerson].testTaken.day = day;         
+        people[randomPerson].testTaken.year = year;       
 
         cout << "\n=================================" << endl;
         cout << setfill(' ')
-             << setw(3) << left << "#"
-             << setw(20) << left << "NAME"
-             << "TEST TAKEN\n"
+             << setw(3) << left << "#" << setw(20) << "NAME" << "TEST TAKEN\n"
              << "---------------------------------" << endl;
 
-        cout << setw(3) << left << randomPerson + 1
-             << setw(20) << left << people[randomPerson].name     // name of the randomly selected person
-             << people[randomPerson].testTaken.month << "/"       // date of the test taken
+        cout << setw(3) << randomPerson + 1
+             << setw(20) << people[randomPerson].name     
+             << people[randomPerson].testTaken.month << "/"       
              << people[randomPerson].testTaken.day << "/"
              << people[randomPerson].testTaken.year << endl;
 
-        takeTest(translate, numT, people[randomPerson]);     // calls takeTest function
+        takeTest(translate, numT, people[randomPerson]);     
     }
 }
 
 //*****************************************************************************************************
 
 void takeTest(const Translation translate[], int numT, Person &p) {
-    const int NUM_QUESTIONS = 5;     // number of questions per test and changing this might result in decimal average
+    const int NUM_QUESTIONS = 5;     
     int randomQuestion = 0,
         correct = 0;
     double avg = 0;
@@ -227,16 +225,14 @@ void takeTest(const Translation translate[], int numT, Person &p) {
     srand(seed);
 
     cout << "\n---------------------------------" << endl;
-    cout << setfill(' ')
-         << setw(3) << left << "#"
-         << setw(18) << left << "American"
-         << "English\n"
+    cout << setfill(' ') 
+         << setw(3) << left << "#" << setw(18) << "American" << "English\n"
          << "---------------------------------" << endl;
 
     for (int i = 0; i < NUM_QUESTIONS; ++i) {
-        randomQuestion = rand() % numT;     // (numT: 20) range: 0 - 19  // 0 - (numT - 1)
-        cout << setfill(' ') << setw(3) << left << randomQuestion + 1
-             << setfill('.') << setw(18) << left << translate[randomQuestion].american;
+        randomQuestion = rand() % numT;     
+        cout << setfill(' ') << setw(3)  << randomQuestion + 1
+             << setfill('.') << setw(18) << translate[randomQuestion].american;
         cin >> guess;
 
         answer = translate[randomQuestion].english;
@@ -252,7 +248,7 @@ void takeTest(const Translation translate[], int numT, Person &p) {
         cout << endl;
     }
 
-    avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;     // static_cast is used to convert int to double for the average
+    avg = (static_cast<double>(correct) / NUM_QUESTIONS) * 100;     
     p.score = avg;
 }
 
@@ -260,17 +256,14 @@ void takeTest(const Translation translate[], int numT, Person &p) {
 
 void displayTesters(const Person people[], int numP) {
     cout << "\n---------------------------------------------------" << endl;
-    cout << setfill(' ')
-         << setw(3) << left << "#"
-         << setw(20) << left << "NAME"
-         << setw(15) << left << "SCORE %"
-         << "TEST TAKEN\n"
+    cout << setfill(' ') 
+         << setw(3) << left << "#" << setw(20) << "NAME" << setw(15) << "SCORE %" << "TEST TAKEN\n"
          << "---------------------------------------------------" << endl;
 
-    for (int i = 0; i < numP; ++i)     // displays the name, score, and date of the test taken for each person
-        cout << setw(3) << left << i + 1
-             << setw(20) << left << people[i].name
-             << setw(15) << left << people[i].score
+    for (int i = 0; i < numP; ++i)     
+        cout << setw(3) << i + 1
+             << setw(20) << people[i].name
+             << setw(15) << people[i].score
              << people[i].testTaken.month << "/"
              << people[i].testTaken.day << "/"
              << people[i].testTaken.year << endl;
@@ -281,30 +274,28 @@ void displayTesters(const Person people[], int numP) {
 void writeTesters(const string &fileName, const Person people[], int numP) {
     ofstream f(fileName);
 
-    f << numP << endl;     // writes the number of people to the file and then goes to the next line
+    f << numP << endl;     
 
-    for (int i = 0; i < numP; ++i)     // writes the name, score, and date of the test taken for each person to the file
+    for (int i = 0; i < numP; ++i)     
         f << people[i].name << "\n"
           << people[i].score << ","
           << people[i].testTaken.month
           << "/" << people[i].testTaken.day
           << "/" << people[i].testTaken.year << endl;
 
-    f.close();     // closes the file after writing to it
+    f.close();     
 }
 
 //*****************************************************************************************************
 
 void displayTranslateAnswers(const Translation translate[], int numT) {
-    cout << "\n---------------------------------" << endl;
-    cout << setw(3) << left << "#"
-         << setw(18) << left << "American"
-         << "English\n"
+    cout << "\n---------------------------------\n" 
+         << setw(3) << left << "#" << setw(18) << "American" << "English\n"
          << "---------------------------------" << endl;
 
-    for (int i = 0; i < numT; ++i)     // displays the american and english translations for each word
-        cout << setfill(' ') << setw(3) << left << i + 1
-             << setfill('.') << setw(18) << left << translate[i].american
+    for (int i = 0; i < numT; ++i)     
+        cout << setfill(' ') << setw(3) << i + 1
+             << setfill('.') << setw(18) << translate[i].american
              << translate[i].english << endl;
 }
 
