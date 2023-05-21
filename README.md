@@ -49,8 +49,8 @@ Welcome! Here you will find assignments, notes, exercises, examples, and source 
 ### [Data Structures I](/data_structures-I)
 * [Documents](data_structures-I/docs/)
 
-| # | Assignment | Files |
-|:---:|:---|:---:|:---:|
+| # | Assignment | Solutions & Files |
+|:---:|:---|:---:|
 | 1 | [Default Arguments](data_structures-I/assignments/01-defaultArgs/docs) | [:white_check_mark:](./data_structures-I/assignments/01-defaultArgs) |
 | 2 | [Function Overloading & Templates](data_structures-I/assignments/02-max/docs) | [:white_check_mark:](./data_structures-I/assignments/02-max) |
 | 3 | [Class Template Header & Driver Files](data_structures-I/assignments/03-dyad/docs) | [:white_check_mark:](./data_structures-I/assignments/03-dyad) |
