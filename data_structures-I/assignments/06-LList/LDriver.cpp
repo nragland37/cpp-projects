@@ -4,7 +4,7 @@
 //
 //      Other files required:
 //        1.	 LList.h - header file for the LList class
-//		  2.	 Node.h - header file for the Node struct
+//        2.	 Node.h - header file for the Node struct
 //
 //*****************************************************************************************************
 

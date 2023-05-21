@@ -1,17 +1,5 @@
 //*****************************************************************************************************
 //
-//		File:					node.h
-//
-//		Student:				Nicholas Ragland
-//
-//		Assignment:				Assignment #12
-//
-//		Course Name:			Data Structures I
-//
-//		Course Number:			COSC 3050-01
-//
-//		Due:					May 3, 2023
-//
 //      This header file defines a templated struct that represents a node in a singly or doubly
 //      linked list.
 //

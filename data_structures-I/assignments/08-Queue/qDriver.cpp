@@ -4,7 +4,7 @@
 //
 //      Other files required:
 //        1.	 queue.h - header file for the Queue class
-//		  2.	 node.h - header file for the Node struct
+//        2.	 node.h - header file for the Node struct
 //
 //*****************************************************************************************************
 

@@ -1,22 +1,10 @@
 //*****************************************************************************************************
 //
-//		File:					DLList.h
-//
-//		Student:				Nicholas Ragland
-//
-//		Assignment:				Assignment #12
-//
-//		Course Name:			Data Structures I
-//
-//		Course Number:			COSC 3050-01
-//
-//		Due:					May 3, 2023
-//
 //      This header file defines a templated class and represents a doubly linked list of nodes with
 //      various functions that can be performed on the list.
 //
 //      Other files required:
-//		  1.	 Node.h - header file for the Node struct
+//        1.	 Node.h - header file for the Node struct
 //
 //*****************************************************************************************************
 

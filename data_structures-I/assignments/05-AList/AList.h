@@ -4,7 +4,7 @@
 //      structure with various methods for inserting, retrieving, updating, and removing data.
 //
 //      Other files required:
-//		  1.	 AList.cpp - driver file to test the AList class
+//        1.	 AList.cpp - driver file to test the AList class
 //
 //*****************************************************************************************************
 

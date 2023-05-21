@@ -4,7 +4,7 @@
 //      functions that can be performed on the list.
 //
 //      Other files required:
-//		  1.	 Node.h - header file for the AList class
+//        1.	 Node.h - header file for the AList class
 //
 //*****************************************************************************************************
 

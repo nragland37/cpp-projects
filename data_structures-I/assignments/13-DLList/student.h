@@ -1,17 +1,5 @@
 //*****************************************************************************************************
 //
-//		File:					student.h
-//
-//		Student:				Nicholas Ragland
-//
-//		Assignment:				Assignment #12
-//
-//		Course Name:			Data Structures I
-//
-//		Course Number:			COSC 3050-01
-//
-//		Due:					May 3, 2023
-//
 //      This header file defines a struct that represents a student.
 //
 //*****************************************************************************************************

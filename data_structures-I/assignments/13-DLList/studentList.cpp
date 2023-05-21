@@ -1,23 +1,11 @@
 //*****************************************************************************************************
 //
-//		File:					studentList.cpp
-//
-//		Student:				Nicholas Ragland
-//
-//		Assignment:				Assignment #12
-//
-//		Course Name:			Data Structures I
-//
-//		Course Number:			COSC 3050-01
-//
-//		Due:					May 3, 2023
-//
 //      This program reads in a file of student data and stores it in a doubly linked list of Student
 //      structs. The user is then presented with a menu of options to perform various tasks on the
 //      list.
 //
 //      Other files required:
-//		  1.	 DLList.h - header file for the DLList class
+//        1.	 DLList.h - header file for the DLList class
 //        2.	 student.h - header file for the Student struct
 //        3.	 studentFile.txt - file containing student data of 61 students
 //
