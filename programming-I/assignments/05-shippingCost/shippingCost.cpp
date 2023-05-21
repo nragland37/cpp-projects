@@ -6,7 +6,7 @@
 //
 //*****************************************************************************************************
 
-#include <iomanip>     // library for setprecision(), fixed, setfill(), setw(), left, right, showpoint, etc. (manipulators for output)
+#include <iomanip>    
 #include <iostream>
 using namespace std;
 
@@ -35,23 +35,23 @@ int main() {
     cin >> weight;
 
     if (weight < 1)
-        shipping = LESS_ONE_LB * weight;     // shipping = 10 * weight (if weight < 1)
+        shipping = LESS_ONE_LB * weight;     
     else if (weight < 5)
-        shipping = LESS_FIVE_LB * weight;     // shipping = 7 * weight (if weight < 5)
+        shipping = LESS_FIVE_LB * weight;     
     else if (weight < 8)
-        shipping = LESS_EIGHT_LB * weight;     // shipping = 5 * weight (if weight < 8)
+        shipping = LESS_EIGHT_LB * weight;     
     else if (weight < 10)
-        shipping = LESS_TEN_LB * weight;     // shipping = 3 * weight (if weight < 10)
+        shipping = LESS_TEN_LB * weight;     
     else if (weight < 20)
-        shipping = LESS_TWENTY_LB * weight;     // shipping = 2 * weight (if weight < 20)
+        shipping = LESS_TWENTY_LB * weight;     
     else
-        shipping = ABOVE_TWENTY * weight;     // shipping = 1 * weight (if weight >= 20)
+        shipping = ABOVE_TWENTY * weight;     
 
-    tax = price * TAXRATE;                  // tax = price * 4.225%
-    totalCost = price + tax + shipping;     // totalCost = price + tax + shipping
+    tax = price * TAXRATE;                  
+    totalCost = price + tax + shipping;     
 
-    cout << "\nTotal price: " << fixed << setprecision(2) << totalCost << endl;     // setprecision() sets the number of decimal places to display
-                                                                                    // fixed sets the number of decimal places to display to 2
+    cout << "\nTotal price: " << fixed << setprecision(2) << totalCost << endl;     
+
     return 0;
 }
 

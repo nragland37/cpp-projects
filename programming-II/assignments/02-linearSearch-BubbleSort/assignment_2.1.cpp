@@ -184,17 +184,17 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
 //*****************************************************************************************************
 
 bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average) {
-    int studentNumber = 0;     // initialize student number
-    bool found = false;        // initialize found flag
+    int studentNumber = 0;     
+    bool found = false;        
 
-    while ((studentNumber < numStds) && !found) {                            // loop until all students searched or student found
-        if (averageOneStudent(scores, numStds, studentNumber) > average)     // check student average against specified average
-            found = true;                                                    // set found flag to true
+    while ((studentNumber < numStds) && !found) {                            
+        if (averageOneStudent(scores, numStds, studentNumber) > average)     
+            found = true;                                                   
 
-        studentNumber++;     // increment student number
+        studentNumber++;     
     }
 
-    return found;     // return found flag
+    return found;    
 }
 
 //*****************************************************************************************************

@@ -23,16 +23,16 @@ using namespace std;
 //*****************************************************************************************************
 
 const int NAME_SIZE = 20;
-struct Translation {     // struct for translation (american, english)
+struct Translation {    
     string american;
     string english;
 };
-struct Date {     // struct for date (month, day, year)
+struct Date {    
     int month;
     int day;
     int year;
 };
-struct Person {     // struct for person (name, score, date)
+struct Person {    
     char name[NAME_SIZE];
     double score;
     Date testTaken;     // struct within struct since each person has a date
@@ -68,7 +68,7 @@ int main() {
          << "---------------------------------------------------\n"
          << "   Three people from this list will be randomly\n"
          << "            selected to take the test \n\n"
-         << "Would you like to study before the test? (Y/N)" << endl;     // prompts user to study before test
+         << "Would you like to study before the test? (Y/N)" << endl;    
     cin >> studyEntry;
 
     if (studyEntry == 'y' || studyEntry == 'Y') {

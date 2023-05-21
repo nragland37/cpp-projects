@@ -10,10 +10,10 @@ using namespace std;
 
 //*****************************************************************************************************
 
-void readGrades(float &, float &, float &, float &);                                  // pass bye reference ( & )
-void calcWeights(float &, float &, float &, float &, float, float, float, float);     // changes the values of the variables in their memory locations permenantly
-float calcFind(float, float, float, float);                                           // pass by value are used for functions to copy the values
-void displayResults(float);                                                           // of the variables in their memory locations and use them in the function
+void readGrades(float &, float &, float &, float &);                                  
+void calcWeights(float &, float &, float &, float &, float, float, float, float);     
+float calcFind(float, float, float, float);                                           
+void displayResults(float);                                                          
 
 //*****************************************************************************************************
 
@@ -71,19 +71,19 @@ void readGrades(float &assign, float &test, float &exam, float &partic) {
 
 void calcWeights(float &assign, float &test, float &exam, float &partic,
                  float ASSIGN_PERCENT, float TEST_PERCENT, float EXAM_PERCENT, float PARTIC_PERCENT) {
-    assign = (assign * ASSIGN_PERCENT) / 100;     // e.g. (75 * 15) / 100 = 11.25 (11.25% out of 15%)
+    assign = (assign * ASSIGN_PERCENT) / 100;     
 
-    test = (test * TEST_PERCENT) / 100;     // e.g. (85 * 50) / 100 = 42.5 (42.5% out of 50%)
+    test = (test * TEST_PERCENT) / 100;     
 
-    exam = (exam * EXAM_PERCENT) / 100;     // e.g. (95 * 30) / 100 = 28.5 (28.5% out of 30%)
+    exam = (exam * EXAM_PERCENT) / 100;     
 
-    partic = (partic * PARTIC_PERCENT) / 100;     // e.g. (90 * 5) / 100 = 4.5 (4.5% out of 5%)
+    partic = (partic * PARTIC_PERCENT) / 100;     
 }
 
 //*****************************************************************************************************
 
 float calcFind(float assign, float test, float exam, float partic) {
-    return (assign + test + exam + partic);     // e.g. 11.25 + 42.5 + 28.5 + 4.5 = 86.75 (86.75% out of 100%)
+    return (assign + test + exam + partic);     
 }
 
 //*****************************************************************************************************

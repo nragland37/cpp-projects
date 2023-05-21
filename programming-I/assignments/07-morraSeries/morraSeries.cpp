@@ -6,9 +6,9 @@
 //
 //*****************************************************************************************************
 
-#include <cstdlib>     // for rand() and srand()
-#include <ctime>       // for time()
-#include <fstream>     // for file I/O
+#include <cstdlib>    
+#include <ctime>     
+#include <fstream>    
 #include <iomanip>
 #include <iostream>
 using namespace std;
@@ -27,19 +27,19 @@ int main() {
         sum,
         playerOneWins = 0,
         playerTwoWins = 0;
-    ofstream out("morraSeriesResults.txt");     // output file stream (write to file)
+    ofstream out("morraSeriesResults.txt");     
 
-    short seed;         // seed for random number generator
-    seed = time(0);     // get system time (0 = current time)
-    srand(seed);        // seed random number generator
+    short seed;         
+    seed = time(0);     
+    srand(seed);       
 
     for (int game = 1; game <= 10; game++) {
-        playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     // random number between 1 and 5 (player 1)
-        playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             // random number between 0 and 10 (player 1)
-        playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     // random number between 1 and 5 (player 2)
-        playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             // random number between 0 and 10  (player 2)
+        playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     
+        playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             
+        playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;    
+        playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;            
 
-        cout << left << "Game " << game << ":" << setw(12) << endl;     // left aligns the text and serw() sets the width of the column
+        cout << left << "Game " << game << ":" << setw(12) << endl;    
         cout << "Player" << setw(12) << "|Fingers" << setw(12) << "|Total" << endl;
         cout << "============|===========|============" << endl;
         cout << setw(12) << "1"
@@ -65,8 +65,8 @@ int main() {
         cout << "\n-------------------------------------" << endl;
     }
 
-    cout << "=====================================" << endl;     // Print results to console
-    out << "=====================================" << endl;      // Output to file "morraSeriesResults.txt"
+    cout << "=====================================" << endl;     
+    out << "=====================================" << endl;     
     cout << "Summary of the series" << endl;
     out << "Summary of the series" << endl;
     cout << "=====================================" << endl;

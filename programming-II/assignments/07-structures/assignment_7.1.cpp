@@ -6,7 +6,7 @@
 //
 //*****************************************************************************************************
 
-#include <iomanip>     // library for setprecision(), fixed, setw(), setfill(), etc. (manipulators for output formatting)
+#include <iomanip>     
 #include <iostream>
 #include <string>
 using namespace std;

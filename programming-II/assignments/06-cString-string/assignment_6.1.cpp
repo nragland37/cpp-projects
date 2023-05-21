@@ -6,7 +6,7 @@
 //
 //*****************************************************************************************************
 
-#include <cctype>     // library for isalpha() (character function)
+#include <cctype>     
 #include <cstring>
 #include <iostream>
 using namespace std;

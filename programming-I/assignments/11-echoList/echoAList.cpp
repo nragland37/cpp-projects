@@ -12,8 +12,8 @@ using namespace std;
 
 int main() {
     const int SIZE = 10;
-    int nums[SIZE];     // array of 10 integers (0-9)
-    int sum = 0;        // needs to be initialized to 0 or else it will be garbage data (causes undefined behavior)
+    int nums[SIZE];     
+    int sum = 0;        
 
     cout << "Enter 10 numbers\n" << endl;
 
@@ -21,7 +21,7 @@ int main() {
         cout << "Enter #" << i + 1 << ":";
         cin >> nums[i];
 
-        sum += nums[i];     // sum = sum + nums[i] (this is why sum needs to be initialized to 0 or else it will equal garbage data + nums[i])
+        sum += nums[i];    
     }
 
     cout << "\nSum is: " << sum

@@ -64,28 +64,28 @@ int main() {
 
     cout << "\n\nFinal Grade: " << avg << "%" << endl;
 
-    if (avg >= 97 || avg == 100)     // 97% is the lowest A+
+    if (avg >= 97 || avg == 100)     
         cout << "\nYour Grade is A+";
-    else if (avg >= 94 && avg <= 96)     // 94% is the lowest A
+    else if (avg >= 94 && avg <= 96)     
         cout << "\nYour Grade is A";
-    else if (avg >= 90 && avg <= 93)     // 90% is the lowest A-
+    else if (avg >= 90 && avg <= 93)     
         cout << "\nYour Grade is A-";
-    else if (avg >= 87 && avg <= 89)     // 87% is the lowest B+
+    else if (avg >= 87 && avg <= 89)     
         cout << "\nYour Grade is B+";
-    else if (avg >= 84 && avg <= 86)     // 84% is the lowest B
+    else if (avg >= 84 && avg <= 86)     
         cout << "\nYour Grade is B";
-    else if (avg >= 80 && avg <= 83)     // 80% is the lowest B-
+    else if (avg >= 80 && avg <= 83)    
         cout << "\nYour Grade is B-";
-    else if (avg >= 77 && avg <= 79)     // 77% is the lowest C+
+    else if (avg >= 77 && avg <= 79)     
         cout << "\nYour Grade is C+";
-    else if (avg >= 74 && avg <= 76)     // 74% is the lowest C
+    else if (avg >= 74 && avg <= 76)     
         cout << "\nYour Grade is C";
-    else if (avg >= 70 && avg <= 73)     // 70% is the lowest C-
+    else if (avg >= 70 && avg <= 73)     
         cout << "\nYour Grade is C-";
-    else if (avg >= 60 && avg <= 69)     // 60% is the lowest D
+    else if (avg >= 60 && avg <= 69)     
         cout << "\nYour Grade is D";
     else
-        cout << "\nYour Grade is F";     // 59% is the lowest F
+        cout << "\nYour Grade is F";     
 
     return 0;
 }

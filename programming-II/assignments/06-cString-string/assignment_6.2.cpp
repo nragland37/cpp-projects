@@ -8,7 +8,7 @@
 //*****************************************************************************************************
 
 #include <cctype>
-#include <cctype>     // c standard library contains functions for character classification: isalpha(), isdigit(), islower(), isupper(), etc.
+#include <cctype>     
 #include <iostream>
 #include <string>
 using namespace std;

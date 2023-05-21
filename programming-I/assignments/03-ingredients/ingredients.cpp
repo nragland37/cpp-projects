@@ -44,7 +44,7 @@ int main() {
     cout << "\nHow many dozens are you planning to make (Please give a multiple of four)?" << endl;
     cin >> dozen;
 
-    quantity = dozen / 4;     // 4 dozen = 1 quantity of ingredients (original recipe)
+    quantity = dozen / 4;   
 
     cout << "\n\n\t" << quantity * BUTTER << " cup butter\n"
          << "\t" << quantity * SUGAR << " cups white sugar\n"

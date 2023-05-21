@@ -11,7 +11,7 @@ using namespace std;
 
 //*****************************************************************************************************
 
-const int SIZE_LIMIT = 1024;     // global constant (can be used anywhere in the program)
+const int SIZE_LIMIT = 1024;     
 
 void readArray(char[], int &);
 void deleteRepeats(char[], int &);
@@ -20,10 +20,10 @@ void printArray(char[], int);
 //*****************************************************************************************************
 
 int main() {
-    char array[SIZE_LIMIT];     // array of characters (char) with a size limit of 1024 (SIZE_LIMIT)
-    char answer;                // answer to repeat the program
-    int size;                   // not the size of the array,
-                                // but the number of elements in the array (the size of the array is SIZE_LIMIT)
+    char array[SIZE_LIMIT];    
+    char answer;                
+    int size;                  
+                              
     do {
         size = 0;
 
@@ -56,24 +56,24 @@ void readArray(char array[], int &size) {
     cout << "Enter the array (one character at a time): " << endl;
 
     for (int i = 0; i < size; i++)
-        cin >> array[i];     // array[i] is the i-th element of the array (input is assigned to the i-th element of the array)
+        cin >> array[i];     
 }
 
 //*****************************************************************************************************
 
 void deleteRepeats(char array[], int &size) {
-    for (int i = 0; i < size - 1; i++) {                          // size - 1 because size (the last element) is the only element that can't be compared
-        for (int j = i + 1; j < size; j++) {                      // j = i + 1 because we are comparing i with i + 1
-            while (array[i] == array[j]) {                        // while loop because we need to delete all the repeats of the same element
-                cout << "\nFound duplicates at " << i + 1         // i + 1 because we are printing the index of the element
-                     << " and " << j + 1 << " : " << array[i]     // j + 1 because we are printing the index of the element
-                     << " and " << array[j] << endl;              // array[i] and array[j] are the same element
+    for (int i = 0; i < size - 1; i++) {                          
+        for (int j = i + 1; j < size; j++) {                     
+            while (array[i] == array[j]) {                      
+                cout << "\nFound duplicates at " << i + 1         
+                     << " and " << j + 1 << " : " << array[i]    
+                     << " and " << array[j] << endl;             
                 
-                for (int k = j + 1; k < size; k++)                // k = j + 1 because we are comparing j with j + 1
-                    array[k - 1] = array[k];                      // k - 1 because we are deleting the element at j and shifting all the elements to the left
+                for (int k = j + 1; k < size; k++)               
+                    array[k - 1] = array[k];                     
 
-                array[--size] = 0;           // --size because we are deleting the element at j and shifting all the elements to the left
-                printArray(array, size);     // print the array after deleting the repeats
+                array[--size] = 0;           
+                printArray(array, size);    
             }
         }
     }

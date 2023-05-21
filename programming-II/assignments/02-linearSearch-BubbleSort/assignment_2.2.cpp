@@ -92,20 +92,20 @@ void displayNames(const string names[], int numNames) {
 //*****************************************************************************************************
 
 int searchNames(const string names[], int numNames, const string &name) { 
-    int index = 0,          // current index in the names array
-        position = -1;      // holds the position of the found name in the array
-    bool found = false;     // flag indicating whether the name has been found
+    int index = 0,          
+        position = -1;      
+    bool found = false;     
 
     while ((index < numNames) && !found) {
-        if (names[index] == name) {     // check if the current name is equal to the specified name
-            found = true;               // set found flag to true
-            position = index + 1;       // store the position of the found name
+        if (names[index] == name) {     
+            found = true;              
+            position = index + 1;       
         }
 
-        index++;     // increment index
+        index++;    
     }
 
-    return position;     // return the position of the found name
+    return position;     
 }
 
 //*****************************************************************************************************
@@ -131,18 +131,18 @@ void swapValues(string &a, string &b) {
 //*****************************************************************************************************
 
 void bubbleSort(string names[], int numNames) {
-    bool swap;       // boolean flag to track if any swaps were made in the current pass
-    string temp;     // temporary variable to store a string value while swapping
+    bool swap;       
+    string temp;    
 
     do {
-        swap = false;                                              // set the flag to false as no swaps have been made yet
-        for (int count = 0; count < (numNames - 1); ++count) {     // loop through all elements of the array, except the last one
-            if (names[count] > names[count + 1]) {                 // if the current element is greater than the next element
-                swapValues(names[count], names[count + 1]);        // swap the values
-                swap = true;                                       // set the flag to true as a swap has been made
+        swap = false;                                              
+        for (int count = 0; count < (numNames - 1); ++count) {    
+            if (names[count] > names[count + 1]) {                
+                swapValues(names[count], names[count + 1]);        
+                swap = true;                                     
             }
         }
-    } while (swap);     // continue looping as long as any swaps were made in the previous pass
+    } while (swap);     
 }
 
 //*****************************************************************************************************

@@ -6,8 +6,8 @@
 //
 //*****************************************************************************************************
 
-#include <cstdlib>     // for rand() and srand()
-#include <ctime>       // for time()
+#include <cstdlib>   
+#include <ctime>      
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -24,18 +24,18 @@ int main() {
         playerTwoFingers,
         playerTwoGuess,
         sum;
-    ofstream out("result.txt");     // output file stream (write to file)
+    ofstream out("result.txt");    
 
-    short seed;         // seed for random number generator
-    seed = time(0);     // get system time (0 = current time)
-    srand(seed);        // seed random number generator
+    short seed;        
+    seed = time(0);    
+    srand(seed);        
 
-    playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     // random number between 1 and 5 (player 1)
-    playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             // random number between 0 and 10 (player 1)
-    playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     // random number between 1 and 5 (player 2)
-    playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             // random number between 0 and 10  (player 2)
+    playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;    
+    playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;            
+    playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     
+    playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             
 
-    out << "Fingers\tTotal" << endl;     // out is the output for the file "result.txt" (similar to cout but for files)
+    out << "Fingers\tTotal" << endl;     
 
     out << playerOneFingers << "\t\t" << playerOneGuess << endl;
 
@@ -44,14 +44,14 @@ int main() {
     sum = playerOneFingers + playerTwoFingers;
     out << "\nCorrect total is " << sum << endl;
 
-    if (sum == playerOneGuess && sum == playerTwoGuess)     // if both players guess the correct sum (tie)
+    if (sum == playerOneGuess && sum == playerTwoGuess)     
         out << "TIE" << endl;
-    else if (sum == playerOneGuess)     // if player 1 guesses the correct sum (player 1 wins)
+    else if (sum == playerOneGuess)     
         out << "PLAYER 1 WINS" << endl;
-    else if (sum == playerTwoGuess)     // if player 2 guesses the correct sum (player 2 wins)
+    else if (sum == playerTwoGuess)    
         out << "PLAYER 2 WINS" << endl;
     else
-        out << "NO ONE WINS" << endl;     // if neither player guesses the correct sum (no one wins)
+        out << "NO ONE WINS" << endl;     
 
     return 0;
 }

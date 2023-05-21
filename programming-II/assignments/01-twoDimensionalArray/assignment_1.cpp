@@ -31,8 +31,8 @@ int topStudent(const int scores[][NUM_TESTS], int numStds);
 
 int main() {
     const int NUM_STDS = 10;
-    int scores[NUM_STDS][NUM_TESTS];       // 2D array to hold test scores for 10 students on 8 tests
-    ifstream f("Assignment1Data.txt");     // file with test scores for 10 students on 8 tests
+    int scores[NUM_STDS][NUM_TESTS];       
+    ifstream f("Assignment1Data.txt");     
 
     readTestScores(f, scores, NUM_STDS);
     f.close();

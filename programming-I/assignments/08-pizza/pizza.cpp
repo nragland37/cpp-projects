@@ -22,8 +22,8 @@ int main() {
            total = 0;
     char itemLetter;
 
-    cout << "=====================================================\n"     // \n is a new line character
-         << "\t\tWelcome to Pizza Palace\n"                               // tab character to indent the text
+    cout << "=====================================================\n"     
+         << "\t\tWelcome to Pizza Palace\n"                               
          << "=====================================================" << endl;
 
     cout << fixed << setprecision(2) << right;
@@ -59,7 +59,7 @@ int main() {
         }
 
         if (itemLetter == 'A' || itemLetter == 'B' || itemLetter == 'C' || itemLetter == 'D')
-            numItems++;     // if the user enters a valid menu item, the number of items will increase by 1
+            numItems++;     
 
         cout << "\nNumber of items: " << setprecision(0) << numItems << endl;
 
@@ -68,7 +68,7 @@ int main() {
 
         cout << "Total: " << setprecision(2) << total << endl;
 
-    } while (itemLetter != 'E');     // while the user does not enter 'E' for exit the program will continue
+    } while (itemLetter != 'E');   
 
     cout << "\nThank you! Enjoy!" << endl;
 

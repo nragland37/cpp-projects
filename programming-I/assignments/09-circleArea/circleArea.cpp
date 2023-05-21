@@ -6,7 +6,7 @@
 //*****************************************************************************************************
 
 #define _USE_MATH_DEFINES     // needed to define M_PI with math.h or cmath on some platforms
-#include <cmath>              // library for math functions (sin(), cos(), tan(), pow(), sqrt(), etc.) and constants (M_PI, M_E, etc.)
+#include <cmath>             
 #include <iostream>
 using namespace std;
 
@@ -26,10 +26,10 @@ int main() {
 
     greet();
 
-    radius = readRadius();             // radius is assigned the value returned by readRadius()
-    circumf = findCircumf(radius);     // radius is passed by value to findCircumf() and circumf is assigned the value returned by findCircumf()
+    radius = readRadius();           
+    circumf = findCircumf(radius);     
     
-    printResult(radius, circumf);      // radius and circumf are passed by value to printResult() and the values are printed
+    printResult(radius, circumf);      
     signOff();
 
     return 0;
@@ -45,14 +45,14 @@ void greet() {
 //*****************************************************************************************************
 
 float readRadius() {
-    float posInput;     // positive input beecause radius must be positive
+    float posInput;     
 
     do {
         cout << "\nPlease enter a positive radius: ";
         cin >> posInput;
-    } while (posInput <= 0);     // while input is not positive, keep asking for input
+    } while (posInput <= 0);     
 
-    return posInput;     // return the positive input to main() and assign it to radius
+    return posInput;    
 }
 
 //*****************************************************************************************************
@@ -62,7 +62,7 @@ float findCircumf(float radius) {
 
     circumf = (2 * M_PI) * radius;
 
-    return circumf;     // or return (2 * M_PI) * radius;
+    return circumf;     // return (2 * M_PI) * radius;
 }
 
 //*****************************************************************************************************
