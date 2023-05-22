@@ -87,4 +87,3 @@ Welcome! Here you will find assignments, notes, exercises, examples, and solutio
 
 <br>
 <br>
-<p align="center"> Copyright (c) 2022 Nicholas Ragland </p>
