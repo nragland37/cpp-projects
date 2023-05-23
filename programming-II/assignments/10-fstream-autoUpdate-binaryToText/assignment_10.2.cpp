@@ -22,7 +22,7 @@ using namespace std;
 
 //*****************************************************************************************************
 
-const int NAME_SIZE = 20;     // size of name array in structure
+const int NAME_SIZE = 20;     
 struct Translation {
     string american;
     string english;
@@ -148,14 +148,14 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
          << " randomly selected from the list.\n"
          << "  Enter the English translation." << endl;
 
-    fstream f(fileName, ios::in | ios::out | ios::binary);     // opens file for only reading and writing in binary mode
-    f.read(reinterpret_cast<char *>(&numP), sizeof(int));      // reads number of people from file and stores in numP
+    fstream f(fileName, ios::in | ios::out | ios::binary);                                  // opens file for reading and writing in binary mode
+    f.read(reinterpret_cast<char *>(&numP), sizeof(int));                                   // reads number of people from file 
 
     for (int i = 0; i < NUM_TESTS; ++i) {
         randomPerson = (rand() % numP) + 1;     
 
-        f.seekg((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);     // seekg() is the get pointer (reads)
-        f.read(reinterpret_cast<char *>(&people), sizeof(Person));                  // reads person from file and stores in people
+        f.seekg((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);             // seekg(): get pointer (reads)
+        f.read(reinterpret_cast<char *>(&people), sizeof(Person));                          // reads person from file
         people.testTaken.month = month;                                             
         people.testTaken.day = day;
         people.testTaken.year = year;
@@ -171,8 +171,8 @@ void testersUpdates(const Translation translate[], int numT, const string &fileN
 
         takeTest(translate, numT, people);     
 
-        f.seekp((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);     // seekp() is the put pointer (writes)
-        f.write(reinterpret_cast<char *>(&people), sizeof(Person));                 // writes person to file and updates information
+        f.seekp((sizeof(int) + (randomPerson - 1) * sizeof(Person)), ios::beg);            // seekp(): put pointer (writes)
+        f.write(reinterpret_cast<char *>(&people), sizeof(Person));                        // writes person to file 
     }
     f.close();
 }
@@ -245,7 +245,7 @@ seekp begins at current location ~
 //*****************************************************************************************************
 
 void takeTest(const Translation translate[], int numT, Person &p) {
-    const int NUM_QUESTIONS = 10;     // number of questions per test (changing this may result in decimal average)
+    const int NUM_QUESTIONS = 10;     
     int randomQuestion = 0;
     double correct = 0,
            avg = 0;
@@ -253,8 +253,8 @@ void takeTest(const Translation translate[], int numT, Person &p) {
         guess;
     short seed;
 
-    seed = time(0);     // seed for random number generator (time(0) returns the current time in seconds)
-    srand(seed);        // srand() seeds the random number generator with the value of seed
+    seed = time(0);     
+    srand(seed);       
 
     cout << "\n---------------------------------" << endl;
     cout << setfill(' ')
@@ -290,7 +290,7 @@ void displayTesters(const string &fileName) {
     int numP = 0;
     Person people;
 
-    fstream f(fileName, ios::in | ios::binary);     // open file for only reading in binary mode
+    fstream f(fileName, ios::in | ios::binary);                 // open file for reading in binary mode
 
     if (f.is_open()) {
         f.read(reinterpret_cast<char *>(&numP), sizeof(numP));     
@@ -586,8 +586,8 @@ Answer: trousers
 
 Answer: chips
 
-===================================================            checks updated binary file
-                Updated Information                            writes updates to 'Testers.dat' file
+===================================================            updated binary file
+                Updated Information                            
 ===================================================
 ---------------------------------------------------
 #  NAME                SCORE %        TEST TAKEN

@@ -1,13 +1,15 @@
 //*****************************************************************************************************
-//      Sports Information Management
+//      Sports Management System
 //
 //      This program is a sport information system that implements Object Oriented Programming (OOP)
 //      concepts that allows the user to add, display, and compare different sports based on their
 //      name, date, and team information.
 //
 //      Other files required:
-//          1.  Date.cpp - implementation file for Date class (includes Date.h)
-//          2.  Sport.cpp - implementation file for Sport class (includes Sport.h)
+//          1.  Date.h - header file for Date class
+//          2.  Sport.h - header file for Sport class
+//          3.  Date.cpp - implementation file for Date class
+//          4.  Sport.cpp - implementation file for Sport class
 //
 //*****************************************************************************************************
 
@@ -20,16 +22,20 @@ using namespace std;
 
 //*****************************************************************************************************
 
-void displaySports(Sport s[], int size);
+char getChoice();
+void processChoice(Sport s[], int size);
+void buildSport(Sport s[], int &size);
+void displayAllSports(Sport s[], int size);
 bool testName(Sport s[], int size, const string &sportName);
+void addTeam(Sport s[], int size);
+void displaySport(Sport s[], int size);
+void displaySportHighestTeams(Sport s[], int size);
 
 //*****************************************************************************************************
 
 int main() {
-    int size;
-    char ch,
-        entry;
     Sport *s = nullptr;
+    int size;
 
     cout << "=====================================================================\n"
          << setw(44) << "Sport Information\n"
@@ -40,117 +46,8 @@ int main() {
 
     s = new Sport[size];
 
-    cin.ignore();     
-
-    for (int i = 0; i < size; ++i)
-        s[i].populate();     
-
-    do {
-        cout << "\n---------------------------------------------------------------------\n"
-             << "a) Display all Sports\n"
-             << "b) Add a team to an existing Sport\n"
-             << "c) Display a particular Sport\n"
-             << "d) Display the Sport that has the highest number of teams playing\n"
-             << "e) Exit" << endl;
-
-        cout << "Enter Your Choice: ";
-        cin >> ch;
-
-        cin.ignore();     
-
-        switch (ch) {
-            case 'a': {
-                displaySports(s, size);
-                break;
-            }
-            case 'b': {
-                string team,
-                    sportAdd;
-                bool addTest;     
-
-                do {
-                    cout << "\nEnter Sport Name to add Team: ";
-                    getline(cin, sportAdd);
-
-                    addTest = testName(s, size, sportAdd);     
-
-                    if (addTest == true) {
-                        cout << "\nEnter Team Name: ";
-                        getline(cin, team);
-
-                        for (int i = 0; i < size; ++i)
-                            if (sportAdd == s[i].getName())
-                                s[i].addTeam(team);
-                    } else {
-                        cerr << "\n\tInvalid Name\n";     
-                        cout << "\nBack to menu? (Y/N)" << endl;
-                        cin >> entry;
-
-                        if (entry == 'Y' || entry == 'y')
-                            break;
-                        else
-                            cin.ignore();
-                    }
-                } while (addTest == false);
-                break;     
-            }
-            case 'c': {
-                string s1;
-                bool s1Test;
-
-                do {
-                    cout << "\nEnter Sport Name to Display: ";
-                    getline(cin, s1);
-
-                    s1Test = testName(s, size, s1);
-
-                    if (s1Test == true) {
-                        for (int i = 0; i < size; ++i) {
-                            if (s1 == s[i].getName()) {
-                                cout << "\n\tSport " << i + 1 << endl;
-                                s[i].display();
-                            }
-                        }
-                    } else {
-                        cerr << "\n\tInvalid Name\n";
-                        cout << "\nBack to menu? (Y/N)" << endl;
-                        cin >> entry;
-
-                        if (entry == 'Y' || entry == 'y')
-                            break;
-                        else
-                            cin.ignore();
-                    }
-                } while (s1Test == false);
-                break;    
-            }
-            case 'd': {
-                int temp = s[0].getNumTeams();
-                int max = 0;
-
-                for (int i = 1; i < size; ++i) {
-                    if (temp < s[i].getNumTeams()) {
-                        temp = s[i].getNumTeams();
-                        max = i;
-                    }
-                }
-
-                for (int i = 0; i < size; ++i) {     
-                    if (s[max].getNumTeams() == s[i].getNumTeams()) {
-                        cout << "\n\tSport " << i + 1 << endl;
-                        s[i].display();
-                    }
-                }
-                break;    
-            }
-            case 'e': {
-                break;
-            }
-            default: {
-                cerr << "\n\tError: Invalid Entry\n";
-            }
-        }
-    } while (ch != 'e');     
+    buildSport(s, size);
+    processChoice(s, size);
 
     delete[] s;
     s = nullptr;
@@ -160,7 +57,92 @@ int main() {
 
 //*****************************************************************************************************
 
-void displaySports(Sport s[], int size) {
+char getChoice() {
+    char ch;
+    bool valid;
+
+    cout << "\n---------------------------------------------------------------------\n"
+         << "a) Display all Sports\n"
+         << "b) Add a team to an existing Sport\n"
+         << "c) Display a particular Sport\n"
+         << "d) Display the Sport that has the highest number of teams playing\n"
+         << "e) Exit" << endl;
+
+    cout << "Enter Your Choice: ";
+
+    do {
+        cin >> ch;
+        ch = tolower(ch);
+
+        switch (ch) {
+            case 'a':
+            case 'b':
+            case 'c':
+            case 'd':
+            case 'e': {
+                valid = true;
+                break;
+            }
+            default: {
+                cerr << "\n\tError: Invalid Entry\n"
+                     << "Enter Your Choice: ";
+                break;
+            }
+        }
+    } while (valid == false);
+
+    return ch;
+}
+
+//*****************************************************************************************************
+
+void processChoice(Sport s[], int size) {
+    char ch;
+
+    do {
+        ch = getChoice();
+
+        cin.ignore();
+
+        switch (ch) {
+            case 'a': {
+                displayAllSports(s, size);
+                break;
+            }
+            case 'b': {
+                addTeam(s, size);
+                break;
+            }
+            case 'c': {
+                displaySport(s, size);
+                break;
+            }
+            case 'd': {
+                displaySportHighestTeams(s, size);
+                break;
+            }
+            case 'e': {
+                break;
+            }
+            default: {
+                cerr << "\n\tError: Invalid Entry\n";
+            }
+        }
+    } while (ch != 'e');
+}
+
+//*****************************************************************************************************
+
+void buildSport(Sport s[], int &size) {
+    cin.ignore();
+    
+    for (int i = 0; i < size; ++i)
+        s[i].populate();
+}
+
+//*****************************************************************************************************
+
+void displayAllSports(Sport s[], int size) {
     cout << "\n---------------------------------------------------------------------\n";
 
     for (int i = 0; i < size; ++i) {
@@ -182,6 +164,96 @@ bool testName(Sport s[], int size, const string &sportName) {
     }
 
     return nameFound;
+}
+
+//*****************************************************************************************************
+
+void addTeam(Sport s[], int size) {
+    string team,
+        sportAdd;
+    bool addTest;
+    char entry;
+
+    do {
+        cout << "\nEnter Sport Name to add Team: ";
+        getline(cin, sportAdd);
+
+        addTest = testName(s, size, sportAdd);
+
+        if (addTest == true) {
+            cout << "\nEnter Team Name: ";
+            getline(cin, team);
+
+            for (int i = 0; i < size; ++i)
+                if (sportAdd == s[i].getName())
+                    s[i].addTeam(team);
+        } else {
+            cerr << "\n\tInvalid Name\n";
+            cout << "\nBack to menu? (Y/N)" << endl;
+            cin >> entry;
+
+            entry = tolower(entry);
+
+            if (entry == 'y')
+                break;
+            else
+                cin.ignore();
+        }
+    } while (addTest == false);
+}
+
+//*****************************************************************************************************
+
+void displaySport(Sport s[], int size) {
+    string s1;
+    bool s1Test;
+    char entry;
+
+    do {
+        cout << "\nEnter Sport Name to Display: ";
+        getline(cin, s1);
+
+        s1Test = testName(s, size, s1);
+
+        if (s1Test == true) {
+            for (int i = 0; i < size; ++i) {
+                if (s1 == s[i].getName()) {
+                    cout << "\n\tSport " << i + 1 << endl;
+                    s[i].display();
+                }
+            }
+        } else {
+            cerr << "\n\tInvalid Name\n";
+            cout << "\nBack to menu? (Y/N)" << endl;
+            cin >> entry;
+
+            if (entry == 'Y' || entry == 'y')
+                break;
+            else
+                cin.ignore();
+        }
+    } while (s1Test == false);
+}
+
+//*****************************************************************************************************
+
+void displaySportHighestTeams(Sport s[], int size) {
+    int temp = s[0].getNumTeams();
+    int max = 0;
+
+    for (int i = 1; i < size; ++i) {
+        if (temp < s[i].getNumTeams()) {
+            temp = s[i].getNumTeams();
+            max = i;
+        }
+    }
+
+    for (int i = 0; i < size; ++i) {
+        if (s[max].getNumTeams() == s[i].getNumTeams()) {
+            cout << "\n\tSport " << i + 1 << endl;
+            s[i].display();
+        }
+    }
 }
 
 //*****************************************************************************************************

@@ -24,11 +24,11 @@ void sortStudents(string names[], int matches[], int size);
 //*****************************************************************************************************
 
 int main() {
-    int size;     // size of the array to be dynamically allocated
+    int size;                                                 // size of the array to be dynamically allocated
     int *matches = nullptr;
     double average;
-    string *names = nullptr;     // before dynamically allocating memory, initialize the pointer to nullptr
-                                 // prevent undefined behavior or program crashes caused by uninitialized pointers
+    string *names = nullptr;                                  // pointer to dynamically allocated array and set to nullptr
+                                 
     cout << "-------------------------------------------------\n"
          << " Cricket Matches College Students Play in a Year\n"
          << "-------------------------------------------------" << endl;
@@ -43,10 +43,9 @@ int main() {
         cin.ignore();
     } while (size <= 0 || size > 5000);
 
-    names = new string[size];     // dynamically allocate memory for the arrays
+    names = new string[size];                                 // dynamically allocate memory 
     matches = new int[size];
-    // To dynamically allocate memory in C++, use the 'new' operator followed
-    // by the type and size, and assign the address to a pointer variable
+
     input(names, matches, size);
 
     cout << "\n-------------------------------------------------\n"
@@ -75,9 +74,9 @@ int main() {
     sortStudents(names, matches, size);
     display(names, matches, size);
 
-    // manual memory management is required in C++ because it does not have a garbage collector
-    delete[] names;      // delete operator to deallocate memory to prevent memory leaks
-    names = nullptr;     // not necessary but good practice to set the pointer to nullptr after deleting to prevent dangling pointers
+    
+    delete[] names;                                          // deallocate memory
+    names = nullptr;                                         // set pointer to nullptr to prevent dangling pointers
     delete[] matches;
     matches = nullptr;
 

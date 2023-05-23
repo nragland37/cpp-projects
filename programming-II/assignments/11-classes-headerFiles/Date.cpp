@@ -8,14 +8,11 @@
 //
 //*****************************************************************************************************
 
-#include <iostream>
-using namespace std;
-
-#include "Date.h"     // include header file for Date class
+#include "Date.h"     
 
 //*****************************************************************************************************
 
-Date::Date() {     // default constructor sets date to 1/1/2000
+Date::Date() {                                    // default constructor initializes member variables 
     day = 1;
     month = 1;
     year = 2000;
@@ -24,12 +21,12 @@ Date::Date() {     // default constructor sets date to 1/1/2000
 //*****************************************************************************************************
 
 Date::~Date() { 
-    //cout << "\nDate object destroyed\n";
+    cout << "\nDate object destroyed\n";
 }
 
 //*****************************************************************************************************
 
-void Date::inputDate() {     // checks for valid date (leap years, days in month) and sets date
+void Date::inputDate() {                         // checks for valid date (leap years, days in month) and sets date
     cout << "\nEnter Year: ";
     cin >> year;
 
@@ -68,7 +65,7 @@ void Date::inputDate() {     // checks for valid date (leap years, days in month
             cout << "Enter Day(1-30): ";
             cin >> day;
         }
-    } else if (year % 4 == 0) {     // February :: tests leap years
+    } else if (year % 4 == 0) {                                            // February :: tests leap years
         while (day < 1 || day > 29) {
             cerr << "\nInvalid\n\n";
             cout << "Enter Day(1-29): ";

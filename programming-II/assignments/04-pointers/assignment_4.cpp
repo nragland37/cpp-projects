@@ -22,7 +22,7 @@ void f4(int nums[], int size);
 int main() {
     const int SIZE = 5;
     int numbers[SIZE] = {10, 22, 34, 48, 59};
-    int *ptr = numbers;     // pointer ptr points to the first element in the array numbers
+    int *ptr = numbers;                                // ptr points to the first element in the array
 
     f1(numbers, SIZE);
     f2(ptr, SIZE);

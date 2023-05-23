@@ -8,16 +8,12 @@
 //
 //*****************************************************************************************************
 
-#include <iomanip>
-#include <iostream>
-using namespace std;
-
-#include "Sport.h"     // include Sport.h to use Sport class
+#include "Sport.h"     
 
 //*****************************************************************************************************
 
-Sport::Sport(const string &n) {     // default constructor sets name to empty string, number of teams to 0, and teamNames to nullptr
-    setName(n);                     // set name to n (default is empty string and is set in the header file)
+Sport::Sport(const string &n) {     
+    setName(n);                     
     numTeams = 0;
     teamNames = nullptr;
 }
@@ -25,14 +21,14 @@ Sport::Sport(const string &n) {     // default constructor sets name to empty st
 //*****************************************************************************************************
 
 Sport::~Sport() {
-    delete[] teamNames;     // destructors need to explicitly delete any dynamically allocated memory
-    //cout << "\nSport object destroyed\n";
+    delete[] teamNames;                                                 // deallocate memory in destructor
+    cout << "\nSport object destroyed\n";
 }
 
 //*****************************************************************************************************
 
 void Sport::display() const {
-    Date d1 = getDate();     // getDate() returns a Date object (nextGame) which is assigned to d1
+    Date d1 = getDate();                                               // sport.h includes Date.h so Date class is available to Sport class
 
     cout << "\t\t" << setfill('.') << setw(30) << left 
          << "Sport Name " << " " << getName() 

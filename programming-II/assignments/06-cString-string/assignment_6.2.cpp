@@ -40,18 +40,18 @@ void sentenceData(const string sentence) {
         first_s,
         second_s;
 
-    length = sentence.length();                     // length() returns the length of the string (number of characters)
-    first_s = sentence.find('s');                   // find() returns the index of the first occurrence of a character (or string)
-    second_s = sentence.find('s', first_s + 1);     // find(char, index)
+    length = sentence.length();                                 // get the length of the string
+    first_s = sentence.find('s');                               // find the first 's' in the string
+    second_s = sentence.find('s', first_s + 1);                 // find the second 's' in the string
 
-    for (int i = 0; i < length; ++i) {
-        if (isalpha(sentence[i]))     // isalpha() checks if a character is a letter
+    for (int i = 0; i < length; ++i) {                          // bool return types: isalpha(), isdigit(), islower(), isupper()
+        if (isalpha(sentence[i]))                               
             alphaCount++;
-        if (isdigit(sentence[i]))     // isdigit() checks if a character is a digit
+        if (isdigit(sentence[i]))                         
             digitCount++;
-        if (islower(sentence[i]))     // islower() checks if a character is a lower case letter
+        if (islower(sentence[i]))                    
             lowerCount++;
-        if (isupper(sentence[i]))     // isupper() checks if a character is an upper case letter
+        if (isupper(sentence[i]))      
             upperCount++;
     }
 
@@ -60,9 +60,9 @@ void sentenceData(const string sentence) {
          << "\nThe number of digits in the string: " << digitCount
          << "\nThe number of lower case letters in the string: " << lowerCount
          << "\nThe number of upper case letters in the string: " << upperCount
-         << "\nThe character that is at index 12 of the string: " << sentence.at(12)
-         << "\nThe first character of the string: " << sentence.front()
-         << "\nThe last character of the string: " << sentence.back()
+         << "\nThe character that is at index 12 of the string: " << sentence.at(12)     // at() is the same as []
+         << "\nThe first character of the string: " << sentence.front()                  // front() is the same as [0]
+         << "\nThe last character of the string: " << sentence.back()                    // back() is the same as [length - 1]
          << "\nThe index of the first 's' in the string: " << first_s
          << "\nThe index of the second 's' in the string: " << second_s << endl;
 }

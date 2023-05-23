@@ -6,23 +6,20 @@
 //
 //*****************************************************************************************************
 
-#ifndef DATE_H     // prevent multiple inclusion of header file
+#ifndef DATE_H    
 #define DATE_H
-
-// note:: never use "using namespace std;" in a header file because it will cause problems when the
-// header file is included in multiple source files
 
 //*****************************************************************************************************
 
 class Date {
-   private:     // private member variables are not accessible outside the class
+   private:                                        // private can only be accessed within the class
     int day;
     int month;
     int year;
 
-   public:     // public member functions are accessible outside the class and can be called from main()
-    Date();
-    ~Date();     // optional destructor since there is no dynamic memory allocation or
+   public:                                         // public can be accessed within and outside the class
+    Date();                                        // constructor
+    ~Date();                                       // destructor
     int getDay() const;
     void setDay(const int &d);
     int getMonth() const;
@@ -35,8 +32,8 @@ class Date {
 
 //*****************************************************************************************************
 
-inline int Date::getDay() const {     // inline functions are defined in the header file for efficiency
-    return day;                       // used for small functions that are called frequently (typically getters and setters)
+inline int Date::getDay() const {                  // inline is a keyword for simple methods
+    return day;                       
 }
 
 //*****************************************************************************************************
@@ -71,4 +68,4 @@ inline void Date::setMonth(const int &m) {
 
 //*****************************************************************************************************
 
-#endif     // end of #ifndef preprocessor directive
+#endif     

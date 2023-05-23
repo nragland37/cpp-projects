@@ -1,5 +1,5 @@
 //*****************************************************************************************************
-//      Speaker Management
+//      Speaker Management System
 //
 //      This program is a speaker bureau system with a limit of 10 speakers that allows users to input,
 //      update, and display information on speakers, as well as search for speakers by topic.
@@ -12,7 +12,7 @@
 using namespace std;
 
 //*****************************************************************************************************
-struct Speaker {     // struct is a user-defined data type that can hold multiple data types (holds speaker info)
+struct Speaker {                                                // struct: user-defined data type
     string name;
     string phoneNum;
     string topic;
@@ -91,7 +91,7 @@ int main() {
             if (topicEntry == 'n' || topicEntry == 'N')
                 break;
 
-            cin.ignore();     // ignore the newline character in the input buffer so getline() can work
+            cin.ignore();                                  // ignore the '\n' character
         }
     } while (topicTest == false);
 

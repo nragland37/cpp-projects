@@ -1,5 +1,5 @@
 //*****************************************************************************************************
-//      Speaker Management
+//      Speaker Management System
 //
 //      This program is a speaker bureau system that allows users to dynamically allocate memory for a
 //      specified number of speakers, up to a limit of 5000, and allows users to input, update, and

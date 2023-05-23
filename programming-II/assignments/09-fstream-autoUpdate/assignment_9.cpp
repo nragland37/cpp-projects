@@ -104,7 +104,7 @@ Translation *readTranslation(const string &fileName, int &num) {
     Translation *t = nullptr;
     ifstream f(fileName);
 
-    if (f.is_open()) {     // checks if file is open (only needed for reading in from file)
+    if (f.is_open()) {                                          // check if file is open before reading
         f >> num;          
         f.ignore();
 
@@ -116,7 +116,7 @@ Translation *readTranslation(const string &fileName, int &num) {
         }
 
         f.close();     
-    } else {
+    } else { 
         cerr << "Error: Unable to open file\n";     
     }
 

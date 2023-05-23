@@ -1,5 +1,5 @@
 //*****************************************************************************************************
-//      Employee Management
+//      Employee Management System
 //
 //      This program demonstrates the use of file input/output, dynamic memory allocation, and
 //      structures to read employee information from a text file, allow the user to add new employees,
@@ -26,7 +26,7 @@ struct dateEmployed {
 struct Employee {
     string name;
     int age;
-    dateEmployed date;     // nested structure
+    dateEmployed date;                                               
 };
 
 Employee *readEmployees(const string &empFile, int &numEmps);
@@ -79,12 +79,12 @@ int main() {
 Employee *readEmployees(const string &empFile, int &numEmps) {
     fstream f;
 
-    f.open(empFile, ios::in);                  // open file for only reading
+    f.open(empFile, ios::in);                                       // open file for reading
     Employee *tmp = new Employee[numEmps];     
-    f.ignore(2);                               // ignore first two characters of file (number of employees and newline)
+    f.ignore(2);                                                    // ignore first two characters in file
 
     for (int i = 0; i < numEmps; ++i) {
-        getline(f, tmp[i].name, ',');          // read until comma
+        getline(f, tmp[i].name, ',');                               // getline( file, string, delimiter )
         f >> tmp[i].age;
         f.ignore();
         f >> tmp[i].date.month;
@@ -128,7 +128,7 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
 
     numEmps = numEmps + newEntries;     
 
-    f.open("Employees.txt", ios::out);     // open file for only writing
+    f.open("Employees.txt", ios::out);                           // open file for writing
     f << numEmps << endl;
 
     for (int i = 0; i < numEmps - newEntries; ++i)
@@ -140,7 +140,7 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
 
     f.close();
 
-    f.open("Employees.txt", ios::app);     // open file for only appending
+    f.open("Employees.txt", ios::app);                          // open file for appending
 
     for (int i = oldEmps; i < numEmps; ++i) {
         cout << "\nName: ";
@@ -181,8 +181,8 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
 void displayEmployees(const Employee emps[], int numEmps) {
     cout << left << setw(30) << "\nName" << setw(20) << "Age" << setw(10) << "Date Employed" << endl;     
 
-    cout << setfill('-') << setw(63) << "" << endl;     // line of dashes to separate header from data
-    cout << setfill(' ');                               // reset the fill character to a space for the data
+    cout << setfill('-') << setw(63) << "" << endl;     
+    cout << setfill(' ');                               
 
     for (int i = 0; i < numEmps; ++i)
         cout << left

@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //      Sport Class Header File
-//		
+//
 //      This header file defines the private and public members and methods of the Sport class and
 //      defines the inline functions (getters and setters).
 //
@@ -9,29 +9,26 @@
 //
 //*****************************************************************************************************
 
-#ifndef SPORT_H     // include guard to prevent multiple inclusion of the header file
+#ifndef SPORT_H
 #define SPORT_H
 
-#include <string>
+//*****************************************************************************************************
 
-#include "Date.h"     // include Date.h to use Date class
-
-// note:: never use "using namespace std;" in a header file because it will cause problems when the
-// header file is included in multiple source files
+#include "Date.h"
 
 //*****************************************************************************************************
 
 class Sport {
    private:
     string name;
-    Date nextGame;     // use Date class to store date of next game
+    Date nextGame;                    // use Date class to store date of next game
     int numTeams;
-    string *teamNames;     // use dynamic array to store names of teams (array size is numTeams)
+    string *teamNames;
 
    public:
     Sport(const string &n = "");     // default argument so that Sport object can be created without arguments
     ~Sport();
-    string getName() const;     // const used to indicate that the function does not modify the object
+    string getName() const;          // const used when methods do not change the object's data members
     void setName(const string &n);
     Date getDate() const;
     void setDate(const Date &d);

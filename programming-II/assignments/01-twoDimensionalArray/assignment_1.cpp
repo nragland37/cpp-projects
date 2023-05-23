@@ -38,9 +38,9 @@ int main() {
     f.close();
     displayTestScores(scores, NUM_STDS);
 
-    cout << setprecision(2) << fixed;
+    cout << setprecision(2) << fixed;                                                       
 
-    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0)     
+    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0)                      // index 0 is test #1
          << "\n\nTotal for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4)
          << "\n\nTotal for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2)
          << "\n\nTotal for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7)
@@ -156,7 +156,7 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
         }
     }
 
-    return (topStudent + 1);     // +1 for display purposes
+    return (topStudent + 1);                                                            // +1 for display purposes
 }
 
 //*****************************************************************************************************
