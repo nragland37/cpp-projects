@@ -17,8 +17,8 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "Date.cpp"
-#include "Sport.cpp"
+#include "Date.h"
+#include "Sport.h"
 
 //*****************************************************************************************************
 
