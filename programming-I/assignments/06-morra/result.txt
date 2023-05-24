@@ -1,6 +1,6 @@
 Fingers	Total
-3		5
-2		5
+4		0
+1		7
 
 Correct total is 5
-TIE
+NO ONE WINS

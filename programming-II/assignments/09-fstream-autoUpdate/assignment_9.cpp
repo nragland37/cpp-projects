@@ -23,15 +23,18 @@ using namespace std;
 //*****************************************************************************************************
 
 const int NAME_SIZE = 20;
+
 struct Translation {    
     string american;
     string english;
 };
+
 struct Date {    
     int month;
     int day;
     int year;
 };
+
 struct Person {    
     char name[NAME_SIZE];
     double score;

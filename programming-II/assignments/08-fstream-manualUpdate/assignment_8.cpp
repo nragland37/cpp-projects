@@ -18,11 +18,13 @@
 using namespace std;
 
 //*****************************************************************************************************
+
 struct dateEmployed {
     int month,
         day,
         year;
 };
+
 struct Employee {
     string name;
     int age;
