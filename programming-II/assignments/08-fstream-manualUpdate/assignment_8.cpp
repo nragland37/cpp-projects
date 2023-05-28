@@ -11,6 +11,7 @@
 //
 //*****************************************************************************************************
 
+#include <cctype>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -28,7 +29,7 @@ struct dateEmployed {
 struct Employee {
     string name;
     int age;
-    dateEmployed date;                                               
+    dateEmployed date;
 };
 
 Employee *readEmployees(const string &empFile, int &numEmps);
@@ -54,8 +55,9 @@ int main() {
 
         cout << "\nAny additional employees need to be added? (Y/N)" << endl;
         cin >> entry;
+        entry = toupper(entry);
 
-        if (entry == 'y' || entry == 'Y') {
+        if (entry == 'Y') {
             Employee *newEmps = inputEmployees(emps, numEmps);
             displayEmployees(newEmps, numEmps);
 
@@ -71,7 +73,7 @@ int main() {
         }
     }
     if (!f)
-        cerr << "Error: Unable to open file\n";    
+        cerr << "Error: Unable to open file\n";
 
     return 0;
 }
@@ -81,12 +83,12 @@ int main() {
 Employee *readEmployees(const string &empFile, int &numEmps) {
     fstream f;
 
-    f.open(empFile, ios::in);                                       // open file for reading
-    Employee *tmp = new Employee[numEmps];     
-    f.ignore(2);                                                    // ignore first two characters in file
+    f.open(empFile, ios::in);     // open file for reading
+    Employee *tmp = new Employee[numEmps];
+    f.ignore(2);     // ignore first two characters in file
 
     for (int i = 0; i < numEmps; ++i) {
-        getline(f, tmp[i].name, ',');                               // getline( file, string, delimiter )
+        getline(f, tmp[i].name, ',');     // getline( file, string, delimiter )
         f >> tmp[i].age;
         f.ignore();
         f >> tmp[i].date.month;
@@ -107,7 +109,7 @@ Employee *readEmployees(const string &empFile, int &numEmps) {
 Employee *inputEmployees(Employee *emps, int &numEmps) {
     fstream f;
     int newEntries,
-        oldEmps = numEmps,   
+        oldEmps = numEmps,
         age,
         month,
         day,
@@ -117,8 +119,8 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
     cout << "\nHow many?" << endl;
     cin >> newEntries;
 
-    cin.ignore();                                               
-    Employee *newemps = new Employee[numEmps + newEntries];     
+    cin.ignore();
+    Employee *newemps = new Employee[numEmps + newEntries];
 
     for (int i = 0; i < numEmps; i++) {
         newemps[i].name = emps[i].name;
@@ -128,9 +130,9 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
         newemps[i].date.year = emps[i].date.year;
     }
 
-    numEmps = numEmps + newEntries;     
+    numEmps = numEmps + newEntries;
 
-    f.open("Employees.txt", ios::out);                           // open file for writing
+    f.open("Employees.txt", ios::out);     // open file for writing
     f << numEmps << endl;
 
     for (int i = 0; i < numEmps - newEntries; ++i)
@@ -142,7 +144,7 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
 
     f.close();
 
-    f.open("Employees.txt", ios::app);                          // open file for appending
+    f.open("Employees.txt", ios::app);     // open file for appending
 
     for (int i = oldEmps; i < numEmps; ++i) {
         cout << "\nName: ";
@@ -167,30 +169,30 @@ Employee *inputEmployees(Employee *emps, int &numEmps) {
         newemps[i].date.month = month;
         newemps[i].date.day = day;
         newemps[i].date.year = year;
-        f << newemps[i].name << "," 
+        f << newemps[i].name << ","
           << newemps[i].age << ","
-          << newemps[i].date.month 
+          << newemps[i].date.month
           << "/" << newemps[i].date.day
           << "/" << newemps[i].date.year << endl;
     }
     f.close();
 
-    return newemps;    
+    return newemps;
 }
 
 //*****************************************************************************************************
 
 void displayEmployees(const Employee emps[], int numEmps) {
-    cout << left << setw(30) << "\nName" << setw(20) << "Age" << setw(10) << "Date Employed" << endl;     
+    cout << left << setw(30) << "\nName" << setw(20) << "Age" << setw(10) << "Date Employed" << endl;
 
-    cout << setfill('-') << setw(63) << "" << endl;     
-    cout << setfill(' ');                               
+    cout << setfill('-') << setw(63) << "" << endl;
+    cout << setfill(' ');
 
     for (int i = 0; i < numEmps; ++i)
         cout << left
              << setw(30) << emps[i].name
              << setw(23) << emps[i].age
-             << right << setw(10)     
+             << right << setw(10)
              << setw(2) << emps[i].date.month << "/"
              << setw(2) << emps[i].date.day << "/"
              << setw(4) << emps[i].date.year << endl;

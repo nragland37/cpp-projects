@@ -7,6 +7,7 @@
 //
 //*****************************************************************************************************
 
+#include <cctype>
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -103,7 +104,9 @@ int main() {
             cout << "Do you have another topic? (Y/N)" << endl;
             cin >> topicEntry;
 
-            if (topicEntry == 'n' || topicEntry == 'N')
+            topicEntry = toupper(topicEntry);
+
+            if (topicEntry == 'N')
                 break;
 
             cin.ignore();
@@ -174,8 +177,9 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
 
         cout << "Do you have another entry? (Y/N): " << endl;
         cin >> entry;
+        entry = toupper(entry);
 
-        if (entry == 'n' || entry == 'N') {
+        if (entry == 'N') {
             cin.ignore();
             break;
         }

@@ -12,6 +12,7 @@
 //
 //*****************************************************************************************************
 
+#include <cctype>
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
@@ -73,8 +74,9 @@ int main() {
          << "            selected to take the test \n\n"
          << "Would you like to study before the test? (Y/N)" << endl;    
     cin >> studyEntry;
+    studyEntry = toupper(studyEntry);
 
-    if (studyEntry == 'y' || studyEntry == 'Y') {
+    if (studyEntry == 'Y') {
         displayTranslateAnswers(translate, numT);
         cout << "\nPress enter to continue..." << endl;
         cin.ignore();     

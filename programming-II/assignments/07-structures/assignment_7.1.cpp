@@ -6,6 +6,7 @@
 //
 //*****************************************************************************************************
 
+#include <cctype>
 #include <iomanip>
 #include <iostream>
 #include <string>
@@ -87,8 +88,9 @@ int main() {
             cerr << "\nSorry but nobody is speaking about this topic\n\n";
             cout << "Do you have another topic? (Y/N)" << endl;
             cin >> topicEntry;
+            topicEntry = toupper(topicEntry);
 
-            if (topicEntry == 'n' || topicEntry == 'N')
+            if (topicEntry == 'N')
                 break;
 
             cin.ignore();                                  // ignore the '\n' character
@@ -156,7 +158,9 @@ void inputSpeakers(Speaker members[], int size, int &numSpeakers) {
         cout << "Do you have another entry? (Y/N): " << endl;
         cin >> entry;
 
-        if (entry == 'n' || entry == 'N') {
+        entry = toupper(entry);
+
+        if (entry == 'N') {
             cin.ignore();
             break;
         }
