@@ -88,7 +88,6 @@ void f3(int nums[], int size) {
 //*****************************************************************************************************
 
 void f4(int nums[], int size) {
-    const int SIZE = 2;
     int *p1 = nums,
         *p2 = nums;
     int input1,
