@@ -22,7 +22,6 @@ void printNum(const char *title, short num);
 int main() {
     AList<short> shortList(3);
     short num;
-    bool success;
 
     checkState(shortList);
 
