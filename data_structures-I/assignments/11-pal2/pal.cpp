@@ -33,8 +33,7 @@ int main() {
     bool isValid,
          hasPunct,
          hasSpace;
-    int len,
-        numVal;
+    int len;
     char palType;
     char pal[81];
 
