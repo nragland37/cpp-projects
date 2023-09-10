@@ -145,7 +145,7 @@ bool Queue<TYPE>::isFull() const {
     bool success = true;
     Node<TYPE> *pNew = nullptr;
 
-    pNew = new (nothrow) Node<TYPE>;
+    pNew = new (std::nothrow) Node<TYPE>;
 
     if (pNew) {
         delete pNew;

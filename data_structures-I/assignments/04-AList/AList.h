@@ -71,7 +71,7 @@ bool AList<TYPE>::_resize() {
     int newCapacity;
 
     newCapacity = capacity * 2;
-    newList = new (nothrow) TYPE[newCapacity];
+    newList = new (std::nothrow) TYPE[newCapacity];
 
     if (newList) {
         for (int i = 0; i < numValues; ++i)
@@ -155,9 +155,9 @@ bool AList<TYPE>::display() const {
 
     if (numValues > 0) {
         for (int i = 0; i < numValues; ++i)
-            cout << "[" << i << "] " << list[i] << "\t";
+            std::cout << "[" << i << "] " << list[i] << "\t";
 
-        cout << endl;
+        std::cout << std::endl;
 
         success = true;
     }

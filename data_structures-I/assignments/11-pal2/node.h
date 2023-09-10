@@ -23,7 +23,7 @@ struct Node {
 
 template <typename TYPE>
 Node<TYPE>::Node() {
-    data = 0;
+    data = TYPE();                // default initialization for both user-defined and built-in types
     next = nullptr;
     prev = nullptr;
 }

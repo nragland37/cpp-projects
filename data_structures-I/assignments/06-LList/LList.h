@@ -72,7 +72,7 @@ bool LList<TYPE>::insert(const TYPE &dataIn) {
         pCur = pCur->next;
     }
 
-    pNew = new (nothrow) Node<TYPE>(dataIn, pCur);
+    pNew = new (std::nothrow) Node<TYPE>(dataIn, pCur);
 
     if (pNew) {
         if (pBefore)
@@ -171,15 +171,15 @@ void LList<TYPE>::display() const {
     Node<TYPE> *pCur = front;
 
     while (pCur) {
-        cout << pCur->data;
+        std::cout << pCur->data;
 
         if (pCur->next)
-            cout << " -> ";
+            std::cout << " -> ";
 
         pCur = pCur->next;
     }
 
-    cout << endl;
+    std::cout << std::endl;
 }
 
 //*****************************************************************************************************
@@ -211,7 +211,7 @@ bool LList<TYPE>::isFull() const {
     bool success = true;
     Node<TYPE> *pNew = nullptr;
 
-    pNew = new (nothrow) Node<TYPE>;
+    pNew = new (std::nothrow) Node<TYPE>;
 
     if (pNew) {
         delete pNew;

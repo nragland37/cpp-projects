@@ -85,7 +85,7 @@ bool DLList<T>::insert(const T &dataIn) {
 
     pBefore = (pAfter ? pAfter->prev : rear);
 
-    pNew = new (nothrow) Node<T>(dataIn, pAfter, pBefore);
+    pNew = new (std::nothrow) Node<T>(dataIn, pAfter, pBefore);
 
     if (pNew) {
         if (pBefore)
@@ -111,7 +111,7 @@ bool DLList<T>::insertFront(const T &dataIn) {
     bool success = false;
     Node<T> *pNew;
 
-    pNew = new (nothrow) Node<T>(dataIn, front);
+    pNew = new (std::nothrow) Node<T>(dataIn, front);
 
     if (pNew) {
         if (front)
@@ -133,7 +133,7 @@ bool DLList<T>::insertRear(const T &dataIn) {
     bool success = false;
     Node<T> *pNew;
 
-    pNew = new (nothrow) Node<T>(dataIn, nullptr, rear);
+    pNew = new (std::nothrow) Node<T>(dataIn, nullptr, rear);
 
     if (pNew) {
         if (rear)
@@ -160,7 +160,7 @@ bool DLList<T>::insertAfter(const T &dataIn, const T &dataBefore) {
         pCur = pCur->next;
 
     if (pCur) {
-        pNew = new (nothrow) Node<T>(dataIn, pCur->next, pCur);
+        pNew = new (std::nothrow) Node<T>(dataIn, pCur->next, pCur);
 
         if (pNew) {
             if (pCur->next)
@@ -188,7 +188,7 @@ bool DLList<T>::insertBefore(const T &dataIn, const T &dataAfter) {
         pCur = pCur->next;
 
     if (pCur) {
-        pNew = new (nothrow) Node<T>(dataIn, pCur, pCur->prev);
+        pNew = new (std::nothrow) Node<T>(dataIn, pCur, pCur->prev);
 
         if (pNew) {
             if (pCur->prev)
@@ -333,12 +333,12 @@ void DLList<T>::display() const {
     Node<T> *pCur = front;
 
     while (pCur) {
-        cout << pCur->data;
+        std::cout << pCur->data;
 
         pCur = pCur->next;
     }
 
-    cout << endl;
+    std::cout << std::endl;
 }
 
 //*****************************************************************************************************
@@ -348,12 +348,12 @@ void DLList<T>::displayReverse() const {
     Node<T> *pCur = rear;
 
     while (pCur) {
-        cout << pCur->data;
+        std::cout << pCur->data;
 
         pCur = pCur->prev;
     }
 
-    cout << endl;
+    std::cout << std::endl;
 }
 
 //*****************************************************************************************************
@@ -385,7 +385,7 @@ bool DLList<T>::isFull() const {
     bool success = true;
     Node<T> *pNew = nullptr;
 
-    pNew = new (nothrow) Node<T>;
+    pNew = new (std::nothrow) Node<T>;
 
     if (pNew) {
         delete pNew;

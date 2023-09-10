@@ -65,7 +65,7 @@ Queue<TYPE>::~Queue() {
 template <typename TYPE>
 bool Queue<TYPE>::enqueue(const TYPE &dataIn) {
     bool success = false;
-    Node<TYPE> *pNew = new (nothrow) Node<TYPE>(dataIn);
+    Node<TYPE> *pNew = new (std::nothrow) Node<TYPE>(dataIn);
 
     if (pNew) {
         if (back)
@@ -145,7 +145,7 @@ bool Queue<TYPE>::isFull() const {
     bool success = true;
     Node<TYPE> *pNew = nullptr;
 
-    pNew = new (nothrow) Node<TYPE>;
+    pNew = new (std::nothrow) Node<TYPE>;
 
     if (pNew) {
         delete pNew;

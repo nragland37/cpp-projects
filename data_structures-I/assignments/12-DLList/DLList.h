@@ -79,7 +79,7 @@ bool DLList<T>::insert(const T &dataIn) {
 
     pBefore = (pAfter ? pAfter->prev : rear);
 
-    pNew = new (nothrow) Node<T>(dataIn, pAfter, pBefore);
+    pNew = new (std::nothrow) Node<T>(dataIn, pAfter, pBefore);
 
     if (pNew) {
         if (pBefore)
@@ -181,7 +181,7 @@ void DLList<T>::display() const {
     Node<T> *pCur = front;
 
     while (pCur) {
-        cout << pCur->data;
+        std::cout << pCur->data;
 
         pCur = pCur->next;
     }
@@ -196,7 +196,7 @@ void DLList<T>::displayReverse() const {
     Node<T> *pCur = rear;
 
     while (pCur) {
-        cout << pCur->data;
+        std::cout << pCur->data;
 
         pCur = pCur->prev;
     }
@@ -233,7 +233,7 @@ bool DLList<T>::isFull() const {
     bool success = true;
     Node<T> *pNew = nullptr;
 
-    pNew = new (nothrow) Node<T>;
+    pNew = new (std::nothrow) Node<T>;
 
     if (pNew) {
         delete pNew;
