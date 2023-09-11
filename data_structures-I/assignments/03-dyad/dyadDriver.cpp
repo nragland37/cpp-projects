@@ -3,7 +3,7 @@
 //      This program demonstrates the use of a class template using a header and driver file.
 //
 //      Other files required:
-//        1.	 dyad.h
+//        1.	 dyad.h - header file for the Dyad class
 //
 //*****************************************************************************************************
 

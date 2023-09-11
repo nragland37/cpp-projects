@@ -12,12 +12,12 @@
 
 template <typename TYPE>
 class Stack {
-   private:
+private:
     TYPE *stack;
     int top;
     int capacity;
 
-   public:
+public:
     Stack(int cap = 100);
     ~Stack();
     bool push(const TYPE &dataIn);

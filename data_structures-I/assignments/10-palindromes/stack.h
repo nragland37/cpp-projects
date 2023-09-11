@@ -11,19 +11,18 @@
 //*****************************************************************************************************
 
 template <typename TYPE>
-class Stack
-{
+class Stack {
 private:
-    TYPE * stack;
+    TYPE *stack;
     int top;
     int capacity;
 
 public:
     Stack(int cap = 100);
     ~Stack();
-    bool push(const TYPE & dataIn);
-    bool pop(TYPE & dataOut);
-    bool peek(TYPE & dataOut) const;
+    bool push(const TYPE &dataIn);
+    bool pop(TYPE &dataOut);
+    bool peek(TYPE &dataOut) const;
     int getNumValues() const;
     bool isFull() const;
     bool isEmpty() const;
@@ -32,8 +31,7 @@ public:
 //*****************************************************************************************************
 
 template <typename TYPE>
-Stack<TYPE>::Stack(int cap)
-{
+Stack<TYPE>::Stack(int cap) {
     capacity = cap;
     top = -1;
     stack = new TYPE[capacity];
@@ -42,8 +40,7 @@ Stack<TYPE>::Stack(int cap)
 //*****************************************************************************************************
 
 template <typename TYPE>
-Stack<TYPE>::~Stack()
-{
+Stack<TYPE>::~Stack() {
     delete[] stack;
     stack = nullptr;
     capacity = 0;
@@ -53,12 +50,10 @@ Stack<TYPE>::~Stack()
 //*****************************************************************************************************
 
 template <typename TYPE>
-bool Stack<TYPE>::push(const TYPE & dataIn)
-{
+bool Stack<TYPE>::push(const TYPE &dataIn) {
     bool success = false;
 
-    if ((top + 1) < capacity)
-    {
+    if ((top + 1) < capacity) {
         top++;
         stack[top] = dataIn;
         success = true;
@@ -70,12 +65,10 @@ bool Stack<TYPE>::push(const TYPE & dataIn)
 //*****************************************************************************************************
 
 template <typename TYPE>
-bool Stack<TYPE>::pop(TYPE & dataOut)
-{
+bool Stack<TYPE>::pop(TYPE &dataOut) {
     bool success = false;
 
-    if (top >= 0)
-    {
+    if (top >= 0) {
         dataOut = stack[top];
         top--;
         success = true;
@@ -87,12 +80,10 @@ bool Stack<TYPE>::pop(TYPE & dataOut)
 //*****************************************************************************************************
 
 template <typename TYPE>
-bool Stack<TYPE>::peek(TYPE & dataOut) const
-{
+bool Stack<TYPE>::peek(TYPE &dataOut) const {
     bool success = false;
 
-    if (top >= 0)
-    {
+    if (top >= 0) {
         dataOut = stack[top];
         success = true;
     }
@@ -103,24 +94,21 @@ bool Stack<TYPE>::peek(TYPE & dataOut) const
 //*****************************************************************************************************
 
 template <typename TYPE>
-int Stack<TYPE>::getNumValues() const
-{
+int Stack<TYPE>::getNumValues() const {
     return (top + 1);
 }
 
 //*****************************************************************************************************
 
 template <typename TYPE>
-bool Stack<TYPE>::isFull() const
-{
+bool Stack<TYPE>::isFull() const {
     return ((top + 1) == capacity);
 }
 
 //*****************************************************************************************************
 
 template <typename TYPE>
-bool Stack<TYPE>::isEmpty() const
-{
+bool Stack<TYPE>::isEmpty() const {
     return (top < 0);
 }
 

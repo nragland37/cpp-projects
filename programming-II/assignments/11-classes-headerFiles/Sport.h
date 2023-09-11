@@ -5,7 +5,7 @@
 //      defines the inline functions (getters and setters).
 //
 //      Other files required:
-//          1.  Date.h - header file for Date class
+//          1.  date.h - header file for Date class
 //
 //*****************************************************************************************************
 
@@ -14,40 +14,41 @@
 
 //*****************************************************************************************************
 
-#include "Date.h"
+#include <string>
+#include "date.h"
 
 //*****************************************************************************************************
 
 class Sport {
-   private:
-    string name;
-    Date nextGame;                    // use Date class to store date of next game
+private:
+    std::string name;
+    Date nextGame;                        // use Date class to store date of next game
     int numTeams;
-    string *teamNames;
+    std::string *teamNames;
 
-   public:
-    Sport(const string &n = "");     // default argument so that Sport object can be created without arguments
+public:
+    Sport(const std::string &n = "");     // default argument so that Sport object can be created without arguments
     ~Sport();
-    string getName() const;          // const used when methods do not change the object's data members
-    void setName(const string &n);
+    std::string getName() const;          // const used when methods do not change the object's data members
+    void setName(const std::string &n);
     Date getDate() const;
     void setDate(const Date &d);
     int getNumTeams() const;
     void setNumTeams(const int &n);
     void display() const;
     void populate();
-    void addTeam(const string &n);
+    void addTeam(const std::string &n);
 };
 
 //*****************************************************************************************************
 
-inline string Sport::getName() const {
+inline std::string Sport::getName() const {
     return name;
 }
 
 //*****************************************************************************************************
 
-inline void Sport::setName(const string &n) {
+inline void Sport::setName(const std::string &n) {
     name = n;
 }
 

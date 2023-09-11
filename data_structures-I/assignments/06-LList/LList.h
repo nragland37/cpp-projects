@@ -4,7 +4,7 @@
 //      functions that can be performed on the list.
 //
 //      Other files required:
-//        1.	 Node.h - header file for the AList class
+//        1.	 node.h - header file for the AList class
 //
 //*****************************************************************************************************
 
@@ -13,18 +13,17 @@
 
 //*****************************************************************************************************
 
+#include "node.h"
 #include <new>
-
-#include "Node.h"
 
 //*****************************************************************************************************
 
 template <typename TYPE>
 class LList {
-   private:
+private:
     Node<TYPE> *front;
 
-   public:
+public:
     LList();
     ~LList();
     bool insert(const TYPE &dataIn);

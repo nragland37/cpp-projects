@@ -6,7 +6,7 @@
 //
 //*****************************************************************************************************
 
-#include <iomanip>    
+#include <iomanip>
 #include <iostream>
 using namespace std;
 
@@ -35,22 +35,22 @@ int main() {
     cin >> weight;
 
     if (weight < 1)
-        shipping = LESS_ONE_LB * weight;     
+        shipping = LESS_ONE_LB * weight;
     else if (weight < 5)
-        shipping = LESS_FIVE_LB * weight;     
+        shipping = LESS_FIVE_LB * weight;
     else if (weight < 8)
-        shipping = LESS_EIGHT_LB * weight;     
+        shipping = LESS_EIGHT_LB * weight;
     else if (weight < 10)
-        shipping = LESS_TEN_LB * weight;     
+        shipping = LESS_TEN_LB * weight;
     else if (weight < 20)
-        shipping = LESS_TWENTY_LB * weight;     
+        shipping = LESS_TWENTY_LB * weight;
     else
-        shipping = ABOVE_TWENTY * weight;     
+        shipping = ABOVE_TWENTY * weight;
 
-    tax = price * TAXRATE;                  
-    totalCost = price + tax + shipping;     
+    tax = price * TAXRATE;
+    totalCost = price + tax + shipping;
 
-    cout << "\nTotal price: " << fixed << setprecision(2) << totalCost << endl;     
+    cout << "\nTotal price: " << fixed << setprecision(2) << totalCost << endl;
 
     return 0;
 }

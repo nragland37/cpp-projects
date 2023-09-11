@@ -3,9 +3,6 @@
 //      This header file defines a class template called Dyad that stores two values and provides
 //      methods for accessing and manipulating them.
 //
-//      Other files required:
-//        1.	dyadDriver.cpp
-//
 //*****************************************************************************************************
 
 #ifndef DYAD_H
@@ -15,11 +12,11 @@
 
 template <typename TYPE>
 class Dyad {
-   private:
+private:
     TYPE val1;
     TYPE val2;
 
-   public:
+public:
     Dyad(TYPE v1 = 0, TYPE v2 = 0);
     TYPE getFirst() const;
     TYPE getSecond() const;

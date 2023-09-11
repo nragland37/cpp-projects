@@ -6,9 +6,9 @@
 //
 //*****************************************************************************************************
 
-#include <cstdlib>    
-#include <ctime>     
-#include <fstream>    
+#include <cstdlib>
+#include <ctime>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 using namespace std;
@@ -27,19 +27,19 @@ int main() {
         sum,
         playerOneWins = 0,
         playerTwoWins = 0;
-    ofstream out("morraSeriesResults.txt");     
+    ofstream out("morraSeriesResults.txt");
 
-    short seed;         
-    seed = time(0);     
-    srand(seed);       
+    short seed;
+    seed = time(0);
+    srand(seed);
 
     for (int game = 1; game <= 10; game++) {
-        playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     
-        playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             
-        playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;    
-        playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;            
+        playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
+        playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
+        playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
+        playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
 
-        cout << left << "Game " << game << ":" << setw(12) << endl;    
+        cout << left << "Game " << game << ":" << setw(12) << endl;
         cout << "Player" << setw(12) << "|Fingers" << setw(12) << "|Total" << endl;
         cout << "============|===========|============" << endl;
         cout << setw(12) << "1"
@@ -65,8 +65,8 @@ int main() {
         cout << "\n-------------------------------------" << endl;
     }
 
-    cout << "=====================================" << endl;     
-    out << "=====================================" << endl;     
+    cout << "=====================================" << endl;
+    out << "=====================================" << endl;
     cout << "Summary of the series" << endl;
     out << "Summary of the series" << endl;
     cout << "=====================================" << endl;
@@ -78,7 +78,7 @@ int main() {
 
     cout << "\nWinner of the series: ";
     out << "\nWinner of the series: ";
-    
+
     if (playerOneWins > playerTwoWins) {
         cout << "Player 1" << endl;
         out << "Player 1" << endl;

@@ -1,6 +1,6 @@
 //*****************************************************************************************************
-//      Computer Programming I Grade Calculator 
-// 
+//      Computer Programming I Grade Calculator
+//
 //	This program is a grade calculator for a Computer Programming I class that uses functions.
 //
 //*****************************************************************************************************
@@ -10,10 +10,10 @@ using namespace std;
 
 //*****************************************************************************************************
 
-void readGrades(float &, float &, float &, float &);                                  
-void calcWeights(float &, float &, float &, float &, float, float, float, float);     
-float calcFind(float, float, float, float);                                           
-void displayResults(float);                                                          
+void readGrades(float &, float &, float &, float &);
+void calcWeights(float &, float &, float &, float &, float, float, float, float);
+float calcFind(float, float, float, float);
+void displayResults(float);
 
 //*****************************************************************************************************
 
@@ -38,7 +38,7 @@ int main() {
 
     readGrades(assign, test, exam, partic);
     calcWeights(assign, test, exam, partic, ASSIGN_PERCENT, TEST_PERCENT, EXAM_PERCENT, PARTIC_PERCENT);
-    
+
     finalGrade = calcFind(assign, test, exam, partic);
 
     cout << "\n\t" << assign << "% in Programming Assignments"
@@ -71,19 +71,19 @@ void readGrades(float &assign, float &test, float &exam, float &partic) {
 
 void calcWeights(float &assign, float &test, float &exam, float &partic,
                  float ASSIGN_PERCENT, float TEST_PERCENT, float EXAM_PERCENT, float PARTIC_PERCENT) {
-    assign = (assign * ASSIGN_PERCENT) / 100;     
+    assign = (assign * ASSIGN_PERCENT) / 100;
 
-    test = (test * TEST_PERCENT) / 100;     
+    test = (test * TEST_PERCENT) / 100;
 
-    exam = (exam * EXAM_PERCENT) / 100;     
+    exam = (exam * EXAM_PERCENT) / 100;
 
-    partic = (partic * PARTIC_PERCENT) / 100;     
+    partic = (partic * PARTIC_PERCENT) / 100;
 }
 
 //*****************************************************************************************************
 
 float calcFind(float assign, float test, float exam, float partic) {
-    return (assign + test + exam + partic);     
+    return (assign + test + exam + partic);
 }
 
 //*****************************************************************************************************

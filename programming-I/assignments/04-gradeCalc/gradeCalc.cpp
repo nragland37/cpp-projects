@@ -64,28 +64,28 @@ int main() {
 
     cout << "\n\nFinal Grade: " << avg << "%" << endl;
 
-    if (avg >= 97 || avg == 100)     
+    if (avg >= 97 || avg == 100)
         cout << "\nYour Grade is A+";
-    else if (avg >= 94 && avg <= 96)     
+    else if (avg >= 94 && avg <= 96)
         cout << "\nYour Grade is A";
-    else if (avg >= 90 && avg <= 93)     
+    else if (avg >= 90 && avg <= 93)
         cout << "\nYour Grade is A-";
-    else if (avg >= 87 && avg <= 89)     
+    else if (avg >= 87 && avg <= 89)
         cout << "\nYour Grade is B+";
-    else if (avg >= 84 && avg <= 86)     
+    else if (avg >= 84 && avg <= 86)
         cout << "\nYour Grade is B";
-    else if (avg >= 80 && avg <= 83)    
+    else if (avg >= 80 && avg <= 83)
         cout << "\nYour Grade is B-";
-    else if (avg >= 77 && avg <= 79)     
+    else if (avg >= 77 && avg <= 79)
         cout << "\nYour Grade is C+";
-    else if (avg >= 74 && avg <= 76)     
+    else if (avg >= 74 && avg <= 76)
         cout << "\nYour Grade is C";
-    else if (avg >= 70 && avg <= 73)     
+    else if (avg >= 70 && avg <= 73)
         cout << "\nYour Grade is C-";
-    else if (avg >= 60 && avg <= 69)     
+    else if (avg >= 60 && avg <= 69)
         cout << "\nYour Grade is D";
     else
-        cout << "\nYour Grade is F";     
+        cout << "\nYour Grade is F";
 
     return 0;
 }

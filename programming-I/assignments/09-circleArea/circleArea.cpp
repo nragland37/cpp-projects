@@ -6,7 +6,7 @@
 //*****************************************************************************************************
 
 #define _USE_MATH_DEFINES     // needed to define M_PI with math.h or cmath on some platforms
-#include <cmath>             
+#include <cmath>
 #include <iostream>
 using namespace std;
 
@@ -26,10 +26,10 @@ int main() {
 
     greet();
 
-    radius = readRadius();           
-    circumf = findCircumf(radius);     
-    
-    printResult(radius, circumf);      
+    radius = readRadius();
+    circumf = findCircumf(radius);
+
+    printResult(radius, circumf);
     signOff();
 
     return 0;
@@ -45,14 +45,14 @@ void greet() {
 //*****************************************************************************************************
 
 float readRadius() {
-    float posInput;     
+    float posInput;
 
     do {
         cout << "\nPlease enter a positive radius: ";
         cin >> posInput;
-    } while (posInput <= 0);     
+    } while (posInput <= 0);
 
-    return posInput;    
+    return posInput;
 }
 
 //*****************************************************************************************************

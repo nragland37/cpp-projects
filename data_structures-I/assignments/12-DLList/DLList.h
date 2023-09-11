@@ -4,7 +4,7 @@
 //      various functions that can be performed on the list.
 //
 //      Other files required:
-//        1.	 Node.h - header file for the Node struct
+//        1.	 node.h - header file for the Node struct
 //
 //*****************************************************************************************************
 
@@ -13,19 +13,18 @@
 
 //*****************************************************************************************************
 
-#include <new>
-
 #include "node.h"
+#include <new>
 
 //*****************************************************************************************************
 
 template <typename T>
 class DLList {
-   private:
+private:
     Node<T> *front;
     Node<T> *rear;
 
-   public:
+public:
     DLList();
     ~DLList();
     bool insert(const T &dataIn);

@@ -6,8 +6,8 @@
 //
 //*****************************************************************************************************
 
-#include <cstdlib>   
-#include <ctime>      
+#include <cstdlib>
+#include <ctime>
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -24,18 +24,18 @@ int main() {
         playerTwoFingers,
         playerTwoGuess,
         sum;
-    ofstream out("result.txt");    
+    ofstream out("result.txt");
 
-    short seed;        
-    seed = time(0);    
-    srand(seed);        
+    short seed;
+    seed = time(0);
+    srand(seed);
 
-    playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;    
-    playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;            
-    playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;     
-    playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;             
+    playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
+    playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
+    playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
+    playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
 
-    out << "Fingers\tTotal" << endl;     
+    out << "Fingers\tTotal" << endl;
 
     out << playerOneFingers << "\t\t" << playerOneGuess << endl;
 
@@ -44,14 +44,14 @@ int main() {
     sum = playerOneFingers + playerTwoFingers;
     out << "\nCorrect total is " << sum << endl;
 
-    if (sum == playerOneGuess && sum == playerTwoGuess)     
+    if (sum == playerOneGuess && sum == playerTwoGuess)
         out << "TIE" << endl;
-    else if (sum == playerOneGuess)     
+    else if (sum == playerOneGuess)
         out << "PLAYER 1 WINS" << endl;
-    else if (sum == playerTwoGuess)    
+    else if (sum == playerTwoGuess)
         out << "PLAYER 2 WINS" << endl;
     else
-        out << "NO ONE WINS" << endl;     
+        out << "NO ONE WINS" << endl;
 
     return 0;
 }

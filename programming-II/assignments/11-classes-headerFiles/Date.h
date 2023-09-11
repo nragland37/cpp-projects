@@ -12,12 +12,12 @@
 //*****************************************************************************************************
 
 class Date {
-   private:                                        // private can only be accessed within the class
+private:                                           // private can only be accessed within the class
     int day;
     int month;
     int year;
 
-   public:                                         // public can be accessed within and outside the class
+public:                                            // public can be accessed within and outside the class
     Date();                                        // constructor
     ~Date();                                       // destructor
     int getDay() const;

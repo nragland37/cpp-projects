@@ -3,6 +3,9 @@
 //      This header file defines a templated class for a queue data structure implemented using a
 //      linked list to store the elements of the queue.
 //
+//      Other files required:
+//        1.	 node.h - header file for the Node struct
+//
 //*****************************************************************************************************
 
 #ifndef QUEUE_H
@@ -10,20 +13,19 @@
 
 //*****************************************************************************************************
 
-#include <new>
-
 #include "node.h"
+#include <new>
 
 //*****************************************************************************************************
 
 template <typename TYPE>
 class Queue {
-   private:
+private:
     Node<TYPE> *front;
     Node<TYPE> *back;
     int numValues;
 
-   public:
+public:
     Queue();
     ~Queue();
     bool enqueue(const TYPE &dataIn);

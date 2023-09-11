@@ -12,8 +12,8 @@ using namespace std;
 
 int main() {
     const int SIZE = 10;
-    int nums[SIZE];     
-    int sum = 0;        
+    int nums[SIZE];
+    int sum = 0;
 
     cout << "Enter 10 numbers\n" << endl;
 
@@ -21,11 +21,10 @@ int main() {
         cout << "Enter #" << i + 1 << ":";
         cin >> nums[i];
 
-        sum += nums[i];    
+        sum += nums[i];
     }
 
-    cout << "\nSum is: " << sum
-         << "\nThe list of numbers were: ";
+    cout << "\nSum is: " << sum << "\nThe list of numbers were: ";
 
     for (int i = 0; i < SIZE; i++)
         cout << nums[i] << " ";

@@ -3,9 +3,6 @@
 //      This header file defines a class template AList, which implements an array-based list data
 //      structure with various methods for inserting, retrieving, updating, and removing data.
 //
-//      Other files required:
-//        1.	 AList.cpp - driver file to test the AList class
-//
 //*****************************************************************************************************
 
 #ifndef AList_H
@@ -19,14 +16,14 @@
 
 template <typename TYPE>
 class AList {
-   private:
+private:
     TYPE *list;
     int capacity;
     int numValues;
 
     bool _resize();
 
-   public:
+public:
     AList(int cap = 5);
     ~AList();
     bool insertFront(const TYPE &dataIn);

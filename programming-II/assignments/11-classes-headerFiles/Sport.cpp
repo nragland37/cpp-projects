@@ -4,16 +4,17 @@
 //      This class implementation file defines the methods (member functions) of the Sport class.
 //
 //      Other files required:
-//          1.  Sport.h - header file for Sport class
+//          1.  sport.h - header file for Sport class
 //
 //*****************************************************************************************************
 
-#include "Sport.h"     
+#include <iomanip>
+#include "sport.h"
 
 //*****************************************************************************************************
 
-Sport::Sport(const string &n) {     
-    setName(n);                     
+Sport::Sport(const std::string &n) {
+    setName(n);
     numTeams = 0;
     teamNames = nullptr;
 }
@@ -21,26 +22,30 @@ Sport::Sport(const string &n) {
 //*****************************************************************************************************
 
 Sport::~Sport() {
-    delete[] teamNames;                                                 // deallocate memory in destructor
-    cout << "\nSport object destroyed\n";
+    delete[] teamNames;     // deallocate memory in destructor
+    std::cout << "\nSport object destroyed\n";
 }
 
 //*****************************************************************************************************
 
 void Sport::display() const {
-    Date d1 = getDate();                                               // sport.h includes Date.h so Date class is available to Sport class
+    Date d1 = getDate();     // sport.h includes Date.h so Date class is available to Sport class
 
-    cout << "\t\t" << setfill('.') << setw(30) << left 
-         << "Sport Name " << " " << getName() 
-         << "\n\t\t" << setw(30) << "Scheduled Date (M/D/YY) " << " ";
+    std::cout << "\t\t" << setfill('.') << setw(30) << left
+         << "Sport Name "
+         << " " << getName()
+         << "\n\t\t" << setw(30) << "Scheduled Date (M/D/YY) "
+         << " ";
 
-    d1.displayDate();      
+    d1.displayDate();
 
-    cout << "\n\n\t\t" << setfill('.') << setw(30) << left 
-         << "Number of Teams " << " " << getNumTeams() << endl;
+    std::cout << "\n\n\t\t" << setfill('.') << setw(30) << left
+         << "Number of Teams "
+         << " " << getNumTeams() << std::endl;
 
     for (int i = 0; i < getNumTeams(); ++i)
-        cout << "\t\tTeam " << i + 1 << setw(24) << " " << " " << teamNames[i] << endl;
+        std::cout << "\t\tTeam " << i + 1 << setw(24) << " "
+             << " " << teamNames[i] << std::endl;
 }
 
 //*****************************************************************************************************
@@ -48,48 +53,48 @@ void Sport::display() const {
 void Sport::populate() {
     char entry;
 
-    cout << "\nEnter the name of the sport: ";
-    getline(cin, name);     
+    std::cout << "\nEnter the name of the sport: ";
+    std::getline(std::cin, name);
 
-    setName(name);     
+    setName(name);
 
-    cout << "Sport has a scheduled game? (Y/N)" << endl;
-    cin >> entry;
+    std::cout << "Sport has a scheduled game? (Y/N)" << std::endl;
+    std::cin >> entry;
 
     if (entry == 'Y' || entry == 'y') {
-        cout << "\nNext Scheduled Game";
+        std::cout << "\nNext Scheduled Game";
         nextGame.inputDate();
         setDate(nextGame);
     } else {
-        cout << "\nDefault date will be set to January 1, 2000" << endl;
+        std::cout << "\nDefault date will be set to January 1, 2000" << std::endl;
     }
 
-    cout << "\nEnter the number of teams: ";
-    cin >> numTeams;
+    std::cout << "\nEnter the number of teams: ";
+    std::cin >> numTeams;
 
-    setNumTeams(numTeams);               
-    teamNames = new string[numTeams];     
+    setNumTeams(numTeams);
+    teamNames = new std::string[numTeams];
 
-    cin.ignore();
+    std::cin.ignore();
 
     for (int i = 0; i < numTeams; ++i) {
-        cout << "Enter the name of team " << i + 1 << ": ";
-        getline(cin, teamNames[i]);     
+        std::cout << "Enter the name of team " << i + 1 << ": ";
+        std::getline(std::cin, teamNames[i]);
     }
 }
 
 //*****************************************************************************************************
 
-void Sport::addTeam(const string &n) {
-    string *temp = new string[numTeams + 1];     
+void Sport::addTeam(const std::string &n) {
+    std::string *temp = new std::string[numTeams + 1];
 
-    for (int i = 0; i < numTeams; ++i)     
+    for (int i = 0; i < numTeams; ++i)
         temp[i] = teamNames[i];
 
-    temp[numTeams] = n;     
-    delete[] teamNames;     
-    teamNames = temp;       
-    numTeams++;             
+    temp[numTeams] = n;
+    delete[] teamNames;
+    teamNames = temp;
+    numTeams++;
 }
 
 //*****************************************************************************************************

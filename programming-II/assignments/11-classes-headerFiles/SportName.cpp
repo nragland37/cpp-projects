@@ -6,10 +6,8 @@
 //      name, date, and team information.
 //
 //      Other files required:
-//          1.  Date.h - header file for Date class
-//          2.  Sport.h - header file for Sport class
-//          3.  Date.cpp - implementation file for Date class
-//          4.  Sport.cpp - implementation file for Sport class
+//          1.  date.h - header file for Date class
+//          2.  sport.h - header file for Sport class
 //
 //*****************************************************************************************************
 
@@ -17,8 +15,8 @@
 #include <iostream>
 #include <string>
 using namespace std;
-#include "Date.h"
-#include "Sport.h"
+#include "date.h"
+#include "sport.h"
 
 //*****************************************************************************************************
 
