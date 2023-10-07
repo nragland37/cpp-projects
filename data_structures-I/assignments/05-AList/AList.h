@@ -265,7 +265,7 @@ template <typename TYPE>
 bool AList<TYPE>::retrieveAtIndex(TYPE &dataOut, int index) const {
     bool success = false;
 
-    if ((index >= 0) && (index <= numValues)) {
+    if ((index >= 0) && (index < numValues)) {
         dataOut = list[index];
         success = true;
     }
