@@ -51,19 +51,19 @@ Welcome! Here you will find assignments, notes, exercises, examples, and solutio
 
 | # | Assignment | Solutions & Files |
 |:---:|:---|:---:|
-| 1 | Default Arguments | [:white_check_mark:](./data_structures-I/assignments/01-defaultArgs) |
-| 2 | Function Overloading & Templates | [:white_check_mark:](./data_structures-I/assignments/02-max) |
-| 3 | Class Template Header & Driver Files | [:white_check_mark:](./data_structures-I/assignments/03-dyad) |
-| 4 | Dynamic Array | [:white_check_mark:](./data_structures-I/assignments/04-AList) |
-| 5 | Dynamic Array (Continued) | [:white_check_mark:](./data_structures-I/assignments/05-AList) |
-| 6 | Linked List | [:white_check_mark:](./data_structures-I/assignments/06-LList) |
-| 7 | Stack | [:white_check_mark:](./data_structures-I/assignments/07-Stack) |
-| 8 | Queue | [:white_check_mark:](./data_structures-I/assignments/08-Queue) |
-| 9 | Reverse Polish Notation Evaluator: Stack | [:white_check_mark:](./data_structures-I/assignments/09-rpnStack) |
-| 10 | Palindrome Evaluator: Stack | [:white_check_mark:](./data_structures-I/assignments/10-palindromes) |
-| 11 | Palindrome Evaluator: Stack & Queue | [:white_check_mark:](./data_structures-I/assignments/11-pal2) |
-| 12 | Operator Overloading & Doubly Linked List | [:white_check_mark:](./data_structures-I/assignments/12-DLList) |
-| 13 | Operator Overloading & Doubly Linked List (Continued) | [:white_check_mark:](./data_structures-I/assignments/13-DLList) |
+| 1 | [Default Arguments]( ) | [:white_check_mark:](./data_structures-I/assignments/01-defaultArgs) |
+| 2 | [Function Overloading & Templates](data_structures-I/assignments/02-max/docs) | [:white_check_mark:](./data_structures-I/assignments/02-max) |
+| 3 | [Class Template Header & Driver Files](data_structures-I/assignments/03-dyad/docs) | [:white_check_mark:](./data_structures-I/assignments/03-dyad) |
+| 4 | [Dynamic Array](data_structures-I/assignments/04-AList/docs) | [:white_check_mark:](./data_structures-I/assignments/04-AList) |
+| 5 | [Dynamic Array (Continued)](data_structures-I/assignments/05-AList/docs) | [:white_check_mark:](./data_structures-I/assignments/05-AList) |
+| 6 | [Linked List](data_structures-I/assignments/06-LList/docs) | [:white_check_mark:](./data_structures-I/assignments/06-LList) |
+| 7 | [Stack](data_structures-I/assignments/07-Stack/docs) | [:white_check_mark:](./data_structures-I/assignments/07-Stack) |
+| 8 | [Queue](data_structures-I/assignments/08-Queue/docs) | [:white_check_mark:](./data_structures-I/assignments/08-Queue) |
+| 9 | [Reverse Polish Notation Evaluator: Stack](data_structures-I/assignments/09-rpnStack/docs) | [:white_check_mark:](./data_structures-I/assignments/09-rpnStack) |
+| 10 | [Palindrome Evaluator: Stack](data_structures-I/assignments/10-palindromes/docs) | [:white_check_mark:](./data_structures-I/assignments/10-palindromes) |
+| 11 | [Palindrome Evaluator: Stack & Queue](data_structures-I/assignments/11-pal2/docs) | [:white_check_mark:](./data_structures-I/assignments/11-pal2) |
+| 12 | [Operator Overloading & Doubly Linked List](data_structures-I/assignments/12-DLList/docs) | [:white_check_mark:](./data_structures-I/assignments/12-DLList) |
+| 13 | [Operator Overloading & Doubly Linked List (Continued)](data_structures-I/assignments/13-DLList/docs) | [:white_check_mark:](./data_structures-I/assignments/13-DLList) |
 
 <br>
 <br>
