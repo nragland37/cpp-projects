@@ -59,9 +59,9 @@ Welcome! Here you will find assignments, notes, exercises, examples, and solutio
 | 6 | [Linked List](./data_structures-I/assignments/06-LList) |
 | 7 | [Stack](./data_structures-I/assignments/07-Stack) |
 | 8 | [Queue](./data_structures-I/assignments/08-Queue) |
-| 9 | [Reverse Polish Notation Evaluator: Stack](./data_structures-I/assignments/09-RPN) |
+| 9 | [Reverse Polish Notation Evaluator: Stack](./data_structures-I/assignments/09-rpnStack) |
 | 10 | [Palindrome Evaluator: Stack](./data_structures-I/assignments/10-palindromes) |
-| 11 | [Palindrome Evaluator: Stack & Queue](./data_structures-I/assignments/11-palindromes) |
+| 11 | [Palindrome Evaluator: Stack & Queue](./data_structures-I/assignments/11-pal2) |
 | 12 | [Operator Overloading & Doubly Linked List](./data_structures-I/assignments/12-DLList) |
 | 13 | [Operator Overloading & Doubly Linked List (Continued)](./data_structures-I/assignments/13-DLList) |
 
