@@ -18,9 +18,9 @@ Welcome! Here you will find assignments, notes, exercises, examples, and solutio
 | 5 | [Shipping Cost](./programming-I/assignments/05-shippingCost) |  
 | 6 | [Morra Game](./programming-I/assignments/06-morra) |
 | 7 | [Morra-Series Game](./programming-I/assignments/07-morraSeries) |
-| 8 | [Order Pizza](./programming-I/assignments/08-orderPizza) | 
-| 9 | [Circle](./programming-I/assignments/09-circle) |
-| 10 | [Grade Calculator-Functions](./programming-I/assignments/10-gradeCalcFunctions) |
+| 8 | [Order Pizza](./programming-I/assignments/08-pizza) | 
+| 9 | [Circle](./programming-I/assignments/09-circleArea) |
+| 10 | [Grade Calculator-Functions](./programming-I/assignments/10-gradeCalc2) |
 | 11 | [Echo List](./programming-I/assignments/11-echoList) |
 | 12 | [Delete Repeats](./programming-I/assignments/12-deleteRepeats) |
 <br>
@@ -36,7 +36,7 @@ Welcome! Here you will find assignments, notes, exercises, examples, and solutio
 | 3 | [Binary-Search/Selection-Sort & Introduction to Pointers](./programming-II/assignments/03-binarySearch-selectionSort_introToPointers) |
 | 4 | [Pointers](./programming-II/assignments/04-pointers) |
 | 5 | [Dynamic Memory Allocation](./programming-II/assignments/05-dynamicMemoryAllocation) |
-| 6 | [C-Strings & Strings](./programming-II/assignments/06-cStrings-strings) |
+| 6 | [C-Strings & Strings](./programming-II/assignments/06-cString-string) |
 | 7 | [Structures](./programming-II/assignments/07-structures) |
 | 8 | [File Streams: Input/Output/Append (manual-update)](./programming-II/assignments/08-fstream-manualUpdate) |
 | 9 | [File Streams: Input/Output (auto-update)](./programming-II/assignments/09-fstream-autoUpdate) |
