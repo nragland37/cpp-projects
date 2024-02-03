@@ -54,8 +54,8 @@ Welcome! Here you will find assignments, notes, exercises, examples, and solutio
 | 1 | [Default Arguments](./data_structures-I/assignments/01-defaultArgs) |
 | 2 | [Function Overloading & Templates](./data_structures-I/assignments/02-max) |
 | 3 | [Class Template Header & Driver Files](./data_structures-I/assignments/03-dyad) |
-| 4 | [Dynamic Array](./data_structures-I/assignments/04-AList) |
-| 5 | [Dynamic Array (Continued)](./data_structures-I/assignments/05-AList) |
+| 4 | [Array List](./data_structures-I/assignments/04-AList) |
+| 5 | [Array List (Continued)](./data_structures-I/assignments/05-AList) |
 | 6 | [Linked List](./data_structures-I/assignments/06-LList) |
 | 7 | [Stack](./data_structures-I/assignments/07-Stack) |
 | 8 | [Queue](./data_structures-I/assignments/08-Queue) |
@@ -73,17 +73,18 @@ Welcome! Here you will find assignments, notes, exercises, examples, and solutio
 
 | # | Assignment |
 |:---:|:---|
-| 1 | [](data_structures-II/assignments/) |
-| 2 | [](data_structures-II/assignments/) |
-| 3 | [](data_structures-II/assignments/) |
-| 4 | [](data_structures-II/assignments/) |
-| 5 | [](data_structures-II/assignments/) |
-| 6 | [](data_structures-II/assignments/) |
-| 7 | [](data_structures-II/assignments/) |
-| 8 | [](data_structures-II/assignments/) |
-| 9 | [](data_structures-II/assignments/) |
-| 10 | [](data_structures-II/assignments/) |
-| 11 | [](data_structures-II/assignments/) |
+| 1 | [Recursion](./data_structures-II/assignments/01-Recursion-StockClass) |
+| 2 | [Linked List Recursion](./data_structures-II/assignments/02-Reverse-LList-Recursion) |
+| 3 | [Array List Binary Search Recursion](./data_structures-II/assignments/03-AList-BinarySearch-Recursion) |
+| 4 | [Quadratic Probing Hash Table](./data_structures-II/assignments/04-Hashing-Quadratic-Probing) |
+| 5 | [Array List Binary Search Recursion (Continued)](./data_structures-II/assignments/05-Updated-AList-BinarySearch-Recursion) |
+| 6 | [Binary Search Tree](./data_structures-II/assignments/06-BST) |
+| 7 | [Max-Heap Priority Queue ](./data_structures-II/assignments/07-Priority-Queue) |
+| 8 | [AVL (Self-Balancing Binary Search Tree)](./data_structures-II/assignments/08-AVLTree) |
+| 9 | [Huffman Tree: Encoding/Decoding/Compression](./data_structures-II/assignments/09-Huffman-Algorithm) |
+| 10 | [Array List Sorting Algorithms: Quick-Sort & Selection-Sort](./data_structures-II/assignments/10-AList-Sorting-Algorithms) |
+| 11 | [Array List Sorting Algorithms (Continued): Heap-Sort](./data_structures-II/assignments/11-Updated-AList-Sorting-Algorithms) |
+| 12 | [Graph Algorithms: Dijkstra's Shortest Path, Depth-First Search, & Breadth-First Search](./data_structures-II/assignments/12-Graph-Traversal) |
 
-<br>
+<br> 
 <br>

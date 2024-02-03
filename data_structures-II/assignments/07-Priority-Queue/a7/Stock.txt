@@ -1,0 +1,48 @@
+Motorola Inc.
+MOT
+17.49
+Microsoft Corp.
+MSFT
+28.11
+Tesla
+TSLA
+564.33
+Intel
+INTC
+60.78
+Sony
+SNE
+105.81
+Advanced Micro Devices
+AMD
+84.51
+NVIDIA
+NVDA
+548.58
+Apple
+AAPL
+121.73
+Qualcomm
+QCOM
+146.10
+Alphabet Inc. Class A
+GOOGL
+2805.12
+Walmart
+WMT
+142.51
+Amazon.com Inc.
+AMZN
+3222.90
+Facebook
+FB
+333.02
+Cisco Systems
+CSCO
+54.60
+Oracle
+ORCL
+94.52
+Netflix
+NFLX
+628.44

@@ -1,0 +1,34 @@
+//*****************************************************************************************************
+//
+//      This program is the implementation of the Stock class.
+//
+//*****************************************************************************************************
+
+#include "stock.h"
+#include <iostream>
+
+//*****************************************************************************************************
+
+Stock::Stock(const std::string &name, const std::string &symbol, double price) {
+    companyName = name;
+    stockSymbol = symbol;
+    stockPrice = price;
+}
+
+//*****************************************************************************************************
+
+Stock::Stock(const Stock &s) {
+    companyName = s.companyName;
+    stockSymbol = s.stockSymbol;
+    stockPrice = s.stockPrice;
+}
+
+//*****************************************************************************************************
+
+void Stock::display() const {
+    std::cout << companyName
+              << stockSymbol
+              << stockPrice << std::endl;
+}
+
+//*****************************************************************************************************

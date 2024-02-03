@@ -1,0 +1,24 @@
+Apple
+AAPL
+121.73		(BF: 0)
+Advanced Micro Devices
+AMD
+84.51		(BF: 0)
+Intel
+INTC
+60.78		(BF: 0)
+Motorola Inc.
+MOT
+17.49		(BF: -1)
+Microsoft Corp.
+MSFT
+28.11		(BF: 0)
+NVIDIA
+NVDA
+548.58		(BF: -1)
+Sony
+SNE
+105.81		(BF: -1)
+Tesla
+TSLA
+564.33		(BF: 0)

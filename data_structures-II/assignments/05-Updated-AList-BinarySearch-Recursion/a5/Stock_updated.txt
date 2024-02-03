@@ -1,0 +1,50 @@
+[0]
+Advanced Micro Devices
+AMD
+84.51
+
+[1]
+Best Buy
+BBY
+69.25
+
+[2]
+GameStop
+GME
+17.18
+
+[3]
+Intel
+INTC
+60.78
+
+[4]
+Motorola Inc.
+MOT
+17.49
+
+[5]
+Microsoft Corp.
+MSFT
+28.11
+
+[6]
+NVIDIA
+NVDA
+548.58
+
+[7]
+Sony
+SNE
+105.81
+
+[8]
+Tesla
+TSLA
+564.33
+
+[9]
+Verizon
+VZ
+33.28
+
