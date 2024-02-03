@@ -4,14 +4,14 @@
 //      performing various operations on the queue.
 //
 //      Other files required:
-//        1.    priorityQueue.h - header file for the priorityQueue class
-//        2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//        3.    Stock.txt - text file containing stock data
+//          1.    priorityQueue.h - header file for the priorityQueue class
+//          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//          3.    Stock.txt - text file containing stock data
 //
 //*****************************************************************************************************
 
 #include "priorityQueue.h"
-#include "stock.cpp"
+#include "stock.h"
 
 #include <fstream>
 #include <iostream>

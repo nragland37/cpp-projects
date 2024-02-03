@@ -4,14 +4,14 @@
 //      objects and performing various operations on the list.
 //
 //      Other files required:
-//		  1.    aList.h - header file for the AList class
-//        2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//        3.    Stock.txt - text file containing stock data
+//          1.    aList.h - header file for the AList class
+//          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//          3.    Stock.txt - text file containing stock data
 //
 //*****************************************************************************************************
 
 #include "aList.h"
-#include "stock.cpp"
+#include "stock.h"
 
 #include <fstream>
 #include <iostream>

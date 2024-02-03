@@ -4,14 +4,14 @@
 //      objects and performing various operations on the tree using a menu-driven interface.
 //
 //      Other files required:
-//		  1.    bst.h - header file for the BST class (includes node struct: node.h)
-//        2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//        3.    Stock.txt - text file containing stock data
+//          1.    bst.h - header file for the BST class (includes node struct: node.h)
+//          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//          3.    Stock.txt - text file containing stock data
 //
 //*****************************************************************************************************
 
 #include "bst.h"
-#include "stock.cpp"
+#include "stock.h"
 
 #include <cstdlib>
 #include <ctime>

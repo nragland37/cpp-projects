@@ -3,8 +3,8 @@
 //      This program is the driver for the HashTable class.
 //
 //      Other files required:
-//		  1.    stock.h - header file for the Stock class (includes stock.cpp)
-//        2.    hashTable.h - header file for the HashTable class (includes htElement.h)
+//          1.    stock.h - header file for the Stock class (includes stock.cpp)
+//          2.    hashTable.h - header file for the HashTable class (includes htElement.h)
 //
 //*****************************************************************************************************
 

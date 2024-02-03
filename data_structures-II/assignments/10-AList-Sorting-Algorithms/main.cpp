@@ -3,9 +3,9 @@
 //      This program implements various sorting algorithms on a list of stocks.
 //
 //      Other files required:
-//        1.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//        2.    sortedList.h - header file for the SortedList class
-//        3.    Stock.txt - text file containing stock data
+//          1.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//          2.    sortedList.h - header file for the SortedList class
+//          3.    Stock.txt - text file containing stock data
 //
 //*****************************************************************************************************
 
