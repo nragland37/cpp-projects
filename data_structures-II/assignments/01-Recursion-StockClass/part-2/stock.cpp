@@ -26,9 +26,9 @@ Stock::Stock(const Stock &s) {
 //*****************************************************************************************************
 
 void Stock::display() const {
-    std::cout << companyName
-              << stockSymbol
-              << stockPrice << std::endl;
+    std::cout << companyName << std::endl;
+    std::cout << stockSymbol << std::endl;
+    std::cout << stockPrice << std::endl;
 }
 
 //*****************************************************************************************************

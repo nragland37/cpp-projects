@@ -37,7 +37,7 @@ int main() {
     Stock s7(s1);
     Stock s8("Webster University", "WBST", 100100100100.10);
 
-    checkInt(intList);     // empty
+    checkInt(intList);                    // empty
 
     for (int i = 0; i < 10; ++i)
         if (i % 2 == 0)
@@ -45,37 +45,37 @@ int main() {
         else
             intList.insert(i * 10);
 
-    checkInt(intList);     // full
+    checkInt(intList);                      // full
     intList.print();
 
     intList.insert(100);
-    checkInt(intList);     // resize
+    checkInt(intList);                      // resize
     intList.print();
 
     searchInt(intList, 10);
     searchInt(intList, 100);
-    searchInt(intList, 20);     // not found
+    searchInt(intList, 20);                 // not found
 
-    checkStock(stockList);     // empty
+    checkStock(stockList);                  // empty
     stockList.insert(s1);
     stockList.insert(s2);
     stockList.insert(s3);
     stockList.insert(s4);
     stockList.insert(s5);
 
-    checkStock(stockList);     // full
+    checkStock(stockList);                  // full
     stockList.print();
 
     stockList.insert(s6);
     stockList.insert(s7);
-    checkStock(stockList);     // resize
+    checkStock(stockList);                  // resize
     stockList.print();
 
-    searchStock(stockList, s1);     // original found
-    searchStock(stockList, s7);     // copy found (notice same index as s1)
+    searchStock(stockList, s1);             // original found
+    searchStock(stockList, s7);             // copy found (notice same index as s1)
     searchStock(stockList, s6);
     searchStock(stockList, s3);
-    searchStock(stockList, s8);     // not found
+    searchStock(stockList, s8);             // not found
 
     return 0;
 }
@@ -114,8 +114,7 @@ void checkStock(const AList<Stock> &s) {
     else if (s.isEmpty())
         cerr << "stock list empty\n\n";
     else
-        cout << "stock list neither full nor empty\n"
-             << endl;
+        cout << "stock list neither full nor empty\n" << endl;
 }
 
 //*****************************************************************************************************
@@ -129,8 +128,7 @@ void checkInt(const AList<int> &i) {
     else if (i.isEmpty())
         cerr << "integer list empty\n\n";
     else
-        cout << "integer list neither full nor empty\n"
-             << endl;
+        cout << "integer list neither full nor empty\n" << endl;
 }
 
 //*****************************************************************************************************
@@ -183,70 +181,58 @@ values: 5
 capacity: 5
 stock list full
 
-[0] ===============================
-Company Name: Microsoft Corp.
-Stock Symbol: MSFT
-Price: $300.2
+[0] Microsoft Corp.
+MSFT
+300.2
 
-[1] ===============================
-Company Name: Google LLC
-Stock Symbol: GOOGL
-Price: $2800.5
+[1] Google LLC
+GOOGL
+2800.5
 
-[2] ===============================
-Company Name: Facebook Inc.
-Stock Symbol: FB
-Price: $355.6
+[2] Facebook Inc.
+FB
+355.6
 
-[3] ===============================
-Company Name: Amazon Inc.
-Stock Symbol: AMZN
-Price: $3400.4
+[3] Amazon Inc.
+AMZN
+3400.4
 
-[4] ===============================
-Company Name: Apple Inc.
-Stock Symbol: AAPL
-Price: $150.1
+[4] Apple Inc.
+AAPL
+150.1
 
 
 values: 7
 capacity: 15
 stock list neither full nor empty
 
-[0] ===============================
-Company Name: Tesla Inc.
-Stock Symbol: TSLA
-Price: $1100.7
+[0] Tesla Inc.
+TSLA
+1100.7
 
-[1] ===============================
-Company Name: Microsoft Corp.
-Stock Symbol: MSFT
-Price: $300.2
+[1] Microsoft Corp.
+MSFT
+300.2
 
-[2] ===============================
-Company Name: Google LLC
-Stock Symbol: GOOGL
-Price: $2800.5
+[2] Google LLC
+GOOGL
+2800.5
 
-[3] ===============================
-Company Name: Facebook Inc.
-Stock Symbol: FB
-Price: $355.6
+[3] Facebook Inc.
+FB
+355.6
 
-[4] ===============================
-Company Name: Amazon Inc.
-Stock Symbol: AMZN
-Price: $3400.4
+[4] Amazon Inc.
+AMZN
+3400.4
 
-[5] ===============================
-Company Name: Apple Inc.
-Stock Symbol: AAPL
-Price: $150.1
+[5] Apple Inc.
+AAPL
+150.1
 
-[6] ===============================
-Company Name: Apple Inc.
-Stock Symbol: AAPL
-Price: $150.1
+[6] Apple Inc.
+AAPL
+150.1
 
 
 Apple Inc. at index: 5

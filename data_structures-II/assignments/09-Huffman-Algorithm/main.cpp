@@ -98,7 +98,7 @@ Node<Stock> *createHuffmanTree(Stock stocks[], double freqs[], int size) {
     int index1,
         index2;
     double freq1,
-        freq2;
+           freq2;
     Node<Stock> **elements = new Node<Stock> *[size];
 
     for (int i = 0; i < size; ++i) {

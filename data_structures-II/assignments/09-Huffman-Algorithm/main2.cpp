@@ -67,7 +67,7 @@ int main() {
 int readStocks(const string &fileName, Stock *&stocks, double *&freqs) {
     ifstream inFile(fileName);
     string name,
-        symbol;
+           symbol;
     double price;
     int size = 0;
 
@@ -100,7 +100,7 @@ Node<Stock> *createHuffmanTree(Stock stocks[], double freqs[], int size) {
     int index1,
         index2;
     double freq1,
-        freq2;
+           freq2;
     Node<Stock> **elements = new Node<Stock> *[size];
 
     for (int i = 0; i < size; ++i) {

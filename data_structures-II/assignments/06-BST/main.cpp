@@ -171,42 +171,42 @@ void displayMenu(BST<Stock> &stockTree) {
 /*
 
 In-order: 
-361
-801
-2082
-2596
-2615
-2714
-3654
-4363
-4761
-4776
+449
+563
+1143
+2716
+3758
+3763
+3875
+4221
+4428
+4593
 
 Pre-order: 
-2714
-361
-2615
-2082
-801
-2596
-3654
-4363
-4761
-4776
+3758
+449
+563
+1143
+2716
+3763
+4593
+4428
+3875
+4221
 
 Post-order: 
-801
-2596
-2082
-2615
-361
-4776
-4761
-4363
-3654
-2714
+2716
+1143
+563
+449
+4221
+3875
+4428
+4593
+3763
+3758
 
-Height: 5
+Height: 6
 
 Menu Options:
 a) Display a stock's name given its symbol
@@ -221,35 +221,27 @@ Enter your choice: d
 Apple
 AAPL
 121.73
-
 Advanced Micro Devices
 AMD
 84.51
-
 Intel
 INTC
 60.78
-
 Motorola Inc.
 MOT
 17.49
-
 Microsoft Corp.
 MSFT
 28.11
-
 NVIDIA
 NVDA
 548.58
-
 Sony
 SNE
 105.81
-
 Tesla
 TSLA
 564.33
-
 
 Menu Options:
 a) Display a stock's name given its symbol

@@ -59,7 +59,8 @@ bool readStocks(SortedList<Stock> &stockList, ifstream &inFile) {
     bool success = true;
 
     if (inFile.is_open()) {
-        string name, symbol;
+        string name, 
+               symbol;
         double price;
 
         while (getline(inFile, name) && getline(inFile, symbol) && inFile >> price) {

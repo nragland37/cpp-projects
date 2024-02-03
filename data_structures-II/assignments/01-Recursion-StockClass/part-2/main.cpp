@@ -37,43 +37,38 @@ int main() {
 
 void compareStocks(const Stock &s1, const Stock &s2) {
     cout << "\n===============================" << endl;
-    cout << s1.getName() << " vs " << s2.getName() << endl;
+    cout << s1.getName() << "\t" << s2.getName() << endl;
     cout << s1.getSymbol() << "\t\t" << s2.getSymbol() << endl;
     cout << s1.getPrice() << "\t\t" << s2.getPrice() << endl;
 
-    if (s1 == s2)                                           // tests == operator overload
+    if (s1 == s2)                                               // tests == operator overload
         cout << "\nThe stocks are the same." << endl;
-    else if (s1 != s2)                                      // tests != operator overload
+    else if (s1 != s2)                                          // tests != operator overload
         cout << "\nThe stocks are different." << endl;
 }
 
 //*****************************************************************************************************
 /*
 
-===============================
-Company Name: Apple Inc.
-Stock Symbol: AAPL
-Price: $150.25
-===============================
-Company Name: Microsoft Corp.
-Stock Symbol: MSFT
-Price: $280.75
-===============================
-Company Name: Apple Inc.
-Stock Symbol: AAPL
-Price: $150.25
+Apple Inc.
+AAPL
+150.25
+Microsoft Corp.
+MSFT
+280.75
+Apple Inc.
+AAPL
+150.25
 
 ===============================
-Apple Inc. vs Microsoft Corp.
--------------------------------
+Apple Inc.      Microsoft Corp.
 AAPL            MSFT
 150.25          280.75
 
 The stocks are different.
 
 ===============================
-Apple Inc. vs Apple Inc.
--------------------------------
+Apple Inc.      Apple Inc.
 AAPL            AAPL
 150.25          150.25
 

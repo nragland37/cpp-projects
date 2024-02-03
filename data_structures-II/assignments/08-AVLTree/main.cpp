@@ -171,98 +171,40 @@ void displayMenu(AVLTree<Stock> &stockTree) {
 /*
 
 In-order: 
-485     (BF: 0)
-508     (BF: 1)
-540     (BF: 0)
-1687    (BF: -1)
-1737    (BF: 0)
-1774    (BF: 0)
-2146    (BF: 0)
-3165    (BF: -1)
-3173    (BF: 0)
-3434    (BF: 1)
+1308            (BF: 0)
+2679            (BF: 0)
+3074            (BF: 0)
+3080            (BF: -1)
+3308            (BF: 0)
+3987            (BF: 0)
+4111            (BF: 0)
+4150            (BF: 0)
+4358            (BF: -1)
+4626            (BF: 0)
 
 Pre-order: 
-1774    (BF: 0)
-540     (BF: 0)
-508     (BF: 1)
-485     (BF: 0)
-1687    (BF: -1)
-1737    (BF: 0)
-3165    (BF: -1)
-2146    (BF: 0)
-3434    (BF: 1)
-3173    (BF: 0)
+3080            (BF: -1)
+2679            (BF: 0)
+1308            (BF: 0)
+3074            (BF: 0)
+4150            (BF: 0)
+3987            (BF: 0)
+3308            (BF: 0)
+4111            (BF: 0)
+4358            (BF: -1)
+4626            (BF: 0)
 
 Post-order: 
-485     (BF: 0)
-508     (BF: 1)
-1737    (BF: 0)
-1687    (BF: -1)
-540     (BF: 0)
-2146    (BF: 0)
-3173    (BF: 0)
-3434    (BF: 1)
-3165    (BF: -1)
-1774    (BF: 0)
-
-Height: 4
-
-Menu Options:
-a) Display a stock's name given its symbol
-b) Display a stock's price given its symbol
-c) Insert a new stock
-d) Display all stocks
-e) Quit
-Enter your choice: a
-
-Enter stock symbol: NVDA
-Stock name: NVIDIA
-
-Menu Options:
-a) Display a stock's name given its symbol
-b) Display a stock's price given its symbol
-c) Insert a new stock
-d) Display all stocks
-e) Quit
-Enter your choice: b
-
-Enter stock symbol: NVDA
-In-order: 
-25              (BF: 0)
-476             (BF: 0)
-1160            (BF: 0)
-1675            (BF: -1)
-1682            (BF: 0)
-2152            (BF: 1)
-2225            (BF: 0)
-3608            (BF: 0)
-4303            (BF: 0)
-4422            (BF: 0)
-
-Pre-order: 
-1675            (BF: -1)
-476             (BF: 0)
-25              (BF: 0)
-1160            (BF: 0)
-2225            (BF: 0)
-2152            (BF: 1)
-1682            (BF: 0)
-4303            (BF: 0)
-3608            (BF: 0)
-4422            (BF: 0)
-
-Post-order: 
-25              (BF: 0)
-1160            (BF: 0)
-476             (BF: 0)
-1682            (BF: 0)
-2152            (BF: 1)
-3608            (BF: 0)
-4422            (BF: 0)
-4303            (BF: 0)
-2225            (BF: 0)
-1675            (BF: -1)
+1308            (BF: 0)
+3074            (BF: 0)
+2679            (BF: 0)
+3308            (BF: 0)
+4111            (BF: 0)
+3987            (BF: 0)
+4626            (BF: 0)
+4358            (BF: -1)
+4150            (BF: 0)
+3080            (BF: -1)
 
 Height: 4
 

@@ -31,7 +31,7 @@ Stock::Stock(const Stock &s) {
 std::ostream &operator<<(std::ostream &out, const Stock &stock) {
     out << stock.companyName << std::endl
         << stock.stockSymbol << std::endl
-        << stock.stockPrice;
+        << stock.stockPrice;             
 
     return out;
 }

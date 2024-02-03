@@ -65,7 +65,8 @@ bool readStocks(SortedList<Stock> &stockList, ifstream &inFile) {
     bool success = true;
 
     if (inFile.is_open()) {
-        string name, symbol;
+        string name, 
+               symbol;
         double price;
 
         while (getline(inFile, name) && getline(inFile, symbol) && inFile >> price) {
@@ -92,16 +93,14 @@ void checkStock(const SortedList<Stock> &stockList) {
     else if (stockList.isEmpty())
         cerr << "stock list empty\n\n";
     else
-        cout << "stock list neither full nor empty\n"
-             << endl;
+        cout << "stock list neither full nor empty\n" << endl;
     stockList.display();
 }
 
 //*****************************************************************************************************
 
 void displayRandom(SortedList<Stock> &stockList) {
-    cout << "\nRandomise:\n"
-         << endl;
+    cout << "\nRandomise:\n" << endl;
     stockList.randomise();
     stockList.display();
 }
@@ -110,28 +109,22 @@ void displayRandom(SortedList<Stock> &stockList) {
 
 void displaySort(SortedList<Stock> &stockList, int sortType) {
     if (sortType == 1) {
-        cout << "\nQuick Sort Ascending:\n"
-             << endl;
+        cout << "\nQuick Sort Ascending:\n" << endl;
         stockList.quickSortA();
     } else if (sortType == 2) {
-        cout << "\nQuick Sort Descending:\n"
-             << endl;
+        cout << "\nQuick Sort Descending:\n" << endl;
         stockList.quickSortD();
     } else if (sortType == 3) {
-        cout << "\nSelection Sort Ascending:\n"
-             << endl;
+        cout << "\nSelection Sort Ascending:\n" << endl;
         stockList.selectionSortA();
     } else if (sortType == 4) {
-        cout << "\nSelection Sort Descending:\n"
-             << endl;
+        cout << "\nSelection Sort Descending:\n" << endl;
         stockList.selectionSortD();
     } else if (sortType == 5) {
-        cout << "\nHeap Sort Ascending:\n"
-             << endl;
+        cout << "\nHeap Sort Ascending:\n" << endl;
         stockList.heapSortA();
     } else if (sortType == 6) {
-        cout << "\nHeap Sort Descending:\n"
-             << endl;
+        cout << "\nHeap Sort Descending:\n" << endl;
         stockList.heapSortD();
     }
     stockList.display();

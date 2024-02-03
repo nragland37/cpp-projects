@@ -27,11 +27,11 @@ int main() {
 int f(int a, int b) {
     int result;
 
-    if (b == 0)                             // stopping condition
+    if (b == 0)                                 // stopping condition
         result = 1;
-    else if (b % 2 == 0)                    // even
+    else if (b % 2 == 0)                        // even
         result = f(a * a, b / 2);
-    else                                    // odd
+    else                                        // odd
         result = f(a * a, b / 2) * (a + 1);
 
     return result;
@@ -88,12 +88,11 @@ b: 4 (even) | a: 5
 //*****************************************************************************************************
 
 void reverse(int n) {
-    if (n < 10)                     // stopping condition
-    {
+    if (n < 10) {               // stopping condition
         cout << n;
     } else {
-        cout << n % 10;             // 6543 % 10 = 3 (last digit)
-        reverse(n / 10);            // 6543 / 10 = 654 (remaining digits)
+        cout << n % 10;         // 6543 % 10 = 3 (last digit)
+        reverse(n / 10);        // 6543 / 10 = 654 (remaining digits)
     }
 }
 
