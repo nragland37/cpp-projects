@@ -32,15 +32,15 @@ int main() {
 
     num = 35;
     printResult(shortList.retrieve(num), "retrieve", "35", shortList);
-    printResult(shortList.retrieveAtIndex(num, 2), "retrieveAtIndex", "num", shortList);
-    printResult(shortList.retrieveFront(num), "retrieveFront", "num", shortList);
-    printResult(shortList.retrieveBack(num), "retrieveBack", "num", shortList);
+    printResult(shortList.retrieveAtIndex(num, 2), "retrieveAtIndex", "", shortList);
+    printResult(shortList.retrieveFront(num), "retrieveFront", "", shortList);
+    printResult(shortList.retrieveBack(num), "retrieveBack", "", shortList);
 
     num = 35;
     printResult(shortList.remove(num), "remove", "35", shortList);
-    printResult(shortList.removeAtIndex(num, 2), "removeAtIndex", "num", shortList);
-    printResult(shortList.removeFront(num), "removeFront", "num", shortList);
-    printResult(shortList.removeBack(num), "removeBack", "num", shortList);
+    printResult(shortList.removeAtIndex(num, 2), "removeAtIndex", "", shortList);
+    printResult(shortList.removeFront(num), "removeFront", "", shortList);
+    printResult(shortList.removeBack(num), "removeBack", "", shortList);
 
     printResult(shortList.insertFront(5), "insertFront", "5", shortList);
     printNum("Inserted at front: ", 5);
@@ -65,24 +65,24 @@ int main() {
     num = 35;
     printResult(shortList.retrieve(num), "retrieve", "35", shortList);
     printNum("Retrieved value 35: ", num);
-    printResult(shortList.retrieveAtIndex(num, 2), "retrieveAtIndex", "num", shortList);
+    printResult(shortList.retrieveAtIndex(num, 2), "retrieveAtIndex", "", shortList);
     printNum("Retrieved at index 2: ", num);
-    printResult(shortList.retrieveFront(num), "retrieveFront", "num", shortList);
+    printResult(shortList.retrieveFront(num), "retrieveFront", "", shortList);
     printNum("Retrieved at front: ", num);
-    printResult(shortList.retrieveBack(num), "retrieveBack", "num", shortList);
+    printResult(shortList.retrieveBack(num), "retrieveBack", "", shortList);
     printNum("Retrieved at back: ", num);
 
     num = 35;
     printResult(shortList.remove(num), "remove", "35", shortList);
     printNum("Removed value 35: ", num);
-    printResult(shortList.removeAtIndex(num, 2), "removeAtIndex", "num", shortList);
+    printResult(shortList.removeAtIndex(num, 2), "removeAtIndex", "", shortList);
     printNum("Removed at index 2: ", num);
-    printResult(shortList.removeFront(num), "removeFront", "num", shortList);
+    printResult(shortList.removeFront(num), "removeFront", "", shortList);
     printNum("Removed at front: ", num);
-    printResult(shortList.removeBack(num), "removeBack", "num", shortList);
+    printResult(shortList.removeBack(num), "removeBack", "", shortList);
     printNum("Removed at back: ", num);
 
-    printResult(shortList.clear(), "clear", "num", shortList);
+    printResult(shortList.clear(), "clear", "", shortList);
 
     return 0;
 }
@@ -138,19 +138,19 @@ Unable to update value 35
 List is empty
 Unable to retrieve value 35
 List is empty
-Unable to retrieveAtIndex value num
+Unable to retrieveAtIndex value 
 List is empty
-Unable to retrieveFront value num
+Unable to retrieveFront value 
 List is empty
-Unable to retrieveBack value num
+Unable to retrieveBack value 
 List is empty
 Unable to remove value 35
 List is empty
-Unable to removeAtIndex value num
+Unable to removeAtIndex value 
 List is empty
-Unable to removeFront value num
+Unable to removeFront value 
 List is empty
-Unable to removeBack value num
+Unable to removeBack value 
 List is empty
 [0] 5
 capacity is 3   numValues is 1   smallest value is 5

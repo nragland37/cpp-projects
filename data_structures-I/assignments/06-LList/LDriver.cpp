@@ -29,8 +29,8 @@ int main() {
     num = 1;
     printResult(shortList.remove(num), "remove", "1", shortList);
     printResult(shortList.retrieve(num), "retrieve", "1", shortList);
-    printResult(shortList.viewFront(num), "viewFront", "num", shortList);
-    printResult(shortList.viewRear(num), "viewRear", "num", shortList);
+    printResult(shortList.viewFront(num), "viewFront", "", shortList);
+    printResult(shortList.viewRear(num), "viewRear", "", shortList);
 
     printResult(shortList.insert(4), "insertFront", "2", shortList);
     printResult(shortList.insert(2), "insertFront", "4", shortList);
@@ -116,19 +116,18 @@ void printNum(const char *title, short num) {
 /*
 
 numValues: 0
-The list is empty
-
+The list is empty 
 Unable to remove value 1
-The list is empty
+The list is empty 
 
 Unable to retrieve value 1
-The list is empty
+The list is empty 
 
-Unable to viewFront value num
-The list is empty
+Unable to viewFront value 
+The list is empty 
 
-Unable to viewRear value num
-The list is empty
+Unable to viewRear value 
+The list is empty 
 
 4
 numValues: 1     front: 4        rear: 4
