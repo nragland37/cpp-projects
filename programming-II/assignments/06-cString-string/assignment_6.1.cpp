@@ -6,10 +6,10 @@
 //
 //*****************************************************************************************************
 
-#include <cctype>     
-#include <cstring>     
-#include <iostream> 
-using namespace std; 
+#include <cctype>
+#include <cstring>
+#include <iostream>
+using namespace std;
 
 //*****************************************************************************************************
 
@@ -72,7 +72,6 @@ int numberWords(const char *words, int length) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 Enter a line of words (less than 50 characters), ended by '.':

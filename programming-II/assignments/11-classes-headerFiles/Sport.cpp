@@ -8,8 +8,10 @@
 //
 //*****************************************************************************************************
 
-#include <iomanip>
 #include "sport.h"
+#include <iostream>
+#include <iomanip>
+#include <string>
 
 //*****************************************************************************************************
 
@@ -31,21 +33,21 @@ Sport::~Sport() {
 void Sport::display() const {
     Date d1 = getDate();     // sport.h includes Date.h so Date class is available to Sport class
 
-    std::cout << "\t\t" << setfill('.') << setw(30) << left
-         << "Sport Name "
-         << " " << getName()
-         << "\n\t\t" << setw(30) << "Scheduled Date (M/D/YY) "
-         << " ";
+    std::cout << "\t\t" << std::setfill('.') << std::setw(30) << std::left
+              << "Sport Name "
+              << " " << getName()
+              << "\n\t\t" << std::setw(30) << "Scheduled Date (M/D/YY) "
+              << " ";
 
     d1.displayDate();
 
-    std::cout << "\n\n\t\t" << setfill('.') << setw(30) << left
-         << "Number of Teams "
-         << " " << getNumTeams() << std::endl;
+    std::cout << "\n\n\t\t" << std::setfill('.') << std::setw(30) << std::left
+              << "Number of Teams "
+              << " " << getNumTeams() << std::endl;
 
     for (int i = 0; i < getNumTeams(); ++i)
-        std::cout << "\t\tTeam " << i + 1 << setw(24) << " "
-             << " " << teamNames[i] << std::endl;
+        std::cout << "\t\tTeam " << i + 1 << std::setw(24) << " "
+                  << " " << teamNames[i] << std::endl;
 }
 
 //*****************************************************************************************************
@@ -98,7 +100,6 @@ void Sport::addTeam(const std::string &n) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 numTeams++;

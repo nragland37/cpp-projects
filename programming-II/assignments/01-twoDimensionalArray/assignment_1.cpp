@@ -31,16 +31,16 @@ int topStudent(const int scores[][NUM_TESTS], int numStds);
 
 int main() {
     const int NUM_STDS = 10;
-    int scores[NUM_STDS][NUM_TESTS];       
-    ifstream f("Assignment1Data.txt");     
+    int scores[NUM_STDS][NUM_TESTS];
+    ifstream f("Assignment1Data.txt");
 
     readTestScores(f, scores, NUM_STDS);
     f.close();
     displayTestScores(scores, NUM_STDS);
 
-    cout << setprecision(2) << fixed;                                                       
+    cout << setprecision(2) << fixed;
 
-    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0)                      // index 0 is test #1
+    cout << "\nTotal for Test #1 is: " << totalOneTest(scores, NUM_STDS, 0)     // index 0 is test #1
          << "\n\nTotal for Test #5 is: " << totalOneTest(scores, NUM_STDS, 4)
          << "\n\nTotal for Student #3 is: " << totalOneStudent(scores, NUM_STDS, 2)
          << "\n\nTotal for Student #8 is: " << totalOneStudent(scores, NUM_STDS, 7)
@@ -62,7 +62,7 @@ void readTestScores(ifstream &f, int scores[][NUM_TESTS], int numStds) {
             for (int testNumber = 0; testNumber < NUM_TESTS; ++testNumber)
                 f >> scores[studentNumber][testNumber];
     } else {
-        cerr << "Error: Unable to open file\n";    
+        cerr << "Error: Unable to open file\n";
     }
 }
 
@@ -149,18 +149,17 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
 
     for (int studentNumber = 0; studentNumber < numStds; ++studentNumber) {
         current = averageOneStudent(scores, numStds, studentNumber);
-        
+
         if (current > topPercent) {
             topPercent = current;
             topStudent = studentNumber;
         }
     }
 
-    return (topStudent + 1);                                                            // +1 for display purposes
+    return (topStudent + 1);     // +1 for display purposes
 }
 
 //*****************************************************************************************************
-
 /*
 
     All Test scores

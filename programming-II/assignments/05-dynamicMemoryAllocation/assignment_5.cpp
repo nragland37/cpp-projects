@@ -24,11 +24,11 @@ void sortStudents(string names[], int matches[], int size);
 //*****************************************************************************************************
 
 int main() {
-    int size;                                                 // size of the array to be dynamically allocated
+    int size;     // size of the array to be dynamically allocated
     int *matches = nullptr;
     double average;
-    string *names = nullptr;                                  // pointer to dynamically allocated array and set to nullptr
-                                 
+    string *names = nullptr;     // pointer to dynamically allocated array and set to nullptr
+
     cout << "-------------------------------------------------\n"
          << " Cricket Matches College Students Play in a Year\n"
          << "-------------------------------------------------" << endl;
@@ -43,7 +43,7 @@ int main() {
         cin.ignore();
     } while (size <= 0 || size > 5000);
 
-    names = new string[size];                                 // dynamically allocate memory 
+    names = new string[size];     // dynamically allocate memory
     matches = new int[size];
 
     input(names, matches, size);
@@ -74,9 +74,8 @@ int main() {
     sortStudents(names, matches, size);
     display(names, matches, size);
 
-    
-    delete[] names;                                          // deallocate memory
-    names = nullptr;                                         // set pointer to nullptr to prevent dangling pointers
+    delete[] names;      // deallocate memory
+    names = nullptr;     // set pointer to nullptr to prevent dangling pointers
     delete[] matches;
     matches = nullptr;
 
@@ -141,8 +140,9 @@ double mean(const int matches[], int size) {
 }
 
 //*****************************************************************************************************
+// selection sort algorithm (time complexity: O(n^2)
 
-void sortStudents(string names[], int matches[], int size) {     // selection sort algorithm (time complexity: O(n^2)
+void sortStudents(string names[], int matches[], int size) {     
     int minIndex,
         minValueMatches;
     string minValueNames;
@@ -168,7 +168,6 @@ void sortStudents(string names[], int matches[], int size) {     // selection so
 }
 
 //*****************************************************************************************************
-
 /*
 
 -------------------------------------------------

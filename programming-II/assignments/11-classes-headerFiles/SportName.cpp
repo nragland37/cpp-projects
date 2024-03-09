@@ -11,12 +11,13 @@
 //
 //*****************************************************************************************************
 
+#include "date.h"
+#include "sport.h"
+
 #include <iomanip>
 #include <iostream>
 #include <string>
 using namespace std;
-#include "date.h"
-#include "sport.h"
 
 //*****************************************************************************************************
 
@@ -133,7 +134,7 @@ void processChoice(Sport s[], int size) {
 
 void buildSport(Sport s[], int &size) {
     cin.ignore();
-    
+
     for (int i = 0; i < size; ++i)
         s[i].populate();
 }
@@ -255,7 +256,6 @@ void displaySportHighestTeams(Sport s[], int size) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 =====================================================================

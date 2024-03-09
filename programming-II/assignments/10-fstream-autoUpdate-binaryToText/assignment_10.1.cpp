@@ -39,8 +39,8 @@ int main() {
     string fileName;
     Person *people = nullptr;
 
-    people = readTesters("Testers.txt", numP);                     // read data from text file
-    writeTesters("Testers.dat", people, numP);                     // write data to binary file    
+    people = readTesters("Testers.txt", numP);     // read data from text file
+    writeTesters("Testers.dat", people, numP);     // write data to binary file
 
     delete[] people;
     people = nullptr;
@@ -83,14 +83,13 @@ Person *readTesters(const string &fileName, int &num) {
 //*****************************************************************************************************
 
 void writeTesters(const string &fileName, Person people[], int numP) {
-    ofstream f(fileName, ios::binary);                                  // open file for writing in binary mode
+    ofstream f(fileName, ios::binary);     // open file for writing in binary mode
     f.write(reinterpret_cast<char *>(&numP), sizeof(int));
     f.write(reinterpret_cast<char *>(people), sizeof(Person) * numP);
     f.close();
 }
 
 //*****************************************************************************************************
-
 /*
 
 reinterpret_cast<new_type>(expression)

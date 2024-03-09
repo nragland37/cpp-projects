@@ -109,7 +109,7 @@ Translation *readTranslation(const string &fileName, int &num) {
     Translation *t = nullptr;
     ifstream f(fileName);
 
-    if (f.is_open()) {                                          // check if file is open before reading
+    if (f.is_open()) {        // check if file is open before reading
         f >> num;          
         f.ignore();
 
@@ -305,7 +305,6 @@ void displayTranslateAnswers(const Translation translate[], int numT) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 ---------------------------------------------------

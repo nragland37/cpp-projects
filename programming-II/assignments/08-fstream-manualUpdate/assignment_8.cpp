@@ -199,7 +199,6 @@ void displayEmployees(const Employee emps[], int numEmps) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 Name                          Age                 Date Employed

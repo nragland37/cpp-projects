@@ -13,7 +13,9 @@
 using namespace std;
 
 //*****************************************************************************************************
-struct Speaker {                                                // struct: user-defined data type
+// struct: user-defined data type
+
+struct Speaker {     
     string name;
     string phoneNum;
     string topic;
@@ -93,7 +95,7 @@ int main() {
             if (topicEntry == 'N')
                 break;
 
-            cin.ignore();                                  // ignore the '\n' character
+            cin.ignore();     // ignore the '\n' character
         }
     } while (topicTest == false);
 
@@ -308,7 +310,6 @@ bool testTopic(Speaker members[], int numSpeakers, const string &topic) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 ---------------------------------------------------------------

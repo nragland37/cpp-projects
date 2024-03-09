@@ -150,6 +150,7 @@ void swapValues(string &a, string &b) {
 }
 
 //*****************************************************************************************************
+// bubble sort algorithm (time complexity: O(n^2))
 
 void bubbleSort(string names[], int numNames) {
     bool swap;
@@ -186,28 +187,29 @@ void bubbleSortDescending(string names[], int numNames) {
 }
 
 //*****************************************************************************************************
+// binary search algorithm (time complexity: O(log n))
 
-int binarySearchNames(const string names[], int numNames, const string &name) {     // binary search algorithm (time complexity: O(log n))
-    int first = 0,                                                                  
-        last = numNames - 1,                                                       
-        middle,                                                                     
-        position = -1;                                                              
-    bool found = false;                                                             
+int binarySearchNames(const string names[], int numNames, const string &name) {
+    int first = 0,
+        last = numNames - 1,
+        middle,
+        position = -1;
+    bool found = false;
 
-    while (!found && (first <= last)) {     
-        middle = (first + last) / 2;        
+    while (!found && (first <= last)) {
+        middle = (first + last) / 2;
 
-        if (names[middle] == name) {           
-            found = true;                      
-            position = middle;                 
-        } else if (names[middle] > name) {     
-            last = middle - 1;                 
-        } else {                               
-            first = middle + 1;                
+        if (names[middle] == name) {
+            found = true;
+            position = middle;
+        } else if (names[middle] > name) {
+            last = middle - 1;
+        } else {
+            first = middle + 1;
         }
     }
 
-    return position;     
+    return position;
 }
 
 //*****************************************************************************************************
@@ -222,24 +224,25 @@ void displayBinarySearchNames(const string names[], int numNames, const string &
 }
 
 //*****************************************************************************************************
+// selection sort algorithm (time complexity: O(n^2))
 
-void selectionSort(string names[], int numNames) {     // selection sort algorithm (time complexity: O(n^2))
-    int minIndex;                                      
-    string minValue;                                   
+void selectionSort(string names[], int numNames) {
+    int minIndex;
+    string minValue;
 
-    for (int startScan = 0; startScan < (numNames - 1); ++startScan) {     
-        minIndex = startScan;                                              
-        minValue = names[minIndex];                                        
+    for (int startScan = 0; startScan < (numNames - 1); ++startScan) {
+        minIndex = startScan;
+        minValue = names[minIndex];
 
-        for (int index = startScan + 1; index < numNames; ++index) {     
-            if (names[index] < minValue) {                               
-                minValue = names[index];                                 
-                minIndex = index;                                        
+        for (int index = startScan + 1; index < numNames; ++index) {
+            if (names[index] < minValue) {
+                minValue = names[index];
+                minIndex = index;
             }
         }
 
-        names[minIndex] = names[startScan];     
-        names[startScan] = minValue;            
+        names[minIndex] = names[startScan];
+        names[startScan] = minValue;
     }
 }
 
@@ -266,7 +269,6 @@ void selectionSortDescending(string names[], int numNames) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 ---------------------------------

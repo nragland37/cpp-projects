@@ -14,22 +14,22 @@
 
 //*****************************************************************************************************
 
-#include <string>
 #include "date.h"
+#include <string>
 
 //*****************************************************************************************************
 
 class Sport {
 private:
     std::string name;
-    Date nextGame;                        // use Date class to store date of next game
+    Date nextGame;     // use Date class to store date of next game
     int numTeams;
     std::string *teamNames;
 
 public:
     Sport(const std::string &n = "");     // default argument so that Sport object can be created without arguments
     ~Sport();
-    std::string getName() const;          // const used when methods do not change the object's data members
+    std::string getName() const;     // const used when methods do not change the object's data members
     void setName(const std::string &n);
     Date getDate() const;
     void setDate(const Date &d);

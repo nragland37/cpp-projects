@@ -6,20 +6,20 @@
 //
 //*****************************************************************************************************
 
-#ifndef DATE_H    
+#ifndef DATE_H
 #define DATE_H
 
 //*****************************************************************************************************
 
 class Date {
-private:                                           // private can only be accessed within the class
+private:     // private can only be accessed within the class
     int day;
     int month;
     int year;
 
-public:                                            // public can be accessed within and outside the class
-    Date();                                        // constructor
-    ~Date();                                       // destructor
+public:          // public can be accessed within and outside the class
+    Date();      // constructor
+    ~Date();     // destructor
     int getDay() const;
     void setDay(const int &d);
     int getMonth() const;
@@ -32,8 +32,8 @@ public:                                            // public can be accessed wit
 
 //*****************************************************************************************************
 
-inline int Date::getDay() const {                  // inline is a keyword for simple methods
-    return day;                       
+inline int Date::getDay() const {     // inline is a keyword for simple methods
+    return day;
 }
 
 //*****************************************************************************************************
@@ -68,4 +68,4 @@ inline void Date::setMonth(const int &m) {
 
 //*****************************************************************************************************
 
-#endif     
+#endif

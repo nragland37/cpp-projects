@@ -22,7 +22,7 @@ void f4(int nums[], int size);
 int main() {
     const int SIZE = 5;
     int numbers[SIZE] = {10, 22, 34, 48, 59};
-    int *ptr = numbers;                                // ptr points to the first element in the array
+    int *ptr = numbers;     // ptr points to the first element in the array
 
     f1(numbers, SIZE);
     f2(ptr, SIZE);
@@ -40,8 +40,8 @@ void f1(int nums[], int size) {
          << "-----------------------------" << endl;
 
     for (int i = 0; i < size; ++i)
-        cout << "\nValue of index " << i << ": " << nums[i]                 
-             << "\nAddress of index " << i << ": " << &nums[i] << endl;    
+        cout << "\nValue of index " << i << ": " << nums[i]
+             << "\nAddress of index " << i << ": " << &nums[i] << endl;
 }
 
 //*****************************************************************************************************
@@ -52,15 +52,15 @@ void f2(int *ptr, int size) {
          << "-------------------------------" << endl;
 
     for (int i = 0; i < size; ++i)
-        cout << "\nValue of index " << i << ": " << *(ptr + i)             
-             << "\nAddress of index " << i << ": " << ptr + i << endl;     
+        cout << "\nValue of index " << i << ": " << *(ptr + i)
+             << "\nAddress of index " << i << ": " << ptr + i << endl;
 }
 
 //*****************************************************************************************************
 
 void f3(int nums[], int size) {
     const int SIZE = 3;
-    int *p = nums;     
+    int *p = nums;
     int input;
 
     cout << "\n------------------------------------------------------------\n"
@@ -76,7 +76,7 @@ void f3(int nums[], int size) {
                 p = &nums[input];
                 break;
             } else {
-                cerr << "\nError: Invalid Entry\n";     
+                cerr << "\nError: Invalid Entry\n";
             }
         }
 
@@ -102,14 +102,14 @@ void f4(int nums[], int size) {
         cin >> input1;
 
         if (input1 >= 0 && input1 < size) {
-            p1 = &nums[input1];     
+            p1 = &nums[input1];
             break;
         } else {
             cerr << "\nError: Invalid Entry\n";
         }
     }
 
-    cout << "Value of index " << input1 << ": " << *p1 << endl;    
+    cout << "Value of index " << input1 << ": " << *p1 << endl;
 
     while (true) {
         cout << "\nEnter value: ";
@@ -123,12 +123,11 @@ void f4(int nums[], int size) {
         }
     }
 
-    cout << "Value of index " << input2 << ": " << *p2                                                 
-         << "\n\nThe sum of index " << input1 << " and " << input2 << " is " << *p1 + *p2 << endl;     
+    cout << "Value of index " << input2 << ": " << *p2
+         << "\n\nThe sum of index " << input1 << " and " << input2 << " is " << *p1 + *p2 << endl;
 }
 
 //*****************************************************************************************************
-
 /*
 
 -----------------------------

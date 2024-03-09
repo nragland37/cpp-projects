@@ -182,8 +182,9 @@ int topStudent(const int scores[][NUM_TESTS], int numStds) {
 }
 
 //*****************************************************************************************************
+// linear search algorithm (time complexity: O(n))
 
-bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average) {     // linear search algorithm (time complexity: O(n))
+bool searchStudents(const int scores[][NUM_TESTS], int numStds, double average) {
     int studentNumber = 0;
     bool found = false;
 
@@ -214,7 +215,6 @@ bool searchTests(const int scores[][NUM_TESTS], int numStds, double average) {
 }
 
 //*****************************************************************************************************
-
 /*
 
     All Test scores

@@ -7,7 +7,7 @@
 //
 //*****************************************************************************************************
 
-#include <cctype>     
+#include <cctype>
 #include <iostream>
 #include <string>
 using namespace std;
@@ -40,18 +40,18 @@ void sentenceData(const string sentence) {
         first_s,
         second_s;
 
-    length = sentence.length();                                 // get the length of the string
-    first_s = sentence.find('s');                               // find the first 's' in the string
-    second_s = sentence.find('s', first_s + 1);                 // find the second 's' in the string
+    length = sentence.length();                     // get the length of the string
+    first_s = sentence.find('s');                   // find the first 's' in the string
+    second_s = sentence.find('s', first_s + 1);     // find the second 's' in the string
 
-    for (int i = 0; i < length; ++i) {                          // bool return types: isalpha(), isdigit(), islower(), isupper()
-        if (isalpha(sentence[i]))                               
+    for (int i = 0; i < length; ++i) {     // bool return types: isalpha(), isdigit(), islower(), isupper()
+        if (isalpha(sentence[i]))
             alphaCount++;
-        if (isdigit(sentence[i]))                         
+        if (isdigit(sentence[i]))
             digitCount++;
-        if (islower(sentence[i]))                    
+        if (islower(sentence[i]))
             lowerCount++;
-        if (isupper(sentence[i]))      
+        if (isupper(sentence[i]))
             upperCount++;
     }
 
@@ -68,7 +68,6 @@ void sentenceData(const string sentence) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 ------------------------------------------------------

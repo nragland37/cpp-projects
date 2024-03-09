@@ -8,11 +8,13 @@
 //
 //*****************************************************************************************************
 
-#include "date.h"     
+#include "date.h"
+#include <iostream>
 
 //*****************************************************************************************************
+// default constructor initializes member variables
 
-Date::Date() {                                    // default constructor initializes member variables 
+Date::Date() {
     day = 1;
     month = 1;
     year = 2000;
@@ -20,18 +22,19 @@ Date::Date() {                                    // default constructor initial
 
 //*****************************************************************************************************
 
-Date::~Date() { 
+Date::~Date() {
     std::cout << "\nDate object destroyed\n";
 }
 
 //*****************************************************************************************************
+// checks for valid date (leap years, days in month) and sets date
 
-void Date::inputDate() {                         // checks for valid date (leap years, days in month) and sets date
+void Date::inputDate() {
     std::cout << "\nEnter Year: ";
     std::cin >> year;
 
     while (year < 2022 || year > 2100) {
-        std::cerr << "\nInvalid\n\n";     
+        std::cerr << "\nInvalid\n\n";
         std::cout << "Enter Year(2022- ): ";
         std::cin >> year;
     }
@@ -65,7 +68,7 @@ void Date::inputDate() {                         // checks for valid date (leap 
             std::cout << "Enter Day(1-30): ";
             std::cin >> day;
         }
-    } else if (year % 4 == 0) {                    // February :: tests leap years
+    } else if (year % 4 == 0) {     // February :: tests leap years
         while (day < 1 || day > 29) {
             std::cerr << "\nInvalid\n\n";
             std::cout << "Enter Day(1-29): ";
@@ -78,14 +81,14 @@ void Date::inputDate() {                         // checks for valid date (leap 
             std::cin >> day;
         }
     }
-    
+
     setDay(day);
 }
 
 //*****************************************************************************************************
 
 void Date::displayDate() {
-    std::cout << getMonth() << "/" << getDay() << "/" << getYear();     
+    std::cout << getMonth() << "/" << getDay() << "/" << getYear();
 }
 
 //*****************************************************************************************************

@@ -129,8 +129,9 @@ void swapValues(string &a, string &b) {
 }
 
 //*****************************************************************************************************
+// bubble sort algorithm (time complexity: O(n^2)
 
-void bubbleSort(string names[], int numNames) {     // bubble sort algorithm (time complexity: O(n^2)
+void bubbleSort(string names[], int numNames) {
     bool swap;
     string temp;
 
@@ -164,7 +165,6 @@ void bubbleSortDescending(string names[], int numNames) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 ---------------------------------
