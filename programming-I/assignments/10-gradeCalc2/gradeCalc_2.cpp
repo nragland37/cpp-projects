@@ -72,11 +72,8 @@ void readGrades(float &assign, float &test, float &exam, float &partic) {
 void calcWeights(float &assign, float &test, float &exam, float &partic,
                  float ASSIGN_PERCENT, float TEST_PERCENT, float EXAM_PERCENT, float PARTIC_PERCENT) {
     assign = (assign * ASSIGN_PERCENT) / 100;
-
     test = (test * TEST_PERCENT) / 100;
-
     exam = (exam * EXAM_PERCENT) / 100;
-
     partic = (partic * PARTIC_PERCENT) / 100;
 }
 
@@ -93,7 +90,6 @@ void displayResults(float finalGrade) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 Grade Calculator - Computer Programming I

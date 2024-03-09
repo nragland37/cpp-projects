@@ -15,12 +15,11 @@ int main() {
     int nums[SIZE];
     int sum = 0;
 
-    cout << "Enter 10 numbers\n" << endl;
+    cout << "Enter 10 numbers:" << endl;
 
     for (int i = 0; i < SIZE; i++) {
-        cout << "Enter #" << i + 1 << ":";
         cin >> nums[i];
-
+        
         sum += nums[i];
     }
 
@@ -33,7 +32,6 @@ int main() {
 }
 
 //*****************************************************************************************************
-
 /*
 
 Enter 10 numbers
