@@ -41,9 +41,9 @@ void compareStocks(const Stock &s1, const Stock &s2) {
     cout << s1.getSymbol() << "\t\t" << s2.getSymbol() << endl;
     cout << s1.getPrice() << "\t\t" << s2.getPrice() << endl;
 
-    if (s1 == s2)                                               // tests == operator overload
+    if (s1 == s2)     // tests == operator overload
         cout << "\nThe stocks are the same." << endl;
-    else if (s1 != s2)                                          // tests != operator overload
+    else if (s1 != s2)     // tests != operator overload
         cout << "\nThe stocks are different." << endl;
 }
 
