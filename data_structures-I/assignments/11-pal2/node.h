@@ -9,29 +9,29 @@
 
 //*****************************************************************************************************
 
-template <typename TYPE>
+template <typename T>
 struct Node {
-    TYPE data;
-    Node<TYPE> *next;
-    Node<TYPE> *prev;
+    T data;
+    Node<T> *next;
+    Node<T> *prev;
 
     Node();
-    Node(const TYPE &d, Node<TYPE> *n = nullptr, Node<TYPE> *p = nullptr);
+    Node(const T &d, Node<T> *n = nullptr, Node<T> *p = nullptr);
 };
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-Node<TYPE>::Node() {
-    data = TYPE();                // default initialization for both user-defined and built-in types
+template <typename T>
+Node<T>::Node() {
+    data = T();     // default initialization for both user-defined and built-in types
     next = nullptr;
     prev = nullptr;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-Node<TYPE>::Node(const TYPE &d, Node<TYPE> *n, Node<TYPE> *p) {
+template <typename T>
+Node<T>::Node(const T &d, Node<T> *n, Node<T> *p) {
     data = d;
     next = n;
     prev = p;

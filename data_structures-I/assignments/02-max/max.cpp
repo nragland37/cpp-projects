@@ -11,16 +11,16 @@ using namespace std;
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-void getData(TYPE &a, TYPE &b);
+template <typename T>
+void getData(T &a, T &b);
 void getData(char a[], char b[]);
 
-template <typename TYPE>
-TYPE findMax(TYPE a, TYPE b);
+template <typename T>
+T findMax(T a, T b);
 char *findMax(char a[], char b[]);
 
-template <typename TYPE>
-void displayMax(TYPE a, TYPE b, TYPE max);
+template <typename T>
+void displayMax(T a, T b, T max);
 
 //*****************************************************************************************************
 
@@ -58,9 +58,9 @@ int main() {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-void getData(TYPE &a, TYPE &b) {
-    cout << "\nEnter two " << typeid(TYPE).name() << "s" << endl;
+template <typename T>
+void getData(T &a, T &b) {
+    cout << "\nEnter two " << typeid(T).name() << "s" << endl;
 
     cout << "First: ";
     cin >> a;
@@ -84,9 +84,9 @@ void getData(char a[], char b[]) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-TYPE findMax(TYPE a, TYPE b) {
-    TYPE max = a;
+template <typename T>
+T findMax(T a, T b) {
+    T max = a;
 
     if (max < b)
         max = b;
@@ -107,16 +107,15 @@ char *findMax(char a[], char b[]) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-void displayMax(TYPE a, TYPE b, TYPE max) {
-    cout << "\nType: " << typeid(TYPE).name()
+template <typename T>
+void displayMax(T a, T b, T max) {
+    cout << "\nType: " << typeid(T).name()
          << "\nFirst: " << a
          << "\nSecond: " << b
          << "\nMax: " << max << endl;
 }
 
 //*****************************************************************************************************
-
 /*
 
 Enter two ints

@@ -24,7 +24,7 @@ struct Node {
 
 template <typename T>
 Node<T>::Node() {
-    data = T();             // default initialization for both user-defined and built-in types
+    data = T();     // default initialization for both user-defined and built-in types
     next = nullptr;
     prev = nullptr;
 }

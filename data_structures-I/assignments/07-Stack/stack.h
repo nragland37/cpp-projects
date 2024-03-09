@@ -10,19 +10,19 @@
 
 //*****************************************************************************************************
 
-template <typename TYPE>
+template <typename T>
 class Stack {
 private:
-    TYPE *stack;
+    T *stack;
     int top;
     int capacity;
 
 public:
     Stack(int cap = 100);
     ~Stack();
-    bool push(const TYPE &dataIn);
-    bool pop(TYPE &dataOut);
-    bool peek(TYPE &dataOut) const;
+    bool push(const T &dataIn);
+    bool pop(T &dataOut);
+    bool peek(T &dataOut) const;
     int getNumValues() const;
     bool isFull() const;
     bool isEmpty() const;
@@ -30,17 +30,17 @@ public:
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-Stack<TYPE>::Stack(int cap) {
+template <typename T>
+Stack<T>::Stack(int cap) {
     capacity = cap;
     top = -1;
-    stack = new TYPE[capacity];
+    stack = new T[capacity];
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-Stack<TYPE>::~Stack() {
+template <typename T>
+Stack<T>::~Stack() {
     delete[] stack;
     stack = nullptr;
     capacity = 0;
@@ -49,8 +49,8 @@ Stack<TYPE>::~Stack() {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Stack<TYPE>::push(const TYPE &dataIn) {
+template <typename T>
+bool Stack<T>::push(const T &dataIn) {
     bool success = false;
 
     if ((top + 1) < capacity) {
@@ -64,8 +64,8 @@ bool Stack<TYPE>::push(const TYPE &dataIn) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Stack<TYPE>::pop(TYPE &dataOut) {
+template <typename T>
+bool Stack<T>::pop(T &dataOut) {
     bool success = false;
 
     if (top >= 0) {
@@ -79,8 +79,8 @@ bool Stack<TYPE>::pop(TYPE &dataOut) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Stack<TYPE>::peek(TYPE &dataOut) const {
+template <typename T>
+bool Stack<T>::peek(T &dataOut) const {
     bool success = false;
 
     if (top >= 0) {
@@ -93,22 +93,22 @@ bool Stack<TYPE>::peek(TYPE &dataOut) const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-int Stack<TYPE>::getNumValues() const {
+template <typename T>
+int Stack<T>::getNumValues() const {
     return (top + 1);
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Stack<TYPE>::isFull() const {
+template <typename T>
+bool Stack<T>::isFull() const {
     return ((top + 1) == capacity);
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Stack<TYPE>::isEmpty() const {
+template <typename T>
+bool Stack<T>::isEmpty() const {
     return (top < 0);
 }
 

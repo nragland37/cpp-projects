@@ -11,13 +11,14 @@
 //
 //*****************************************************************************************************
 
+#include "DLList.h"
+#include "student.h"
+
 #include <cctype>
 #include <fstream>
 #include <iomanip>
-#include <iostream> 
+#include <iostream>
 using namespace std;
-#include "DLList.h"
-#include "student.h"
 
 //*****************************************************************************************************
 
@@ -129,12 +130,8 @@ void buildList(DLList<Student> &studentList) {
         studentData.ignore();
         studentData.getline(student.name, 50);
         studentData.getline(student.cityState, 50);
-        studentData >> student.phone 
-                    >> student.gender 
-                    >> student.year 
-                    >> student.credits 
-                    >> student.gpa 
-                    >> student.major;
+        studentData >> student.phone >> student.gender >> 
+        student.year >> student.credits >> student.gpa >> student.major;
 
         studentList.insert(student);
     }
@@ -169,7 +166,8 @@ void displayStudentRev(DLList<Student> &studentList) {
 //*****************************************************************************************************
 
 void countStudents(DLList<Student> &studentList) {
-    cout << "\n\nNumber of students: " << studentList.getNumValues() << "\n" << endl;
+    cout << "\n\nNumber of students: " << studentList.getNumValues() << "\n"
+         << endl;
 }
 
 //*****************************************************************************************************
@@ -255,7 +253,6 @@ void findStudent(DLList<Student> &studentList) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 ============= MENU =============

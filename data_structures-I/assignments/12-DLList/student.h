@@ -10,6 +10,10 @@
 
 //*****************************************************************************************************
 
+#include <iomanip>
+
+//*****************************************************************************************************
+
 struct Student {
     int id;
     char name[50];
@@ -22,7 +26,7 @@ struct Student {
     char major[6];
 
     Student();
-    friend ostream &operator<<(ostream &out, const Student &data);
+    friend std::ostream &operator<<(std::ostream &out, const Student &data);
 
     bool operator<(const Student &rhs) const;
     bool operator<(int value) const;
@@ -46,11 +50,11 @@ Student::Student() {
 
 //*****************************************************************************************************
 
-ostream &operator<<(ostream &out, const Student &data) {
-    out << setw(11) << left << data.id
-        << setw(25) << data.name
-        << setw(10) << data.major
-        << data.gpa << endl;
+std::ostream &operator<<(std::ostream &out, const Student &data) {
+    out << std::setw(11) << std::left << data.id
+        << std::setw(25) << data.name
+        << std::setw(10) << data.major
+        << data.gpa << std::endl;
 
     return out;
 }

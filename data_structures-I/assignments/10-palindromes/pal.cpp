@@ -9,13 +9,14 @@
 //
 //*****************************************************************************************************
 
+#include "stack.h"
+
 #include <cctype>
 #include <cstring>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
 using namespace std;
-#include "stack.h"
 
 //*****************************************************************************************************
 
@@ -28,8 +29,8 @@ void displayPalResult(bool isValid, char palType);
 
 int main() {
     Stack<char> s1,
-                s2,
-                s3;
+        s2,
+        s3;
     bool isValid,
         hasPunct,
         hasSpace;
@@ -87,7 +88,7 @@ void fillStack3(Stack<char> &s2, Stack<char> &s3) {
 
 bool testNdisplayPal(Stack<char> &s1, Stack<char> &s3) {
     char s1Temp,
-         s3Temp;
+        s3Temp;
     bool isValid = true;
     int i = s1.getNumValues();
 
@@ -126,7 +127,6 @@ void displayPalResult(bool isValid, char palType) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 aha                      type 3

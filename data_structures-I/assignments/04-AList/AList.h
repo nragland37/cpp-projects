@@ -10,14 +10,15 @@
 
 //*****************************************************************************************************
 
+#include <iostream>
 #include <new>
 
 //*****************************************************************************************************
 
-template <typename TYPE>
+template <typename T>
 class AList {
 private:
-    TYPE *list;
+    T *list;
     int capacity;
     int numValues;
 
@@ -26,11 +27,11 @@ private:
 public:
     AList(int cap = 5);
     ~AList();
-    bool insertFront(const TYPE &dataIn);
-    bool insertBack(const TYPE &dataIn);
-    bool insertAtIndex(const TYPE &dataIn, int index);
+    bool insertFront(const T &dataIn);
+    bool insertBack(const T &dataIn);
+    bool insertAtIndex(const T &dataIn, int index);
     bool display() const;
-    bool getSmallest(TYPE &dataOut) const;
+    bool getSmallest(T &dataOut) const;
     int getCapacity() const;
     int getNumValues() const;
     bool isEmpty() const;
@@ -39,20 +40,20 @@ public:
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-AList<TYPE>::AList(int cap) {
+template <typename T>
+AList<T>::AList(int cap) {
     if (cap < 2)
         cap = 2;
 
     capacity = cap;
     numValues = 0;
-    list = new TYPE[capacity];
+    list = new T[capacity];
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-AList<TYPE>::~AList() {
+template <typename T>
+AList<T>::~AList() {
     delete[] list;
     list = nullptr;
     capacity = 0;
@@ -61,14 +62,14 @@ AList<TYPE>::~AList() {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool AList<TYPE>::_resize() {
+template <typename T>
+bool AList<T>::_resize() {
     bool success = false;
-    TYPE *newList;
+    T *newList;
     int newCapacity;
 
     newCapacity = capacity * 2;
-    newList = new (std::nothrow) TYPE[newCapacity];
+    newList = new (std::nothrow) T[newCapacity];
 
     if (newList) {
         for (int i = 0; i < numValues; ++i)
@@ -85,8 +86,8 @@ bool AList<TYPE>::_resize() {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool AList<TYPE>::insertFront(const TYPE &dataIn) {
+template <typename T>
+bool AList<T>::insertFront(const T &dataIn) {
     bool success = true;
 
     if (numValues == capacity)
@@ -105,8 +106,8 @@ bool AList<TYPE>::insertFront(const TYPE &dataIn) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool AList<TYPE>::insertBack(const TYPE &dataIn) {
+template <typename T>
+bool AList<T>::insertBack(const T &dataIn) {
     bool success = true;
 
     if (numValues == capacity)
@@ -122,8 +123,8 @@ bool AList<TYPE>::insertBack(const TYPE &dataIn) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool AList<TYPE>::insertAtIndex(const TYPE &dataIn, int index) {
+template <typename T>
+bool AList<T>::insertAtIndex(const T &dataIn, int index) {
     bool success = false;
 
     if ((index >= 0) && (index <= numValues)) {
@@ -146,8 +147,8 @@ bool AList<TYPE>::insertAtIndex(const TYPE &dataIn, int index) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool AList<TYPE>::display() const {
+template <typename T>
+bool AList<T>::display() const {
     bool success = false;
 
     if (numValues > 0) {
@@ -164,8 +165,8 @@ bool AList<TYPE>::display() const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool AList<TYPE>::getSmallest(TYPE &dataOut) const {
+template <typename T>
+bool AList<T>::getSmallest(T &dataOut) const {
     bool success = false;
 
     if (numValues > 0) {
@@ -183,29 +184,29 @@ bool AList<TYPE>::getSmallest(TYPE &dataOut) const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-int AList<TYPE>::getCapacity() const {
+template <typename T>
+int AList<T>::getCapacity() const {
     return capacity;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-int AList<TYPE>::getNumValues() const {
+template <typename T>
+int AList<T>::getNumValues() const {
     return numValues;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool AList<TYPE>::isEmpty() const {
+template <typename T>
+bool AList<T>::isEmpty() const {
     return (numValues == 0);
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool AList<TYPE>::isFull() const {
+template <typename T>
+bool AList<T>::isFull() const {
     return (numValues == capacity);
 }
 

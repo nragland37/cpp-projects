@@ -10,14 +10,15 @@
 //
 //*****************************************************************************************************
 
+#include "queue.h"
+#include "stack.h"
+
 #include <cctype>
 #include <cstring>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
 using namespace std;
-#include "queue.h"
-#include "stack.h"
 
 //*****************************************************************************************************
 
@@ -31,8 +32,8 @@ int main() {
     Stack<char> s;
     Queue<char> q;
     bool isValid,
-         hasPunct,
-         hasSpace;
+        hasPunct,
+        hasSpace;
     int len;
     char palType;
     char pal[81];
@@ -71,7 +72,7 @@ int main() {
 
 bool testNdisplayPal(Stack<char> &s, Queue<char> &q) {
     char sTemp,
-         qTemp;
+        qTemp;
     bool isValid = true;
     int numVal = s.getNumValues();
 
@@ -110,7 +111,6 @@ void displayPalResult(bool isValid, char palType) {
 }
 
 //*****************************************************************************************************
-
 /*
 
 aha                      type 3

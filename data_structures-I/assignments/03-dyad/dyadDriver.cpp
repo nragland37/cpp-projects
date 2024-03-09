@@ -7,9 +7,10 @@
 //
 //*****************************************************************************************************
 
+#include "dyad.h"
+
 #include <iostream>
 using namespace std;
-#include "dyad.h"
 
 //*****************************************************************************************************
 
@@ -17,9 +18,9 @@ int main() {
     int firstInt,
         secondInt;
     double firstDouble,
-           secondDouble;
+        secondDouble;
     char firstChar,
-         secondChar;
+        secondChar;
 
     Dyad<int> dyadInt(1, 2);
     Dyad<double> dyadDouble(1.5, 2.5);
@@ -54,7 +55,6 @@ int main() {
 }
 
 //*****************************************************************************************************
-
 /*
 
 First int: 1

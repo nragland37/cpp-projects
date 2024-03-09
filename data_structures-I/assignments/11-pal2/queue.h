@@ -18,20 +18,20 @@
 
 //*****************************************************************************************************
 
-template <typename TYPE>
+template <typename T>
 class Queue {
 private:
-    Node<TYPE> *front;
-    Node<TYPE> *back;
+    Node<T> *front;
+    Node<T> *back;
     int numValues;
 
 public:
     Queue();
     ~Queue();
-    bool enqueue(const TYPE &dataIn);
-    bool dequeue(TYPE &dataOut);
-    bool viewFront(TYPE &dataOut) const;
-    bool viewRear(TYPE &dataOut) const;
+    bool enqueue(const T &dataIn);
+    bool dequeue(T &dataOut);
+    bool viewFront(T &dataOut) const;
+    bool viewRear(T &dataOut) const;
     int getNumValues() const;
     bool isFull() const;
     bool isEmpty() const;
@@ -39,8 +39,8 @@ public:
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-Queue<TYPE>::Queue() {
+template <typename T>
+Queue<T>::Queue() {
     front = nullptr;
     back = nullptr;
     numValues = 0;
@@ -48,9 +48,9 @@ Queue<TYPE>::Queue() {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-Queue<TYPE>::~Queue() {
-    Node<TYPE> *pCur = nullptr;
+template <typename T>
+Queue<T>::~Queue() {
+    Node<T> *pCur = nullptr;
 
     while (front) {
         pCur = front;
@@ -64,10 +64,10 @@ Queue<TYPE>::~Queue() {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Queue<TYPE>::enqueue(const TYPE &dataIn) {
+template <typename T>
+bool Queue<T>::enqueue(const T &dataIn) {
     bool success = false;
-    Node<TYPE> *pNew = new (nothrow) Node<TYPE>(dataIn);
+    Node<T> *pNew = new (std::nothrow) Node<T>(dataIn);
 
     if (pNew) {
         if (back)
@@ -85,10 +85,10 @@ bool Queue<TYPE>::enqueue(const TYPE &dataIn) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Queue<TYPE>::dequeue(TYPE &dataOut) {
+template <typename T>
+bool Queue<T>::dequeue(T &dataOut) {
     bool success = false;
-    Node<TYPE> *pCur = front;
+    Node<T> *pCur = front;
 
     if (front) {
         dataOut = pCur->data;
@@ -107,8 +107,8 @@ bool Queue<TYPE>::dequeue(TYPE &dataOut) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Queue<TYPE>::viewFront(TYPE &dataOut) const {
+template <typename T>
+bool Queue<T>::viewFront(T &dataOut) const {
     bool success = false;
 
     if (front) {
@@ -121,8 +121,8 @@ bool Queue<TYPE>::viewFront(TYPE &dataOut) const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Queue<TYPE>::viewRear(TYPE &dataOut) const {
+template <typename T>
+bool Queue<T>::viewRear(T &dataOut) const {
     bool success = false;
 
     if (back) {
@@ -135,19 +135,19 @@ bool Queue<TYPE>::viewRear(TYPE &dataOut) const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-int Queue<TYPE>::getNumValues() const {
+template <typename T>
+int Queue<T>::getNumValues() const {
     return numValues;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Queue<TYPE>::isFull() const {
+template <typename T>
+bool Queue<T>::isFull() const {
     bool success = true;
-    Node<TYPE> *pNew = nullptr;
+    Node<T> *pNew = nullptr;
 
-    pNew = new (std::nothrow) Node<TYPE>;
+    pNew = new (std::nothrow) Node<T>;
 
     if (pNew) {
         delete pNew;
@@ -159,8 +159,8 @@ bool Queue<TYPE>::isFull() const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool Queue<TYPE>::isEmpty() const {
+template <typename T>
+bool Queue<T>::isEmpty() const {
     return (numValues == 0);
 }
 

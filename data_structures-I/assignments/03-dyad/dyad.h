@@ -10,55 +10,55 @@
 
 //*****************************************************************************************************
 
-template <typename TYPE>
+template <typename T>
 class Dyad {
 private:
-    TYPE val1;
-    TYPE val2;
+    T val1;
+    T val2;
 
 public:
-    Dyad(TYPE v1 = 0, TYPE v2 = 0);
-    TYPE getFirst() const;
-    TYPE getSecond() const;
-    void get2Values(TYPE &v1, TYPE &v2) const;
+    Dyad(T v1 = 0, T v2 = 0);
+    T getFirst() const;
+    T getSecond() const;
+    void get2Values(T &v1, T &v2) const;
     void swapValues();
 };
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-Dyad<TYPE>::Dyad(TYPE val1, TYPE val2) {
+template <typename T>
+Dyad<T>::Dyad(T val1, T val2) {
     this->val1 = val1;
     this->val2 = val2;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-TYPE Dyad<TYPE>::getFirst() const {
+template <typename T>
+T Dyad<T>::getFirst() const {
     return val1;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-TYPE Dyad<TYPE>::getSecond() const {
+template <typename T>
+T Dyad<T>::getSecond() const {
     return val2;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-void Dyad<TYPE>::get2Values(TYPE &v1, TYPE &v2) const {
+template <typename T>
+void Dyad<T>::get2Values(T &v1, T &v2) const {
     v1 = val1;
     v2 = val2;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-void Dyad<TYPE>::swapValues() {
-    TYPE temp = val1;
+template <typename T>
+void Dyad<T>::swapValues() {
+    T temp = val1;
 
     val1 = val2;
     val2 = temp;

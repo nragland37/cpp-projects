@@ -8,12 +8,13 @@
 //
 //*****************************************************************************************************
 
-#include <cctype> 
-#include <cstdlib>  
+#include "stack.h"
+
+#include <cctype>
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 using namespace std;
-#include "stack.h"
 
 //*****************************************************************************************************
 
@@ -137,13 +138,13 @@ void displayResult(Stack<int> &rpnStack, ofstream &resultsFile, bool &isValid) {
 void resetFlagStack(Stack<int> &rpnStack, bool &isValid) {
     int popVal;
 
-    while (rpnStack.pop(popVal));
+    while (rpnStack.pop(popVal))
+        ;
 
     isValid = true;
 }
 
 //*****************************************************************************************************
-
 /*
 
 2 4 * 5 + = 13

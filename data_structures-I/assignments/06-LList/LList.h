@@ -14,23 +14,24 @@
 //*****************************************************************************************************
 
 #include "node.h"
+#include <iostream>
 #include <new>
 
 //*****************************************************************************************************
 
-template <typename TYPE>
+template <typename T>
 class LList {
 private:
-    Node<TYPE> *front;
+    Node<T> *front;
 
 public:
     LList();
     ~LList();
-    bool insert(const TYPE &dataIn);
-    bool remove(TYPE &dataOut);
-    bool retrieve(TYPE &dataOut) const;
-    bool viewFront(TYPE &dataOut) const;
-    bool viewRear(TYPE &dataOut) const;
+    bool insert(const T &dataIn);
+    bool remove(T &dataOut);
+    bool retrieve(T &dataOut) const;
+    bool viewFront(T &dataOut) const;
+    bool viewRear(T &dataOut) const;
     void display() const;
     int getNumValues() const;
     bool isEmpty() const;
@@ -39,16 +40,16 @@ public:
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-LList<TYPE>::LList() {
+template <typename T>
+LList<T>::LList() {
     front = nullptr;
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-LList<TYPE>::~LList() {
-    Node<TYPE> *pCur = nullptr;
+template <typename T>
+LList<T>::~LList() {
+    Node<T> *pCur = nullptr;
 
     while (front) {
         pCur = front;
@@ -59,19 +60,19 @@ LList<TYPE>::~LList() {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool LList<TYPE>::insert(const TYPE &dataIn) {
+template <typename T>
+bool LList<T>::insert(const T &dataIn) {
     bool success = false;
-    Node<TYPE> *pBefore = nullptr;
-    Node<TYPE> *pCur = front;
-    Node<TYPE> *pNew;
+    Node<T> *pBefore = nullptr;
+    Node<T> *pCur = front;
+    Node<T> *pNew;
 
     while ((pCur) && (pCur->data < dataIn)) {
         pBefore = pCur;
         pCur = pCur->next;
     }
 
-    pNew = new (std::nothrow) Node<TYPE>(dataIn, pCur);
+    pNew = new (std::nothrow) Node<T>(dataIn, pCur);
 
     if (pNew) {
         if (pBefore)
@@ -87,11 +88,11 @@ bool LList<TYPE>::insert(const TYPE &dataIn) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool LList<TYPE>::remove(TYPE &dataOut) {
+template <typename T>
+bool LList<T>::remove(T &dataOut) {
     bool success = false;
-    Node<TYPE> *pBefore = nullptr;
-    Node<TYPE> *pCur = front;
+    Node<T> *pBefore = nullptr;
+    Node<T> *pCur = front;
 
     while ((pCur) && (pCur->data < dataOut)) {
         pBefore = pCur;
@@ -115,10 +116,10 @@ bool LList<TYPE>::remove(TYPE &dataOut) {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool LList<TYPE>::retrieve(TYPE &dataOut) const {
+template <typename T>
+bool LList<T>::retrieve(T &dataOut) const {
     bool success = false;
-    Node<TYPE> *pCur = front;
+    Node<T> *pCur = front;
 
     while ((pCur) && (pCur->data < dataOut))
         pCur = pCur->next;
@@ -133,8 +134,8 @@ bool LList<TYPE>::retrieve(TYPE &dataOut) const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool LList<TYPE>::viewFront(TYPE &dataOut) const {
+template <typename T>
+bool LList<T>::viewFront(T &dataOut) const {
     bool success = false;
 
     if (front) {
@@ -147,10 +148,10 @@ bool LList<TYPE>::viewFront(TYPE &dataOut) const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool LList<TYPE>::viewRear(TYPE &dataOut) const {
+template <typename T>
+bool LList<T>::viewRear(T &dataOut) const {
     bool success = false;
-    Node<TYPE> *pCur = front;
+    Node<T> *pCur = front;
 
     while ((pCur) && (pCur->next))
         pCur = pCur->next;
@@ -165,9 +166,9 @@ bool LList<TYPE>::viewRear(TYPE &dataOut) const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-void LList<TYPE>::display() const {
-    Node<TYPE> *pCur = front;
+template <typename T>
+void LList<T>::display() const {
+    Node<T> *pCur = front;
 
     while (pCur) {
         std::cout << pCur->data;
@@ -183,10 +184,10 @@ void LList<TYPE>::display() const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-int LList<TYPE>::getNumValues() const {
+template <typename T>
+int LList<T>::getNumValues() const {
     int numVal = 0;
-    Node<TYPE> *pCur = front;
+    Node<T> *pCur = front;
 
     while (pCur) {
         numVal++;
@@ -198,19 +199,19 @@ int LList<TYPE>::getNumValues() const {
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool LList<TYPE>::isEmpty() const {
+template <typename T>
+bool LList<T>::isEmpty() const {
     return (front == nullptr);
 }
 
 //*****************************************************************************************************
 
-template <typename TYPE>
-bool LList<TYPE>::isFull() const {
+template <typename T>
+bool LList<T>::isFull() const {
     bool success = true;
-    Node<TYPE> *pNew = nullptr;
+    Node<T> *pNew = nullptr;
 
-    pNew = new (std::nothrow) Node<TYPE>;
+    pNew = new (std::nothrow) Node<T>;
 
     if (pNew) {
         delete pNew;
