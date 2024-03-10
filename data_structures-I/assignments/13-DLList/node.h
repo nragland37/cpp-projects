@@ -1,7 +1,6 @@
 //*****************************************************************************************************
 //
-//      This header file defines a templated struct that represents a node in a singly or doubly
-//      linked list.
+//      This header file defines a templated struct that represents a node in a doubly linked list.
 //
 //*****************************************************************************************************
 
@@ -24,7 +23,7 @@ struct Node {
 
 template <typename T>
 Node<T>::Node() {
-    data = T();     // default initialization for both user-defined and built-in types
+    data = T();     // T() - default initialization (0 for numbers, empty string for strings, etc.)
     next = nullptr;
     prev = nullptr;
 }

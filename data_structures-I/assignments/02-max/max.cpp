@@ -1,6 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program demonstrates the use of function templates and function overloading.
+//      This program demonstrates the use of function templates and function overloading which is used 
+//      when the operations need to be different for different types of data.
 //
 //*****************************************************************************************************
 

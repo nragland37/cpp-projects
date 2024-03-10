@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the AVL class by creating a self-balancing binary search tree of
-//      integers and stock objects and performing various operations on the tree.
+//      This program reads stock data from a file and stores it in an AVL Tree. It then tests the AVL
+//      class on the list of stocks.
 //
 //      Other files required:
 //          1.    AVLTree.h - header file for the AVL class (includes node struct: node.h)

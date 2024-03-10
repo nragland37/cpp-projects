@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This header file defines a Stock class with members and methods for managing stock details
-//      and comparisons.
+//      This header file defines a Stock class with overloaded comparison and output operators to 
+//      facilitate easy comparison and display of stock information.
 //
 //*****************************************************************************************************
 

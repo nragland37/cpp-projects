@@ -1,7 +1,6 @@
 //*****************************************************************************************************
 //
-//      This header file defines a templated class and represents a doubly linked list of nodes with
-//      various functions that can be performed on the list.
+//      This header file defines a class template for a doubly linked list.
 //
 //      Other files required:
 //        1.	 node.h - header file for the Node struct

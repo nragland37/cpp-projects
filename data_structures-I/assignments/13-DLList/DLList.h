@@ -1,7 +1,8 @@
 //*****************************************************************************************************
 //
-//      This header file defines a templated class and represents a doubly linked list of nodes with
-//      various functions that can be performed on the list.
+//      This header file updates the doubly linked list class to include additional methods for
+//      inserting and removing nodes at the front and rear of the list, as well as after and before
+//      a specified node.
 //
 //      Other files required:
 //        1.	 node.h - header file for the Node struct

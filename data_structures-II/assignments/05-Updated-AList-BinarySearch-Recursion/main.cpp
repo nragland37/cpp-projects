@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the AList class by creating an array-based list of integers and stock
-//      objects and performing various operations on the list.
+//      This program reads stock data from a file and stores it using the AList class. It then tests
+//      the AList class on the list of stocks.
 //
 //      Other files required:
 //          1.    aList.h - header file for the AList class

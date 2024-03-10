@@ -1,7 +1,6 @@
 //*****************************************************************************************************
 //
-//      This program tests the AList class by creating an array-based list of integers and stock
-//      objects and performing various operations on the list.
+//      This program tests the AList class on a list of integers and stocks.
 //
 //      Other files required:
 //          1.    aList.h - header file for the AList class
@@ -17,10 +16,10 @@ using namespace std;
 
 //*****************************************************************************************************
 
-void searchStock(const AList<Stock> &stockList, const Stock &s);
-void searchInt(const AList<int> &intList, const int &i);
-void checkStock(const AList<Stock> &s);
-void checkInt(const AList<int> &i);
+void searchStock(const AList<Stock> &stockList, const Stock &stockList);
+void searchInt(const AList<int> &intList, const int &intList);
+void checkStock(const AList<Stock> &stockList);
+void checkInt(const AList<int> &intList);
 
 //*****************************************************************************************************
 
@@ -37,13 +36,13 @@ int main() {
     Stock s7(s1);
     Stock s8("Webster University", "WBST", 100100100100.10);
 
-    checkInt(intList);                    // empty
+    checkInt(intList);                      // empty
 
-    for (int i = 0; i < 10; ++i)
-        if (i % 2 == 0)
-            intList.insert(i);
+    for (int intList = 0; intList < 10; ++intList)
+        if (intList % 2 == 0)
+            intList.insert(intList);
         else
-            intList.insert(i * 10);
+            intList.insert(intList * 10);
 
     checkInt(intList);                      // full
     intList.print();
@@ -82,9 +81,9 @@ int main() {
 
 //*****************************************************************************************************
 
-void searchStock(const AList<Stock> &stockList, const Stock &s) {
-    int searchIndex = stockList.binarySearch(s);
-    string sName = s.getName();
+void searchStock(const AList<Stock> &stockList, const Stock &stockList) {
+    int searchIndex = stockList.binarySearch(stockList);
+    string sName = stockList.getName();
 
     if (searchIndex != -1)
         cout << sName << " at index: " << searchIndex << endl;
@@ -94,24 +93,24 @@ void searchStock(const AList<Stock> &stockList, const Stock &s) {
 
 //*****************************************************************************************************
 
-void searchInt(const AList<int> &intList, const int &i) {
-    int searchIndex = intList.binarySearch(i);
+void searchInt(const AList<int> &intList, const int &intList) {
+    int searchIndex = intList.binarySearch(intList);
 
     if (searchIndex != -1)
-        cout << i << " at index: " << searchIndex << endl;
+        cout << intList << " at index: " << searchIndex << endl;
     else
-        cerr << i << " not found\n\n";
+        cerr << intList << " not found\n\n";
 }
 
 //*****************************************************************************************************
 
-void checkStock(const AList<Stock> &s) {
-    cout << "values: " << s.listSize() << endl;
-    cout << "capacity: " << s.listCap() << endl;
+void checkStock(const AList<Stock> &stockList) {
+    cout << "values: " << stockList.listSize() << endl;
+    cout << "capacity: " << stockList.listCap() << endl;
 
-    if (s.isFull())
+    if (stockList.isFull())
         cerr << "stock list full\n\n";
-    else if (s.isEmpty())
+    else if (stockList.isEmpty())
         cerr << "stock list empty\n\n";
     else
         cout << "stock list neither full nor empty\n" << endl;
@@ -119,13 +118,13 @@ void checkStock(const AList<Stock> &s) {
 
 //*****************************************************************************************************
 
-void checkInt(const AList<int> &i) {
-    cout << "values: " << i.listSize() << endl;
-    cout << "capacity: " << i.listCap() << endl;
+void checkInt(const AList<int> &intList) {
+    cout << "values: " << intList.listSize() << endl;
+    cout << "capacity: " << intList.listCap() << endl;
 
-    if (i.isFull())
+    if (intList.isFull())
         cerr << "integer list full\n\n";
-    else if (i.isEmpty())
+    else if (intList.isEmpty())
         cerr << "integer list empty\n\n";
     else
         cout << "integer list neither full nor empty\n" << endl;

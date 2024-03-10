@@ -1,6 +1,8 @@
 //*****************************************************************************************************
 //
-//      This program reads in a file of RPN expressions and evaluates them using a stack.
+//      This program reads in a file of RPN expressions and evaluates them using a stack. 
+//      RPN (Reverse Polish Notation) is a postfix notation where the operator follows the
+//      operands. For example, the infix expression (3 + 4) * 5 is written in RPN as 3 4 + 5 *.
 //
 //      Other files required:
 //        1.	 stack.h - header file for the Stack class
@@ -19,15 +21,15 @@ using namespace std;
 //*****************************************************************************************************
 
 void outputToken(char token[], ofstream &resultsFile);
-void processNumber(char token[], Stack<int> &rpnStack, ofstream &resultsFile);
-bool processOperator(char token[], Stack<int> &rpnStack, ofstream &resultsFile);
-void displayResult(Stack<int> &rpnStack, ofstream &resultsFile, bool &isValid);
-void resetFlagStack(Stack<int> &rpnStack, bool &isValid);
+void processNumber(char token[], Stack<int> &intStack, ofstream &resultsFile);
+bool processOperator(char token[], Stack<int> &intStack, ofstream &resultsFile);
+void display(Stack<int> &intStack, ofstream &resultsFile, bool &isValid);
+void resetFlagStack(Stack<int> &intStack, bool &isValid);
 
 //*****************************************************************************************************
 
 int main() {
-    Stack<int> rpnStack;
+    Stack<int> intStack;
     bool isValid = true;
     char token[5];
 
@@ -38,12 +40,12 @@ int main() {
         outputToken(token, out);
 
         if (token[0] == ';') {
-            displayResult(rpnStack, out, isValid);
-            resetFlagStack(rpnStack, isValid);
+            display(intStack, out, isValid);
+            resetFlagStack(intStack, isValid);
         } else if ((isValid) && (isdigit(token[0]))) {
-            processNumber(token, rpnStack, out);
+            processNumber(token, intStack, out);
         } else if ((isValid) && (ispunct(token[0]))) {
-            isValid = processOperator(token, rpnStack, out);
+            isValid = processOperator(token, intStack, out);
         }
     }
 
@@ -64,24 +66,24 @@ void outputToken(char token[], ofstream &resultsFile) {
 
 //*****************************************************************************************************
 
-void processNumber(char token[], Stack<int> &rpnStack, ofstream &resultsFile) {
+void processNumber(char token[], Stack<int> &intStack, ofstream &resultsFile) {
     int num;
 
     num = atoi(token);
 
-    rpnStack.push(num);
+    intStack.push(num);
     resultsFile << "Push " << num;
 }
 
 //*****************************************************************************************************
 
-bool processOperator(char token[], Stack<int> &rpnStack, ofstream &resultsFile) {
+bool processOperator(char token[], Stack<int> &intStack, ofstream &resultsFile) {
     bool success = false;
     int op1,
         op2,
         result;
 
-    if ((rpnStack.pop(op2)) && (rpnStack.pop(op1))) {
+    if ((intStack.pop(op2)) && (intStack.pop(op1))) {
         resultsFile << "Pop  " << op2 << "\tPop  " << op1;
 
         switch (token[0]) {
@@ -102,7 +104,7 @@ bool processOperator(char token[], Stack<int> &rpnStack, ofstream &resultsFile) 
                 break;
         }
 
-        rpnStack.push(result);
+        intStack.push(result);
         resultsFile << "\tPush " << result;
 
         success = true;
@@ -113,15 +115,15 @@ bool processOperator(char token[], Stack<int> &rpnStack, ofstream &resultsFile) 
 
 //*****************************************************************************************************
 
-void displayResult(Stack<int> &rpnStack, ofstream &resultsFile, bool &isValid) {
+void display(Stack<int> &intStack, ofstream &resultsFile, bool &isValid) {
     int result;
 
     if (isValid) {
-        if (rpnStack.getNumValues() == 1) {
-            rpnStack.pop(result);
+        if (intStack.getNumValues() == 1) {
+            intStack.pop(result);
             resultsFile << "Pop  " << result << "\n\t\tValid:  result = " << result << "\n" << endl;
             cout << "= " << result << endl;
-        } else if (rpnStack.getNumValues() > 1) {
+        } else if (intStack.getNumValues() > 1) {
             resultsFile << "\n\t\tInvalid RPN expression - too many operands\n" << endl;
             cerr << "\t\tinvalid\n";
 
@@ -135,11 +137,10 @@ void displayResult(Stack<int> &rpnStack, ofstream &resultsFile, bool &isValid) {
 
 //*****************************************************************************************************
 
-void resetFlagStack(Stack<int> &rpnStack, bool &isValid) {
+void resetFlagStack(Stack<int> &intStack, bool &isValid) {
     int popVal;
 
-    while (rpnStack.pop(popVal))
-        ;
+    while (intStack.pop(popVal));
 
     isValid = true;
 }

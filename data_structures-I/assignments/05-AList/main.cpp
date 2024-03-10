@@ -1,13 +1,13 @@
 //*****************************************************************************************************
 //
-//      This program tests the AList class by inserting, retrieving, updating, and removing data.
+//      This program tests the AList class on a list of short integers.
 //
 //      Other files required:
-//        1.	 AList.h - header file for the AList class
+//        1.	 aList.h - header file for the AList class
 //
 //*****************************************************************************************************
 
-#include "AList.h"
+#include "aList.h"
 
 #include <iostream>
 using namespace std;

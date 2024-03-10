@@ -1,10 +1,10 @@
 //*****************************************************************************************************
 //
-//      This program tests the priorityQueue class by creating a priority queue of stock objects and
-//      performing various operations on the queue.
+//      This program reads stock data from a file and stores it in an array-based list using a max
+//      heap priority queue. It then tests the PriorityQueue class on the list of stocks.
 //
 //      Other files required:
-//          1.    priorityQueue.h - header file for the priorityQueue class
+//          1.    priorityQueue.h - header file for the PriorityQueue class
 //          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
 //          3.    Stock.txt - text file containing stock data
 //
@@ -20,26 +20,26 @@ using namespace std;
 
 //*****************************************************************************************************
 
-bool readStocks(ifstream &inFile, priorityQueue<Stock> &s);
-void remove(priorityQueue<Stock> &s, int num);
-void checkStock(const priorityQueue<Stock> &s);
+bool readStocks(ifstream &inFile, PriorityQueue<Stock> &stockList);
+void remove(PriorityQueue<Stock> &stockList, int num);
+void checkStock(const PriorityQueue<Stock> &stockList);
 
 //*****************************************************************************************************
 
 int main() {
     ifstream file("Stock.txt");
-    priorityQueue<Stock> s1;
-    priorityQueue<Stock> s2(2);                    // restricted capacity (minimum 12)
+    PriorityQueue<Stock> stockList1;
+    PriorityQueue<Stock> stockList2(2);                    // restricted capacity (minimum 12)
 
-    remove(s2, 5);                                 // error/empty list/resizing to minimum capacity
+    remove(stockList2, 5);                                 // error/empty list/resizing to minimum capacity
 
-    if (readStocks(file, s1)) {
-        s1.display();
-        remove(s1, 5);
-        checkStock(s1);
+    if (readStocks(file, stockList1)) {
+        stockList1.display();
+        remove(stockList1, 5);
+        checkStock(stockList1);
 
-        s1.clear();                                // clear list
-        checkStock(s1);
+        stockList1.clear();                                // clear list
+        checkStock(stockList1);
     }
 
     return 0;
@@ -47,7 +47,7 @@ int main() {
 
 //*****************************************************************************************************
 
-bool readStocks(ifstream &inFile, priorityQueue<Stock> &s) {
+bool readStocks(ifstream &inFile, PriorityQueue<Stock> &stockList) {
     bool success = true;
 
     if (inFile.is_open()) {
@@ -57,7 +57,7 @@ bool readStocks(ifstream &inFile, priorityQueue<Stock> &s) {
 
         while (getline(inFile, name) && getline(inFile, symbol) && inFile >> price) {
             inFile.ignore(numeric_limits<streamsize>::max(), '\n');
-            s.enqueue(Stock(name, symbol, price));
+            stockList.enqueue(Stock(name, symbol, price));
         }
     } else {
         cerr << "\nError: file not found\n";
@@ -70,20 +70,20 @@ bool readStocks(ifstream &inFile, priorityQueue<Stock> &s) {
 
 //*****************************************************************************************************
 
-void remove(priorityQueue<Stock> &s, int num) {
+void remove(PriorityQueue<Stock> &stockList, int num) {
     bool success = true;
 
     for (int i = 0; i < num && success; ++i) {
         Stock stock;
-        checkStock(s);
+        checkStock(stockList);
 
-        if (s.dequeue(stock)) {
+        if (stockList.dequeue(stock)) {
             cout << "\n\nRemoved stock:"
                  << "\n----------------------------------" << endl;
             cout << stock;
             cout << "\n\nRemaining stocks:"
                  << "\n----------------------------------" << endl;
-            s.display();
+            stockList.display();
         } else {
             cerr << "Error: no stocks to remove\n\n";
             success = false;
@@ -93,16 +93,16 @@ void remove(priorityQueue<Stock> &s, int num) {
 
 //*****************************************************************************************************
 
-void checkStock(const priorityQueue<Stock> &s) {
+void checkStock(const PriorityQueue<Stock> &stockList) {
     cout << "\n----------------------------------"
          << "\n=========== Stock List ==========="
          << "\n----------------------------------"
-         << "\nValues: " << s.getNumValues()
-         << "\nCapacity: " << s.getCapacity() << endl;
+         << "\nValues: " << stockList.getNumValues()
+         << "\nCapacity: " << stockList.getCapacity() << endl;
 
-    if (s.isFull())
+    if (stockList.isFull())
         cerr << "Stock list full\n";
-    else if (s.isEmpty())
+    else if (stockList.isEmpty())
         cerr << "Stock list empty\n";
     else
         cout << "Stock list neither full nor empty" << endl;

@@ -1,7 +1,6 @@
 //*****************************************************************************************************
 //
-//      This program tests the LList class by creating a linked list of Stock objects and performing
-//      various operations on the list.
+//      This program tests the LList class on a list of stocks. 
 //
 //      Other files required:
 //          1.    LList.h - header file for the LList class

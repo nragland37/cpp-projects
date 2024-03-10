@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //
-//      This header file defines a templated struct that represents a node in a self-balancing binary
+//      This header file defines a struct template that represents a node in a self-balancing binary
 //      search tree (AVL tree).
 //
 //*****************************************************************************************************
@@ -25,7 +25,7 @@ struct Node {
 
 template <typename T>
 Node<T>::Node() {
-    value = T();
+    value = T();     // T() - default initialization (0 for numbers, empty string for strings, etc.)
     bFactor = 0;
     left = nullptr;
     right = nullptr;

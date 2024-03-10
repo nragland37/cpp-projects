@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This header file defines a HashTable class with members and methods for managing a hash table
-//      using quadratic probing.
+//      This header file defines a class template for a hash table with quadratic probing to resolve 
+//      collisions when inserting and removing items.
 //
 //      Other files required:
 //		  1.    htElement.h - header file for the HTElement struct

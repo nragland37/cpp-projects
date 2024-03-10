@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This header file defines a templated class for a stack data structure implemented using a
-//      dynamically allocated array to store the elements of the stack.
+//      This header file defines a class template for an array-based list using a stack structure.
+//      Last-in, first-out (LIFO)
 //
 //*****************************************************************************************************
 

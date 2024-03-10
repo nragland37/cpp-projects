@@ -1,5 +1,9 @@
 //*****************************************************************************************************
 //
+//      This header file defines a class template for a binary search tree (BST) with recursive
+//      methods. Includes in-order, pre-order, and post-order traversal methods for displaying the
+//      tree in various orders.
+//
 //      Other files required:
 //		  1.    node.h - header file for the Node struct for use in the BST class
 //

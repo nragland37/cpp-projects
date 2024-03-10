@@ -1,7 +1,8 @@
 //*****************************************************************************************************
 //
-//      This header file defines an AVL class with members and methods for managing a self-balancing
-//      binary search tree (AVL tree).
+//      This header file defines a class template for managing a self-balancing binary search tree 
+//      (AVL tree). Self-balancing is achieved by maintaining a balance factor for each node in the
+//      tree. The tree is rebalanced after each insertion and deletion operation.
 //
 //      Other files required:
 //		  1.    node.h - header file for the Node struct for use in the BST class

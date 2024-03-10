@@ -1,12 +1,11 @@
 //*****************************************************************************************************
 //
-//      This header file defines a class template AList, which implements an array-based list data
-//      structure with various methods for inserting and retrieving data.
+//      This header file defines a class template for an array-based list.
 //
 //*****************************************************************************************************
 
-#ifndef AList_H
-#define AList_H
+#ifndef ALIST_H
+#define ALIST_H
 
 //*****************************************************************************************************
 

@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //
-//      This program is the driver for the HashTable class.
+//      This program tests the HashTable class on a a hash table of stock objects.
 //
 //      Other files required:
 //          1.    stock.h - header file for the Stock class (includes stock.cpp)

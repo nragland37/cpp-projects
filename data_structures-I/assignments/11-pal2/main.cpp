@@ -2,6 +2,7 @@
 //
 //      This program reads in a file of palindromes separated by # and determines if they are valid
 //      palindromes using a stack and a queue to reverse the order and compare the characters.
+//      Palindromes are words or phrases that read the same forwards and backwards.
 //
 //      Other files required:
 //        1.	 stack.h - header file for the Stack class
@@ -22,15 +23,15 @@ using namespace std;
 
 //*****************************************************************************************************
 
-bool testNdisplayPal(Stack<char> &s, Queue<char> &q);
+bool testNdisplayPal(Stack<char> &charStack, Queue<char> &charQueue);
 char getPalType(bool hasSpace, bool hasPunct);
 void displayPalResult(bool isValid, char palType);
 
 //*****************************************************************************************************
 
 int main() {
-    Stack<char> s;
-    Queue<char> q;
+    Stack<char> charStack;
+    Queue<char> charQueue;
     bool isValid,
         hasPunct,
         hasSpace;
@@ -48,8 +49,8 @@ int main() {
         for (int i = 0; i < len; ++i) {
             if (isalpha(pal[i])) {
                 pal[i] = tolower(pal[i]);
-                s.push(pal[i]);
-                q.enqueue(pal[i]);
+                charStack.push(pal[i]);
+                charQueue.enqueue(pal[i]);
             } else if (isspace(pal[i])) {
                 hasSpace = true;
             } else if (ispunct(pal[i])) {
@@ -57,7 +58,7 @@ int main() {
             }
         }
 
-        isValid = testNdisplayPal(s, q);
+        isValid = testNdisplayPal(charStack, charQueue);
         palType = getPalType(hasSpace, hasPunct);
 
         displayPalResult(isValid, palType);
@@ -70,13 +71,13 @@ int main() {
 
 //*****************************************************************************************************
 
-bool testNdisplayPal(Stack<char> &s, Queue<char> &q) {
+bool testNdisplayPal(Stack<char> &charStack, Queue<char> &charQueue) {
     char sTemp,
         qTemp;
     bool isValid = true;
-    int numVal = s.getNumValues();
+    int numVal = charStack.getNumValues();
 
-    while ((s.pop(sTemp)) && (q.dequeue(qTemp))) {
+    while ((charStack.pop(sTemp)) && (charQueue.dequeue(qTemp))) {
         if (sTemp != qTemp)
             isValid = false;
 

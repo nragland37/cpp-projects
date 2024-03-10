@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This header file defines a class template called Dyad that stores two values and provides
-//      methods for accessing and manipulating them.
+//      This header file defines a class template for a dyad, which is a pair of values of the same 
+//      type.
 //
 //*****************************************************************************************************
 

@@ -1,7 +1,8 @@
 //*****************************************************************************************************
 //
 //      This program reads in a file of palindromes separated by # and determines if they are valid
-//      palindromes using three stacks to reverse the order and compare the characters.
+//      palindromes using three stacks to reverse the order and compare the characters. Palindromes
+//      are words or phrases that read the same forwards and backwards.
 //
 //      Other files required:
 //        1.	 stack.h - header file for the Stack class
@@ -20,17 +21,17 @@ using namespace std;
 
 //*****************************************************************************************************
 
-void fillStack3(Stack<char> &s2, Stack<char> &s3);
-bool testNdisplayPal(Stack<char> &s1, Stack<char> &s3);
+void fillStack3(Stack<char> &charStack2, Stack<char> &charStack3);
+bool testNdisplayPal(Stack<char> &charStack1, Stack<char> &charStack3);
 char getPalType(bool hasSpace, bool hasPunct);
 void displayPalResult(bool isValid, char palType);
 
 //*****************************************************************************************************
 
 int main() {
-    Stack<char> s1,
-        s2,
-        s3;
+    Stack<char> charStack1,
+                charStack2,
+                charStack3;
     bool isValid,
         hasPunct,
         hasSpace;
@@ -49,8 +50,8 @@ int main() {
             for (int i = 0; i < len; ++i) {
                 if (isalpha(pal[i])) {
                     pal[i] = tolower(pal[i]);
-                    s1.push(pal[i]);
-                    s2.push(pal[i]);
+                    charStack1.push(pal[i]);
+                    charStack2.push(pal[i]);
                 } else if (isspace(pal[i])) {
                     hasSpace = true;
                 } else if (ispunct(pal[i])) {
@@ -58,9 +59,9 @@ int main() {
                 }
             }
 
-            fillStack3(s2, s3);
+            fillStack3(charStack2, charStack3);
 
-            isValid = testNdisplayPal(s1, s3);
+            isValid = testNdisplayPal(charStack1, charStack3);
             palType = getPalType(hasSpace, hasPunct);
 
             displayPalResult(isValid, palType);
@@ -77,22 +78,22 @@ int main() {
 
 //*****************************************************************************************************
 
-void fillStack3(Stack<char> &s2, Stack<char> &s3) {
+void fillStack3(Stack<char> &charStack2, Stack<char> &charStack3) {
     char temp;
 
-    while (s2.pop(temp))
-        s3.push(temp);
+    while (charStack2.pop(temp))
+        charStack3.push(temp);
 }
 
 //*****************************************************************************************************
 
-bool testNdisplayPal(Stack<char> &s1, Stack<char> &s3) {
+bool testNdisplayPal(Stack<char> &charStack1, Stack<char> &charStack3) {
     char s1Temp,
         s3Temp;
     bool isValid = true;
-    int i = s1.getNumValues();
+    int i = charStack1.getNumValues();
 
-    while ((s1.pop(s1Temp)) && (s3.pop(s3Temp))) {
+    while ((charStack1.pop(s1Temp)) && (charStack3.pop(s3Temp))) {
         if (s1Temp != s3Temp)
             isValid = false;
 

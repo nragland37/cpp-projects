@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This header file defines a priorityQueue class with members and methods for managing a
-//      priority queue.
+//      This header file defines a class template for an array-based priority queue list using a max 
+//      heap structure. 
 //
 //*****************************************************************************************************
 
@@ -16,7 +16,7 @@
 //*****************************************************************************************************
 
 template <typename T>
-class priorityQueue {
+class PriorityQueue {
 private:
     T *list;
     int capacity;
@@ -26,8 +26,8 @@ private:
     void _heapify(int i);
 
 public:
-    priorityQueue(int size = 12);
-    ~priorityQueue();
+    PriorityQueue(int size = 12);
+    ~PriorityQueue();
     bool enqueue(const T &value);
     bool dequeue(T &value);
     void display() const;
@@ -41,7 +41,7 @@ public:
 //*****************************************************************************************************
 
 template <typename T>
-priorityQueue<T>::priorityQueue(int size) {
+PriorityQueue<T>::PriorityQueue(int size) {
     if (size < 12)
         size = 12;
 
@@ -53,7 +53,7 @@ priorityQueue<T>::priorityQueue(int size) {
 //*****************************************************************************************************
 
 template <typename T>
-priorityQueue<T>::~priorityQueue() {
+PriorityQueue<T>::~PriorityQueue() {
     delete[] list;
     capacity = 0;
     numValues = 0;
@@ -62,7 +62,7 @@ priorityQueue<T>::~priorityQueue() {
 //*****************************************************************************************************
 
 template <typename T>
-bool priorityQueue<T>::_resize(int size) {
+bool PriorityQueue<T>::_resize(int size) {
     bool success = false;
     int newCapacity;
     T *newList = nullptr;
@@ -88,7 +88,7 @@ bool priorityQueue<T>::_resize(int size) {
 //*****************************************************************************************************
 
 template <typename T>
-void priorityQueue<T>::_heapify(int i) {
+void PriorityQueue<T>::_heapify(int i) {
     bool stop = false;
     int leftChild,
         rightChild,
@@ -121,7 +121,7 @@ void priorityQueue<T>::_heapify(int i) {
 //*****************************************************************************************************
 
 template <typename T>
-bool priorityQueue<T>::enqueue(const T &value) {
+bool PriorityQueue<T>::enqueue(const T &value) {
     bool success = true;
     int child,
         parent;
@@ -148,7 +148,7 @@ bool priorityQueue<T>::enqueue(const T &value) {
 //*****************************************************************************************************
 
 template <typename T>
-bool priorityQueue<T>::dequeue(T &value) {
+bool PriorityQueue<T>::dequeue(T &value) {
     bool success = false;
 
     if (numValues > 0) {
@@ -168,7 +168,7 @@ bool priorityQueue<T>::dequeue(T &value) {
 //*****************************************************************************************************
 
 template <typename T>
-void priorityQueue<T>::display() const {
+void PriorityQueue<T>::display() const {
     for (int i = 0; i < numValues; ++i)
         std::cout << list[i];
 }
@@ -176,35 +176,35 @@ void priorityQueue<T>::display() const {
 //*****************************************************************************************************
 
 template <typename T>
-inline int priorityQueue<T>::getNumValues() const {
+inline int PriorityQueue<T>::getNumValues() const {
     return numValues;
 }
 
 //*****************************************************************************************************
 
 template <typename T>
-inline int priorityQueue<T>::getCapacity() const {
+inline int PriorityQueue<T>::getCapacity() const {
     return capacity;
 }
 
 //*****************************************************************************************************
 
 template <typename T>
-inline bool priorityQueue<T>::isEmpty() const {
+inline bool PriorityQueue<T>::isEmpty() const {
     return (numValues == 0);
 }
 
 //*****************************************************************************************************
 
 template <typename T>
-inline bool priorityQueue<T>::isFull() const {
+inline bool PriorityQueue<T>::isFull() const {
     return (numValues == capacity);
 }
 
 //*****************************************************************************************************
 
 template <typename T>
-inline void priorityQueue<T>::clear() {
+inline void PriorityQueue<T>::clear() {
     numValues = 0;
 }
 

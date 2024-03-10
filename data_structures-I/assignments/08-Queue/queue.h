@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This header file defines a templated class for a queue data structure implemented using a
-//      linked list to store the elements of the queue.
+//      This header file defines a class template for a singly linked list using a queue structure.
+//      First-in, first-out (FIFO)
 //
 //      Other files required:
 //        1.	 node.h - header file for the Node struct

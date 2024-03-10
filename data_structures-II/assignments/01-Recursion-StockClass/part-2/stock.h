@@ -1,12 +1,12 @@
-//*****************************************************************************************************	Due:					09.04.2023
+//*****************************************************************************************************
 //
-//      This header file defines a Stock class with attributes and methods for managing stock details
-//      and comparisons.
+//      This header file defines a Stock class with overloaded comparison and output operators to 
+//      facilitate easy comparison and display of stock information.
 //
 //*****************************************************************************************************
 
-#ifndef stock_H
-#define stock_H
+#ifndef STOCK_H
+#define STOCK_H
 
 //*****************************************************************************************************
 

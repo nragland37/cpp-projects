@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This header file defines an array-based template list class with various methods that can be
-//      performed on the list.
+//      This header file defines a class template for an array-based list with a recursive binary 
+//      search method.
 //
 //*****************************************************************************************************
 
@@ -28,7 +28,7 @@ private:
 public:
     AList(int size = 10);
     ~AList();
-    AList(const AList<T> &aList);
+    AList(const AList<T> &AList);
     void insert(const T &item);
     bool isFull() const;
     bool isEmpty() const;
@@ -62,13 +62,13 @@ AList<T>::~AList() {
 //*****************************************************************************************************
 
 template <typename T>
-AList<T>::AList(const AList<T> &aList) {
-    capacity = aList.capacity;
-    numValues = aList.numValues;
+AList<T>::AList(const AList<T> &AList) {
+    capacity = AList.capacity;
+    numValues = AList.numValues;
     list = new T[capacity];
 
     for (int i = 0; i < numValues; ++i)
-        list[i] = aList.list[i];
+        list[i] = AList.list[i];
 }
 
 //*****************************************************************************************************

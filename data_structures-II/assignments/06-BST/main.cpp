@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the BST class by creating a binary search tree of integers and stock
-//      objects and performing various operations on the tree using a menu-driven interface.
+//      This program reads stock data from a file and stores it in a Binary Search Tree. It then tests
+//      the BST class by traversing the tree and displaying the stock data. 
 //
 //      Other files required:
 //          1.    bst.h - header file for the BST class (includes node struct: node.h)

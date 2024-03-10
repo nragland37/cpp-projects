@@ -1,15 +1,16 @@
 //*****************************************************************************************************
 //
-//      This program implements various sorting algorithms on a list of stocks.
+//      This program reads stock data from a file and stores it in an array-based list. Then it tests
+//      the sortedAList class on the stock list using various sorting algorithms.
 //
 //      Other files required:
 //          1.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//          2.    sortedList.h - header file for the SortedList class
+//          2.    sortedList.h - header file for the sortedAList class
 //          3.    Stock.txt - text file containing stock data
 //
 //*****************************************************************************************************
 
-#include "sortedList.h"
+#include "sortedAList.h"
 #include "stock.h"
 
 #include <fstream>
@@ -19,16 +20,16 @@ using namespace std;
 
 //*****************************************************************************************************
 
-bool readStocks(SortedList<Stock> &stockList, ifstream &inFile);
-void checkStock(const SortedList<Stock> &stockList);
-void displayRandom(SortedList<Stock> &stockList);
-void displaySort(SortedList<Stock> &stockList, int sortType);
+bool readStocks(sortedAList<Stock> &stockList, ifstream &inFile);
+void checkStock(const sortedAList<Stock> &stockList);
+void displayRandom(sortedAList<Stock> &stockList);
+void displaySort(sortedAList<Stock> &stockList, int sortType);
 
 //*****************************************************************************************************
 
 int main() {
     ifstream inFile("Stock.txt");
-    SortedList<Stock> stockList;
+    sortedAList<Stock> stockList;
 
     checkStock(stockList);                                                  // empty
 
@@ -61,7 +62,7 @@ int main() {
 
 //*****************************************************************************************************
 
-bool readStocks(SortedList<Stock> &stockList, ifstream &inFile) {
+bool readStocks(sortedAList<Stock> &stockList, ifstream &inFile) {
     bool success = true;
 
     if (inFile.is_open()) {
@@ -84,7 +85,7 @@ bool readStocks(SortedList<Stock> &stockList, ifstream &inFile) {
 
 //*****************************************************************************************************
 
-void checkStock(const SortedList<Stock> &stockList) {
+void checkStock(const sortedAList<Stock> &stockList) {
     cout << "\nvalues: " << stockList.getNumValues() << endl;
     cout << "capacity: " << stockList.getCapacity() << endl;
 
@@ -99,7 +100,7 @@ void checkStock(const SortedList<Stock> &stockList) {
 
 //*****************************************************************************************************
 
-void displayRandom(SortedList<Stock> &stockList) {
+void displayRandom(sortedAList<Stock> &stockList) {
     cout << "\nRandomise:\n" << endl;
     stockList.randomise();
     stockList.display();
@@ -107,7 +108,7 @@ void displayRandom(SortedList<Stock> &stockList) {
 
 //*****************************************************************************************************
 
-void displaySort(SortedList<Stock> &stockList, int sortType) {
+void displaySort(sortedAList<Stock> &stockList, int sortType) {
     if (sortType == 1) {
         cout << "\nQuick Sort Ascending:\n" << endl;
         stockList.quickSortA();

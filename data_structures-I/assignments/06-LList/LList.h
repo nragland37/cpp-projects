@@ -1,7 +1,6 @@
 //*****************************************************************************************************
 //
-//      This header file defines a templated class and represents a linked list of nodes with various
-//      functions that can be performed on the list.
+//      This header file defines a class template for a singly linked list.
 //
 //      Other files required:
 //        1.	 node.h - header file for the AList class
@@ -141,7 +140,7 @@ bool LList<T>::viewFront(T &dataOut) const {
     if (front) {
         dataOut = front->data;
         success = true;
-    }
+    } 
 
     return success;
 }
@@ -159,7 +158,7 @@ bool LList<T>::viewRear(T &dataOut) const {
     if (pCur) {
         dataOut = pCur->data;
         success = true;
-    }
+    } 
 
     return success;
 }

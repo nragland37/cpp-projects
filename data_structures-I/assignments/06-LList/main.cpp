@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //
-//      This driver file tests the functions of the LList class.
+//      This program tests the LList class on a list of short integers.
 //
 //      Other files required:
 //        1.	 LList.h - header file for the LList class
@@ -15,71 +15,54 @@ using namespace std;
 //*****************************************************************************************************
 
 void checkListState(LList<short> &list);
-void printResult(bool success, const char *action, const char *value, LList<short> &list);
-void printNum(const char *title, short num);
+void display(bool success, LList<short> &list);
 
 //*****************************************************************************************************
 
 int main() {
     LList<short> shortList;
+    bool success;
     short num;
 
     cout << "numValues: " << shortList.getNumValues() << endl;
     checkListState(shortList);
+    cout << endl;
 
-    num = 1;
-    printResult(shortList.remove(num), "remove", "1", shortList);
-    printResult(shortList.retrieve(num), "retrieve", "1", shortList);
-    printResult(shortList.viewFront(num), "viewFront", "", shortList);
-    printResult(shortList.viewRear(num), "viewRear", "", shortList);
+    for (int i = 0; i < 10; ++i) {
+        success = shortList.insert(2 * (i + 1));
+        display(success, shortList);
+    }
 
-    printResult(shortList.insert(4), "insertFront", "2", shortList);
-    printResult(shortList.insert(2), "insertFront", "4", shortList);
-    printResult(shortList.insert(10), "insertFront", "10", shortList);
-    printResult(shortList.insert(6), "insertFront", "6", shortList);
-    printResult(shortList.insert(12), "insertFront", "12", shortList);
+    cout << endl;
 
-    printResult(shortList.insert(8), "insertFront", "8", shortList);
-    printResult(shortList.insert(14), "insertFront", "14", shortList);
-    printResult(shortList.insert(16), "insertFront", "16", shortList);
-    printResult(shortList.insert(18), "insertFront", "18", shortList);
-    printResult(shortList.insert(20), "insertFront", "20", shortList);
+    for (int i = 0; i < 2; ++i) {
+        num = (2 * (i + 1));
+        success = shortList.retrieve(num);
 
-    num = 2;
-    printResult(shortList.remove(num), "remove", "2", shortList);
-    printNum("Removed: ", num);
-    num = 10;
-    printResult(shortList.remove(num), "remove", "10", shortList);
-    printNum("Removed: ", num);
-    num = 20;
-    printResult(shortList.remove(num), "remove", "20", shortList);
-    printNum("Removed: ", num);
-    num = 4;
-    printResult(shortList.retrieve(num), "retrieve", "4", shortList);
-    printNum("Retrieved: ", num);
-    num = 12;
-    printResult(shortList.retrieve(num), "retrieve", "12", shortList);
-    printNum("Retrieved: ", num);
-    num = 18;
-    printResult(shortList.retrieve(num), "retrieve", "18", shortList);
-    printNum("Retrieved: ", num);
+        if (success)
+            cout << "retrieved " << num << endl;
 
-    num = 3;
-    printResult(shortList.remove(num), "remove", "3", shortList);
-    printResult(shortList.retrieve(num), "retrieve", "3", shortList);
-    num = 13;
-    printResult(shortList.remove(num), "remove", "13", shortList);
-    printResult(shortList.retrieve(num), "retrieve", "13", shortList);
-    num = 19;
-    printResult(shortList.remove(num), "remove", "19", shortList);
-    printResult(shortList.retrieve(num), "retrieve", "19", shortList);
+        display(success, shortList);
+    }
+
+    cout << endl;
+
+    for (int i = 0; i < 11; ++i) {
+        num = (2 * (10 - i));
+        success = shortList.remove(num);
+
+        if (success)
+            cout << "removed " << num << endl;
+
+        display(success, shortList);
+    }
 
     return 0;
 }
 
 //*****************************************************************************************************
 
-void printResult(bool success, const char *action, const char *value, LList<short> &list) {
+void display(bool success, LList<short> &list) {
     short front,
         rear;
 
@@ -88,13 +71,12 @@ void printResult(bool success, const char *action, const char *value, LList<shor
         list.viewFront(front);
         list.viewRear(rear);
 
-        cout << "numValues: " << list.getNumValues() << "\t front: " << front
+        cout << "numValues: " << list.getNumValues()
+             << "\t front: " << front
              << "\t rear: " << rear << endl;
     } else {
-        cerr << "Unable to " << action << " value " << value << endl;
+        checkListState(list);
     }
-    checkListState(list);
-    cout << endl;
 }
 
 //*****************************************************************************************************
@@ -104,13 +86,6 @@ void checkListState(LList<short> &list) {
         cout << "The list is full \n";
     else if (list.isEmpty())
         cout << "The list is empty \n";
-}
-
-//*****************************************************************************************************
-
-void printNum(const char *title, short num) {
-    cout << title << num << "\n"
-         << endl;
 }
 
 //*****************************************************************************************************
