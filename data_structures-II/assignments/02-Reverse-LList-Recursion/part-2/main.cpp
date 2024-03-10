@@ -1,6 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the LList class on a list of stocks. 
+//      This program demonstrates the LList class by instantiating a singly linked list of Stock 
+//      objects and performing it's methods.
 //
 //      Other files required:
 //          1.    LList.h - header file for the LList class

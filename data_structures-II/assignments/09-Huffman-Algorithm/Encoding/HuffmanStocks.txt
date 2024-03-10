@@ -1,0 +1,41 @@
+10
+American Express Co
+AXP
+118.67
+0.1
+Apple Inc
+AAPL
+120.3
+0.15
+Boeing Co
+BA
+202.4
+0.02
+Caterpillar Inc
+CAT
+173.19
+0.03
+Cisco Systems Inc
+CSCO
+42.54
+0.05
+Goldman Sachs Group Inc
+GS
+222.38
+0.25
+Home Depot Inc
+HD
+279.57
+0.2
+Intel Corp
+INTC 
+46.19
+0.075
+Johnson & Johnson
+JNJ
+150.85
+0.025
+Coca-Cola Co
+KO
+53.85
+0.1

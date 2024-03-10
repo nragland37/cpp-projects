@@ -1,7 +1,8 @@
 //*****************************************************************************************************
 //
-//      This program reads stock data from a file and stores it in an array-based list using a max
-//      heap priority queue. It then tests the PriorityQueue class on the list of stocks.
+//      This program reads stock data from a file and instantiates an array-based list priority queue 
+//      to store the stock objects. It then performs it's methods to demonstrate the PriorityQueue 
+//      class.
 //
 //      Other files required:
 //          1.    priorityQueue.h - header file for the PriorityQueue class
@@ -472,5 +473,12 @@ CSCO
 Values: 11
 Capacity: 12
 Stock list neither full nor empty
+
+----------------------------------
+=========== Stock List ===========
+----------------------------------
+Values: 0
+Capacity: 12
+Stock list empty
 
 */

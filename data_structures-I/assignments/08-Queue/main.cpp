@@ -1,6 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the Queue class on a queue of short integers.
+//      This program demonstrates the use of the Queue class by instantiating a singly linked list 
+//      queue of short integers and performing its methods.
 //
 //      Other files required:
 //        1.	 queue.h - header file for the Queue class

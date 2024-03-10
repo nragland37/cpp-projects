@@ -1,7 +1,9 @@
 //*****************************************************************************************************
 //
-//      This program reads in a file of palindromes separated by # and determines if they are valid
-//      palindromes using a stack and a queue to reverse the order and compare the characters.
+//      This program reads in a file of palindromes separated by # and instantiates both an 
+//      array-based list stack and a singly linked list queue of characters to store the palindromes.
+//      It then determines if they are valid palindromes using the stack and queue to compare the 
+//      characters.
 //      Palindromes are words or phrases that read the same forwards and backwards.
 //
 //      Other files required:

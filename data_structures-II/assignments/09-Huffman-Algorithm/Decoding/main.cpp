@@ -1,15 +1,14 @@
 //*****************************************************************************************************
 //
-//      This program uses the Huffman algorithm to create a binary tree of stocks and their
-//      frequencies.
+//      This program reads stock data from a file and creates a Huffman tree to decode a pre-set
+//      sequence. It then displays the stocks present in that sequence.
 //
 //      Other files required:
 //          1.    node.h - header file for the Node struct
 //          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
 //          3.    HuffmanStocks.txt - text file containing stock data
 //
-//      NOTE: Decodes a pre-set sequence using the Huffman tree and displays the stocks present in
-//      that sequence.
+//      NOTE: Decoding only. No encoding.
 //
 //*****************************************************************************************************
 

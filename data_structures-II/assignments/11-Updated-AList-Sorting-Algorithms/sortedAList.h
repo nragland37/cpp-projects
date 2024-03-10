@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This header file updates the sortedAList class to include additional sorting algorithms:
-//      heap sort (ascending and descending).
+//      This header file updates the sortedAList class to include the following sorting algorithms:
+//      selection, quick, heap sort 
 //
 //*****************************************************************************************************
 

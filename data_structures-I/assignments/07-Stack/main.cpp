@@ -1,6 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the Stack class on a stack of short integers.
+//      This program demonstrates the use of the Stack class by instantiating an array-based list
+//      stack of short integers and performing its methods. 
 //
 //      Other files required:
 //        1.	 stack.h - header file for the Stack class

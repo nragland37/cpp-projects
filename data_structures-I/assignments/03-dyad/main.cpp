@@ -1,6 +1,7 @@
 //*****************************************************************************************************
 //      
-//      This program tests the methods of the Dyad class.
+//      This program demonstrates the use of the Dyad class by instantiating objects of type int,
+//      double, and char and performing its methods.
 //
 //      Other files required:
 //        1.	 dyad.h - header file for the Dyad class

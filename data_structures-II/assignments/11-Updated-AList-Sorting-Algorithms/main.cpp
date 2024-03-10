@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program reads stock data from a file and stores it in an array-based list. Then it tests
-//      the sortedAList class on the stock list using various sorting algorithms.
+//      This program reads stock data from a file and instantiates an array-based list to store the
+//      stock objects. It then performs it's methods to demonstrate the sortedAList class.
 //
 //      Other files required:
 //          1.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)

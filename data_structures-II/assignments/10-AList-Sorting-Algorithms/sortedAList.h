@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
 //      This header file defines a class template for an array-based list with the following sorting
-//      algorithms: selection, quick sort (ascending and descending).
+//      algorithms: selection, quick sort
 //
 //*****************************************************************************************************
 

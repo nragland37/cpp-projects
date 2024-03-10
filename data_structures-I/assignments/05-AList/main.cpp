@@ -1,6 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the AList class on a list of short integers.
+//      This program demonstrates the use of the AList class by instantiating an array-based list of
+//      short integers and performing its methods.
 //
 //      Other files required:
 //        1.	 aList.h - header file for the AList class

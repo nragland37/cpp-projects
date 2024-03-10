@@ -1,6 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the HashTable class on a a hash table of stock objects.
+//      This program demonstrates the HashTable class by instantiating a hash table of Stock objects
+//      and performing it's methods.
 //
 //      Other files required:
 //          1.    stock.h - header file for the Stock class (includes stock.cpp)
@@ -36,13 +37,13 @@ int main() {
     stockTable.insert(microsoft);
     stockTable.insert(tesla);
     stockTable.insert(amazon);
-    stockTable.insert(googleCopy);                      // collision (not inserted)
-    stockTable.insert(amazonCopy);                      // collision w/ different attributes (not inserted)
+    stockTable.insert(googleCopy);              // collision (not inserted)
+    stockTable.insert(amazonCopy);              // collision (not inserted)
 
     stockTable.display();
 
-    test(stockTable, apple);                            // found/removed
-    test(stockTable, apple);                            // not found/not removed
+    test(stockTable, apple);                    // found/removed
+    test(stockTable, apple);                    // not found/not removed
 
     return 0;
 }

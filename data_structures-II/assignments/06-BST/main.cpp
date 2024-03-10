@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program reads stock data from a file and stores it in a Binary Search Tree. It then tests
-//      the BST class by traversing the tree and displaying the stock data. 
+//      This program reads stock data from a file and instantiates a binary search tree to store the
+//      stock objects. It then displays a menu of options to demonstrate the BST class methods.
 //
 //      Other files required:
 //          1.    bst.h - header file for the BST class (includes node struct: node.h)

@@ -1,8 +1,9 @@
 //*****************************************************************************************************
 //
-//      This program reads in a file of palindromes separated by # and determines if they are valid
-//      palindromes using three stacks to reverse the order and compare the characters. Palindromes
-//      are words or phrases that read the same forwards and backwards.
+//      This program reads in a file of palindromes separated by # and instantiates an array-based 
+//      list stack of characters to store the palindromes and determines if they are valid palindromes 
+//      using three stacks to reverse the order and compare the characters. 
+//      Palindromes are words or phrases that read the same forwards and backwards.
 //
 //      Other files required:
 //        1.	 stack.h - header file for the Stack class

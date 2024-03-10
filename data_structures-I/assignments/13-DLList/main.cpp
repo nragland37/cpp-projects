@@ -1,8 +1,8 @@
 //*****************************************************************************************************
 //
-//      This program reads in a file of student data and stores it in a doubly linked list of Student
-//      structs. The user is then presented with a menu of options to perform various tasks on the
-//      list.
+//      This program reads in a file of student data and instantiates a doubly linked list to store 
+//      the student objects. It then displays a menu of options to demonstrate the DLList class 
+//      methods.
 //
 //      Other files required:
 //        1.	 DLList.h - header file for the DLList class

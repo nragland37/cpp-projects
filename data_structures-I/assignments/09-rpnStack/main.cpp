@@ -1,8 +1,9 @@
 //*****************************************************************************************************
 //
-//      This program reads in a file of RPN expressions and evaluates them using a stack. 
-//      RPN (Reverse Polish Notation) is a postfix notation where the operator follows the
-//      operands. For example, the infix expression (3 + 4) * 5 is written in RPN as 3 4 + 5 *.
+//      This program reads in a file of RPN expressions and instantiates an array-based list stack of
+//      integers to store and evaluate the expressions. 
+//      RPN (Reverse Polish Notation) is a postfix notation where the operator follows the operands. 
+//      For example, the infix expression (3 + 4) * 5 is written in RPN as 3 4 + 5 *.
 //
 //      Other files required:
 //        1.	 stack.h - header file for the Stack class

@@ -1,6 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program tests the AList class on a list of integers and stocks.
+//      This program demonstrates the AList class by instantiating an array-based list of Stock 
+//      objects and integers and performing it's methods.
 //
 //      Other files required:
 //          1.    aList.h - header file for the AList class
@@ -16,8 +17,8 @@ using namespace std;
 
 //*****************************************************************************************************
 
-void searchStock(const AList<Stock> &stockList, const Stock &stockList);
-void searchInt(const AList<int> &intList, const int &intList);
+void searchStock(const AList<Stock> &stockList, const Stock &s);
+void searchInt(const AList<int> &intList, const int &s);
 void checkStock(const AList<Stock> &stockList);
 void checkInt(const AList<int> &intList);
 
@@ -38,11 +39,11 @@ int main() {
 
     checkInt(intList);                      // empty
 
-    for (int intList = 0; intList < 10; ++intList)
-        if (intList % 2 == 0)
-            intList.insert(intList);
+    for (int i = 0; i < 10; ++i)
+        if (i % 2 == 0)
+            intList.insert(i);
         else
-            intList.insert(intList * 10);
+            intList.insert(i * 10);
 
     checkInt(intList);                      // full
     intList.print();
@@ -81,9 +82,9 @@ int main() {
 
 //*****************************************************************************************************
 
-void searchStock(const AList<Stock> &stockList, const Stock &stockList) {
-    int searchIndex = stockList.binarySearch(stockList);
-    string sName = stockList.getName();
+void searchStock(const AList<Stock> &stockList, const Stock &s) {
+    int searchIndex = stockList.binarySearch(s);
+    string sName = s.getName();
 
     if (searchIndex != -1)
         cout << sName << " at index: " << searchIndex << endl;
@@ -93,13 +94,13 @@ void searchStock(const AList<Stock> &stockList, const Stock &stockList) {
 
 //*****************************************************************************************************
 
-void searchInt(const AList<int> &intList, const int &intList) {
-    int searchIndex = intList.binarySearch(intList);
+void searchInt(const AList<int> &intList, const int &s) {
+    int searchIndex = intList.binarySearch(s);
 
     if (searchIndex != -1)
-        cout << intList << " at index: " << searchIndex << endl;
+        cout << s << " at index: " << searchIndex << endl;
     else
-        cerr << intList << " not found\n\n";
+        cerr << s << " not found\n\n";
 }
 
 //*****************************************************************************************************

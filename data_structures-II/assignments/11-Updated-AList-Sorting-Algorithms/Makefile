@@ -11,7 +11,7 @@
 
 CXX = g++
 CXXFLAGS = -Wall -std=c++17
-TARGET = main
+TARGET = main.exe
 SOURCES = $(wildcard *.cpp)
 HEADERS = $(wildcard *.h)
 OBJECTS = $(SOURCES:.cpp=.o)

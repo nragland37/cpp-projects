@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
-//      This program reads stock data from a file and stores it in an AVL Tree. It then tests the AVL
-//      class on the list of stocks.
+//      This program reads stock data from a file and instantiates an AVL tree to store the stock 
+//      objects. It then displays a menu of options to demonstrate the AVLTree class methods.
 //
 //      Other files required:
 //          1.    AVLTree.h - header file for the AVL class (includes node struct: node.h)

@@ -1,6 +1,7 @@
 //*****************************************************************************************************   
 //
-//      This program tests the Stock class overloading operators and copy constructor.
+//      This program demonstrates the Stock class by instantiating Stock objects and performing it's 
+//      methods.
 //
 //      Other files required:
 //          1.	 stock.h - header file for the Stock class
