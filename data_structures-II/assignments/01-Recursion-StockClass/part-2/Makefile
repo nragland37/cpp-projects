@@ -1,10 +1,11 @@
 #****************************************************************************
 #
 #	Makefile for c++ projects with multiple source files and headers
-#		Commands:
-#			- make
-#			- make run
-#			- make clean
+#
+#	Commands:
+#	- make
+#	- make run
+#	- make clean
 #
 #****************************************************************************
 
@@ -20,8 +21,8 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(TARGET)
 
-%.o: %.cpp $(HEADERS) 
-	$(CXX) $(CXXFLAGS) -c $< -o $@ 
+%.o: %.cpp $(HEADERS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 run: $(TARGET)
 	./$(TARGET)
