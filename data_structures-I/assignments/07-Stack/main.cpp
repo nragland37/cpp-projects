@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
 //      This program demonstrates the use of the Stack class by instantiating an array-based list
-//      stack of short integers and performing its methods. 
+//      stack of short integers and performing its methods.
 //
 //      Other files required:
 //        1.	 stack.h - header file for the Stack class
@@ -15,31 +15,35 @@ using namespace std;
 
 //*****************************************************************************************************
 
+void displayStack(bool success, Stack<short> &stack);
 void checkState(Stack<short> &stack);
-void display(bool success, Stack<short> &stack);
-void printNum(const char *title, short num);
 
 //*****************************************************************************************************
 
 int main() {
     Stack<short> shortStack(10);
-    short num = 0;
+    short num;
     bool success;
 
-    cout << "numValues: " << shortStack.getNumValues() << endl;
     checkState(shortStack);
-    cout << endl;
 
-    for (int i = 0; i < 11; i++) {
-        success = shortStack.push(11 * (i + 1));
-        display(success, shortStack);
+    for (int i = 0; i < 10; ++i) {
+        num = 10 * (i + 1);
+        success = shortStack.push(num);
+
+        if (success)
+            cout << "pushed: " << num << endl;
+
+        displayStack(success, shortStack);
     }
 
-    cout << endl;
-
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 10; ++i) {
         success = shortStack.pop(num);
-        display(success, shortStack);
+
+        if (success)
+            cout << "popped: " << num << endl;
+
+        displayStack(success, shortStack);
     }
 
     return 0;
@@ -47,7 +51,7 @@ int main() {
 
 //*****************************************************************************************************
 
-void display(bool success, Stack<short> &stack) {
+void displayStack(bool success, Stack<short> &stack) {
     short num;
     int numVal;
 
@@ -56,51 +60,73 @@ void display(bool success, Stack<short> &stack) {
         stack.peek(num);
 
         if (numVal > 0)
-            cout << "numValues: " << numVal << "\t peeked value: " << num << endl;
+            cout << "numValues: " << numVal
+                 << "\tpeeked: " << num << endl;
         else
             cout << "numValues: " << numVal << endl;
-    } else {
-        checkState(stack);
     }
+
+    checkState(stack);
 }
 
 //*****************************************************************************************************
 
 void checkState(Stack<short> &stack) {
     if (stack.isFull())
-        cerr << "stack is full" << endl;
+        cerr << "\nstack is full\n\n";
     else if (stack.isEmpty())
-        cerr << "stack is empty" << endl;
+        cerr << "\nstack is empty\n\n";
 }
 
 //*****************************************************************************************************
 /*
 
-numValues: 0
 stack is empty
 
-numValues: 1     peeked value: 11
-numValues: 2     peeked value: 22
-numValues: 3     peeked value: 33
-numValues: 4     peeked value: 44
-numValues: 5     peeked value: 55
-numValues: 6     peeked value: 66
-numValues: 7     peeked value: 77
-numValues: 8     peeked value: 88
-numValues: 9     peeked value: 99
-numValues: 10    peeked value: 110
+pushed: 10
+numValues: 1    peeked: 10
+pushed: 20
+numValues: 2    peeked: 20
+pushed: 30
+numValues: 3    peeked: 30
+pushed: 40
+numValues: 4    peeked: 40
+pushed: 50
+numValues: 5    peeked: 50
+pushed: 60
+numValues: 6    peeked: 60
+pushed: 70
+numValues: 7    peeked: 70
+pushed: 80
+numValues: 8    peeked: 80
+pushed: 90
+numValues: 9    peeked: 90
+pushed: 100
+numValues: 10   peeked: 100
+
 stack is full
 
-numValues: 9     peeked value: 99
-numValues: 8     peeked value: 88
-numValues: 7     peeked value: 77
-numValues: 6     peeked value: 66
-numValues: 5     peeked value: 55
-numValues: 4     peeked value: 44
-numValues: 3     peeked value: 33
-numValues: 2     peeked value: 22
-numValues: 1     peeked value: 11
+popped: 100
+numValues: 9    peeked: 90
+popped: 90
+numValues: 8    peeked: 80
+popped: 80
+numValues: 7    peeked: 70
+popped: 70
+numValues: 6    peeked: 60
+popped: 60
+numValues: 5    peeked: 50
+popped: 50
+numValues: 4    peeked: 40
+popped: 40
+numValues: 3    peeked: 30
+popped: 30
+numValues: 2    peeked: 20
+popped: 20
+numValues: 1    peeked: 10
+popped: 10
 numValues: 0
+
 stack is empty
 
 */

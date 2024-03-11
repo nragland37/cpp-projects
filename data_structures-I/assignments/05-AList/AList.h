@@ -353,9 +353,7 @@ bool AList<T>::display() const {
 
     if (numValues > 0) {
         for (int i = 0; i < numValues; ++i)
-            std::cout << "[" << i << "] " << list[i] << "\t";
-
-        std::cout << std::endl;
+            std::cout << "[" << i << "]  " << list[i] << std::endl;
 
         success = true;
     }

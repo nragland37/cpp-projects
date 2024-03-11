@@ -15,104 +15,96 @@ using namespace std;
 
 //*****************************************************************************************************
 
+void displayAList(bool success, AList<short> &shortList);
+void checkState(AList<short> &shortList);
+
+//*****************************************************************************************************
+
 int main() {
-    short min;
-
     AList<short> shortList(3);
+    short num;
+    int i = 0;
+    bool success;
 
-    if (shortList.isFull())
-        cout << "The list is full\n" << endl;
-    else if (shortList.isEmpty())
-        cout << "The list is empty\n" << endl;
-    else
-        cout << "The list is neither full nor empty\n" << endl;
+    checkState(shortList);
 
-    if (shortList.insertFront(3)) {
-        shortList.display();
-        shortList.getSmallest(min);
-        cout << "capacity is " << shortList.getCapacity() << "\tnumValues is "
-             << shortList.getNumValues() << "\tsmallest value is " << min << endl;
-    } else {
-        cerr << "Unable to insert value 3" << endl;
-    }
+    num = 10;
+    success = shortList.insertFront(num);
+    if (success)
+        cout << "insert front: " << num << endl;
+    displayAList(success, shortList);
 
-    if (shortList.isFull())
-        cout << "The list is full\n" << endl;
-    else if (shortList.isEmpty())
-        cout << "The list is empty\n" << endl;
-    else
-        cout << "The list is neither full nor empty\n" << endl;
+    num = 20;
+    success = shortList.insertAtIndex(num, i);
+    if (success)
+        cout << "insert index " << i << ": " << num << endl;
+    displayAList(success, shortList);
 
-    if (shortList.insertAtIndex(5, 1)) {
-        shortList.display();
-        shortList.getSmallest(min);
-        cout << "capacity is " << shortList.getCapacity() << "\tnumValues is "
-             << shortList.getNumValues() << "\tsmallest value is " << min << endl;
-    } else {
-        cerr << "Unable to insert value 5 to index 1" << endl;
-    }
-
-    if (shortList.isFull())
-        cout << "The list is full\n" << endl;
-    else if (shortList.isEmpty())
-        cout << "The list is empty\n" << endl;
-    else
-        cout << "The list is neither full nor empty\n" << endl;
-
-    if (shortList.insertBack(4)) {
-        shortList.display();
-        shortList.getSmallest(min);
-        cout << "capacity is " << shortList.getCapacity() << "\tnumValues is "
-             << shortList.getNumValues() << "\tsmallest value is " << min << endl;
-    } else {
-        cerr << "Unable to insert value 4\n";
-    }
-
-    if (shortList.isFull())
-        cout << "The list is full\n" << endl;
-    else if (shortList.isEmpty())
-        cout << "The list is empty\n" << endl;
-    else
-        cout << "The list is neither full nor empty\n" << endl;
-
-    if (shortList.insertFront(1)) {
-        shortList.display();
-        shortList.getSmallest(min);
-        cout << "capacity is " << shortList.getCapacity() << "\tnumValues is "
-             << shortList.getNumValues() << "\tsmallest value is " << min << endl;
-    } else {
-        cerr << "Unable to insert value 1\n";
-    }
-
-    if (shortList.isFull())
-        cout << "The list is full\n" << endl;
-    else if (shortList.isEmpty())
-        cout << "The list is empty\n" << endl;
-    else
-        cout << "The list is neither full nor empty\n" << endl;
+    num = 30;
+    success = shortList.insertBack(num);
+    if (success)
+        cout << "insert back: " << num << endl;
+    displayAList(success, shortList);
 
     return 0;
 }
 
 //*****************************************************************************************************
+
+void displayAList(bool success, AList<short> &shortList) {
+    short min;
+    int cap,
+        numVal; 
+
+    if (success) {
+        shortList.display();
+        shortList.getSmallest(min);
+        cap = shortList.getCapacity();
+        numVal = shortList.getNumValues();
+
+        if (numVal > 0)
+            cout << "capacity: " << cap 
+                 << "\tnumVal: " << numVal 
+                 << "\tsmallest: " << min << endl;
+        else
+            cout << "capacity: " << cap 
+                 << "\tnumValues: " << numVal << endl;
+
+        cout << endl;
+    }
+    
+    checkState(shortList);
+}
+
+//*****************************************************************************************************
+
+void checkState(AList<short> &shortList) {
+    if (shortList.isFull())
+        cerr << "list is full\n\n";
+    else if (shortList.isEmpty())
+        cerr << "list is empty\n\n";
+}
+
+//*****************************************************************************************************
 /*
 
-The list is empty
+list is empty
 
-[0] 3
-capacity is 3   numValues is 1  smallest value is 3
-The list is neither full nor empty
+insert front: 10
+[0] 10
+capacity: 3     numVal: 1       smallest: 10
 
-[0] 3   [1] 5
-capacity is 3   numValues is 2  smallest value is 3
-The list is neither full nor empty
+insert index 0: 20
+[0] 20
+[1] 10
+capacity: 3     numVal: 2       smallest: 10
 
-[0] 3   [1] 5   [2] 4
-capacity is 3   numValues is 3  smallest value is 3
-The list is full
+insert back: 30
+[0] 20
+[1] 10
+[2] 30
+capacity: 3     numVal: 3       smallest: 10
 
-[0] 1   [1] 3   [2] 5   [3] 4
-capacity is 6   numValues is 4  smallest value is 1
-The list is neither full nor empty
+list is full
 
 */

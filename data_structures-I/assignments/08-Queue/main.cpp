@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //
-//      This program demonstrates the use of the Queue class by instantiating a singly linked list 
+//      This program demonstrates the use of the Queue class by instantiating a singly linked list
 //      queue of short integers and performing its methods.
 //
 //      Other files required:
@@ -15,7 +15,7 @@ using namespace std;
 
 //*****************************************************************************************************
 
-void display(bool success, Queue<short> &shortQueue);
+void displayQueue(bool success, Queue<short> &shortQueue);
 void checkState(Queue<short> &shortQueue);
 
 //*****************************************************************************************************
@@ -25,22 +25,27 @@ int main() {
     short num;
     bool success;
 
-    cout << "numValues: " << shortQueue.getNumValues() << endl;
     checkState(shortQueue);
-    cout << endl;
 
-    for (int i = 0; i < 10; i++) {
-        num = 11 * (i + 2);
+    for (int i = 0; i < 10; ++i) {
+        num = 10 * (i + 1);
         success = shortQueue.enqueue(num);
-        display(success, shortQueue);
+
+        if (success)
+            cout << "enqueued: " << num << endl;
+
+        displayQueue(success, shortQueue);
     }
 
     cout << endl;
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; ++i) {
         success = shortQueue.dequeue(num);
-        cout << "dequeue " << num << endl;
-        display(success, shortQueue);
+
+        if (success)
+            cout << "dequeued: " << num << endl;
+
+        displayQueue(success, shortQueue);
     }
 
     return 0;
@@ -48,7 +53,7 @@ int main() {
 
 //*****************************************************************************************************
 
-void display(bool success, Queue<short> &shortQueue) {
+void displayQueue(bool success, Queue<short> &shortQueue) {
     short front,
         back;
     int numVal;
@@ -59,59 +64,72 @@ void display(bool success, Queue<short> &shortQueue) {
         shortQueue.viewRear(back);
 
         if (numVal > 0)
-            cout << "numValues: " << numVal << "\tfront: " << front << "\tback: " << back << endl;
+            cout << "numValues: " << numVal
+                 << "\tfront: " << front
+                 << "\tback: " << back << endl;
         else
             cout << "numValues: " << numVal << endl;
-    } else {
-        checkState(shortQueue);
     }
+
+    checkState(shortQueue);
 }
 
 //*****************************************************************************************************
 
 void checkState(Queue<short> &shortQueue) {
     if (shortQueue.isFull())
-        cerr << "shortQueue is full" << endl;
+        cerr << "\nqueue is full\n\n";
     else if (shortQueue.isEmpty())
-        cerr << "shortQueue is empty" << endl;
+        cerr << "\nqueue is empty\n\n";
 }
 
 //*****************************************************************************************************
 /*
 
-numValues: 0
 queue is empty
 
-numValues: 1     front: 22       back: 22
-numValues: 2     front: 22       back: 33
-numValues: 3     front: 22       back: 44
-numValues: 4     front: 22       back: 55
-numValues: 5     front: 22       back: 66
-numValues: 6     front: 22       back: 77
-numValues: 7     front: 22       back: 88
-numValues: 8     front: 22       back: 99
-numValues: 9     front: 22       back: 110
-numValues: 10    front: 22       back: 121
+enqueued: 10
+numValues: 1    front: 10       back: 10
+enqueued: 20
+numValues: 2    front: 10       back: 20
+enqueued: 30
+numValues: 3    front: 10       back: 30
+enqueued: 40
+numValues: 4    front: 10       back: 40
+enqueued: 50
+numValues: 5    front: 10       back: 50
+enqueued: 60
+numValues: 6    front: 10       back: 60
+enqueued: 70
+numValues: 7    front: 10       back: 70
+enqueued: 80
+numValues: 8    front: 10       back: 80
+enqueued: 90
+numValues: 9    front: 10       back: 90
+enqueued: 100
+numValues: 10   front: 10       back: 100
 
-dequeue 22
-numValues: 9    front: 33       back: 121
-dequeue 33
-numValues: 8    front: 44       back: 121
-dequeue 44
-numValues: 7    front: 55       back: 121
-dequeue 55
-numValues: 6    front: 66       back: 121
-dequeue 66
-numValues: 5    front: 77       back: 121
-dequeue 77
-numValues: 4    front: 88       back: 121
-dequeue 88
-numValues: 3    front: 99       back: 121
-dequeue 99
-numValues: 2    front: 110      back: 121
-dequeue 110
-numValues: 1    front: 121      back: 121
-dequeue 121
+dequeued: 10
+numValues: 9    front: 20       back: 100
+dequeued: 20
+numValues: 8    front: 30       back: 100
+dequeued: 30
+numValues: 7    front: 40       back: 100
+dequeued: 40
+numValues: 6    front: 50       back: 100
+dequeued: 50
+numValues: 5    front: 60       back: 100
+dequeued: 60
+numValues: 4    front: 70       back: 100
+dequeued: 70
+numValues: 3    front: 80       back: 100
+dequeued: 80
+numValues: 2    front: 90       back: 100
+dequeued: 90
+numValues: 1    front: 100      back: 100
+dequeued: 100
 numValues: 0
+
+queue is empty
 
 */

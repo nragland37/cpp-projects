@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //
-//      This program demonstrates the use of the LList class by instantiating a singly linked list of
+//      This program demonstrates the use of the LList class by instantiating a singly linked shortList of
 //      short integers and performing its methods.
 //
 //      Other files required:
@@ -15,8 +15,8 @@ using namespace std;
 
 //*****************************************************************************************************
 
-void checkListState(LList<short> &list);
-void display(bool success, LList<short> &list);
+void displayLList(bool success, LList<short> &shortList);
+void checkState(LList<short> &shortList);
 
 //*****************************************************************************************************
 
@@ -25,37 +25,40 @@ int main() {
     bool success;
     short num;
 
-    cout << "numValues: " << shortList.getNumValues() << endl;
-    checkListState(shortList);
-    cout << endl;
+    checkState(shortList);
 
-    for (int i = 0; i < 10; ++i) {
-        success = shortList.insert(2 * (i + 1));
-        display(success, shortList);
+    for (int i = 0; i < 5; ++i) {
+        num = 10 * (i + 1);
+        success = shortList.insert(num);
+
+        if (success)
+            cout << "inserted " << num << endl;
+
+        displayLList(success, shortList);
     }
 
     cout << endl;
 
     for (int i = 0; i < 2; ++i) {
-        num = (2 * (i + 1));
+        num = 10 * (i + 1);
         success = shortList.retrieve(num);
 
         if (success)
             cout << "retrieved " << num << endl;
 
-        display(success, shortList);
+        displayLList(success, shortList);
     }
 
     cout << endl;
 
-    for (int i = 0; i < 11; ++i) {
-        num = (2 * (10 - i));
+    for (int i = 0; i < 5; ++i) {
+        num = (10 * (5 - i));
         success = shortList.remove(num);
 
         if (success)
             cout << "removed " << num << endl;
 
-        display(success, shortList);
+        displayLList(success, shortList);
     }
 
     return 0;
@@ -63,119 +66,81 @@ int main() {
 
 //*****************************************************************************************************
 
-void display(bool success, LList<short> &list) {
+void displayLList(bool success, LList<short> &shortList) {
     short front,
         rear;
+    int numVal;
 
     if (success) {
-        list.display();
-        list.viewFront(front);
-        list.viewRear(rear);
+        shortList.display();
+        shortList.viewFront(front);
+        shortList.viewRear(rear);
+        numVal = shortList.getNumValues();
 
-        cout << "numValues: " << list.getNumValues()
-             << "\t front: " << front
-             << "\t rear: " << rear << endl;
-    } else {
-        checkListState(list);
+        if (numVal > 0)
+            cout << "numValues: " << numVal
+                 << "\tfront: " << front
+                 << "\trear: " << rear << endl;
+        else
+            cout << "numValues: " << numVal << endl;
     }
+
+    checkState(shortList);
 }
 
 //*****************************************************************************************************
 
-void checkListState(LList<short> &list) {
-    if (list.isFull())
-        cout << "The list is full \n";
-    else if (list.isEmpty())
-        cout << "The list is empty \n";
+void checkState(LList<short> &shortList) {
+    if (shortList.isFull())
+        cout << "\nlist is full\n\n";
+    else if (shortList.isEmpty())
+        cout << "\nlist is empty\n\n";
 }
 
 //*****************************************************************************************************
 /*
 
+list is empty 
+
+inserted 10
+10
+numValues: 1    front: 10       rear: 10
+inserted 20
+10 -> 20
+numValues: 2    front: 10       rear: 20
+inserted 30
+10 -> 20 -> 30
+numValues: 3    front: 10       rear: 30
+inserted 40
+10 -> 20 -> 30 -> 40
+numValues: 4    front: 10       rear: 40
+inserted 50
+10 -> 20 -> 30 -> 40 -> 50
+numValues: 5    front: 10       rear: 50
+
+retrieved 10
+10 -> 20 -> 30 -> 40 -> 50
+numValues: 5    front: 10       rear: 50
+retrieved 20
+10 -> 20 -> 30 -> 40 -> 50
+numValues: 5    front: 10       rear: 50
+
+removed 50
+10 -> 20 -> 30 -> 40
+numValues: 4    front: 10       rear: 40
+removed 40
+10 -> 20 -> 30
+numValues: 3    front: 10       rear: 30
+removed 30
+10 -> 20
+numValues: 2    front: 10       rear: 20
+removed 20
+10
+numValues: 1    front: 10       rear: 10
+removed 10
+
 numValues: 0
-The list is empty 
-Unable to remove value 1
-The list is empty 
 
-Unable to retrieve value 1
-The list is empty 
-
-Unable to viewFront value 
-The list is empty 
-
-Unable to viewRear value 
-The list is empty 
-
-4
-numValues: 1     front: 4        rear: 4
-
-2 -> 4
-numValues: 2     front: 2        rear: 4
-
-2 -> 4 -> 10
-numValues: 3     front: 2        rear: 10
-
-2 -> 4 -> 6 -> 10
-numValues: 4     front: 2        rear: 10
-
-2 -> 4 -> 6 -> 10 -> 12
-numValues: 5     front: 2        rear: 12
-
-2 -> 4 -> 6 -> 8 -> 10 -> 12
-numValues: 6     front: 2        rear: 12
-
-2 -> 4 -> 6 -> 8 -> 10 -> 12 -> 14
-numValues: 7     front: 2        rear: 14
-
-2 -> 4 -> 6 -> 8 -> 10 -> 12 -> 14 -> 16
-numValues: 8     front: 2        rear: 16
-
-2 -> 4 -> 6 -> 8 -> 10 -> 12 -> 14 -> 16 -> 18
-numValues: 9     front: 2        rear: 18
-
-2 -> 4 -> 6 -> 8 -> 10 -> 12 -> 14 -> 16 -> 18 -> 20
-numValues: 10    front: 2        rear: 20
-
-4 -> 6 -> 8 -> 10 -> 12 -> 14 -> 16 -> 18 -> 20
-numValues: 9     front: 4        rear: 20
-
-Removed: 2
-
-4 -> 6 -> 8 -> 12 -> 14 -> 16 -> 18 -> 20
-numValues: 8     front: 4        rear: 20
-
-Removed: 10
-
-4 -> 6 -> 8 -> 12 -> 14 -> 16 -> 18
-numValues: 7     front: 4        rear: 18
-
-Removed: 20
-
-4 -> 6 -> 8 -> 12 -> 14 -> 16 -> 18
-numValues: 7     front: 4        rear: 18
-
-Retrieved: 4
-
-4 -> 6 -> 8 -> 12 -> 14 -> 16 -> 18
-numValues: 7     front: 4        rear: 18
-
-Retrieved: 12
-
-4 -> 6 -> 8 -> 12 -> 14 -> 16 -> 18
-numValues: 7     front: 4        rear: 18
-
-Retrieved: 18
-
-Unable to remove value 3
-
-Unable to retrieve value 3
-
-Unable to remove value 13
-
-Unable to retrieve value 13
-
-Unable to remove value 19
-
-Unable to retrieve value 19
+list is empty
 
 */
