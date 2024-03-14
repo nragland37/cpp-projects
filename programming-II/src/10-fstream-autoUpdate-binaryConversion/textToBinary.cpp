@@ -1,8 +1,8 @@
 //*****************************************************************************************************
 //      Text File to Binary Conversion
 //
-//      This program reads data from a text file and writes it to a binary file, using an array of
-//      structs to store the data.
+//      This program reads tester information from a text file and writes the information to a binary 
+//      file.
 //
 //      Other files required:
 //        1.  Testers.txt - number of testers and the tester information

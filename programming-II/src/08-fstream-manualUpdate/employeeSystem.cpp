@@ -83,12 +83,12 @@ int main() {
 Employee *readEmployees(const string &empFile, int &numEmps) {
     fstream f;
 
-    f.open(empFile, ios::in);     // open file for reading
+    f.open(empFile, ios::in);               // open file for reading
     Employee *tmp = new Employee[numEmps];
-    f.ignore(2);     // ignore first two characters in file
+    f.ignore(2);                            // ignore first two characters in file
 
     for (int i = 0; i < numEmps; ++i) {
-        getline(f, tmp[i].name, ',');     // getline( file, string, delimiter )
+        getline(f, tmp[i].name, ',');       // getline( file, string, delimiter )
         f >> tmp[i].age;
         f.ignore();
         f >> tmp[i].date.month;
