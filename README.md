@@ -23,7 +23,7 @@ The custom Makefile is provided only for projects managing multiple source files
 ### [Programming I](/programming-I)
 * [Documents](programming-I/docs/)
 
-| # | Assignment |
+| # | Project |
 |:---:|:---|
 | 1 | [HelloWorld](./programming-I/src/01-helloworld) | 
 | 2 | [Recipe](./programming-I/src/02-recipe) | 
@@ -43,7 +43,7 @@ The custom Makefile is provided only for projects managing multiple source files
 ### [Programming II](/programming-II)
 * [Documents](programming-II/docs/)
 
-| # | Assignment |
+| # | Project |
 |:---:|:---|
 | 1 | [Two Dimensional Array](./programming-II/src/01-twoDimensionalArray) |
 | 2 | [Linear-Search & Bubble-Sort](./programming-II/src/02-linearSearch-BubbleSort) |
@@ -62,7 +62,7 @@ The custom Makefile is provided only for projects managing multiple source files
 ### [Data Structures I](/data_structures-I)
 * [Documents](data_structures-I/docs/)
 
-| # | Assignment |
+| # | Project |
 |:---:|:---|
 | 1 | [Default Arguments](./data_structures-I/src/01-defaultArgs) |
 | 2 | [Function Overloading & Templates](./data_structures-I/src/02-max) |
@@ -83,7 +83,7 @@ The custom Makefile is provided only for projects managing multiple source files
 ### [Data Structures II](/data_structures-II)
 * [Documents](data_structures-II/docs/)
 
-| # | Assignment |
+| # | Project |
 |:---:|:---|
 | 1 | [Recursion](./data_structures-II/src/01-Recursion-StockClass) |
 | 2 | [Linked List Recursion](./data_structures-II/src/02-Reverse-LList-Recursion) |
