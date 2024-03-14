@@ -9,7 +9,7 @@
 Welcome. Here, you'll find a collection of *C++ Projects*, notes, exercises, and examples, complete with clear descriptions and sample outputs.
 
 ## Makefile Instructions
-Custom Makefile is provided to simplify compiling, running, and cleaning up C++ projects with multiple source files and headers. It automatically detects all `.cpp` and `.h` files in the project directory.
+Makefile is provided to simplify projects with multiple source and header files. The Makefile detects all `.cpp` and `.h` files in the project directory, simplifying the compilation, execution, and cleanup processes.
 
 ### Commands:
 - **`make`**: Compile and generate the executable.
@@ -17,7 +17,7 @@ Custom Makefile is provided to simplify compiling, running, and cleaning up C++ 
 - **`make clean`**: Remove the executable and object files, cleaning up the project directory.
 
 #
-**Tips**: Only projects managing multiple source files include a Makefile. For other projects, add the Makefile template located in the root directory. Always execute commands in the working directory containing the Makefile. 
+**Tips**: Projects managing multiple source files only include a Makefile. For other projects, add the Makefile template located in the root directory. Remember, always execute commands in the working directory containing the Makefile. 
 
 
 
