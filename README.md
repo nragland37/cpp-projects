@@ -6,7 +6,7 @@
 
 /*
 
-Welcome. Here, you'll find a collection of *C++ Projects*, notes, exercises, and examples, complete with clear descriptions and sample outputs for a full understanding of each program.
+Welcome. Here, you'll find a collection of *C++ Projects*, notes, exercises, and examples, complete with clear descriptions and sample outputs.
 
 ## Makefile Instructions
 Custom Makefile is provided to simplify compiling, running, and cleaning up C++ projects with multiple source files and headers. It automatically detects all `.cpp` and `.h` files in the project directory.
