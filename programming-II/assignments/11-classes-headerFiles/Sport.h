@@ -5,7 +5,7 @@
 //      defines the inline functions (getters and setters).
 //
 //      Other files required:
-//          1.  date.h - header file for Date class
+//        1.  date.h - header file for Date class
 //
 //*****************************************************************************************************
 

@@ -4,9 +4,9 @@
 //      stock objects. It then displays a menu of options to demonstrate the BST class methods.
 //
 //      Other files required:
-//          1.    bst.h - header file for the BST class (includes node struct: node.h)
-//          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//          3.    Stock.txt - text file containing stock data
+//        1.    bst.h - header file for the BST class (includes node struct: node.h)
+//        2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//        3.    Stock.txt - text file containing stock data
 //
 //*****************************************************************************************************
 

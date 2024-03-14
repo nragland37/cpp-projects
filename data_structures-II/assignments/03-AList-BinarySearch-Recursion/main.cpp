@@ -4,8 +4,8 @@
 //      objects and integers and performing it's methods.
 //
 //      Other files required:
-//          1.    aList.h - header file for the AList class
-//          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//        1.    aList.h - header file for the AList class
+//        2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
 //
 //*****************************************************************************************************
 
@@ -89,7 +89,7 @@ void searchStock(const AList<Stock> &stockList, const Stock &s) {
     if (searchIndex != -1)
         cout << sName << " at index: " << searchIndex << endl;
     else
-        cerr << sName << " not found\n\n";
+        cerr << sName << " not found\n";
 }
 
 //*****************************************************************************************************
@@ -100,35 +100,31 @@ void searchInt(const AList<int> &intList, const int &s) {
     if (searchIndex != -1)
         cout << s << " at index: " << searchIndex << endl;
     else
-        cerr << s << " not found\n\n";
+        cerr << s << " not found\n";
 }
 
 //*****************************************************************************************************
 
 void checkStock(const AList<Stock> &stockList) {
-    cout << "values: " << stockList.listSize() << endl;
+    cout << "\nvalues: " << stockList.listSize() << endl;
     cout << "capacity: " << stockList.listCap() << endl;
 
     if (stockList.isFull())
-        cerr << "stock list full\n\n";
+        cerr << "stock list full\n";
     else if (stockList.isEmpty())
-        cerr << "stock list empty\n\n";
-    else
-        cout << "stock list neither full nor empty\n" << endl;
+        cerr << "stock list empty\n";
 }
 
 //*****************************************************************************************************
 
 void checkInt(const AList<int> &intList) {
-    cout << "values: " << intList.listSize() << endl;
+    cout << "\nvalues: " << intList.listSize() << endl;
     cout << "capacity: " << intList.listCap() << endl;
 
     if (intList.isFull())
-        cerr << "integer list full\n\n";
+        cerr << "integer list full\n";
     else if (intList.isEmpty())
-        cerr << "integer list empty\n\n";
-    else
-        cout << "integer list neither full nor empty\n" << endl;
+        cerr << "integer list empty\n";
 }
 
 //*****************************************************************************************************
@@ -141,34 +137,30 @@ integer list empty
 values: 10
 capacity: 10
 integer list full
-
-[0] 90
-[1] 70
-[2] 50
-[3] 30
-[4] 10
-[5] 8
-[6] 6
-[7] 4
-[8] 2
-[9] 0
+90
+70
+50
+30
+10
+8
+6
+4
+2
+0
 
 values: 11
 capacity: 20
-integer list neither full nor empty
-
-[0] 100
-[1] 90
-[2] 70
-[3] 50
-[4] 30
-[5] 10
-[6] 8
-[7] 6
-[8] 4
-[9] 2
-[10] 0
-
+100
+90
+70
+50
+30
+10
+8
+6
+4
+2
+0
 10 at index: 5
 100 at index: 0
 20 not found
@@ -180,61 +172,45 @@ stock list empty
 values: 5
 capacity: 5
 stock list full
-
-[0] Microsoft Corp.
+Microsoft Corp.
 MSFT
 300.2
-
-[1] Google LLC
+Google LLC
 GOOGL
 2800.5
-
-[2] Facebook Inc.
+Facebook Inc.
 FB
 355.6
-
-[3] Amazon Inc.
+Amazon Inc.
 AMZN
 3400.4
-
-[4] Apple Inc.
+Apple Inc.
 AAPL
 150.1
-
 
 values: 7
 capacity: 15
-stock list neither full nor empty
-
-[0] Tesla Inc.
+Tesla Inc.
 TSLA
 1100.7
-
-[1] Microsoft Corp.
+Microsoft Corp.
 MSFT
 300.2
-
-[2] Google LLC
+Google LLC
 GOOGL
 2800.5
-
-[3] Facebook Inc.
+Facebook Inc.
 FB
 355.6
-
-[4] Amazon Inc.
+Amazon Inc.
 AMZN
 3400.4
-
-[5] Apple Inc.
+Apple Inc.
 AAPL
 150.1
-
-[6] Apple Inc.
+Apple Inc.
 AAPL
 150.1
-
-
 Apple Inc. at index: 5
 Apple Inc. at index: 5
 Tesla Inc. at index: 0

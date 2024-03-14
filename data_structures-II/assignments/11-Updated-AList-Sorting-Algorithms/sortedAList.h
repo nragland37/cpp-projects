@@ -1,7 +1,7 @@
 //*****************************************************************************************************
 //
 //      This header file updates the sortedAList class to include the following sorting algorithms:
-//      selection, quick, heap sort 
+//      selection, quick, heap sort
 //
 //*****************************************************************************************************
 
@@ -80,9 +80,8 @@ void sortedAList<T>::_resize() {
     newList = new (std::nothrow) T[newCapacity];
 
     if (newList) {
-        for (int i = 0; i < numValues; ++i) {
+        for (int i = 0; i < numValues; ++i)
             newList[i] = list[i];
-        }
         delete[] list;
         list = newList;
         capacity = newCapacity;
@@ -104,9 +103,8 @@ void sortedAList<T>::_swap(T &a, T &b) {
 
 template <typename T>
 void sortedAList<T>::insert(const T &item) {
-    if (numValues == capacity) {
+    if (numValues == capacity)
         _resize();
-    }
     list[numValues] = item;
     ++numValues;
 }
@@ -114,34 +112,31 @@ void sortedAList<T>::insert(const T &item) {
 //*****************************************************************************************************
 
 template <typename T>
-void sortedAList<T>::randomise() {  
-    static bool seeded = false;                             // static initializes only once per program
+void sortedAList<T>::randomise() {
+    static bool seeded = false;     // static initializes only once per program
 
-    if (!seeded) {                                          // seed srand() only once for all objects
+    if (!seeded) {     // seed srand() only once for all objects
         srand(static_cast<unsigned>(time(0)));
         seeded = true;
     }
 
-    for (int i = 0; i < numValues; ++i) {
+    for (int i = 0; i < numValues; ++i)
         _swap(list[i], list[rand() % numValues]);
-    }
 }
 
 //*****************************************************************************************************
 // selection sort algorithm (time complexity: O(n^2)
 
 template <typename T>
-void sortedAList<T>::selectionSortA() {                      // min index - ascending
+void sortedAList<T>::selectionSortA() {     // min index - ascending
     int minIndex;
 
     for (int i = 0; i < numValues - 1; ++i) {
         minIndex = i;
 
-        for (int j = i + 1; j < numValues; ++j) {
-            if (list[j] < list[minIndex]) {
+        for (int j = i + 1; j < numValues; ++j)
+            if (list[j] < list[minIndex])
                 minIndex = j;
-            }
-        }
         _swap(list[i], list[minIndex]);
     }
 }
@@ -149,17 +144,15 @@ void sortedAList<T>::selectionSortA() {                      // min index - asce
 //*****************************************************************************************************
 
 template <typename T>
-void sortedAList<T>::selectionSortD() {                      // max index - descending
+void sortedAList<T>::selectionSortD() {     // max index - descending
     int maxIndex;
 
     for (int i = 0; i < numValues - 1; ++i) {
         maxIndex = i;
 
-        for (int j = i + 1; j < numValues; ++j) {
-            if (list[j] > list[maxIndex]) {
+        for (int j = i + 1; j < numValues; ++j)
+            if (list[j] > list[maxIndex])
                 maxIndex = j;
-            }
-        }
         _swap(list[i], list[maxIndex]);
     }
 }
@@ -167,7 +160,7 @@ void sortedAList<T>::selectionSortD() {                      // max index - desc
 //*****************************************************************************************************
 
 template <typename T>
-int sortedAList<T>::_partitionA(int first, int last) {       // smallest index - ascending
+int sortedAList<T>::_partitionA(int first, int last) {     // smallest index - ascending
     T pivot = list[(first + last) / 2];
     _swap(list[first], list[(first + last) / 2]);
     int smallIndex = first;
@@ -189,7 +182,7 @@ int sortedAList<T>::_partitionA(int first, int last) {       // smallest index -
 //*****************************************************************************************************
 
 template <typename T>
-int sortedAList<T>::_partitionD(int first, int last) {       // largest index - descending
+int sortedAList<T>::_partitionD(int first, int last) {     // largest index - descending
     T pivot = list[(first + last) / 2];
     _swap(list[first], list[(first + last) / 2]);
     int largeIndex = first;
@@ -254,18 +247,16 @@ void sortedAList<T>::_quickSortD(int first, int last) {
 //*****************************************************************************************************
 
 template <typename T>
-void sortedAList<T>::_heapifyA(int n, int root) {        // max heap - largest element at root
+void sortedAList<T>::_heapifyA(int n, int root) {     // max heap - largest element at root
     int largest = root;
     int l = 2 * root + 1;
     int r = 2 * root + 2;
 
-    if (l < n && list[l] > list[largest]) {
+    if (l < n && list[l] > list[largest])
         largest = l;
-    }
 
-    if (r < n && list[r] > list[largest]) {
+    if (r < n && list[r] > list[largest])
         largest = r;
-    }
 
     if (largest != root) {
         _swap(list[root], list[largest]);
@@ -276,18 +267,16 @@ void sortedAList<T>::_heapifyA(int n, int root) {        // max heap - largest e
 //*****************************************************************************************************
 
 template <typename T>
-void sortedAList<T>::_heapifyD(int n, int root) {        // min heap - smallest element at root
+void sortedAList<T>::_heapifyD(int n, int root) {     // min heap - smallest element at root
     int smallest = root;
     int l = 2 * root + 1;
     int r = 2 * root + 2;
 
-    if ((l < n) && (list[l] < list[smallest])) {
+    if ((l < n) && (list[l] < list[smallest]))
         smallest = l;
-    }
 
-    if (r < n && list[r] < list[smallest]) {
+    if (r < n && list[r] < list[smallest])
         smallest = r;
-    }
 
     if (smallest != root) {
         _swap(list[root], list[smallest]);
@@ -302,9 +291,8 @@ template <typename T>
 void sortedAList<T>::heapSortA() {
     int n = numValues;
 
-    for (int i = n / 2 - 1; i >= 0; --i) {
+    for (int i = n / 2 - 1; i >= 0; --i)
         _heapifyA(n, i);
-    }
 
     for (int i = n - 1; i >= 0; --i) {
         _swap(list[0], list[i]);
@@ -318,9 +306,8 @@ template <typename T>
 void sortedAList<T>::heapSortD() {
     int n = numValues;
 
-    for (int i = n / 2 - 1; i >= 0; --i) {
+    for (int i = n / 2 - 1; i >= 0; --i)
         _heapifyD(n, i);
-    }
 
     for (int i = n - 1; i >= 0; --i) {
         _swap(list[0], list[i]);
@@ -331,11 +318,9 @@ void sortedAList<T>::heapSortD() {
 //*****************************************************************************************************
 
 template <typename T>
-void sortedAList<T>::display() const {    
-    for (int i = 0; i < numValues; ++i) {
+void sortedAList<T>::display() const {
+    for (int i = 0; i < numValues; ++i)
         std::cout << list[i] << std::endl;
-    }
-    std::cout << std::endl;
 }
 
 //*****************************************************************************************************

@@ -4,9 +4,9 @@
 //      objects. It then displays a menu of options to demonstrate the AVLTree class methods.
 //
 //      Other files required:
-//          1.    AVLTree.h - header file for the AVL class (includes node struct: node.h)
-//          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//          3.    Stock.txt - text file containing stock data
+//        1.    AVLTree.h - header file for the AVL class (includes node struct: node.h)
+//        2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//        3.    Stock.txt - text file containing stock data
 //
 //*****************************************************************************************************
 

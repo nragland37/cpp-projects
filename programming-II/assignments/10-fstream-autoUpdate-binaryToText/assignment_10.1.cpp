@@ -5,7 +5,7 @@
 //      structs to store the data.
 //
 //      Other files required:
-//          1.  Testers.txt - number of testers and the tester information
+//        1.  Testers.txt - number of testers and the tester information
 //
 //*****************************************************************************************************
 

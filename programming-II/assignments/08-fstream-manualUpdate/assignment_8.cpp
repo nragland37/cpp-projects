@@ -7,7 +7,7 @@
 //      the file.
 //
 //      Other files required:
-//          1.  Employees.txt - number of employees and the employee information
+//        1.  Employees.txt - number of employees and the employee information
 //
 //*****************************************************************************************************
 

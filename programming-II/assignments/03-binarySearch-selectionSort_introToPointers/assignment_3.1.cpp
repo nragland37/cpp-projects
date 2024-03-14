@@ -7,7 +7,7 @@
 //      search results.
 //
 //      Other files required:
-//          1.  StudentNames.txt - contains the names of 10 students
+//        1.  StudentNames.txt - contains the names of 10 students
 //
 //*****************************************************************************************************
 

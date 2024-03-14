@@ -3,7 +3,7 @@
 //      This header file defines a class template for a singly linked list with recursive methods.
 //
 //      Other files required:
-//		  1.    node.h - header file for the node struct of the linked list
+//        1.    node.h - header file for the node struct of the linked list
 //
 //*****************************************************************************************************
 

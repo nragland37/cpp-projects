@@ -3,7 +3,7 @@
 //      The implementation of the Stock class header file.
 //
 //      Other files required:
-//		  1.    stock.h - header file for the Stock class
+//        1.    stock.h - header file for the Stock class
 //
 //*****************************************************************************************************
 

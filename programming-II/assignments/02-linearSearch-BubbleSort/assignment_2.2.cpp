@@ -6,7 +6,7 @@
 //      order using a bubble sort.
 //
 //      Other files required:
-//          1.  StudentNames.txt - names of 10 students
+//        1.  StudentNames.txt - names of 10 students
 //
 //*****************************************************************************************************
 

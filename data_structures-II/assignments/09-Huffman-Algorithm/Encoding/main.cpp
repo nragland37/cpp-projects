@@ -4,11 +4,11 @@
 //      binary sequence. It then decodes that sequence to display the stocks present in that sequence.
 //
 //      Other files required:
-//          1.    node.h - header file for the Node struct
-//          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//          3.    HuffmanStocks.txt - text file containing stock data
+//        1.    node.h - header file for the Node struct
+//        2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//        3.    HuffmanStocks.txt - text file containing stock data
 //
-//      NOTE: Both, Encoding and Decoding.
+//        NOTE: Both, Encoding and Decoding.
 //
 //*****************************************************************************************************
 

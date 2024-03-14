@@ -1,23 +1,11 @@
 //*****************************************************************************************************
 //
-//		File:					xxx.cpp
+//      This program...
 //
-//		Student:				Your Name
+//      Other files required:
+//        1.	 example.h - header file for the example class
+//        2.	 example.txt - a text file containing the example data
 //
-//		Assignment:				Program #xx
-//
-//		Course Name:			Data Structures I
-//
-//		Course Number:			COSC 3050-01
-//
-//		Due:					Actual due date
-//
-//
-//		This program ... (no lines can be longer than the line separator)
-//	
-//		Other files required: 
-//			1.	??? (say none if no other files are included)
-//			
 //*****************************************************************************************************
 
 #include <iostream>
@@ -32,5 +20,8 @@ int main()
 }
 
 //*****************************************************************************************************
+/*
 
 // attach your sample output here. 
+
+*/

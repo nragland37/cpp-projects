@@ -4,7 +4,7 @@
 //      collisions when inserting and removing items.
 //
 //      Other files required:
-//		  1.    htElement.h - header file for the HTElement struct
+//        1.    htElement.h - header file for the HTElement struct
 //
 //*****************************************************************************************************
 

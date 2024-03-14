@@ -5,7 +5,7 @@
 //      allows the user to search for students using a linear search algorithm.
 //
 //      Other files required:
-//          1.  Assignment1Data.txt - test scores for 10 students
+//        1.  Assignment1Data.txt - test scores for 10 students
 //
 //*****************************************************************************************************
 

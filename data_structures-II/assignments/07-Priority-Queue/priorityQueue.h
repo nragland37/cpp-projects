@@ -170,7 +170,7 @@ bool PriorityQueue<T>::dequeue(T &value) {
 template <typename T>
 void PriorityQueue<T>::display() const {
     for (int i = 0; i < numValues; ++i)
-        std::cout << list[i];
+        std::cout << list[i] << std::endl;
 }
 
 //*****************************************************************************************************

@@ -6,8 +6,8 @@
 //      name, date, and team information.
 //
 //      Other files required:
-//          1.  date.h - header file for Date class
-//          2.  sport.h - header file for Sport class
+//        1.  date.h - header file for Date class
+//        2.  sport.h - header file for Sport class
 //
 //*****************************************************************************************************
 

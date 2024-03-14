@@ -5,9 +5,9 @@
 //      class.
 //
 //      Other files required:
-//          1.    priorityQueue.h - header file for the PriorityQueue class
-//          2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
-//          3.    Stock.txt - text file containing stock data
+//        1.    priorityQueue.h - header file for the PriorityQueue class
+//        2.    stock.h - header file for the Stock class (includes implementation file: stock.cpp)
+//        3.    Stock.txt - text file containing stock data
 //
 //*****************************************************************************************************
 
@@ -79,17 +79,18 @@ void remove(PriorityQueue<Stock> &stockList, int num) {
         checkStock(stockList);
 
         if (stockList.dequeue(stock)) {
-            cout << "\n\nRemoved stock:"
+            cout << "\nremoved stock:"
                  << "\n----------------------------------" << endl;
             cout << stock;
-            cout << "\n\nRemaining stocks:"
+            cout << "\n\nremaining stocks:"
                  << "\n----------------------------------" << endl;
             stockList.display();
         } else {
-            cerr << "Error: no stocks to remove\n\n";
+            cerr << "no stocks to remove\n";
             success = false;
         }
     }
+    cout << endl;
 }
 
 //*****************************************************************************************************
@@ -98,15 +99,13 @@ void checkStock(const PriorityQueue<Stock> &stockList) {
     cout << "\n----------------------------------"
          << "\n=========== Stock List ==========="
          << "\n----------------------------------"
-         << "\nValues: " << stockList.getNumValues()
-         << "\nCapacity: " << stockList.getCapacity() << endl;
+         << "\nvalues: " << stockList.getNumValues()
+         << "\ncapacity: " << stockList.getCapacity() << endl;
 
     if (stockList.isFull())
-        cerr << "Stock list full\n";
+        cerr << "stock list full\n";
     else if (stockList.isEmpty())
-        cerr << "Stock list empty\n";
-    else
-        cout << "Stock list neither full nor empty" << endl;
+        cerr << "stock list empty\n";
 }
 
 //*****************************************************************************************************
@@ -115,11 +114,10 @@ void checkStock(const PriorityQueue<Stock> &stockList) {
 ----------------------------------
 =========== Stock List ===========
 ----------------------------------
-Values: 0
-Capacity: 12
-Stock list empty
-Error: no stocks to remove
-
+values: 0
+capacity: 12
+stock list empty
+no stocks to remove
 
 Error: file not found
 
@@ -128,10 +126,10 @@ Error: file not found
 ----------------------------------
 =========== Stock List ===========
 ----------------------------------
-Values: 0
-Capacity: 12
-Stock list empty
-Error: no stocks to remove
+values: 0
+capacity: 12
+stock list empty
+no stocks to remove
 
 Amazon.com Inc.
 AMZN
@@ -185,19 +183,16 @@ MOT
 ----------------------------------
 =========== Stock List ===========
 ----------------------------------
-Values: 16
-Capacity: 22
-Stock list neither full nor empty
+values: 16
+capacity: 22
 
-
-Removed stock:
+removed stock:
 ----------------------------------
 Amazon.com Inc.
 AMZN
 3222.9
 
-
-Remaining stocks:
+remaining stocks:
 ----------------------------------
 Alphabet Inc. Class A
 GOOGL
@@ -248,19 +243,16 @@ AMD
 ----------------------------------
 =========== Stock List ===========
 ----------------------------------
-Values: 15
-Capacity: 22
-Stock list neither full nor empty
+values: 15
+capacity: 22
 
-
-Removed stock:
+removed stock:
 ----------------------------------
 Alphabet Inc. Class A
 GOOGL
 2805.12
 
-
-Remaining stocks:
+remaining stocks:
 ----------------------------------
 Netflix
 NFLX
@@ -308,19 +300,16 @@ CSCO
 ----------------------------------
 =========== Stock List ===========
 ----------------------------------
-Values: 14
-Capacity: 22
-Stock list neither full nor empty
+values: 14
+capacity: 22
 
-
-Removed stock:
+removed stock:
 ----------------------------------
 Netflix
 NFLX
 628.44
 
-
-Remaining stocks:
+remaining stocks:
 ----------------------------------
 Tesla
 TSLA
@@ -365,19 +354,16 @@ MOT
 ----------------------------------
 =========== Stock List ===========
 ----------------------------------
-Values: 13
-Capacity: 22
-Stock list neither full nor empty
+values: 13
+capacity: 22
 
-
-Removed stock:
+removed stock:
 ----------------------------------
 Tesla
 TSLA
 564.33
 
-
-Remaining stocks:
+remaining stocks:
 ----------------------------------
 NVIDIA
 NVDA
@@ -419,19 +405,17 @@ MOT
 ----------------------------------
 =========== Stock List ===========
 ----------------------------------
-Values: 12
-Capacity: 12
-Stock list full
+values: 12
+capacity: 12
+stock list full
 
-
-Removed stock:
+removed stock:
 ----------------------------------
 NVIDIA
 NVDA
 548.58
 
-
-Remaining stocks:
+remaining stocks:
 ----------------------------------
 Facebook
 FB
@@ -467,18 +451,18 @@ Cisco Systems
 CSCO
 54.6
 
-----------------------------------
-=========== Stock List ===========
-----------------------------------
-Values: 11
-Capacity: 12
-Stock list neither full nor empty
 
 ----------------------------------
 =========== Stock List ===========
 ----------------------------------
-Values: 0
-Capacity: 12
-Stock list empty
+values: 11
+capacity: 12
+
+----------------------------------
+=========== Stock List ===========
+----------------------------------
+values: 0
+capacity: 12
+stock list empty
 
 */

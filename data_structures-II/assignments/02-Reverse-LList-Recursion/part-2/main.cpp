@@ -18,7 +18,7 @@ using namespace std;
 //*****************************************************************************************************
 
 void compareStocks(const Stock &s1, const Stock &s2);
-void deleteStock(LList<Stock> &list, const Stock &s);
+void deleteStock(LList<Stock> &stockList, const Stock &s);
 
 //*****************************************************************************************************
 
@@ -75,11 +75,11 @@ void compareStocks(const Stock &s1, const Stock &s2) {
 
 //*****************************************************************************************************
 
-void deleteStock(LList<Stock> &list, const Stock &s) {
+void deleteStock(LList<Stock> &stockList, const Stock &s) {
     cout << "\nDeleting " << s.getName() << endl;
     cout << "===============================" << endl;
-    list.deleteNode(s);
-    list.display();
+    stockList.deleteNode(s);
+    stockList.display();
 }
 
 //*****************************************************************************************************

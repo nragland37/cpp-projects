@@ -144,9 +144,7 @@ int AList<T>::listCap() const {
 template <typename T>
 void AList<T>::print() const {
     for (int i = 0; i < numValues; ++i)
-        std::cout << "[" << i << "] " << list[i] << std::endl;
-
-    std::cout << std::endl;
+        std::cout << list[i] << std::endl;
 }
 
 //*****************************************************************************************************

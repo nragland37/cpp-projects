@@ -3,7 +3,7 @@
 //      The implementation of the Stock class header file.
 //
 //      Other files required:
-//		  1.    stock.h - header file for the Stock class
+//        1.    stock.h - header file for the Stock class
 //
 //*****************************************************************************************************
 
@@ -31,7 +31,7 @@ Stock::Stock(const Stock &s) {
 std::ostream &operator<<(std::ostream &out, const Stock &stock) {
     out << stock.companyName << std::endl
         << stock.stockSymbol << std::endl
-        << stock.stockPrice << std::endl;
+        << stock.stockPrice;
 
     return out;
 }

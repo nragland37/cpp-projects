@@ -1,6 +1,6 @@
 //*****************************************************************************************************
 //
-//      This header file defines a Stock class with overloaded comparison and output operators to 
+//      This header file defines a Stock class with overloaded comparison and output operators to
 //      facilitate easy comparison and display of stock information.
 //
 //*****************************************************************************************************

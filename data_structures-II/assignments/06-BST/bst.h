@@ -5,7 +5,7 @@
 //      tree in various orders.
 //
 //      Other files required:
-//		  1.    node.h - header file for the Node struct for use in the BST class
+//        1.    node.h - header file for the Node struct for use in the BST class
 //
 //*****************************************************************************************************
 

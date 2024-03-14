@@ -114,7 +114,7 @@ void sortedAList<T>::insert(const T &item) {
 
 template <typename T>
 void sortedAList<T>::randomise() {
-    static bool seeded = false;                     // static initializes only once per program 
+    static bool seeded = false;                     // static initializes only once per program
 
     if (!seeded) {                                  // seed srand() only once for all objects
         srand(static_cast<unsigned>(time(0)));
@@ -249,7 +249,6 @@ template <typename T>
 void sortedAList<T>::display() const {
     for (int i = 0; i < numValues; ++i)
         std::cout << list[i] << std::endl;
-    std::cout << std::endl;
 }
 
 //*****************************************************************************************************

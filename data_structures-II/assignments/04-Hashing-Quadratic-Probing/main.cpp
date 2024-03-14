@@ -4,8 +4,8 @@
 //      and performing it's methods.
 //
 //      Other files required:
-//          1.    stock.h - header file for the Stock class (includes stock.cpp)
-//          2.    hashTable.h - header file for the HashTable class (includes htElement.h)
+//        1.    stock.h - header file for the Stock class (includes stock.cpp)
+//        2.    hashTable.h - header file for the HashTable class (includes htElement.h)
 //
 //*****************************************************************************************************
 
@@ -53,7 +53,7 @@ int main() {
 void test(HashTable<Stock> &table, const Stock &item) {
     Stock *searchResult = table.search(item);
 
-    cout << "\n\nSearching for " << item.getSymbol() << ":" << endl;
+    cout << "\nSearching for " << item.getSymbol() << ":" << endl;
 
     if (searchResult) {
         cout << "Stock found!\n"
@@ -63,10 +63,10 @@ void test(HashTable<Stock> &table, const Stock &item) {
         searchResult = nullptr;
 
         table.remove(item);
-        cout << "\n\nAfter Removal of " << item.getSymbol() << ":" << endl;
+        cout << "\nAfter Removal of " << item.getSymbol() << ":" << endl;
         table.display();
     } else {
-        cerr << "Stock not found!" << endl;
+        cerr << "Stock not found!\n";
     }
 }
 
@@ -76,24 +76,18 @@ void test(HashTable<Stock> &table, const Stock &item) {
 Amazon
 AMZN
 3000
-
 Microsoft
 MSFT
 220.1
-
 Google
 GOOGL
 1500.5
-
 Apple
 AAPL
 140.3
-
 Tesla
 TSLA
 420.69
-
-
 
 Searching for AAPL:
 Stock found!
@@ -101,26 +95,19 @@ Apple
 AAPL
 140.3
 
-
-
 After Removal of AAPL:
 Amazon
 AMZN
 3000
-
 Microsoft
 MSFT
 220.1
-
 Google
 GOOGL
 1500.5
-
 Tesla
 TSLA
 420.69
-
-
 
 Searching for AAPL:
 Stock not found!
