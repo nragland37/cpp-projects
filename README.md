@@ -5,11 +5,10 @@
 
 /*
 
-This is a comprehensive collection of C++ projects, covering an extensive range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between. Each category's `docs` folder contains notes, exercises, and examples. All programs are presented with detailed descriptions and sample outputs, making this a resource for anyone beginning their journey in C++ or delving into more complex algorithms. It's designed to support learners across the entire spectrum of C++ programming.
+This is a comprehensive collection of C++ projects, covering a wide range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between. Each category's `docs` folder contains notes, exercises, and examples. All programs are presented with detailed descriptions and sample outputs, making this a resource for anyone beginning their journey in C++ or delving into more complex algorithms. It's designed to support learners across the entire spectrum of C++ programming.
 
-
-## Makefile Instructions
-Makefile is provided in the root directory and for projects managing multiple source files. The Makefile detects all `.cpp` and `.h` files in the project directory, simplifying the compilation, execution, and cleanup processes.
+## Using Makefile (Optional)
+The custom Makefile is provided only for projects managing multiple source files. The Makefile detects all `.cpp` and `.h` files in the project directory, configured to only work with a single project at a time. 
 
 ### Commands:
 - **`make`**: Compile and generate the executable.
@@ -17,7 +16,7 @@ Makefile is provided in the root directory and for projects managing multiple so
 - **`make clean`**: Remove the executable and object files, cleaning up the project directory.
 
 #
-**Tips**: For projects not including Makefile, simply add the Makefile template ( located in the root directory ) into your working directory. Remember, commands must be executed in the directory containing the Makefile and project. 
+**Tip**: Ensure commands are executed within the directory containing both the Makefile and the project files.
 
 */
 
