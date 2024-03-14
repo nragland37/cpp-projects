@@ -9,23 +9,15 @@
 Welcome. Here, you'll find a collection of *C++ Projects*, notes, exercises, and examples, complete with clear descriptions and sample outputs.
 
 ## Makefile Instructions
-Makefile is provided to simplify projects with multiple source and header files. The Makefile detects all `.cpp` and `.h` files in the project directory, simplifying the compilation, execution, and cleanup processes.
+Makefile is provided in the root directory and for projects managing multiple source files. The Makefile detects all `.cpp` and `.h` files in the project directory, simplifying the compilation, execution, and cleanup processes.
 
 ### Commands:
 - **`make`**: Compile and generate the executable.
-- **`make run`**: Compile (if not already compiled) and run the generated executable.
+- **`make run`**: Compile ( if not already compiled ) and run the generated executable.
 - **`make clean`**: Remove the executable and object files, cleaning up the project directory.
 
 #
-**Tips**: Projects managing multiple source files only include a Makefile. For other projects, add the Makefile template located in the root directory. Remember, always execute commands in the working directory containing the Makefile. 
-
-
-
-
-
-
-
- 
+**Tips**: For projects not including Makefile, simply add the Makefile template ( located in the root directory ) into your working directory. Remember, commands must be executed in the directory containing the Makefile and project. 
 
 */
 
@@ -46,7 +38,7 @@ Makefile is provided to simplify projects with multiple source and header files.
 | 10 | [Grade Calculator-Functions](./programming-I/assignments/10-gradeCalc2) |
 | 11 | [Echo List](./programming-I/assignments/11-echoList) |
 | 12 | [Delete Repeats](./programming-I/assignments/12-deleteRepeats) |
-<br>
+
 <br>
 
 ### [Programming II](/programming-II)
@@ -66,7 +58,6 @@ Makefile is provided to simplify projects with multiple source and header files.
 | 10 | [File Streams (binary-to-text): Input/Output/Binary (auto-update)](./programming-II/assignments/10-fstream-autoUpdate-binaryToText) |
 | 11 | [Classes & Header Files](./programming-II/assignments/11-classes-headerFiles) |
 
-<br>
 <br>
 
 ### [Data Structures I](/data_structures-I)
@@ -89,7 +80,6 @@ Makefile is provided to simplify projects with multiple source and header files.
 | 13 | [Operator Overloading & Doubly Linked List (Continued)](./data_structures-I/assignments/13-DLList) |
 
 <br>
-<br>
 
 ### [Data Structures II](/data_structures-II)
 * [Documents](data_structures-II/docs/)
@@ -108,6 +98,3 @@ Makefile is provided to simplify projects with multiple source and header files.
 | 10 | [Array List Sorting Algorithms: Quick-Sort & Selection-Sort](./data_structures-II/assignments/10-AList-Sorting-Algorithms) |
 | 11 | [Array List Sorting Algorithms (Continued): Heap-Sort](./data_structures-II/assignments/11-Updated-AList-Sorting-Algorithms) |
 | 12 | [Graph Algorithms: Dijkstra's Shortest Path, Depth-First Search, & Breadth-First Search](./data_structures-II/assignments/12-Graph-Traversal) |
-
-<br> 
-<br>
