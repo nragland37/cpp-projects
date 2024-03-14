@@ -5,7 +5,8 @@
 
 /*
 
-Welcome. Here, you'll find a collection of *C++ Projects*, notes, exercises, and examples, complete with clear descriptions and sample outputs.
+This is a comprehensive collection of C++ projects, covering an extensive range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between. Each category's `docs` folder contains notes, exercises, and examples. All programs are presented with detailed descriptions and sample outputs, making this a resource for anyone beginning their journey in C++ or delving into more complex algorithms. It's designed to support learners across the entire spectrum of C++ programming.
+
 
 ## Makefile Instructions
 Makefile is provided in the root directory and for projects managing multiple source files. The Makefile detects all `.cpp` and `.h` files in the project directory, simplifying the compilation, execution, and cleanup processes.
