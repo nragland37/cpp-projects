@@ -1,3 +1,6 @@
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/nragland37/cpp-projects/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/nragland37/cpp-projects.svg?style=social&label=Star&maxAge=2592000)](https://github.com/nragland37/cpp-projects/stargazers)
+
 # <p align="center"> Hello, World! 🦖 </p>
 
 /*
