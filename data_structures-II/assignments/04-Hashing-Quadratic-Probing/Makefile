@@ -1,11 +1,11 @@
 #****************************************************************************
 #
-#		Makefile for c++ projects with multiple source files and headers
+#	Makefile for c++ projects with multiple source files and headers
 #
-#		Commands:
-#		  - make
-#		  - make run
-#		  - make clean
+#	Commands:
+#	  - make
+#	  - make run
+#	  - make clean
 #
 #****************************************************************************
 
