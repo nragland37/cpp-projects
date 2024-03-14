@@ -138,6 +138,10 @@ void displayMenu(BST<Stock> &stockTree) {
                     cout << "Enter stock symbol: ";
                     getline(cin, symbol);
 
+                    // find_first_of returns position of the first character that matches
+                    // if no such character is found, the function returns string::npos (not a position)
+                    
+                    // makes sure the symbol is not empty and is only one word
                     if (symbol.empty() || symbol.find_first_of(" \t\n\v\f\r") != string::npos)
                         cerr << "Error: invalid input\n\n";
                 } while (symbol.empty() || symbol.find_first_of(" \t\n\v\f\r") != string::npos);
