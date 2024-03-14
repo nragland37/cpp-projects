@@ -1,3 +1,4 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b2686d21dc134cd2ae07194660b2f0b0)](https://app.codacy.com/gh/nragland37/cpp-projects/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/nragland37/cpp-projects/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/nragland37/cpp-projects.svg?style=social&label=Star&maxAge=2592000)](https://github.com/nragland37/cpp-projects/stargazers)
 
