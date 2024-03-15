@@ -5,10 +5,12 @@
 
 /*
 
-This is a comprehensive collection of C++ projects, covering a wide range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between. Each category's `docs` folder contains notes, exercises, and examples. All programs are presented with detailed descriptions and sample outputs, making this a resource for anyone beginning their journey in C++ or delving into more complex algorithms or data structures. 
+This is a comprehensive collection of C++ projects, covering a wide range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between. The `docs` folders contain notes, exercises, and examples. All programs include detailed descriptions and sample outputs. 
 
-## Using Makefile (Optional)
-The custom Makefile is provided only for projects managing multiple source files. The Makefile detects all `.cpp` and `.h` files in the project directory, configured to only work with a single project at a time. 
+<br>
+
+## Using Makefile (Recommended for VS Code)
+For projects that manage multiple source files, a custom Makefile is already included. It automatically identifies all source `(*.cpp)` and header `(*.h)` files within the project's directory, compiles them and links the compiled objects to create an executable. 
 
 ### Commands:
 - **`make`**: Compile and generate the executable.
