@@ -5,17 +5,19 @@
 
 /*
 
-This is a comprehensive collection of C++ projects, covering a wide range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between.
+This is a comprehensive collection of C++ projects, covering topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between.
 
 <br>
 
 ## Using Makefile (Recommended for VS Code)
-For projects that manage multiple source files, a custom Makefile is included.
+For projects that manage multiple source files (`Data Structures II`), a custom Makefile is included.
 
 ### Build/Run/Clean:
-To build, run, or clean with Makefile, use the following.
+To build, run, or clean projects using a Makefile, use the following commands:
 
-#### Commands Line:
+```bash
+cd path/to/project
+```
 ```bash
 make
 ```
