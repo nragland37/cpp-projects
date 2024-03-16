@@ -5,17 +5,26 @@
 
 /*
 
-This is a comprehensive collection of C++ projects, covering a wide range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between. The `docs` folders contain notes, exercises, and examples. All programs include detailed descriptions and sample outputs. 
+This is a comprehensive collection of C++ projects, covering a wide range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between.
 
 <br>
 
 ## Using Makefile (Recommended for VS Code)
-For projects that manage multiple source files, a custom Makefile is already included. It automatically identifies all source `(*.cpp)` and header `(*.h)` files within the project's directory, compiles them and links the compiled objects to create an executable. 
+For projects that manage multiple source files, a custom Makefile is included.
 
-### Commands:
-- **`make`**: Compile and generate the executable.
-- **`make run`**: Compile ( if not already compiled ) and run the generated executable.
-- **`make clean`**: Remove the executable and object files, cleaning up the project directory.
+### Build/Run/Clean:
+To build, run, or clean with Makefile, use the following.
+
+#### Commands Line:
+```bash
+make
+```
+```bash
+make run
+```
+```bash
+make clean
+```
 #
 */
 
