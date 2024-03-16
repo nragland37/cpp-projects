@@ -9,7 +9,7 @@ This is a comprehensive collection of C++ projects, covering a wide range of top
 
 <br>
 
-## Makefile (Recommended for VS Code)
+## Using Makefile (Recommended for VS Code)
 For projects that manage multiple source files, a custom Makefile is already included. It automatically identifies all source `(*.cpp)` and header `(*.h)` files within the project's directory, compiles them and links the compiled objects to create an executable. 
 
 ### Commands:
