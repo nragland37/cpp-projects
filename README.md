@@ -9,17 +9,14 @@ This is a comprehensive collection of C++ projects, covering a wide range of top
 
 <br>
 
-## Using Makefile (Recommended for VS Code)
+## Makefile (Recommended for VS Code)
 For projects that manage multiple source files, a custom Makefile is already included. It automatically identifies all source `(*.cpp)` and header `(*.h)` files within the project's directory, compiles them and links the compiled objects to create an executable. 
 
 ### Commands:
 - **`make`**: Compile and generate the executable.
 - **`make run`**: Compile ( if not already compiled ) and run the generated executable.
 - **`make clean`**: Remove the executable and object files, cleaning up the project directory.
-
 #
-**Tip**: Ensure commands are executed within the directory containing both the Makefile and the project files.
-
 */
 
 ### [Programming I](/programming-I)
