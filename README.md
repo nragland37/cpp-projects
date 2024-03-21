@@ -12,7 +12,7 @@ This is a comprehensive collection of C++ projects, covering a wide range of top
 ## Makefile
 For projects that manage multiple source files (`Data Structures II`), a custom Makefile is included.
 
-### Requirements
+### Requirements:
 - Compiler: g++ or clang++
 
 ### Build/Run/Clean:
