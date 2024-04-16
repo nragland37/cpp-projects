@@ -11,10 +11,11 @@
 //*****************************************************************************************************
 
 #include "aList.h"
-#include "stock.cpp"
+#include "stock.h"
 
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <string>
 using namespace std;
 

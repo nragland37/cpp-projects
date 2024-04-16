@@ -1,3 +1,6 @@
+Apple
+AAPL
+121.73
 Advanced Micro Devices
 AMD
 84.51
@@ -7,9 +10,9 @@ BBY
 GameStop
 GME
 17.18
-Intel
-INTC
-60.78
+NVIDIA
+NVDA
+548.58
 Sony
 SNE
 105.81
