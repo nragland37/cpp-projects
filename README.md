@@ -13,9 +13,8 @@ This is a comprehensive collection of C++ projects, covering a wide range of top
 For projects that manage multiple source files (`Data Structures II`), a custom Makefile is included.
 
 ### Requirements:
-&nbsp;&nbsp;&nbsp;&nbsp;Compiler: g++ or clang++
-
-&nbsp;&nbsp;&nbsp;&nbsp;For Windows users: Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) (Windows Subsystem for Linux) or [MinGW](https://www.mingw-w64.org/) (Minimalist GNU for Windows)
+- **Compiler**: g++ or clang++ (`macOS typically includes clang++`)
+- **Windows users**: Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) for access to both g++ and clang++, or [MinGW](https://www.mingw-w64.org/) for g++
 
 ### Build/Run/Clean:
 To build, run, or clean projects using this Makefile, execute the following commands:
@@ -29,8 +28,9 @@ make run
 ```bash
 make clean
 ```
-#
+
 */
+
 
 ### [Programming I](/programming-I)
 * [Documents](programming-I/docs/)
