@@ -14,7 +14,7 @@ For projects that manage multiple source files (`Data Structures II`), a custom 
 
 ### Requirements:
 - **Compiler**: g++ or clang++ (`macOS typically includes clang++`)
-- **Windows users**: Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) for access to both g++ and clang++, or [MinGW](https://www.mingw-w64.org/) for g++
+- **Windows users**: Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) for access to both compilers, or [MinGW](https://www.mingw-w64.org/) for g++
 
 ### Build/Run/Clean:
 To build, run, or clean projects using this Makefile, execute the following commands:
