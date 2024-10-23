@@ -89,18 +89,22 @@ int main() {
     cout << "\nWinner of the series: ";
     resultsFile << "\nWinner of the series: ";
 
-    if (playerOneWins > playerTwoWins) {
+    if ( playerOneWins > playerTwoWins ) {
         cout << "Player 1" << endl;
         resultsFile << "Player 1" << endl;
-    } else if (playerOneWins < playerTwoWins) {
+
+    } else if ( playerOneWins < playerTwoWins ) {
         cout << "Player 2" << endl;
         resultsFile << "Player 2" << endl;
-    } else if (playerOneWins == playerTwoWins) {
+
+    } else if ( playerOneWins == playerTwoWins ) {
         cout << "It is a TIE" << endl;
         resultsFile << "It is a TIE" << endl;
+
     } else {
         cout << "NO ONE WINS" << endl;
         resultsFile << "NO ONE WINS" << endl;
+
     }
 
     return 0;
