@@ -21,16 +21,17 @@ void signOff();
 //*****************************************************************************************************
 
 int main() {
-    float radius,
-        circumf;
+    float radius;
+    float circumf;
 
-    greet();
+    greet(); // Intro of the program...
 
-    radius = readRadius();
-    circumf = findCircumf(radius);
+    radius = readRadius(); // Gets the radius from the user and if user enters a negative number, the loop keeps executing until the positive number is entered...
 
-    printResult(radius, circumf);
-    signOff();
+    circumf = findCircumf(radius); // Function to calculate the circumference of a circle...
+
+    printResult(radius, circumf); // Displays the result...
+    signOff(); // Outro of the program....
 
     return 0;
 }
@@ -38,27 +39,31 @@ int main() {
 //*****************************************************************************************************
 
 void greet() {
+
     cout << "Welcome to the Circumference Calculation Program\n"
          << "Enter the radius and I'll find the circumference of the circle!" << endl;
+
 }
 
 //*****************************************************************************************************
 
-float readRadius() {
-    float posInput;
+float readRadius() { 
+    float radiusInput;
 
     do {
-        cout << "\nPlease enter a positive radius: ";
-        cin >> posInput;
-    } while (posInput <= 0);
 
-    return posInput;
+        cout << "\nPlease enter a positive radius: ";
+        cin >>radiusInput;
+
+    } while (radiusInput <= 0);
+
+    return radiusInput;
 }
 
 //*****************************************************************************************************
 
 float findCircumf(float radius) {
-    float circumf;
+    float circumf; // circumference
 
     circumf = (2 * M_PI) * radius;
 
