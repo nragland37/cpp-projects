@@ -20,11 +20,13 @@ void printArray(char[], int);
 //*****************************************************************************************************
 
 int main() {
+
     char array[SIZE_LIMIT];
     char answer;
     int size;
 
     do {
+
         size = 0;
 
         readArray(array, size);
@@ -43,10 +45,12 @@ int main() {
 
 //*****************************************************************************************************
 
+// Gets the size of array fromt the user...
 void readArray(char array[], int &size) {
     cout << "\nWhat is the size: ";
     cin >> size;
 
+// Validation...
     while (size > SIZE_LIMIT || size < 0) {
         cerr << "\nInvalid size. Please enter a size between 0 and " << SIZE_LIMIT;
 
@@ -62,6 +66,7 @@ void readArray(char array[], int &size) {
 
 //*****************************************************************************************************
 
+// Find Repeats And Update The Array...
 void deleteRepeats(char array[], int &size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
@@ -82,6 +87,7 @@ void deleteRepeats(char array[], int &size) {
 
 //*****************************************************************************************************
 
+// Display The Updated Array...
 void printArray(char array[], int size) {
     cout << "\nUpdated array: ";
 
