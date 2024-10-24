@@ -18,29 +18,34 @@ void displayResults(float);
 //*****************************************************************************************************
 
 int main() {
-    const int ASSIGN_PERCENT = 15,
-              TEST_PERCENT = 50,
-              EXAM_PERCENT = 30,
-              PARTIC_PERCENT = 5;
-    float assign,
-        test,
-        exam,
-        partic,
-        finalGrade;
+
+        // Components To Calculate The Grade...
+    const int ASSIGNMENT_PERCENTAGE = 15;
+    const int TEST_PERCENTAGE = 50;
+    const int EXAM_PERCENTAGE = 30;
+    const int PARTICIPATION_PERCENTAGE = 5;
+
+    float assign;
+    float test;
+    float exam;
+    float partic;
+    float finalGrade;
 
     cout << "Grade Calculator - Computer Programming I" << endl;
 
+        // Context...
     cout << "\nThe weight of each deliverable on their final grade\n\n"
-         << "\tProgrammig Assignments: " << ASSIGN_PERCENT << "%\n"
-         << "\tChapter Tests: " << TEST_PERCENT << "%\n"
-         << "\tFinal Exam: " << EXAM_PERCENT << "%\n"
-         << "\tClass Participation: " << PARTIC_PERCENT << "%" << endl;
+         << "\tProgrammig Assignments: " << ASSIGNMENT_PERCENTAGE << "%\n"
+         << "\tChapter Tests: " << TEST_PERCENTAGE << "%\n"
+         << "\tFinal Exam: " << EXAM_PERCENTAGE << "%\n"
+         << "\tClass Participation: " << PARTICIPATION_PERCENTAGE << "%" << endl;
 
     readGrades(assign, test, exam, partic);
-    calcWeights(assign, test, exam, partic, ASSIGN_PERCENT, TEST_PERCENT, EXAM_PERCENT, PARTIC_PERCENT);
+    calcWeights(assign, test, exam, partic, ASSIGNMENT_PERCENTAGE, TEST_PERCENTAGE, EXAM_PERCENTAGE, PARTICIPATION_PERCENTAGE);
 
     finalGrade = calcFind(assign, test, exam, partic);
 
+        // Displays Percentages entered by the user...
     cout << "\n\t" << assign << "% in Programming Assignments"
          << "\n\t" << test << "% in Chapter Tests"
          << "\n\t" << exam << "% in Final Exam"
@@ -53,6 +58,7 @@ int main() {
 
 //*****************************************************************************************************
 
+// Get Inputs From The User...
 void readGrades(float &assign, float &test, float &exam, float &partic) {
     cout << "\nWhat is the graded percentage (out of 100%) for Programming Assignments? ";
     cin >> assign;
@@ -69,12 +75,13 @@ void readGrades(float &assign, float &test, float &exam, float &partic) {
 
 //*****************************************************************************************************
 
+//Calculate The Grade...
 void calcWeights(float &assign, float &test, float &exam, float &partic,
-                 float ASSIGN_PERCENT, float TEST_PERCENT, float EXAM_PERCENT, float PARTIC_PERCENT) {
-    assign = (assign * ASSIGN_PERCENT) / 100;
-    test = (test * TEST_PERCENT) / 100;
-    exam = (exam * EXAM_PERCENT) / 100;
-    partic = (partic * PARTIC_PERCENT) / 100;
+                 float ASSIGNMENT_PERCENTAGE, float TEST_PERCENTAGE, float EXAM_PERCENTAGE, float PARTICIPATION_PERCENTAGE) {
+    assign = (assign * ASSIGNMENT_PERCENTAGE) / 100;
+    test = (test * TEST_PERCENTAGE) / 100;
+    exam = (exam * EXAM_PERCENTAGE) / 100;
+    partic = (partic * PARTICIPATION_PERCENTAGE) / 100;
 }
 
 //*****************************************************************************************************
@@ -85,6 +92,7 @@ float calcFind(float assign, float test, float exam, float partic) {
 
 //*****************************************************************************************************
 
+// Output The Grades...
 void displayResults(float finalGrade) {
     cout << "\nFinal Grade: " << finalGrade << "%" << endl;
 }

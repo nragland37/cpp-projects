@@ -27,7 +27,7 @@ int main() {
          << "salt; stir into the butter mixture until well-blended stir in chocolate chips.\n"
          << "Drop by rounded teaspoons onto ungreased cookie sheets. Bake 8-10 minutes until\n"
          << "just set. Cool slightly on cookie sheets before transferring to cooling racks\n"
-         << "to cool completely." << endl;
+         << "to cool completely." << endl << endl;
 
     return 0;
 }

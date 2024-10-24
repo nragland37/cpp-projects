@@ -5,57 +5,66 @@
 //      and the results of each game are written to a file.
 //
 //*****************************************************************************************************
-
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
+
 using namespace std;
 
 //*****************************************************************************************************
 
 int main() {
-    const int MAX_FINGERS = 5,
-              MIN_FINGERS = 1,
-              MAX_GUESS = 10,
-              MIN_GUESS = 0;
-    int playerOneFingers,
-        playerTwoFingers,
-        playerOneGuess,
-        playerTwoGuess,
-        sum,
-        playerOneWins = 0,
-        playerTwoWins = 0;
-    ofstream out("morraSeriesResults.txt");
+    // Constants defining the range of fingers and guesses
+    const int MAXIMUM_FINGERS = 5,
+              MINIMUM_FINGERS = 1,
+              MAXIMUM_GUESS = 10,
+              MINIMUM_GUESS = 0;
 
-    short seed;
-    seed = time(0);
-    srand(seed);
+    // Variables to store player information, guesses, total fingers, and wins
+    int playerOneFingerCount,
+         playerTwoFingerCount,
+         playerOneGuess,
+         playerTwoGuess,
+         totalFingers,
+         playerOneWins = 0,
+         playerTwoWins = 0;
 
-    for (int game = 1; game <= 10; game++) {
-        playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
-        playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
-        playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
-        playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
+    // File stream to write game results on .txt file...
+    ofstream resultsFile("morraSeriesResults.txt");
 
-        cout << left << "Game " << game << ":" << setw(12) << endl;
+    // Seed for random number generation
+    srand(time(NULL));
+
+    // Game loop (10 games)
+    for (int gameNumber = 1; gameNumber <= 10; gameNumber++) {
+        // Generate random finger counts and guesses for both players
+        playerOneFingerCount = rand() % (MAXIMUM_FINGERS - MINIMUM_FINGERS) + MINIMUM_FINGERS;
+        playerOneGuess = rand() % (MAXIMUM_GUESS - MINIMUM_GUESS) + MINIMUM_GUESS;
+        playerTwoFingerCount = rand() % (MAXIMUM_FINGERS - MINIMUM_FINGERS) + MINIMUM_FINGERS;
+        playerTwoGuess = rand() % (MAXIMUM_GUESS - MINIMUM_GUESS) + MINIMUM_GUESS;
+
+        // Display game information and player choices
+        cout << left << "Game " << gameNumber << ":" << setw(12) << endl;
         cout << "Player" << setw(12) << "|Fingers" << setw(12) << "|Total" << endl;
         cout << "============|===========|============" << endl;
         cout << setw(12) << "1"
-             << "|" << setw(11) << playerOneFingers << "|" << playerOneGuess << endl;
+             << "|" << setw(11) << playerOneFingerCount << "|" << playerOneGuess << endl;
         cout << setw(12) << "2"
-             << "|" << setw(11) << playerTwoFingers << "|" << playerTwoGuess << endl;
+             << "|" << setw(11) << playerTwoFingerCount << "|" << playerTwoGuess << endl;
 
-        sum = playerOneFingers + playerTwoFingers;
-        cout << "\nCorrect total is " << sum << endl;
+        // Calculate the total number of fingers
+        totalFingers = playerOneFingerCount + playerTwoFingerCount;
+        cout << "\nCorrect total is " << totalFingers << endl;
 
-        if (sum == playerOneGuess && sum == playerTwoGuess) {
+        // Determine the winner based on guesses and total fingers
+        if (totalFingers == playerOneGuess && totalFingers == playerTwoGuess) {
             cout << "TIE" << endl;
-        } else if (sum == playerOneGuess) {
+        } else if (totalFingers == playerOneGuess) {
             cout << "Player 1 Wins" << endl;
             playerOneWins++;
-        } else if (sum == playerTwoGuess) {
+        } else if (totalFingers == playerTwoGuess) {
             cout << "Player 2 Wins" << endl;
             playerTwoWins++;
         } else {
@@ -65,32 +74,37 @@ int main() {
         cout << "\n-------------------------------------" << endl;
     }
 
+    // Display game summary and determine the winner of the series
     cout << "=====================================" << endl;
-    out << "=====================================" << endl;
+    resultsFile << "=====================================" << endl;
     cout << "Summary of the series" << endl;
-    out << "Summary of the series" << endl;
+    resultsFile << "Summary of the series" << endl;
     cout << "=====================================" << endl;
-    out << "=====================================" << endl;
+    resultsFile << "=====================================" << endl;
     cout << "Player 1 won " << playerOneWins << " games" << endl;
-    out << "Player 1 won " << playerOneWins << " games" << endl;
+    resultsFile << "Player 1 won " << playerOneWins << " games" << endl;
     cout << "Player 2 won " << playerTwoWins << " games" << endl;
-    out << "Player 2 won " << playerTwoWins << " games" << endl;
+    resultsFile << "Player 2 won " << playerTwoWins << " games" << endl;
 
     cout << "\nWinner of the series: ";
-    out << "\nWinner of the series: ";
+    resultsFile << "\nWinner of the series: ";
 
-    if (playerOneWins > playerTwoWins) {
+    if ( playerOneWins > playerTwoWins ) {
         cout << "Player 1" << endl;
-        out << "Player 1" << endl;
-    } else if (playerOneWins < playerTwoWins) {
+        resultsFile << "Player 1" << endl;
+
+    } else if ( playerOneWins < playerTwoWins ) {
         cout << "Player 2" << endl;
-        out << "Player 2" << endl;
-    } else if (playerOneWins == playerTwoWins) {
+        resultsFile << "Player 2" << endl;
+
+    } else if ( playerOneWins == playerTwoWins ) {
         cout << "It is a TIE" << endl;
-        out << "It is a TIE" << endl;
+        resultsFile << "It is a TIE" << endl;
+
     } else {
         cout << "NO ONE WINS" << endl;
-        out << "NO ONE WINS" << endl;
+        resultsFile << "NO ONE WINS" << endl;
+
     }
 
     return 0;

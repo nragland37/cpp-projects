@@ -13,14 +13,18 @@ using namespace std;
 //*****************************************************************************************************
 
 int main() {
-    const double PIZZA = 15.50,
-                 SODA = 2.00,
-                 CHICKEN_NUGGETS = 7.00,
-                 BREADSTICKS = 9.75;
-    double numItems = 0,
-           menuItem,
-           total = 0;
-    char itemLetter;
+
+    // Menu and pricing of the pizza palace...
+    const double PIZZA = 15.50;
+    const double SODA = 2.00;
+    const double CHICKEN_NUGGETS = 7.00;
+    const double BREADSTICKS = 9.75;
+
+    // Variables for selection and to determine item's cost...
+    double num_of_items_in_cart = 0;
+    double menuItem;
+    double total_expenses = 0;
+    char itemLetters;
 
     cout << "=====================================================\n"
          << "\t\tWelcome to Pizza Palace\n"
@@ -29,7 +33,7 @@ int main() {
     cout << fixed << setprecision(2) << right;
 
     do {
-        cout << "-----------------------------------------------------\n\n"
+        cout << "-----------------------------------------------------\n\n" 
              << "\tA\tPizza" << setw(26) << PIZZA
              << "\n\tB\tSoda" << setw(27) << SODA
              << "\n\tC\tChicken Nuggets" << setw(16) << CHICKEN_NUGGETS
@@ -37,9 +41,9 @@ int main() {
              << "\n\tE\tExit" << endl;
 
         cout << "\nPlease enter the next menu item Letter: ";
-        cin >> itemLetter;
+        cin >> itemLetters;
 
-        switch (itemLetter) {
+        switch (itemLetters) { // Validation Of Selected Item Letters...
             case 'A':
                 menuItem = PIZZA;
                 break;
@@ -58,17 +62,17 @@ int main() {
                 cerr << "\nPlease pick a valid option\n";
         }
 
-        if (itemLetter == 'A' || itemLetter == 'B' || itemLetter == 'C' || itemLetter == 'D')
-            numItems++;
+        if (itemLetters == 'A' || itemLetters == 'B' || itemLetters == 'C' || itemLetters == 'D')
+            num_of_items_in_cart++;
 
-        cout << "\nNumber of items: " << setprecision(0) << numItems << endl;
+        cout << "\nNumber of items: " << setprecision(0) << num_of_items_in_cart << endl;
 
-        if (itemLetter == 'A' || itemLetter == 'B' || itemLetter == 'C' || itemLetter == 'D')
-            total += menuItem;
+        if (itemLetters == 'A' || itemLetters == 'B' || itemLetters == 'C' || itemLetters == 'D')
+            total_expenses += menuItem; // Increment in price according to the cart...
 
-        cout << "Total: " << setprecision(2) << total << endl;
+        cout << "Total: " << setprecision(2) << total_expenses << endl; //Set precision(2) used here to display total_expenses upto 2 decimal points...
 
-    } while (itemLetter != 'E');
+    } while (itemLetters != 'E'); // If entered "E", User will get their total expense and will exit the program...
 
     cout << "\nThank you! Enjoy!" << endl;
 

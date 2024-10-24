@@ -11,22 +11,24 @@ using namespace std;
 //*****************************************************************************************************
 
 int main() {
-    const int SIZE = 10;
-    int nums[SIZE];
-    int sum = 0;
+
+    const int size_of_array = 10 ; // 10 is the size of "numbers" array...
+    int numbers[ size_of_array ];
+    int sum = 0; // Total sum of 10 numbers entered...
 
     cout << "Enter 10 numbers:" << endl;
 
-    for (int i = 0; i < SIZE; i++) {
-        cin >> nums[i];
-        
-        sum += nums[i];
+    for (int i = 0; i < size_of_array; i++) {
+
+        cin >> numbers[i];    
+        sum = sum + numbers[i]; // number[i], stores the value of number in the array's, "i" is the index of the array...
     }
 
     cout << "\nSum is: " << sum << "\nThe list of numbers were: ";
 
-    for (int i = 0; i < SIZE; i++)
-        cout << nums[i] << " ";
+    for ( int i = 0; i < size_of_array; i++ )
+
+        cout << numbers[i] << " "; //Prints the all numbers entered by the user...
 
     return 0;
 }

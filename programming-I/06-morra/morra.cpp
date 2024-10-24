@@ -10,48 +10,59 @@
 #include <ctime>
 #include <fstream>
 #include <iostream>
+
 using namespace std;
 
-//*****************************************************************************************************
+// Constants
+const int MAX_FINGERS = 5; // Maximum number of fingers a player can show
+const int MIN_FINGERS = 1; // Minimum number of fingers a player can show
+const int MAX_GUESS = 10; // Maximum guess a player can make
+const int MIN_GUESS = 0; // Minimum guess a player can make
 
 int main() {
-    const int MAX_FINGERS = 5.,
-              MIN_FINGERS = 1,
-              MAX_GUESS = 10,
-              MIN_GUESS = 0;
-    int playerOneFingers,
-        playerOneGuess,
-        playerTwoFingers,
-        playerTwoGuess,
-        sum;
-    ofstream out("result.txt");
 
-    short seed;
-    seed = time(0);
-    srand(seed);
+    // Variables
+    int playerOneFingerCount; // Number of fingers shown by player one
+    int playerOneGuess; // Guess made by player one
+    int playerTwoFingerCount; // Number of fingers shown by player two
+    int playerTwoGuess; // Guess made by player two
+    int totalFingers; // Total number of fingers shown by both players
 
-    playerOneFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
+    ofstream outputFile("result.txt"); // Stores the results in "result.txt" file...
+
+    srand(time(NULL)) ;
+
+    // Generate random numbers for each player
+    playerOneFingerCount = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
     playerOneGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
-    playerTwoFingers = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
+    playerTwoFingerCount = rand() % (MAX_FINGERS - MIN_FINGERS) + MIN_FINGERS;
     playerTwoGuess = rand() % (MAX_GUESS - MIN_GUESS) + MIN_GUESS;
 
-    out << "Fingers\tTotal" << endl;
+    // Write the results to the file
+    outputFile << "Fingers\tTotal" << endl;
+    outputFile << playerOneFingerCount << "\t\t" << playerOneGuess << endl;
+    outputFile << playerTwoFingerCount << "\t\t" << playerTwoGuess << endl;
 
-    out << playerOneFingers << "\t\t" << playerOneGuess << endl;
+    // Calculate the total number of fingers
+    totalFingers = playerOneFingerCount + playerTwoFingerCount;
 
-    out << playerTwoFingers << "\t\t" << playerTwoGuess << endl;
+    // Write the correct total to the file
+    outputFile << "\nCorrect total is " << totalFingers << endl;
 
-    sum = playerOneFingers + playerTwoFingers;
-    out << "\nCorrect total is " << sum << endl;
+    // Determine the winner
+    if ( totalFingers == playerOneGuess && totalFingers == playerTwoGuess ) {
+        outputFile << "TIE" << endl;
 
-    if (sum == playerOneGuess && sum == playerTwoGuess)
-        out << "TIE" << endl;
-    else if (sum == playerOneGuess)
-        out << "PLAYER 1 WINS" << endl;
-    else if (sum == playerTwoGuess)
-        out << "PLAYER 2 WINS" << endl;
-    else
-        out << "NO ONE WINS" << endl;
+    } else if ( totalFingers == playerOneGuess ) {
+        outputFile << "PLAYER 1 WINS" << endl;
+
+    } else if ( totalFingers == playerTwoGuess ) {
+        outputFile << "PLAYER 2 WINS" << endl;
+
+    } else {
+        outputFile << "NO ONE WINS" << endl;
+        
+    }
 
     return 0;
 }

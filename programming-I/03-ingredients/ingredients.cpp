@@ -12,19 +12,23 @@ using namespace std;
 //*****************************************************************************************************
 
 int main() {
+
+     // These are the ingredients required to bake (minimum) 4 dozen of Chocolate Chip Cookies.
     const int BUTTER = 1,
               EGG = 2,
               VANILLA = 2,
               FLOUR = 2,
               CHOC_CHIP = 2;
-    const double BAKING_SODA = 0.75,
+
+    const double BAKING_SODA = 0.75, // double datatype used here becuase of decimal values.
                  SUGAR = 1.5,
                  SALT = 0.25;
+                 
     int dozen,
-        quantity;
+          quantity_of_cookies;
+
 
     cout << "Chocolate Chip Cookies - 4 dozen cookies" << endl;
-
     cout << "\n\t" << BUTTER << " cup butter\n"
          << "\t" << SUGAR << " cups white sugar\n"
          << "\t" << EGG << " eggs\n"
@@ -34,6 +38,7 @@ int main() {
          << "\t" << SALT << " tsp salt\n"
          << "\t" << CHOC_CHIP << " cups chocolate chips" << endl;
 
+
     cout << "\nPreheat oven to 350 F. In a large bowl, mix butter, sugar, eggs, and vanilla\n"
          << "until light and fluffy. In a separate bowl, combine flour, baking soda, and\n"
          << "salt; stir into the butter mixture until well-blended stir in chocolate chips.\n"
@@ -41,19 +46,21 @@ int main() {
          << "just set. Cool slightly on cookie sheets before transferring to cooling racks\n"
          << "to cool completely." << endl;
 
-    cout << "\nHow many dozens are you planning to make (Please give a multiple of four)?" << endl;
+
+    cout << "\nHow many dozens are you planning to make (Please give a number greater or equal than 4 and also to be multiple of four)?" << endl;
     cin >> dozen;
 
-    quantity = dozen / 4;
+     // Quantity of cookies will be returned in dozen, you can multiply dozens by 12. ( example : 2 dozen of cookies * 12 = 24 cookies )...
+    quantity_of_cookies = dozen / 4;
 
-    cout << "\n\n\t" << quantity * BUTTER << " cup butter\n"
-         << "\t" << quantity * SUGAR << " cups white sugar\n"
-         << "\t" << quantity * EGG << " eggs\n"
-         << "\t" << quantity * VANILLA << " tsp vanilla extract\n"
-         << "\t" << quantity * FLOUR << " cups all-purpose flour\n"
-         << "\t" << quantity * BAKING_SODA << " baking soda\n"
-         << "\t" << quantity * SALT << " tsp salt\n"
-         << "\t" << quantity * CHOC_CHIP << " cups chocolate chips" << endl;
+    cout << "\n\n\t" << quantity_of_cookies * BUTTER << " cup butter\n"
+         << "\t" << quantity_of_cookies * SUGAR << " cups white sugar\n"
+         << "\t" << quantity_of_cookies * EGG << " eggs\n"
+         << "\t" << quantity_of_cookies * VANILLA << " tsp vanilla extract\n"
+         << "\t" << quantity_of_cookies * FLOUR << " cups all-purpose flour\n"
+         << "\t" << quantity_of_cookies * BAKING_SODA << " baking soda\n"
+         << "\t" << quantity_of_cookies * SALT << " tsp salt\n"
+         << "\t" << quantity_of_cookies * CHOC_CHIP << " cups chocolate chips" << endl << endl;
 
     return 0;
 }
