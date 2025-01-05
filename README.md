@@ -2,9 +2,6 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/nragland37/cpp-projects/blob/main/LICENSE)
 
 # <p align="center"> Hello, World! 🦖 </p>
-
-/*
-
 This is a comprehensive collection of C++ projects, covering a wide range of topics from the basic `Hello World` to advanced `Self-Balancing AVL Trees`, and everything in between.
 
 <br>
@@ -28,10 +25,6 @@ make run
 ```bash
 make clean
 ```
-
-*/
-
-
 ### [Programming I](/programming-I)
 * [Documents](programming-I/docs/)
 
