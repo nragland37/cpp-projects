@@ -101,4 +101,4 @@ make clean
 | 9 | [Huffman Tree: Encoding/Decoding/Compression](./data_structures-II/09-Huffman-Algorithm) |
 | 10 | [Array List Sorting Algorithms: Quick-Sort & Selection-Sort](./data_structures-II/10-AList-Sorting-Algorithms) |
 | 11 | [Array List Sorting Algorithms (Continued): Heap-Sort](./data_structures-II/11-Updated-AList-Sorting-Algorithms) |
-| 12 | [Graph Algorithms: Dijkstra Shortest Path Algorithm, Depth-First Search Algorithm, & Breadth-First Search Algorithm](./data_structures-II/12-Graph-Traversal) |
+| 12 | [Graph Algorithms: Dijkstra's Shortest Path Algorithm, Depth-First Search Algorithm, & Breadth-First Search Algorithm](./data_structures-II/12-Graph-Traversal) |
