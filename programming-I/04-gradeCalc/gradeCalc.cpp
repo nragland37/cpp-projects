@@ -27,7 +27,7 @@ int main() {
     cout << "Grade Calculator - Computer Programming I" << endl;
 
     cout << "\nThe weight of each deliverable on their final grade\n"
-         << "\tProgrammig Assignments: " << ASSIGN_PERCENT << "%\n"
+         << "\tProgramming Assignments: " << ASSIGN_PERCENT << "%\n"
          << "\tChapter Tests: " << TEST_PERCENT << "%\n"
          << "\tFinal Exam: " << EXAM_PERCENT << "%\n"
          << "\tClass Participation: " << PARTIC_PERCENT << "%" << endl;
