@@ -47,18 +47,24 @@ void readArray(char array[], int &size) {
     cout << "\nWhat is the size: ";
     cin >> size;
 
-    while (size > SIZE_LIMIT || size < 0) {
-        cerr << "\nInvalid size. Please enter a size between 0 and " << SIZE_LIMIT;
+    while (size > SIZE_LIMIT || size < 0 || !cin ) { //!cin checks for a failed state, or in other words, when a non-int type is given as 'size'.
+        cin.clear(); // restores cin back to normal state
+        cin.ignore(1024, '\n'); // this clears out the cin buffer.
+
+        cout << "\nInvalid size. Please enter a size between 0 and " << SIZE_LIMIT;
 
         cout << "\n\nWhat is the size: ";
         cin >> size;
     }
+        
 
     cout << "Enter the array (one character at a time): " << endl;
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++){
         cin >> array[i];
+    }
 }
+
 
 //*****************************************************************************************************
 
